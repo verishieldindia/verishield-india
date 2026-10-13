@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriShield India - Trust-Tech & Background Verification</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+    <!-- Navbar -->
+    <header class="border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-shield-halved text-emerald-400 text-2xl"></i>
+                <span class="text-xl font-bold tracking-tight text-white">VeriShield <span class="text-emerald-400">India</span></span>
+            </div>
+            <span class="text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3 py-1 rounded-full">Pan-India B2B & B2C</span>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="max-w-4xl mx-auto px-4 py-10">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-3">
+                सुरक्षित पहचान, <span class="text-emerald-400">अटूट भरोसा</span>
+            </h1>
+            <p class="text-slate-400 text-sm md:text-base max-w-2xl mx-auto">
+                कॉर्पोरेट कर्मचारी, घरेलू स्टाफ (Maid/Driver), और किरायेदार सत्यापन के लिए भारत का आधुनिक बैकग्राउंड वेरिफिकेशन प्लेटफॉर्म।
+            </p>
+        </div>
+
+        <!-- Verification Form Card -->
+        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 md:p-8 shadow-2xl">
+            <div class="flex border-b border-slate-800 mb-6 pb-2 space-x-4">
+                <button class="text-emerald-400 border-b-2 border-emerald-400 pb-2 text-sm font-semibold flex items-center space-x-2">
+                    <i class="fa-solid fa-building"></i>
+                    <span>B2B / B2C सत्यापन फॉर्म</span>
+                </button>
+            </div>
+
+            <form class="space-y-5" onsubmit="event.preventDefault(); alert('सत्यापन अनुरोध दर्ज कर लिया गया है। VeriShield India टीम जल्द संपर्क करेगी।');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">पूरा नाम (कैंडिडेट / स्टाफ)</label>
+                        <input type="text" placeholder="उदा. राहुल शर्मा" required class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">मोबाइल नंबर</label>
+                        <input type="tel" placeholder="+91 98765 43210" required class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">सत्यापन का प्रकार</label>
+                        <select class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                            <option>कॉर्पोरेट कर्मचारी (B2B)</option>
+                            <option>घरेलू स्टाफ (Maid, Driver, Cook)</option>
+                            <option>किरायेदार सत्यापन (Tenant)</option>
+                            <option>डिग्री / शिक्षा प्रमाण (Education)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">आईडी प्रूफ (Aadhaar / PAN / DL)</label>
+                        <input type="text" placeholder="आईडी नंबर दर्ज करें" required class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium text-slate-400 mb-1">कंपनी / नियोक्ता / मकान मालिक का नाम</label>
+                    <input type="text" placeholder="अनुरोधकर्ता का नाम दर्ज करें" class="w-full bg-slate-900 border border-slate-800 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-emerald-500">
+                </div>
+
+                <button type="submit" class="w-full bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-bold py-3 rounded-lg text-sm transition-all duration-200 shadow-lg shadow-emerald-500/20">
+                    सत्यापन प्रक्रिया शुरू करें (Start Verification)
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <footer class="text-center py-6 border-t border-slate-800 text-xs text-slate-500">
+        &copy; 2026 VeriShield India. All rights reserved. Pan-India Trust Infrastructure.
+    </footer>
+</body>
+</html>
