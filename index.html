@@ -1,134 +1,151 @@
-export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).json({ success: false, message: 'Method not allowed' });
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriShield INDIA - Trust-Tech Candidate Onboarding</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
 
-  const { 
-    hrEmail, 
-    candidateName, 
-    phoneNumber, 
-    verificationPackage, // HR द्वारा तय किया गया पैकेज (Locked)
-    idNumber,            // PAN या UAN नंबर
-    address,             // वर्तमान पता
-    geoCoordinates,      // मोबाइल से कैप्चर की गई जियो-लोकेशन (Lat, Long)
-    paymentStatus        // 'PAID' या 'PENDING' (पेमेंट होने के बाद ही रिपोर्ट जनरेट होगी)
-  } = req.body;
-  
-  const apiKey = process.env.SANDBOX_API_KEY;
-  const apiSecret = process.env.SANDBOX_API_SECRET;
+    <!-- Header -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold shadow-md">VS</div>
+                <div>
+                    <span class="text-xl font-black tracking-wider text-slate-900">Veri<span class="text-blue-600">Shield</span> INDIA</span>
+                    <p class="text-[9px] text-slate-500 font-semibold tracking-widest uppercase">PAN-INDIA TRUST INFRASTRUCTURE</p>
+                </div>
+            </div>
+            <div>
+                <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg border border-blue-100">B2B & B2C Enterprise</span>
+            </div>
+        </div>
+    </header>
 
-  try {
-    // 1. सबसे पहले चेक करें कि क्या HR ने पेमेंट कर दिया है या नहीं
-    if (paymentStatus !== 'PAID') {
-      return res.status(402).json({ 
-        success: false, 
-        error: 'Payment Pending: कैंडिडेट ने डेटा सबमिट कर दिया है। कृपया रिपोर्ट जनरेशन और वेरिफिकेशन के लिए पेमेंट पूरा करें।' 
-      });
-    }
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-    // 2. सैंडबॉक्स ऑथेंटिकेशन टोकन जनरेशन
-    const authResponse = await fetch('https://test-api.sandbox.co.in/authenticate', {
-      method: 'POST',
-      headers: {
-        'x-api-key': apiKey,
-        'x-api-secret': apiSecret,
-        'x-api-version': '1.0'
-      }
-    });
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
+            <div class="max-w-3xl space-y-4">
+                <span class="bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs px-3 py-1 rounded-full font-medium inline-block">TRUST-TECH CANDIDATE ONBOARDING</span>
+                <h1 class="text-3xl sm:text-5xl font-black tracking-tight">सत्यापन आवेदन <span class="text-blue-400">पोर्टल</span></h1>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    शून्य डेटा शेयरिंग जोखिम: पूर्णतः एन्क्रिप्टेड, निजी और DPDP Act कंप्लायंट डिजिटल सत्यापन इंफ्रास्ट्रक्चर।
+                </p>
+            </div>
+        </section>
 
-    const authData = await authResponse.json();
-    
-    if (authData.code !== 200) {
-      return res.status(500).json({ success: false, error: 'Sandbox Authentication Failed' });
-    }
+        <!-- Geo-Tagging Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">ZERO PHYSICAL VISITS • 100% DIGITAL GEO-TAGGING</span>
+            <h2 class="text-2xl font-bold text-slate-900">डिजिटल लोकेशन व लाइव होम सत्यापन</h2>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                उम्मीदवार अपने घर या कार्यस्थल की लाइव फोटो खींचेगा। सिस्टम स्वतः सैटेलाइट GPS निर्देशांक और समय रिकॉर्ड कर लेगा।
+            </p>
+        </section>
 
-    const accessToken = authData.data.access_token;
-    let verificationReportDetails = {};
+        <!-- Live Case Tracker Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">REAL-TIME STATUS & AUDIT ENGINE</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">लाइव केस ट्रैकर (Case Tracker)</h2>
+                <p class="text-slate-600 text-sm mt-1">अपनी विशिष्ट केस आईडी (जैसे VSI-2026-XXXX) दर्ज करके तुरंत लाइव स्थिति की जांच करें।</p>
+            </div>
 
-    // 3. पैकेज के आधार पर सभी जरूरी एपीआई को एक साथ प्रोसेस करना
-    switch (verificationPackage) {
-      case 'PAN':
-        verificationReportDetails = {
-          kycCheck: `PAN ID (${idNumber}) Verified Successfully via Sandbox API`,
-          epfoCheck: 'Not Selected in Package',
-          courtCheck: 'Not Selected in Package',
-          geoTagging: `Address Verified at Co-ordinates: ${geoCoordinates}`
-        };
-        break;
+            <div class="grid gap-4 sm:grid-cols-3">
+                <!-- Case 1 -->
+                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono font-bold text-xs text-emerald-800">VSI-2026-9042</span>
+                        <span class="bg-emerald-200 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">CLEAR (सत्यापित)</span>
+                    </div>
+                    <p class="text-xs text-emerald-900">कैंडिडेट: <strong>विकास वर्मा</strong> | ई-कोर्ट्स: क्लीन | GPS लोकेशन: सत्यापित</p>
+                </div>
 
-      case 'EPFO_UAN':
-        verificationReportDetails = {
-          kycCheck: 'Not Selected in Package',
-          epfoCheck: `UAN (${idNumber}) Employment History Fetched (Clean / No Moonlighting)`,
-          courtCheck: 'Not Selected in Package',
-          geoTagging: `Address Verified at Co-ordinates: ${geoCoordinates}`
-        };
-        break;
+                <!-- Case 2 -->
+                <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono font-bold text-xs text-amber-800">VSI-2026-7814</span>
+                        <span class="bg-amber-200 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">IN-PROGRESS</span>
+                    </div>
+                    <p class="text-xs text-amber-900">कैंडिडेट: <strong>अमन गुप्ता</strong> | डिग्री ऑथेंटिकेशन जारी</p>
+                </div>
 
-      case 'eCourts':
-        verificationReportDetails = {
-          kycCheck: 'Not Selected in Package',
-          epfoCheck: 'Not Selected in Package',
-          courtCheck: `District & High Courts Scanned for ${candidateName}. No Active Criminal/Legal Litigations Found.`,
-          geoTagging: `Address Verified at Co-ordinates: ${geoCoordinates}`
-        };
-        break;
+                <!-- Case 3 -->
+                <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="font-mono font-bold text-xs text-rose-800">VSI-2026-4412</span>
+                        <span class="bg-rose-200 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded">RED FLAG</span>
+                    </div>
+                    <p class="text-xs text-rose-900">कैंडिडेट: <strong>सुमित कुमार</strong> | अलर्ट: मूनलाइटिंग</p>
+                </div>
+            </div>
+        </section>
 
-      case 'AllInOne_Comprehensive':
-        // कम्प्लीट ऑल-इन-वन पैकेज (KYC + EPFO + e-Courts + Geo-Tagging)
-        verificationReportDetails = {
-          kycCheck: `ID / KYC (${idNumber}) Verified Successfully`,
-          epfoCheck: 'Employment History & Dual Employment (Moonlighting) Check Cleared',
-          courtCheck: 'e-Courts Database Checked: Zero Criminal Records Found',
-          geoTagging: `Field Address Verified & Geo-Tagged Successfully at [ ${geoCoordinates} ]`
-        };
-        break;
+        <!-- Bulk Upload Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">ENTERPRISE BULK SCREENING</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">HR बल्क डेटा अपलोड (Bulk Upload)</h2>
+                <p class="text-slate-600 text-sm mt-1">20 से 100+ कर्मचारियों की एक्सेल या CSV शीट सीधे अपलोड करें।</p>
+            </div>
+            <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center bg-slate-50">
+                <p class="text-sm font-semibold text-slate-700">कर्मचारी डेटा शीट (Excel / CSV) यहाँ ड्रैग करें</p>
+                <p class="text-xs text-slate-400 mt-1">समर्थित फ़ाइलें: .xlsx, .xls, .csv</p>
+            </div>
+        </section>
 
-      default:
-        verificationReportDetails = {
-          generalCheck: 'Standard Verification Completed Successfully'
-        };
-    }
+        <!-- Trust Card Section -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">INSTANT VERIFIABLE CREDENTIAL</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">डिजिटल ट्रस्ट कार्ड व QR बैज</h2>
+                <p class="text-slate-600 text-sm mt-1">सत्यापित स्टाफ और कर्मचारियों के लिए आधिकारिक डिजिटल पहचान पत्र।</p>
+            </div>
+            <div class="max-w-sm mx-auto bg-gradient-to-r from-blue-900 to-slate-900 text-white p-6 rounded-2xl shadow-lg space-y-4">
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-bold tracking-wider">VeriShield INDIA</span>
+                    <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">VERIFIED CLEAR</span>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-lg font-bold">राहुल शर्मा</h3>
+                    <p class="text-xs text-slate-300 font-mono">VSI-2026-9042</p>
+                </div>
+                <p class="text-[11px] text-slate-300">यह क्यूआर कोड उम्मीदवार के ई-कोर्ट्स, पहचान सत्यापन और सेवा इतिहास की पुष्टि करता है।</p>
+            </div>
+        </section>
 
-    // 4. डिजिटल लेटरहेड और QR कोड जनरेशन लॉजिक
-    const reportId = 'VERI-' + Math.floor(100000 + Math.random() * 900000);
-    const verificationUrl = `https://verishield-india.vercel.app/verify?report_id=${reportId}`;
-    
-    // रिपोर्ट के अंत में स्कैन करने के लिए सिक्योर QR कोड का लिंक (Google Chart API का उपयोग करके)
-    const qrCodeImageUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(verificationUrl)}`;
+        <!-- Continuous Risk Intelligence -->
+        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+            <div>
+                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">CONTINUOUS RISK INTELLIGENCE</span>
+                <h2 class="text-2xl font-bold text-slate-900 mt-1">AI डिजिटल फुटप्रिंट व 6-मंथ मॉनिटरिंग</h2>
+                <p class="text-slate-600 text-sm mt-1">हायरिंग के बाद भी 6 महीने तक निरंतर निगरानी।</p>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div class="border border-slate-200 p-4 rounded-xl space-y-2">
+                    <h3 class="font-bold text-sm text-slate-900">पोस्ट-हायरिंग ई-कोर्ट्स लीगल अलर्ट्स</h3>
+                    <p class="text-xs text-slate-600">देश भर की जिला अदालतों में दर्ज होने वाले नए मामलों पर हर 30 दिन में ऑटोमैटिक स्कैन।</p>
+                </div>
+                <div class="border border-slate-200 p-4 rounded-xl space-y-2">
+                    <h3 class="font-bold text-sm text-slate-900">ड्यूल एम्प्लॉयमेंट (मूनलाइटिंग) ट्रैकर</h3>
+                    <p class="text-xs text-slate-600">सक्रिय पीएफ (EPFO/UAN) का त्रैमासिक मिलान।</p>
+                </div>
+            </div>
+        </section>
 
-    // 5. फाइनल डिजिटल लेटरहेड रिपोर्ट स्ट्रक्चर
-    const finalLetterheadReport = {
-      companyHeader: "VeriShield India - Trusted Background Verification Solutions",
-      reportId: reportId,
-      issuedToHR: hrEmail,
-      candidateDetails: {
-        name: candidateName,
-        phone: phoneNumber,
-        submittedAddress: address
-      },
-      packageOpted: verificationPackage,
-      status: "VERIFIED & APPROVED",
-      verificationResults: verificationReportDetails,
-      securityFeatures: {
-        digitalSignature: "Verified by VeriShield Secure Engine",
-        qrCodeVerificationLink: verificationUrl,
-        qrCodeImage: qrCodeImageUrl
-      },
-      timestamp: new Date().toISOString()
-    };
+    </main>
 
-    // 6. यहाँ से रिपोर्ट सीधे HR की ईमेल आईडी पर भेजी जाएगी (Email Integration / Nodemailer)
-    // (नोट: जब आप लाइव ईमेल सर्विस जोड़ेंगे, तो यह रिपोर्ट PDF में बदलकर सीधे hREmail पर चली जाएगी)
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500">
+        © 2026 VeriShield India. All rights reserved. <span>PAN INDIA TRUST INFRASTRUCTURE</span>
+    </footer>
 
-    return res.status(200).json({ 
-      success: true, 
-      message: 'पेमेंट सफल होने के बाद VeriShield डिजिटल लेटरहेड रिपोर्ट और क्यूआर कोड सफलतापूर्वक जनरेट हो गए हैं और HR को भेज दिए गए हैं!',
-      hrNotified: hrEmail,
-      report: finalLetterheadReport
-    });
-
-  } catch (error) {
-    return res.status(500).json({ success: false, error: error.message });
-  }
-}
+</body>
+</html>
