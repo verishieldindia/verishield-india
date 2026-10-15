@@ -1,168 +1,253 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriShield INDIA - Trust-Tech Candidate Onboarding</title>
+    <title>VeriShield India - Pan-India & Global Trust Infrastructure</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .dropdown:hover .dropdown-menu { display: block; }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 text-slate-100 min-h-screen">
 
-    <!-- Header -->
-    <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <!-- Header / Navbar with Dropdown -->
+    <header class="bg-slate-900/90 backdrop-blur-md border-b border-blue-500/20 sticky top-0 z-50 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">VS</div>
+                <div class="bg-gradient-to-tr from-blue-600 to-indigo-500 text-white w-12 h-12 rounded-2xl flex items-center justify-center font-black text-2xl shadow-blue-500/30 shadow-lg">
+                    VS
+                </div>
                 <div>
-                    <span class="text-xl font-black tracking-wider text-slate-900">Veri<span class="text-blue-600">Shield</span> INDIA</span>
-                    <p class="text-[9px] text-slate-500 font-semibold tracking-widest uppercase">PAN-INDIA TRUST INFRASTRUCTURE</p>
+                    <span class="text-2xl font-extrabold tracking-tight text-white">
+                        Veri<span class="text-blue-400">Shield</span> <span class="text-indigo-400">INDIA</span>
+                    </span>
+                    <p class="text-[10px] text-blue-300 font-bold tracking-widest uppercase">PAN-INDIA & GLOBAL TRUST INFRASTRUCTURE</p>
                 </div>
             </div>
-            <div>
-                <span class="text-xs font-semibold bg-blue-50 text-blue-700 px-3 py-1.5 rounded-lg border border-blue-100">B2B & B2C Enterprise</span>
-            </div>
+
+            <!-- Navigation Links with Dropdown -->
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-300">
+                <a href="#home" class="hover:text-blue-400 transition">Home</a>
+                <a href="#tracker" class="hover:text-blue-400 transition">Tracker</a>
+                <a href="#features" class="hover:text-blue-400 transition">Features</a>
+                <a href="#contact" class="hover:text-blue-400 transition">Contact Us</a>
+
+                <!-- Dropdown Menu for Legal & Info Pages -->
+                <div class="relative dropdown group py-4">
+                    <button class="flex items-center space-x-1 bg-blue-600/20 text-blue-300 border border-blue-500/30 px-4 py-2 rounded-xl hover:bg-blue-600/30 transition focus:outline-none">
+                        <span>Menu / Pages</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="dropdown-menu absolute hidden bg-slate-900 shadow-2xl rounded-2xl border border-blue-500/20 py-3 w-60 mt-0 right-0 z-50">
+                        <a href="#home" class="block px-4 py-2.5 text-xs text-slate-300 hover:bg-blue-600/20 hover:text-blue-400 transition">🏠 Home</a>
+                        <a href="#about" class="block px-4 py-2.5 text-xs text-slate-300 hover:bg-blue-600/20 hover:text-blue-400 transition">ℹ️ About Us</a>
+                        <a href="#privacy" class="block px-4 py-2.5 text-xs text-slate-300 hover:bg-blue-600/20 hover:text-blue-400 transition">🔒 Privacy Policy</a>
+                        <a href="#terms" class="block px-4 py-2.5 text-xs text-slate-300 hover:bg-blue-600/20 hover:text-blue-400 transition">📄 Terms & Conditions</a>
+                        <a href="#disclaimer" class="block px-4 py-2.5 text-xs text-slate-300 hover:bg-blue-600/20 hover:text-blue-400 transition">⚠️ Disclaimer</a>
+                    </div>
+                </div>
+            </nav>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
 
-        <!-- Hero Section -->
-        <section id="home" class="bg-gradient-to-br from-blue-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl">
-            <div class="max-w-3xl space-y-4">
-                <span class="bg-blue-600/30 text-blue-300 border border-blue-500/30 text-xs px-3 py-1 rounded-full font-medium inline-block">TRUST-TECH CANDIDATE ONBOARDING</span>
-                <h1 class="text-3xl sm:text-5xl font-black tracking-tight">सत्यापन आवेदन <span class="text-blue-400">पोर्टल</span></h1>
+        <!-- 1. Hero Section -->
+        <section id="home" class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 text-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-blue-500/30 relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-3xl space-y-4 relative z-10">
+                <span class="bg-blue-500/20 text-blue-300 border border-blue-400/30 text-xs px-4 py-1.5 rounded-full font-semibold uppercase tracking-wider inline-block">
+                    TRUST-TECH CANDIDATE ONBOARDING • DPDP & Global Compliant
+                </span>
+                <h1 class="text-3xl sm:text-6xl font-black tracking-tight leading-tight">
+                    Verification Application <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-300">Portal</span>
+                </h1>
                 <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                    शून्य डेटा शेयरिंग जोखिम: पूर्णतः एन्क्रिप्टेड, निजी और DPDP Act कंप्लायंट डिजिटल सत्यापन इंफ्रास्ट्रक्चर।
+                    Zero Data Sharing Risk: Fully encrypted, private, and international standards (DPDP Act & GDPR) compliant digital verification infrastructure.
                 </p>
             </div>
         </section>
 
-        <!-- Geo-Tagging Section -->
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-            <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">ZERO PHYSICAL VISITS • 100% DIGITAL GEO-TAGGING</span>
-            <h2 class="text-2xl font-bold text-slate-900">डिजिटल लोकेशन व लाइव होम सत्यापन</h2>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                उम्मीदवार अपने घर या कार्यस्थल की लाइव फोटो खींचेगा। सिस्टम स्वतः सैटेलाइट GPS निर्देशांक और समय रिकॉर्ड कर लेगा।
+        <!-- 2. Geo-Tagging Section -->
+        <section class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
+            <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">ZERO PHYSICAL VISITS • 100% DIGITAL GEO-TAGGING</span>
+            <h2 class="text-2xl font-bold text-white">Digital Location & Live Home Verification</h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+                Candidates will take live photos of their home or workplace. The system automatically records satellite GPS coordinates and time.
             </p>
         </section>
 
-        <!-- Live Case Tracker Section -->
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <!-- 3. Live Case Tracker Section -->
+        <section id="tracker" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-6">
             <div>
-                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">REAL-TIME STATUS & AUDIT ENGINE</span>
-                <h2 class="text-2xl font-bold text-slate-900 mt-1">लाइव केस ट्रैकर (Case Tracker)</h2>
-                <p class="text-slate-600 text-sm mt-1">अपनी विशिष्ट केस आईडी (जैसे VSI-2026-XXXX) दर्ज करके तुरंत लाइव स्थिति की जांच करें।</p>
+                <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">REAL-TIME STATUS & AUDIT ENGINE</span>
+                <h2 class="text-2xl font-bold text-white mt-1">Live Case Tracker</h2>
+                <p class="text-slate-300 text-sm mt-1">Check real-time status instantly by entering your specific Case ID (e.g., VSI-2026-XXXX).</p>
             </div>
 
             <div class="grid gap-4 sm:grid-cols-3">
                 <!-- Case 1 -->
-                <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl space-y-2">
+                <div class="bg-emerald-950/40 border border-emerald-500/30 p-5 rounded-2xl space-y-2 shadow-lg">
                     <div class="flex justify-between items-center">
-                        <span class="font-mono font-bold text-xs text-emerald-800">VSI-2026-9042</span>
-                        <span class="bg-emerald-200 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">CLEAR (सत्यापित)</span>
+                        <span class="font-mono font-bold text-xs text-emerald-400">VSI-2026-9042</span>
+                        <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-[10px] font-bold px-2.5 py-1 rounded-lg">CLEAR</span>
                     </div>
-                    <p class="text-xs text-emerald-900">कैंडिडेट: <strong>विकास वर्मा</strong> | ई-कोर्ट्स: क्लीन | GPS लोकेशन: सत्यापित</p>
+                    <p class="text-xs text-emerald-200">Candidate: <strong>Vikas Verma</strong> | e-Courts: Clean | GPS: Verified</p>
                 </div>
 
                 <!-- Case 2 -->
-                <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl space-y-2">
+                <div class="bg-amber-950/40 border border-amber-500/30 p-5 rounded-2xl space-y-2 shadow-lg">
                     <div class="flex justify-between items-center">
-                        <span class="font-mono font-bold text-xs text-amber-800">VSI-2026-7814</span>
-                        <span class="bg-amber-200 text-amber-800 text-[10px] font-bold px-2 py-0.5 rounded">IN-PROGRESS</span>
+                        <span class="font-mono font-bold text-xs text-amber-400">VSI-2026-7814</span>
+                        <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-bold px-2.5 py-1 rounded-lg">IN-PROGRESS</span>
                     </div>
-                    <p class="text-xs text-amber-900">कैंडिडेट: <strong>अमन गुप्ता</strong> | डिग्री ऑथेंटिकेशन जारी</p>
+                    <p class="text-xs text-amber-200">Candidate: <strong>Aman Gupta</strong> | Degree Authentication Ongoing</p>
                 </div>
 
                 <!-- Case 3 -->
-                <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl space-y-2">
+                <div class="bg-rose-950/40 border border-rose-500/30 p-5 rounded-2xl space-y-2 shadow-lg">
                     <div class="flex justify-between items-center">
-                        <span class="font-mono font-bold text-xs text-rose-800">VSI-2026-4412</span>
-                        <span class="bg-rose-200 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded">RED FLAG</span>
+                        <span class="font-mono font-bold text-xs text-rose-400">VSI-2026-4412</span>
+                        <span class="bg-rose-500/20 text-rose-300 border border-rose-500/30 text-[10px] font-bold px-2.5 py-1 rounded-lg">RED FLAG</span>
                     </div>
-                    <p class="text-xs text-rose-900">कैंडिडेट: <strong>सुमित कुमार</strong> | अलर्ट: मूनलाइटिंग</p>
+                    <p class="text-xs text-rose-200">Candidate: <strong>Sumit Kumar</strong> | Alert: Moonlighting</p>
                 </div>
             </div>
         </section>
 
-        <!-- Bulk Upload Section -->
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+        <!-- 4. Bulk Upload Section -->
+        <section class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
             <div>
-                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">ENTERPRISE BULK SCREENING</span>
-                <h2 class="text-2xl font-bold text-slate-900 mt-1">HR बल्क डेटा अपलोड (Bulk Upload)</h2>
-                <p class="text-slate-600 text-sm mt-1">20 से 100+ कर्मचारियों की एक्सेल या CSV शीट सीधे अपलोड करें।</p>
+                <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">ENTERPRISE BULK SCREENING</span>
+                <h2 class="text-2xl font-bold text-white mt-1">HR Bulk Data Upload</h2>
+                <p class="text-slate-300 text-sm mt-1">Directly upload Excel or CSV sheets for 20 to 100+ employees.</p>
             </div>
-            <div class="border-2 border-dashed border-slate-300 rounded-xl p-8 text-center bg-slate-50">
-                <p class="text-sm font-semibold text-slate-700">कर्मचारी डेटा शीट (Excel / CSV) यहाँ ड्रैग करें</p>
-                <p class="text-xs text-slate-400 mt-1">समर्थित फ़ाइलें: .xlsx, .xls, .csv</p>
+            <div class="border-2 border-dashed border-blue-500/30 rounded-2xl p-8 text-center bg-blue-950/20 hover:bg-blue-950/40 transition">
+                <p class="text-sm font-semibold text-blue-200">Drag & Drop Employee Data Sheet (Excel / CSV) Here</p>
+                <p class="text-xs text-slate-400 mt-1">Supported Files: .xlsx, .xls, .csv</p>
             </div>
         </section>
 
-        <!-- Trust Card Section -->
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <!-- 5. Trust Card Section -->
+        <section class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-6">
             <div>
-                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">INSTANT VERIFIABLE CREDENTIAL</span>
-                <h2 class="text-2xl font-bold text-slate-900 mt-1">डिजिटल ट्रस्ट कार्ड व QR बैज</h2>
-                <p class="text-slate-600 text-sm mt-1">सत्यापित स्टाफ और कर्मचारियों के लिए आधिकारिक डिजिटल पहचान पत्र।</p>
+                <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">INSTANT VERIFIABLE CREDENTIAL</span>
+                <h2 class="text-2xl font-bold text-white mt-1">Digital Trust Card & QR Badge</h2>
+                <p class="text-slate-300 text-sm mt-1">Official digital identity card for verified staff and employees.</p>
             </div>
-            <div class="max-w-sm mx-auto bg-gradient-to-r from-blue-900 to-slate-900 text-white p-6 rounded-2xl shadow-lg space-y-4">
+            <div class="max-w-sm mx-auto bg-gradient-to-tr from-blue-900 via-indigo-950 to-slate-900 text-white p-6 rounded-3xl shadow-2xl border border-blue-400/30 space-y-4">
                 <div class="flex justify-between items-center">
-                    <span class="text-sm font-bold tracking-wider">VeriShield INDIA</span>
-                    <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">VERIFIED CLEAR</span>
+                    <span class="text-sm font-bold tracking-wider text-blue-300">VeriShield INDIA</span>
+                    <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[10px] font-bold px-2.5 py-1 rounded-lg">VERIFIED CLEAR</span>
                 </div>
                 <div class="space-y-1">
-                    <h3 class="text-lg font-bold">राहुल शर्मा</h3>
-                    <p class="text-xs text-slate-300 font-mono">VSI-2026-9042</p>
+                    <h3 class="text-xl font-bold text-white">Rahul Sharma</h3>
+                    <p class="text-xs text-blue-300 font-mono">VSI-2026-9042</p>
                 </div>
-                <p class="text-[11px] text-slate-300">यह क्यूआर कोड उम्मीदवार के ई-कोर्ट्स, पहचान सत्यापन और सेवा इतिहास की पुष्टि करता है।</p>
+                <p class="text-[11px] text-slate-300">This QR code confirms the candidate's e-courts status, identity verification, and service history.</p>
             </div>
         </section>
 
-        <!-- Continuous Risk Intelligence -->
-        <section class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-6">
+        <!-- 6. Continuous Risk Intelligence -->
+        <section id="features" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-6">
             <div>
-                <span class="text-xs font-bold text-blue-600 tracking-wider uppercase">CONTINUOUS RISK INTELLIGENCE</span>
-                <h2 class="text-2xl font-bold text-slate-900 mt-1">AI डिजिटल फुटप्रिंट व 6-मंथ मॉनिटरिंग</h2>
-                <p class="text-slate-600 text-sm mt-1">हायरिंग के बाद भी 6 महीने तक निरंतर निगरानी।</p>
+                <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">CONTINUOUS RISK INTELLIGENCE</span>
+                <h2 class="text-2xl font-bold text-white mt-1">AI Digital Footprint & 6-Month Monitoring</h2>
+                <p class="text-slate-300 text-sm mt-1">Continuous monitoring for 6 months even after hiring.</p>
             </div>
             <div class="grid sm:grid-cols-2 gap-4">
-                <div class="border border-slate-200 p-4 rounded-xl space-y-2">
-                    <h3 class="font-bold text-sm text-slate-900">पोस्ट-हायरिंग ई-कोर्ट्स लीगल अलर्ट्स</h3>
-                    <p class="text-xs text-slate-600">देश भर की जिला अदालतों में दर्ज होने वाले नए मामलों पर हर 30 दिन में ऑटोमैटिक स्कैन।</p>
+                <div class="bg-blue-950/30 border border-blue-500/20 p-5 rounded-2xl space-y-2">
+                    <h3 class="font-bold text-sm text-blue-300">Post-Hiring e-Courts Legal Alerts</h3>
+                    <p class="text-xs text-slate-300">Automatic scan every 30 days for any new legal cases filed across district courts nationwide.</p>
                 </div>
-                <div class="border border-slate-200 p-4 rounded-xl space-y-2">
-                    <h3 class="font-bold text-sm text-slate-900">ड्यूल एम्प्लॉयमेंट (मूनलाइटिंग) ट्रैकर</h3>
-                    <p class="text-xs text-slate-600">सक्रिय पीएफ (EPFO/UAN) का त्रैमासिक मिलान।</p>
+                <div class="bg-blue-950/30 border border-blue-500/20 p-5 rounded-2xl space-y-2">
+                    <h3 class="font-bold text-sm text-blue-300">Dual Employment (Moonlighting) Tracker</h3>
+                    <p class="text-xs text-slate-300">Quarterly matching of active PF (EPFO/UAN) records.</p>
                 </div>
             </div>
         </section>
 
-        <!-- About Us & Legal Information Section -->
-        <div id="legal-info" class="bg-white p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4">
-            <h2 class="text-xl font-bold text-slate-900">हमारे बारे में (About Us) व अनुपालन (Compliance)</h2>
-            <p class="text-xs text-slate-600 leading-relaxed">
-                VeriShield India एक अग्रणीय डिजिटल सत्यापन और ट्रस्ट-टेक प्लेटफॉर्म है जो भारतीय (DPDP Act) और अंतरराष्ट्रीय डेटा सुरक्षा मानकों के तहत कार्य करता है।
+        <!-- 7. ABOUT US SECTION -->
+        <section id="about" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-white">About Us</h2>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                <strong>VeriShield India</strong> is a premier digital verification and trust-tech platform operating under Indian (DPDP Act) and international data security standards. Our mission is to eliminate hiring risks through cutting-edge technology and 100% geo-tagged verification.
             </p>
-            <p class="text-xs text-slate-600">
-                <strong>डिस्क्लेमर व प्राइवेसी पॉलिसी:</strong> सभी सत्यापन डेटा एन्क्रिप्टेड और सुरक्षित हैं। किसी भी प्रश्न या सहायता के लिए संपर्क करें: <span class="text-blue-600 font-semibold">verishieldindia@gmail.com</span>[span_1](start_span)[span_1](end_span)
+        </section>
+
+        <!-- 8. PRIVACY POLICY SECTION -->
+        <section id="privacy" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-white">Privacy Policy</h2>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                We strictly respect your data privacy in compliance with the DPDP Act and GDPR. All data collected during verification is fully encrypted and used solely for authorized screening purposes. Data is never shared without explicit user consent.
             </p>
-        </div>
+        </section>
+
+        <!-- 9. TERMS & CONDITIONS SECTION -->
+        <section id="terms" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-white">Terms & Conditions</h2>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                By using this portal, all corporate clients and candidates agree to provide accurate and authentic information. Unauthorized use, data scraping, or submission of fraudulent documents will result in immediate termination of services and legal action.
+            </p>
+        </section>
+
+        <!-- 10. DISCLAIMER SECTION -->
+        <section id="disclaimer" class="bg-slate-900/60 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/20 shadow-xl space-y-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-white">Disclaimer</h2>
+            </div>
+            <p class="text-sm text-slate-300 leading-relaxed">
+                Verification results and risk indicators provided by VeriShield India are generated based on automated API queries, public databases, and user-submitted documents. Enterprises are advised to use these reports as a primary evaluation tool alongside internal HR assessments.
+            </p>
+        </section>
+
+        <!-- 11. CONTACT US SECTION -->
+        <section id="contact" class="bg-slate-900/90 backdrop-blur-sm p-6 sm:p-8 rounded-3xl border border-blue-500/30 shadow-2xl space-y-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-3 h-8 bg-blue-500 rounded-full"></div>
+                <h2 class="text-2xl font-bold text-white">Contact Us</h2>
+            </div>
+            <p class="text-sm text-slate-300">
+                Reach out to our support team for any inquiries regarding background verification services or API integration.
+            </p>
+            <div class="space-y-1 text-sm pt-2">
+                <p class="font-semibold text-blue-400">📧 Email: verishieldindia@gmail.com[span_1](start_span)[span_1](end_span)</p>
+                <p class="font-semibold text-slate-300">🕒 Working Hours: Monday to Saturday (9:00 AM – 6:00 PM IST)</p>
+            </div>
+        </section>
 
     </main>
 
-    <!-- Footer with Legal Links -->
-    <footer class="bg-white border-t border-slate-200 mt-12 py-6 text-center text-xs text-slate-500 space-y-2">
-        <div class="flex justify-center flex-wrap gap-2 text-slate-600 font-medium px-4">
-            <a href="#home" class="hover:text-blue-600">होम (Home)</a>
+    <!-- Footer with Copyright -->
+    <footer class="bg-slate-900 border-t border-blue-500/20 mt-16 py-8 text-center text-xs text-slate-400 space-y-3">
+        <div class="flex justify-center flex-wrap gap-4 text-slate-300 font-medium px-4">
+            <a href="#home" class="hover:text-blue-400 transition">Home</a>
             <span>•</span>
-            <a href="#legal-info" class="hover:text-blue-600">हमारे बारे में (About Us)</a>
+            <a href="#about" class="hover:text-blue-400 transition">About Us</a>
             <span>•</span>
-            <a href="#legal-info" class="hover:text-blue-600">प्राइवेसी पॉलिसी (Privacy Policy)</a>
+            <a href="#privacy" class="hover:text-blue-400 transition">Privacy Policy</a>
             <span>•</span>
-            <a href="#legal-info" class="hover:text-blue-600">डिस्क्लेमर (Disclaimer)</a>
+            <a href="#terms" class="hover:text-blue-400 transition">Terms & Conditions</a>
             <span>•</span>
-            <a href="#legal-info" class="hover:text-blue-600">संपर्क (Contact: verishieldindia@gmail.com)</a>[span_2](start_span)[span_2](end_span)
+            <a href="#disclaimer" class="hover:text-blue-400 transition">Disclaimer</a>
+            <span>•</span>
+            <a href="#contact" class="hover:text-blue-400 transition">Contact Us</a>
         </div>
-        <p>© 2026 VeriShield India. All rights reserved. <span>PAN INDIA TRUST INFRASTRUCTURE</span></p>
+        <p>© 2026 VeriShield India. All rights reserved. PAN-INDIA & GLOBAL TRUST INFRASTRUCTURE.</p>
     </footer>
 
 </body>
