@@ -11,25 +11,94 @@
             --teal-cyan: #0d9488;
             --bg-light: #f8f9fa;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #333; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: var(--bg-light); 
+            margin: 0; 
+            padding: 0; 
+            color: #333;
+            position: relative;
+        }
         
-        /* Professional Header */
-        header { background: var(--primary-blue); color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-bottom: 3px solid var(--accent-orange); }
-        header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; cursor: pointer; }
-        nav { display: flex; flex-wrap: wrap; gap: 20px; }
-        nav a { color: #ecf0f1; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: color 0.3s; }
-        nav a:hover, nav a.active-nav { color: var(--teal-cyan); }
+        /* Background Watermark Logo Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 24 24" fill="none" stroke="%230f172a" stroke-width="0.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>');
+            background-repeat: repeat;
+            background-position: center;
+            opacity: 0.03;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Professional Header & Navigation */
+        header { 
+            background: var(--primary-blue); 
+            color: white; 
+            padding: 16px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            border-bottom: 3px solid var(--accent-orange); 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        .logo-shield {
+            font-size: 24px;
+            background: var(--accent-orange);
+            color: white;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        header h1 { margin: 0; font-size: 22px; letter-spacing: 0.5px; color: #fff; }
+        
+        nav { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        nav a { 
+            color: #cbd5e1; 
+            text-decoration: none; 
+            font-weight: 600; 
+            font-size: 14px; 
+            cursor: pointer; 
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: all 0.3s ease; 
+        }
+        nav a:hover, nav a.active-nav { 
+            color: white; 
+            background: rgba(13, 148, 136, 0.2);
+            border-bottom: 2px solid var(--teal-cyan);
+        }
         
         /* Main Container */
-        .container { max-width: 950px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; }
+        .container { max-width: 950px; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; backdrop-filter: blur(5px); }
         
         /* Page Display Control */
         .page { display: none; }
-        .page.active { display: block; }
+        .page.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         
         h2 { color: var(--primary-blue); text-align: center; margin-bottom: 30px; font-size: 28px; }
         h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 25px; }
-        p { line-height: 1.7; color: #475569; }
+        p { line-height: 1.8; color: #475569; font-size: 15px; }
         
         /* Form & Sections Styling */
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
@@ -76,9 +145,12 @@
 </head>
 <body>
 
-<!-- Clean Header (Only core navigation items) -->
+<!-- Clean & Professional Header -->
 <header>
-    <h1 onclick="showPage('homePage')">🛡️ VeriShield INDIA</h1>
+    <div class="logo-area" onclick="showPage('homePage')">
+        <div class="logo-shield">VS</div>
+        <h1>VeriShield INDIA</h1>
+    </div>
     <nav id="mainNav">
         <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
         <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
@@ -277,7 +349,6 @@
     <!-- 6. FAQ Page -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
-        
         <div class="faq-item">
             <h4>Q1. How does HR initiate a candidate verification?</h4>
             <p>The HR logs into the Enterprise HR Portal, enters candidate details, selects the screening package, and generates a secure, locked link.</p>
@@ -323,36 +394,41 @@
     <!-- 7. About Us Page -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India</h2>
-        <p>VeriShield India is a premier global Trust-Tech and Background Verification infrastructure provider. We deliver lightning-fast, highly accurate, and legally compliant screening solutions to enterprises, remote-first startups, and corporations worldwide. Backed by strategic data standards and advanced API integrations, we guarantee absolute transparency and risk mitigation in global hiring.</p>
-        <p>Our mission is to build digital trust across borders by bridging the gap between candidates and employers through seamless, automated, and tamper-proof background screening technology.</p>
+        <p><strong>VeriShield India</strong> is a premier global Trust-Tech and Background Verification (BGV) infrastructure provider, dedicated to establishing absolute digital trust and compliance in modern hiring ecosystems. In an era where remote-first workplaces and cross-border recruitment dominate, verifying candidate credentials with lightning speed and uncompromised accuracy is paramount.</p>
+        <p>Founded with a vision to eliminate credential fraud, identity deception, and professional risks, VeriShield India delivers seamless, automated, and legally compliant screening solutions to enterprises, multinational corporations (MNCs), startups, and institutional employers worldwide. Backed by advanced API integrations, e-Courts litigation scanners, EPFO employment history tracking, and tamper-proof geo-tagging technology, we empower HR leaders to make informed, risk-free hiring decisions.</p>
+        <h3>Our Core Mission & Vision</h3>
+        <p><strong>Our Mission:</strong> To bridge the gap between employers and candidates by providing automated, transparent, and frictionless background verification infrastructure that protects corporate assets and workplace culture.</p>
+        <p><strong>Our Vision:</strong> To become the world's most reliable trust-tech ecosystem, setting global benchmarks in data security, regulatory compliance, and workplace safety.</p>
     </div>
 
     <!-- 8. Contact Us Page -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support</h2>
-        <p>For enterprise onboarding, API integration queries, custom screening packages, or partnership opportunities, connect with our dedicated support team:</p>
+        <p>Whether you are an enterprise looking to integrate our robust BGV APIs, an HR professional seeking custom screening packages, or an organization requiring dedicated onboarding support, our corporate desk is at your service.</p>
         <p style="font-size: 16px;"><strong>Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none;">verishieldindia@gmail.com</a></p>
-        <p style="font-size: 16px;"><strong>Operational Reach:</strong> Pan-India & Global Enterprise Support</p>
-        <p style="font-size: 14px; color: #64748b;">Our corporate support desk operates 24/7 to assist HR professionals and enterprise clients with real-time verification inquiries.</p>
+        <p style="font-size: 16px;"><strong>Operational Reach:</strong> Pan-India & Global Enterprise Support (24/7 Coverage)</p>
+        <p>Our dedicated technical and client success teams operate round-the-clock to assist corporate partners with real-time verification inquiries, custom API setups, and enterprise billing assistance.</p>
     </div>
 
-    <!-- 9. Disclaimer Page -->
+    <!-- 9. Legal Disclaimer Page -->
     <div id="disclaimerPage" class="page">
-        <h2>Legal Disclaimer</h2>
-        <p>The information and verification services provided by VeriShield India are conducted in strict compliance with candidate consent, data protection norms, and official database guidelines. VeriShield India acts as a technology and screening facilitator. While we source data from authorized government, legal, and educational repositories, we do not guarantee absolute liability for third-party database errors or delayed public record updates. Clients are advised to use screening reports as a vital component of their comprehensive hiring evaluation process.</p>
+        <h2>Legal Disclaimer & Operational Scope</h2>
+        <p>The verification services, software portals, and analytical reports provided by <strong>VeriShield India</strong> are conducted in strict compliance with candidate consent, data protection norms, and official database guidelines. VeriShield India operates strictly as a technology and screening facilitator.</p>
+        <p>While our automated pipelines source data directly from authorized government repositories, judicial registries, and accredited educational institutions, VeriShield India does not assume absolute liability for third-party database downtimes, clerical errors in public records, or delayed judicial updates.</p>
+        <p>Corporate clients are strongly advised to utilize VeriShield screening reports as a vital, foundational component of their comprehensive pre-employment and post-employment evaluation framework.</p>
     </div>
 
     <!-- 10. Privacy Policy Page -->
     <div id="privacyPage" class="page">
-        <h2>Privacy Policy & Compliance</h2>
-        <p>At VeriShield India, we take your data privacy with utmost seriousness. We adhere to global data privacy standards, the Digital Personal Data Protection (DPDP) Act, and industry-best encryption protocols to ensure secure handling of candidate Personally Identifiable Information (PII).</p>
-        <p><strong>Data Collection & Usage:</strong> Candidate data (such as PAN, addresses, face selfies, and GPS geo-tags) is collected solely for background screening purposes with explicit legal consent. We never sell, share, or monetize candidate data with third-party marketing entities.</p>
-        <p><strong>Data Retention & Security:</strong> All records are stored in encrypted cloud repositories and automatically purged or anonymized in compliance with corporate data retention agreements.</p>
+        <h2>Privacy Policy & Data Compliance</h2>
+        <p>At VeriShield India, safeguarding candidate and corporate data privacy is our highest institutional priority. We adhere to international data privacy standards, the Digital Personal Data Protection (DPDP) Act, and industry-leading AES-256 encryption protocols to secure all Personally Identifiable Information (PII).</p>
+        <p><strong>1. Data Collection & Explicit Purpose:</strong> Candidate information—including PAN numbers, residential addresses, official face selfies, and GPS geo-tags—is collected exclusively for authorized background screening purposes under explicit legal consent. We never sell, lease, or monetize candidate data to third-party advertisers or marketing entities.</p>
+        <p><strong>2. Data Security & Retention:</strong> All submitted records are housed within highly secure, encrypted cloud repositories. Data is automatically purged, anonymized, or archived strictly in accordance with corporate data retention agreements and statutory compliance guidelines.</p>
     </div>
 
 </div>
 
-<!-- Professional Footer with About, Contact, Disclaimer & Privacy -->
+<!-- Professional Footer -->
 <footer>
     <p>&copy; 2026 VeriShield India. All rights reserved. Trusted verification partner for global enterprises including <strong>Zero Crime India</strong>.</p>
     <div style="margin-top: 12px;">
