@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriShield India - Candidate Onboarding & Verification</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
+        .container { max-width: 650px; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: auto; }
+        h2 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
+        .form-section { background: #fafafa; border: 1px solid #e1e8ed; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .form-section h3 { margin-top: 0; color: #2980b9; font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: bold; color: #34495e; font-size: 14px; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; box-sizing: border-box; }
+        .guideline { font-size: 13px; color: #e67e22; background: #fef9e7; padding: 8px; border-radius: 4px; margin-top: 5px; border-left: 3px solid #f39c12; }
+        button { width: 100%; background: #27ae60; color: white; padding: 14px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #219653; }
+        .btn-blue { background: #2980b9; margin-top: 5px; padding: 10px; font-size: 14px; }
+        .btn-blue:hover { background: #2471a3; }
+        .status-text { font-size: 14px; color: #27ae60; margin-top: 5px; font-weight: bold; }
+        .checkbox-group { display: flex; align-items: center; gap: 10px; margin-top: 15px; }
+        .checkbox-group input { width: auto; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>VeriShield India - Candidate Verification Portal</h2>
+    <form id="candidateForm">
+        
+        <!-- सेक्शन 1: व्यक्तिगत विवरण -->
+        <div class="form-section">
+            <h3>1. व्यक्तिगत व पारिवारिक विवरण (Personal Details)</h3>
+            
+            <div class="form-group">
+                <label for="candidateName">कैंडिडेट का पूरा नाम (Full Name):</label>
+                <input type="text" id="candidateName" name="candidateName" required placeholder="उदा. राहुल शर्मा">
+            </div>
+
+            <div class="form-group">
+                <label for="fatherName">पिता का नाम (Father's Name):</label>
+                <input type="text" id="fatherName" name="fatherName" required placeholder="पिता का पूरा नाम दर्ज करें">
+            </div>
+
+            <div class="form-group">
+                <label for="motherName">माता का नाम (Mother's Name):</label>
+                <input type="text" id="motherName" name="motherName" required placeholder="माता का पूरा नाम दर्ज करें">
+            </div>
+
+            <div class="form-group">
+                <label for="phoneNumber">मोबाइल नंबर (Mobile Number):</label>
+                <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="+91 98765 43210">
+            </div>
+
+            <div class="form-group">
+                <label for="candidateEmail">ईमेल आईडी (Email ID):</label>
+                <input type="email" id="candidateEmail" name="candidateEmail" required placeholder="candidate@email.com">
+            </div>
+        </div>
+
+        <!-- सेक्शन 2: आईडी प्रूफ चयन -->
+        <div class="form-section">
+            <h3>2. पहचान पत्र सत्यापन (ID Verification Selection)</h3>
+            
+            <div class="form-group">
+                <label for="idType">सत्यापन दस्तावेज़ चुनें (Select ID Proof):</label>
+                <select id="idType" name="idType" required>
+                    <option value="">-- दस्तावेज़ चुनें --</option>
+                    <option value="PAN">PAN Card (पैन कार्ड - टैक्स परपस)</option>
+                    <option value="Aadhaar">Aadhaar Card (आधार कार्ड)</option>
+                    <option value="VoterID">Voter ID Card (वोटर आईडी)</option>
+                    <option value="Passport">Passport (पासपोर्ट)</option>
+                    <option value="DrivingLicense">Driving License (ड्राइविंग लाइसेंस)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="idNumber">चयनित आईडी का नंबर (ID Number):</label>
+                <input type="text" id="idNumber" name="idNumber" required placeholder="अपना आईडी नंबर दर्ज करें">
+            </div>
+        </div>
+
+        <!-- सेक्शन 3: ऑफिस पर्पस लाइव फेस सेल्फी -->
+        <div class="form-section">
+            <h3>3. लाइव फेस सेल्फी (Live Face Selfie)</h3>
+            <div class="guideline">
+                💡 <strong>गाइडलाइन:</strong> कृपया ऑफिस पर्पस के लिए स्पष्ट सेल्फी लें जिसमें आपके दोनों कंधे (Both Shoulders) और चेहरा पूरी तरह साफ दिखाई दे। चश्मा या कैप पहनने से बचें।
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <input type="file" id="faceSelfie" name="faceSelfie" accept="image/*" capture="user" required>
+                <div class="status-text" id="selfieStatus"></div>
+            </div>
+        </div>
+
+        <!-- सेक्शन 4: जियो-टैगिंग और घर/प्रवेश द्वार की फोटो -->
+        <div class="form-section">
+            <h3>4. जियो-टैगिंग व घर का सत्यापन (Geo-Tagging & Home Photo)</h3>
+            
+            <div class="form-group">
+                <label for="currentAddress">वर्तमान पता (Current Address):</label>
+                <input type="text" id="currentAddress" name="currentAddress" required placeholder="अपना पूरा वर्तमान पता दर्ज करें">
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn-blue" onclick="getGeoLocation()">📍 रियल-टाइम GPS लोकेशन (Geo-Tagging) फेच करें</button>
+                <div id="locationStatus" style="font-size: 13px; color: #e67e22; margin-top: 5px;">लोकेशन अभी कैप्चर नहीं हुई है।</div>
+                <input type="hidden" id="geoCoordinates" name="geoCoordinates" required>
+            </div>
+
+            <div class="form-group" style="margin-top: 15px;">
+                <label for="homePhoto">घर / प्रवेश द्वार की लाइव फोटो (Live Home/Gate Photo):</label>
+                <input type="file" id="homePhoto" name="homePhoto" accept="image/*" capture="environment" required>
+                <div style="font-size: 12px; color: #7f8c8d; margin-top: 4px;">केवल रियर कैमरे से लाइव फोटो मान्य होगी।</div>
+            </div>
+        </div>
+
+        <!-- लीगल कंसेंट -->
+        <div class="form-group checkbox-group">
+            <input type="checkbox" id="legalConsent" name="legalConsent" required>
+            <label for="legalConsent" style="margin-bottom:0; font-weight:normal; font-size:13px;">मैं प्रमाणित करता/करती हूँ कि ऊपर दी गई सभी जानकारी और दस्तावेज सही हैं, और मैं बैकग्राउंड वेरिफिकेशन के लिए सहमति देता/देती हूँ।</label>
+        </div>
+
+        <button type="submit" style="margin-top: 20px;">सत्यापन डेटा सबमिट करें (Submit Application)</button>
+    </form>
+</div>
+
+<script>
+    // जियो-लोकेशन फेच करने का फंक्शन
+    function getGeoLocation() {
+        const statusDiv = document.getElementById("locationStatus");
+        if (navigator.geolocation) {
+            statusDiv.innerHTML = "सटीक GPS लोकेशन प्राप्त की जा रही है...";
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById("geoCoordinates").value = `Lat: ${lat}, Lon: ${lon}`;
+                    statusDiv.innerHTML = `✅ जियो-टैगिंग सफल! (Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)})`;
+                    statusDiv.style.color = "#27ae60";
+                },
+                (error) => {
+                    statusDiv.innerHTML = "❌ लोकेशन की अनुमति नहीं मिली। कृपया GPS ऑन करें।";
+                    statusDiv.style.color = "#c0392b";
+                },
+                { enableHighAccuracy: true }
+            );
+        } else {
+            statusDiv.innerHTML = "आपका ब्राउज़र जियोलोकेशन को सपोर्ट नहीं करता है।";
+        }
+    }
+
+    // फॉर्म सबमिशन हैंडलर
+    document.getElementById('candidateForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const geoCoords = document.getElementById('geoCoordinates').value;
+        if (!geoCoords) {
+            alert("कृपया पहले 'जियो-टैगिंग' बटन पर क्लिक करके GPS लोकेशन कैप्चर करें!");
+            return;
+        }
+
+        alert("कैंडिडेट का सारा डेटा और जियो-टैगिंग सफलताપૂર્વक सबमिट हो रहा है...");
+        // यहाँ आप अपने बैकएंड या फॉर्मसप्रे (Formspree) का एक्शन जोड़ सकते हैं
+        document.getElementById('candidateForm').reset();
+        window.location.reload();
+    });
+</script>
+
+</body>
+</html>
+
