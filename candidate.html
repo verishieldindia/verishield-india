@@ -36,61 +36,79 @@
             pointer-events: none;
         }
 
-        /* Professional Sticky Header */
+        /* Professional Sticky Header with 6-6 Split Layout & Logo */
         header { 
             background: var(--primary-blue); 
             color: white; 
-            padding: 12px 25px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            flex-wrap: wrap; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+            padding: 10px 20px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
             border-bottom: 3px solid var(--accent-orange); 
             position: sticky;
             top: 0;
             z-index: 9999;
         }
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             cursor: pointer;
         }
-        .logo-svg {
-            width: 36px;
-            height: 36px;
-            fill: var(--accent-orange);
+        .site-logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-orange);
+            background: #fff;
         }
         .logo-text h1 { 
             margin: 0; 
-            font-size: 19px; 
+            font-size: 17px; 
             letter-spacing: 0.5px; 
             color: #fff; 
             font-weight: 700;
         }
         .logo-text span {
-            font-size: 10px;
+            font-size: 9px;
             color: var(--teal-cyan);
             letter-spacing: 1px;
             text-transform: uppercase;
             display: block;
         }
         
-        nav { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
+        /* 6-6 Navigation Split Layout */
+        nav { 
+            display: flex; 
+            flex-direction: column;
+            gap: 4px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 6px;
+        }
+        .nav-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
         nav a { 
             color: #cbd5e1; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 12px; 
+            font-size: 11px; 
             cursor: pointer; 
-            padding: 5px 8px;
+            padding: 4px 8px;
             border-radius: 4px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
             color: white; 
-            background: rgba(13, 148, 136, 0.3);
+            background: rgba(13, 148, 136, 0.4);
             border-bottom: 2px solid var(--teal-cyan);
         }
         
@@ -155,29 +173,37 @@
 </head>
 <body>
 
-<!-- Professional Sticky Header -->
+<!-- Professional Sticky Header with Real Logo & 6-6 Split Menu -->
 <header>
-    <div class="logo-area" onclick="showPage('homePage')">
-        <img src="logo.png" alt="VeriShield Logo" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover; border: 2px solid #d97706; background: #fff;">
-
-        <div class="logo-text">
-            <h1>VeriShield INDIA</h1>
-            <span>Trust-Tech Infrastructure</span>
+    <div class="header-top">
+        <div class="logo-area" onclick="showPage('homePage')">
+            <img src="logo.png" alt="VeriShield Logo" class="site-logo" onerror="this.src='logo.jpg'; this.onerror=function(){this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'%23d97706\'><path d=\'M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z\'/></svg>';}">
+            <div class="logo-text">
+                <h1>VeriShield INDIA</h1>
+                <span>Trust-Tech Infrastructure</span>
+            </div>
         </div>
     </div>
+    
     <nav id="mainNav">
-        <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
-        <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
-        <a onclick="showPage('pricingPage')" id="nav-pricingPage">Pricing</a>
-        <a onclick="showPage('hrPage')" id="nav-hrPage">HR Portal</a>
-        <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate</a>
-        <a onclick="showPage('trackerPage')" id="nav-trackerPage">Tracker</a>
-        <a onclick="showPage('blogPage')" id="nav-blogPage">Blogs</a>
-        <a onclick="showPage('caseStudiesPage')" id="nav-caseStudiesPage">Case Studies</a>
-        <a onclick="showPage('apiDocsPage')" id="nav-apiDocsPage">API Docs</a>
-        <a onclick="showPage('careersPage')" id="nav-careersPage">Careers</a>
-        <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
-        <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
+        <!-- Row 1: First 6 Links -->
+        <div class="nav-row">
+            <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
+            <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
+            <a onclick="showPage('pricingPage')" id="nav-pricingPage">Pricing</a>
+            <a onclick="showPage('hrPage')" id="nav-hrPage">HR Portal</a>
+            <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate</a>
+            <a onclick="showPage('trackerPage')" id="nav-trackerPage">Tracker</a>
+        </div>
+        <!-- Row 2: Next 6 Links -->
+        <div class="nav-row">
+            <a onclick="showPage('blogPage')" id="nav-blogPage">Blogs</a>
+            <a onclick="showPage('caseStudiesPage')" id="nav-caseStudiesPage">Case Studies</a>
+            <a onclick="showPage('apiDocsPage')" id="nav-apiDocsPage">API Docs</a>
+            <a onclick="showPage('careersPage')" id="nav-careersPage">Careers</a>
+            <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
+            <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
+        </div>
     </nav>
 </header>
 
@@ -348,6 +374,7 @@
                 </div>
             </div>
 
+            <!-- सेक्शन 3: फेस सेल्फी + जियो-टैगिंग -->
             <div class="form-section">
                 <h3>3. Official Live Face Selfie & Geo-Tagging</h3>
                 <div class="guideline">💡 Upload a clear portrait selfie showing both shoulders and your face clearly. Real-time GPS location tagging is mandatory for this step.</div>
@@ -364,6 +391,7 @@
                 </div>
             </div>
 
+            <!-- सेक्शन 4: घर की फोटो + जियो-टैगिंग -->
             <div class="form-section">
                 <h3>4. Residential Address & Gate Geo-Tagging</h3>
                 <div class="form-group">
@@ -408,7 +436,7 @@
         <div id="trackResult" style="margin-top: 20px; font-weight: 600; text-align: center;"></div>
     </div>
 
-    <!-- 7. Blogs & Insights Page (Expanded & Detailed) -->
+    <!-- 7. Blogs Page -->
     <div id="blogPage" class="page">
         <h2>Blogs & Industry Insights</h2>
         <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Deep-dive analytical articles on corporate screening, remote hiring security, and compliance frameworks.</p>
@@ -425,7 +453,7 @@
         </div>
     </div>
 
-    <!-- 8. Case Studies Page (Expanded & Detailed) -->
+    <!-- 8. Case Studies Page -->
     <div id="caseStudiesPage" class="page">
         <h2>Success Stories & Enterprise Case Studies</h2>
         <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Documented real-world deployments proving the efficacy of VeriShield's automated verification infrastructure.</p>
@@ -438,7 +466,7 @@
         </div>
     </div>
 
-    <!-- 9. API Docs Page (Expanded & Detailed) -->
+    <!-- 9. API Docs Page -->
     <div id="apiDocsPage" class="page">
         <h2>Developer Hub & API Documentation</h2>
         <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Technical specifications and integration guides for connecting HRMS platforms with VeriShield pipelines.</p>
@@ -452,7 +480,7 @@
         </div>
     </div>
 
-    <!-- 10. Careers & Partner Page (Expanded & Detailed) -->
+    <!-- 10. Careers Page -->
     <div id="careersPage" class="page">
         <h2>Careers & Field Verification Partners</h2>
         <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Build the future of trust-tech with us or join our nationwide network of physical audit partners.</p>
@@ -477,7 +505,7 @@
         </div>
     </div>
 
-    <!-- 12. FAQ Page (10 Detailed Questions) -->
+    <!-- 12. FAQ Page -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <div class="faq-item">
@@ -610,7 +638,7 @@
         resDiv.style.color = "#0f172a";
     }
 
-    // सेल्फी जियो-टैग
+    // सेल्फी जियो-टैगिंग
     function getSelfieLocation() {
         const statusDiv = document.getElementById("selfieLocStatus");
         if (navigator.geolocation) {
@@ -635,7 +663,7 @@
         }
     }
 
-    // घर का जियो-टैग
+    // घर का जियो-टैगिंग
     function getHomeLocation() {
         const statusDiv = document.getElementById("homeLocStatus");
         if (navigator.geolocation) {
