@@ -3,10 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriShield India - Candidate Onboarding & Verification</title>
+    <title>VeriShield India - Pan-India & Global Trust-Tech BGV Platform</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 20px; }
-        .container { max-width: 650px; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: auto; }
+        body { font-family: Arial, sans-serif; background: #f4f7f6; margin: 0; padding: 0; color: #333; }
+        header { background: #2c3e50; color: white; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        header h1 { margin: 0; font-size: 22px; }
+        nav { display: flex; flex-wrap: wrap; gap: 15px; }
+        nav a { color: white; text-decoration: none; font-weight: bold; font-size: 14px; cursor: pointer; }
+        nav a:hover { color: #3498db; }
+        
+        .container { max-width: 850px; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin: 30px auto; }
+        .page { display: none; }
+        .page.active { display: block; }
+        
         h2 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
         .form-section { background: #fafafa; border: 1px solid #e1e8ed; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
         .form-section h3 { margin-top: 0; color: #2980b9; font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; }
@@ -18,130 +27,261 @@
         button:hover { background: #219653; }
         .btn-blue { background: #2980b9; margin-top: 5px; padding: 10px; font-size: 14px; }
         .btn-blue:hover { background: #2471a3; }
-        .status-text { font-size: 14px; color: #27ae60; margin-top: 5px; font-weight: bold; }
+        .service-card { background: #fff; border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .service-card h4 { margin-top: 0; color: #2c3e50; }
         .checkbox-group { display: flex; align-items: center; gap: 10px; margin-top: 15px; }
         .checkbox-group input { width: auto; }
+        .badge-mandatory { background: #e74c3c; color: white; font-size: 11px; padding: 2px 6px; border-radius: 4px; margin-left: 5px; }
+        
+        footer { text-align: center; padding: 20px; background: #2c3e50; color: white; margin-top: 40px; font-size: 13px; }
+        footer a { color: #3498db; text-decoration: none; margin: 0 10px; cursor: pointer; }
     </style>
 </head>
 <body>
 
+<header>
+    <h1>VeriShield INDIA</h1>
+    <nav>
+        <a onclick="showPage('homePage')">होम पेज</a>
+        <a onclick="showPage('servicesPage')">सर्विसेज</a>
+        <a onclick="showPage('hrPage')">एचआर पोर्टल</a>
+        <a onclick="showPage('candidatePage')">कैंडिडेट पोर्टल</a>
+        <a onclick="showPage('aboutPage')">About Us</a>
+        <a onclick="showPage('contactPage')">Contact Us</a>
+    </nav>
+</header>
+
 <div class="container">
-    <h2>VeriShield India - Candidate Verification Portal</h2>
-    <form id="candidateForm">
+
+    <!-- 1. होम पेज -->
+    <div id="homePage" class="page active">
+        <h2>VeriShield India में आपका स्वागत है</h2>
+        <p style="text-align: center; color: #666; font-size: 16px;">पैन इंडिया (Pan-India) और ग्लोबल स्तर पर कॉर्पोरेट कंपनियों व एमएनसी (MNCs) के लिए सबसे भरोसेमंद ट्रस्ट-टेक और बैकग्राउंड वेरिफिकेशन प्लेटफॉर्म।</p>
         
-        <!-- सेक्शन 1: व्यक्तिगत विवरण -->
-        <div class="form-section">
-            <h3>1. व्यक्तिगत व पारिवारिक विवरण (Personal Details)</h3>
+        <div style="background: #e8f8f5; border-left: 4px solid #27ae60; padding: 15px; border-radius: 6px; margin: 20px 0;">
+            <h4 style="margin: 0 0 5px 0; color: #27ae60;">🛡️ ट्रस्ट एवं मीडिया पार्टनरशिप (Trusted Partner)</h4>
+            <p style="margin: 0; font-size: 14px; color: #444;">हम गर्व से घोषणा करते हैं कि हमारी वेरिफ़िकेशन और लीगल डेटा सुरक्षा व्यवस्था <strong>ZERO CRIME INDIA</strong> (क्राइम एवं इन्वेस्टिगेशन न्यूज़ नेटवर्क) के सहयोग से समर्थित है, जो हमारे प्लेटफॉर्म पर शत-प्रतिशत प्रामाणिकता और पारदर्शिता सुनिश्चित करती है।</p>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button style="width: auto; padding: 12px 30px;" onclick="showPage('servicesPage')">हमारी सर्विसेज देखें</button>
+            <button style="width: auto; padding: 12px 30px; background: #2980b9; margin-left: 10px;" onclick="showPage('hrPage')">एचआर पोर्टल लॉगिन</button>
+        </div>
+    </div>
+
+    <!-- 2. सर्विसेज पेज -->
+    <div id="servicesPage" class="page">
+        <h2>हमारी मुख्य BGV सर्विसेज (Services)</h2>
+        
+        <div class="service-card">
+            <h4>🔥 1. कम्प्लीट कॉर्पोरेट BGV पैकेज (All-in-One + Education)</h4>
+            <p>ग्लोबल और पैन इंडिया एमएनसी के लिए: इसमें <strong>पैन कार्ड (मैंडेटरी टैक्स वेरिफिकेशन)</strong>, आईडी केवाईसी, ई-कोर्ट्स (क्रिमिनल केस चेक), EPFO/UAN (एम्प्लॉयमेंट हिस्ट्री व मूनलाइटिंग चेक), एजुकेशन डिग्री वेरिफिकेशन, और लाइव जियो-टैगिंग शामिल है।</p>
+        </div>
+
+        <div class="service-card">
+            <h4>🛡️ 2. स्टैंडर्ड आईडी और टैक्स केवाईसी (Standard KYC)</h4>
+            <p>टैक्स और पहचान सत्यापन के लिए पैन कार्ड (PAN), आधार, वोटर आईडी, पासपोर्ट, और ड्राइविंग लाइसेंस वेरिफिकेशन।</p>
+        </div>
+
+        <div class="service-card">
+            <h4>🏠 3. डोमेस्टिक स्टाफ / ब्लू-कॉलर वेरिफिकेशन</h4>
+            <p>मेड, ड्राइवर और कुक के लिए स्थानीय पता सत्यापन, क्रिमिनल रिकॉर्ड स्कैन और जियो-टैगिंग।</p>
+        </div>
+    </div>
+
+    <!-- 3. एचआर पोर्टल पेज (पैकेज लॉकिंग) -->
+    <div id="hrPage" class="page">
+        <h2>एचआर पोर्टल (HR Onboarding & Package Lock)</h2>
+        <form id="hrForm" onsubmit="generateCandidateLink(event)">
+            <div class="form-section">
+                <h3>कंपनी और एचआर विवरण</h3>
+                <div class="form-group">
+                    <label>कंपनी का नाम (Company Name):</label>
+                    <input type="text" id="hrCompany" required placeholder="उदा. ABC Corp / MNC">
+                </div>
+                <div class="form-group">
+                    <label>एचआर की ईमेल आईडी (जहाँ फाइनल रिपोर्ट भेजी जाएगी):</label>
+                    <input type="email" id="hrEmail" required placeholder="verishieldindia@gmail.com">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>कैंडिडेट की बेसिक डिटेल्स और पैकेज लॉक</h3>
+                <div class="form-group">
+                    <label>कैंडिडेट का पूरा नाम:</label>
+                    <input type="text" id="hrCandidateName" required placeholder="उदा. अनिल कुमार">
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर:</label>
+                    <input type="tel" id="hrCandidatePhone" required placeholder="9876543210">
+                </div>
+                <div class="form-group">
+                    <label>ईमेल आईडी:</label>
+                    <input type="email" id="hrCandidateEmail" required placeholder="anil@email.com">
+                </div>
+                <div class="form-group">
+                    <label>सत्यापन पैकेज चुनें (Lock Package):</label>
+                    <select id="hrLockedPackage" required>
+                        <option value="AllInOne_Comprehensive">🔥 Complete Corporate BGV Package (All-in-One + Education)</option>
+                        <option value="Standard_KYC">Standard ID & PAN KYC</option>
+                        <option value="Domestic_Staff">Domestic Staff & Geo-Tagging</option>
+                    </select>
+                </div>
+            </div>
+            <button type="submit">कैंडिडेट के लिए सिक्योर लिंक जनरेट करें</button>
+        </form>
+        <div id="linkOutput" style="margin-top: 20px; font-weight: bold; color: #27ae60; text-align: center;"></div>
+    </div>
+
+    <!-- 4. कैंडिडेट पोर्टल पेज -->
+    <div id="candidatePage" class="page">
+        <h2>कैंडिडेट वेरिफिकेशन पोर्टल (Candidate Portal)</h2>
+        <form id="candidateForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="validateCandidateForm(event)">
             
-            <div class="form-group">
-                <label for="candidateName">कैंडिडेट का पूरा नाम (Full Name):</label>
-                <input type="text" id="candidateName" name="candidateName" required placeholder="उदा. राहुल शर्मा">
+            <div class="form-section">
+                <h3>1. व्यक्तिगत व पारिवारिक विवरण</h3>
+                <div class="form-group">
+                    <label>कैंडिडेट का पूरा नाम:</label>
+                    <input type="text" id="candName" name="candidateName" required placeholder="अनिल कुमार">
+                </div>
+                <div class="form-group">
+                    <label>पिता का नाम:</label>
+                    <input type="text" id="candFather" name="fatherName" required placeholder="पिता का पूरा नाम">
+                </div>
+                <div class="form-group">
+                    <label>माता का नाम:</label>
+                    <input type="text" id="candMother" name="motherName" required placeholder="माता का पूरा नाम">
+                </div>
+                <div class="form-group">
+                    <label>मोबाइल नंबर:</label>
+                    <input type="tel" id="candPhone" name="phoneNumber" required placeholder="मोबाइल नंबर">
+                </div>
+                <div class="form-group">
+                    <label>ईमेल आईडी:</label>
+                    <input type="email" id="candEmail" name="candidateEmail" required placeholder="email@candidate.com">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="fatherName">पिता का नाम (Father's Name):</label>
-                <input type="text" id="fatherName" name="fatherName" required placeholder="पिता का पूरा नाम दर्ज करें">
+            <div class="form-section">
+                <h3>2. पहचान पत्र सत्यापन (PAN मैंडेटरी)</h3>
+                <div class="form-group">
+                    <label>PAN Card Number (टैक्स परपस) <span class="badge-mandatory">मैंडेटरी</span>:</label>
+                    <input type="text" id="candPan" name="panNumber" required placeholder="ABCDE1234F">
+                </div>
+                <div class="form-group">
+                    <label>अन्य अतिरिक्त पहचान पत्र चुनें (वैकल्पिक):</label>
+                    <select id="candExtraIdType" name="extraIdType">
+                        <option value="None">-- कोई अन्य अतिरिक्त आईडी नहीं --</option>
+                        <option value="Aadhaar">Aadhaar Card</option>
+                        <option value="VoterID">Voter ID Card</option>
+                        <option value="Passport">Passport</option>
+                        <option value="DrivingLicense">Driving License</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>चयनित अतिरिक्त आईडी का नंबर:</label>
+                    <input type="text" id="candExtraIdNumber" name="extraIdNumber" placeholder="यदि कोई हो तो नंबर दर्ज करें">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="motherName">माता का नाम (Mother's Name):</label>
-                <input type="text" id="motherName" name="motherName" required placeholder="माता का पूरा नाम दर्ज करें">
+            <div class="form-section">
+                <h3>3. ऑफिस-पर्पस लाइव फेस सेल्फी</h3>
+                <div class="guideline">💡 स्पष्ट सेल्फी लें जिसमें दोनों कंधे (Both Shoulders) और चेहरा पूरी तरह साफ दिखाई दे।</div>
+                <div class="form-group" style="margin-top: 10px;">
+                    <input type="file" name="faceSelfie" accept="image/*" capture="user" required>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="phoneNumber">मोबाइल नंबर (Mobile Number):</label>
-                <input type="tel" id="phoneNumber" name="phoneNumber" required placeholder="+91 98765 43210">
+            <div class="form-section">
+                <h3>4. जियो-टैगिंग व घर का सत्यापन</h3>
+                <div class="form-group">
+                    <label>वर्तमान पूरा पता:</label>
+                    <input type="text" id="candAddress" name="currentAddress" required placeholder="वर्तमान पूरा पता दर्ज करें">
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn-blue" onclick="getCandidateLocation()">📍 रियल-टाइम GPS लोकेशन (Geo-Tagging) फेच करें</button>
+                    <div id="candLocStatus" style="font-size: 13px; color: #e67e22; margin-top: 5px;">लोकेशन अभी कैप्चर नहीं हुई है। (अनिवार्य)</div>
+                    <input type="hidden" id="candGeoCoords" name="geoCoordinates" required>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label>घर / प्रवेश द्वार की लाइव फोटो:</label>
+                    <input type="file" name="homePhoto" accept="image/*" capture="environment" required>
+                    <div style="font-size: 12px; color: #7f8c8d; margin-top: 4px;">केवल रियर कैमरे से लाइव फोटो मान्य होगी।</div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="candidateEmail">ईमेल आईडी (Email ID):</label>
-                <input type="email" id="candidateEmail" name="candidateEmail" required placeholder="candidate@email.com">
-            </div>
-        </div>
-
-        <!-- सेक्शन 2: आईडी प्रूफ चयन -->
-        <div class="form-section">
-            <h3>2. पहचान पत्र सत्यापन (ID Verification Selection)</h3>
-            
-            <div class="form-group">
-                <label for="idType">सत्यापन दस्तावेज़ चुनें (Select ID Proof):</label>
-                <select id="idType" name="idType" required>
-                    <option value="">-- दस्तावेज़ चुनें --</option>
-                    <option value="PAN">PAN Card (पैन कार्ड - टैक्स परपस)</option>
-                    <option value="Aadhaar">Aadhaar Card (आधार कार्ड)</option>
-                    <option value="VoterID">Voter ID Card (वोटर आईडी)</option>
-                    <option value="Passport">Passport (पासपोर्ट)</option>
-                    <option value="DrivingLicense">Driving License (ड्राइविंग लाइसेंस)</option>
-                </select>
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="candConsent" required>
+                <label for="candConsent" style="margin-bottom:0; font-weight:normal; font-size:13px;">मैं प्रमाणित करता/करती हूँ कि ऊपर दी गई सभी जानकारी सही हैं, और मैं बैकग्राउंड वेरिफिकेशन के लिए सहमति देता/देती हूँ।</label>
             </div>
 
-            <div class="form-group">
-                <label for="idNumber">चयनित आईडी का नंबर (ID Number):</label>
-                <input type="text" id="idNumber" name="idNumber" required placeholder="अपना आईडी नंबर दर्ज करें">
-            </div>
-        </div>
+            <button type="submit" style="margin-top: 20px;">सत्यापन डेटा एचआर को भेजें</button>
+        </form>
+    </div>
 
-        <!-- सेक्शन 3: ऑफिस पर्पस लाइव फेस सेल्फी -->
-        <div class="form-section">
-            <h3>3. लाइव फेस सेल्फी (Live Face Selfie)</h3>
-            <div class="guideline">
-                💡 <strong>गाइडलाइन:</strong> कृपया ऑफिस पर्पस के लिए स्पष्ट सेल्फी लें जिसमें आपके दोनों कंधे (Both Shoulders) और चेहरा पूरी तरह साफ दिखाई दे। चश्मा या कैप पहनने से बचें।
-            </div>
-            <div class="form-group" style="margin-top: 10px;">
-                <input type="file" id="faceSelfie" name="faceSelfie" accept="image/*" capture="user" required>
-                <div class="status-text" id="selfieStatus"></div>
-            </div>
-        </div>
+    <!-- 5. About Us पेज -->
+    <div id="aboutPage" class="page">
+        <h2>About Us - VeriShield India</h2>
+        <p>VeriShield India एक अग्रणी ट्रस्ट-टेक और बैकग्राउंड वेरिफिकेशन प्लेटफॉर्म है, जो पैन इंडिया और ग्लोबल कंपनियों को सुरक्षित, तेज और पारदर्शी हायरिंग समाधान प्रदान करता है। हमारी तकनीकी विशेषज्ञता और <strong>Zero Crime India</strong> नेटवर्क के सहयोग से हम हर उम्मीदवार की प्रामाणिकता और कानूनी सुरक्षा सुनिश्चित करते हैं।</p>
+    </div>
 
-        <!-- सेक्शन 4: जियो-टैगिंग और घर/प्रवेश द्वार की फोटो -->
-        <div class="form-section">
-            <h3>4. जियो-टैगिंग व घर का सत्यापन (Geo-Tagging & Home Photo)</h3>
-            
-            <div class="form-group">
-                <label for="currentAddress">वर्तमान पता (Current Address):</label>
-                <input type="text" id="currentAddress" name="currentAddress" required placeholder="अपना पूरा वर्तमान पता दर्ज करें">
-            </div>
+    <!-- 6. Contact Us पेज -->
+    <div id="contactPage" class="page">
+        <h2>Contact Us</h2>
+        <p>किसी भी व्यावसायिक पूछताछ, साझेदारी या समर्थन के लिए हमसे संपर्क करें:</p>
+        <p><strong>Official Email:</strong> verishieldindia@gmail.com</p>
+        <p><strong>Operational Support:</strong> Pan-India & Global Remote Support</p>
+    </div>
 
-            <div class="form-group">
-                <button type="button" class="btn-blue" onclick="getGeoLocation()">📍 रियल-टाइम GPS लोकेशन (Geo-Tagging) फेच करें</button>
-                <div id="locationStatus" style="font-size: 13px; color: #e67e22; margin-top: 5px;">लोकेशन अभी कैप्चर नहीं हुई है।</div>
-                <input type="hidden" id="geoCoordinates" name="geoCoordinates" required>
-            </div>
-
-            <div class="form-group" style="margin-top: 15px;">
-                <label for="homePhoto">घर / प्रवेश द्वार की लाइव फोटो (Live Home/Gate Photo):</label>
-                <input type="file" id="homePhoto" name="homePhoto" accept="image/*" capture="environment" required>
-                <div style="font-size: 12px; color: #7f8c8d; margin-top: 4px;">केवल रियर कैमरे से लाइव फोटो मान्य होगी।</div>
-            </div>
-        </div>
-
-        <!-- लीगल कंसेंट -->
-        <div class="form-group checkbox-group">
-            <input type="checkbox" id="legalConsent" name="legalConsent" required>
-            <label for="legalConsent" style="margin-bottom:0; font-weight:normal; font-size:13px;">मैं प्रमाणित करता/करती हूँ कि ऊपर दी गई सभी जानकारी और दस्तावेज सही हैं, और मैं बैकग्राउंड वेरिफिकेशन के लिए सहमति देता/देती हूँ।</label>
-        </div>
-
-        <button type="submit" style="margin-top: 20px;">सत्यापन डेटा सबमिट करें (Submit Application)</button>
-    </form>
 </div>
 
+<footer>
+    <p>&copy; 2026 VeriShield India. All rights reserved. | Powered in partnership with <strong>Zero Crime India</strong></p>
+    <div style="margin-top: 10px;">
+        <a onclick="showPage('aboutPage')">About Us</a> | 
+        <a onclick="showPage('contactPage')">Contact Us</a> | 
+        <a onclick="alert('Disclaimer: All verifications are processed based on candidate consent and official database guidelines.')">Disclaimer</a> | 
+        <a onclick="alert('Privacy Policy: We strictly protect user data and adhere to digital privacy norms.')">Privacy Policy</a>
+    </div>
+</footer>
+
 <script>
-    // जियो-लोकेशन फेच करने का फंक्शन
-    function getGeoLocation() {
-        const statusDiv = document.getElementById("locationStatus");
+    function showPage(pageId) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId).classList.add('active');
+        window.scrollTo(0, 0);
+    }
+
+    function generateCandidateLink(event) {
+        event.preventDefault();
+        const candidateName = document.getElementById('hrCandidateName').value;
+        const pkg = document.getElementById('hrLockedPackage').value;
+        const uniqueLink = `https://verishield-india.vercel.app/?package=${pkg}&name=${encodeURIComponent(candidateName)}`;
+        
+        document.getElementById('linkOutput').innerHTML = `✅ सिक्योर लिंक जनरेट हो गया है!<br><a href="#" onclick="loadCandidateData('${candidateName}', '${pkg}')" style="color: #2980b9; word-break: break-all;">${uniqueLink}</a><br><small>(टेस्ट करने के लिए क्लिक करें)</small>`;
+    }
+
+    function loadCandidateData(name, pkg) {
+        document.getElementById('candName').value = name;
+        showPage('candidatePage');
+    }
+
+    function getCandidateLocation() {
+        const statusDiv = document.getElementById("candLocStatus");
         if (navigator.geolocation) {
             statusDiv.innerHTML = "सटीक GPS लोकेशन प्राप्त की जा रही है...";
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const lat = position.coords.latitude;
                     const lon = position.coords.longitude;
-                    document.getElementById("geoCoordinates").value = `Lat: ${lat}, Lon: ${lon}`;
+                    document.getElementById("candGeoCoords").value = `Lat: ${lat}, Lon: ${lon}`;
                     statusDiv.innerHTML = `✅ जियो-टैगिंग सफल! (Lat: ${lat.toFixed(4)}, Lon: ${lon.toFixed(4)})`;
                     statusDiv.style.color = "#27ae60";
                 },
                 (error) => {
                     statusDiv.innerHTML = "❌ लोकेशन की अनुमति नहीं मिली। कृपया GPS ऑन करें।";
                     statusDiv.style.color = "#c0392b";
+                    document.getElementById("candGeoCoords").value = "";
                 },
                 { enableHighAccuracy: true }
             );
@@ -150,23 +290,15 @@
         }
     }
 
-    // फॉर्म सबमिशन हैंडलर
-    document.getElementById('candidateForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const geoCoords = document.getElementById('geoCoordinates').value;
+    function validateCandidateForm(event) {
+        const geoCoords = document.getElementById('candGeoCoords').value;
         if (!geoCoords) {
-            alert("कृपया पहले 'जियो-टैगिंग' बटन पर क्लिक करके GPS लोकेशन कैप्चर करें!");
-            return;
+            event.preventDefault();
+            alert("⚠️ कृपया फॉर्म सबमिट करने से पहले 'रियल-टाइम GPS लोकेशन (Geo-Tagging)' बटन पर क्लिक करके लोकेशन अवश्य कैप्चर करें!");
+            document.getElementById('candAddress').focus();
         }
-
-        alert("कैंडिडेट का सारा डेटा और जियो-टैगिंग सफलताપૂર્વक सबमिट हो रहा है...");
-        // यहाँ आप अपने बैकएंड या फॉर्मसप्रे (Formspree) का एक्शन जोड़ सकते हैं
-        document.getElementById('candidateForm').reset();
-        window.location.reload();
-    });
+    }
 </script>
 
 </body>
 </html>
-
