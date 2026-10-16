@@ -114,7 +114,6 @@
             border-bottom: 2px solid var(--teal-cyan);
         }
         
-        /* Fully Responsive Container: Fluid for mobile, expansive for desktop/laptop */
         .container { 
             width: 90%;
             max-width: 1250px; 
@@ -276,7 +275,6 @@
         footer a { color: #38bdf8; text-decoration: none; margin: 0 15px; cursor: pointer; font-weight: 600; }
         footer a:hover { text-decoration: underline; }
 
-        /* Media queries for fluid scaling across all devices */
         @media (max-width: 768px) {
             .container { width: 95%; padding: 25px 20px; margin: 20px auto; }
             .hero-banner { padding: 40px 20px; }
@@ -817,7 +815,7 @@
 
     function validateCandidateForm(event) {
         var selfieCoords = document.getElementById('selfieGeoCoords').value;
-        var consentChecked = document.getElementById('candConsent'].checked;
+        var consentChecked = document.getElementById('candConsent').checked;
 
         if (!selfieCoords) {
             event.preventDefault();
