@@ -12,13 +12,18 @@
             --bg-light: #f8f9fa;
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #333; }
-        header { background: var(--primary-blue); color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-bottom: 3px solid var(--accent-orange); }
-        header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; }
-        nav { display: flex; flex-wrap: wrap; gap: 16px; }
-        nav a { color: #ecf0f1; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: color 0.3s; }
-        nav a:hover { color: var(--teal-cyan); }
         
-        .container { max-width: 950px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; }
+        /* Professional Header */
+        header { background: var(--primary-blue); color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-bottom: 3px solid var(--accent-orange); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; cursor: pointer; }
+        nav { display: flex; flex-wrap: wrap; gap: 20px; }
+        nav a { color: #ecf0f1; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: color 0.3s; }
+        nav a:hover, nav a.active-nav { color: var(--teal-cyan); }
+        
+        /* Main Container */
+        .container { max-width: 950px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; }
+        
+        /* Page Display Control */
         .page { display: none; }
         .page.active { display: block; }
         
@@ -26,6 +31,7 @@
         h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 25px; }
         p { line-height: 1.7; color: #475569; }
         
+        /* Form & Sections Styling */
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
         .form-section h3 { margin-top: 0; color: var(--teal-cyan); font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
         .form-group { margin-bottom: 18px; }
@@ -33,6 +39,7 @@
         input, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #fff; }
         .guideline { font-size: 13px; color: var(--accent-orange); background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 8px; border-left: 4px solid var(--accent-orange); }
         
+        /* Buttons */
         button { width: 100%; background: var(--teal-cyan); color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
         button:hover { background: #0f766e; }
         .btn-orange { background: var(--accent-orange); }
@@ -40,10 +47,12 @@
         .btn-blue { background: #2563eb; margin-top: 8px; padding: 12px; font-size: 14px; }
         .btn-blue:hover { background: #1d4ed8; }
         
+        /* Hero Banner */
         .hero-banner { text-align: center; padding: 45px 20px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 10px; margin-bottom: 30px; border-bottom: 4px solid var(--accent-orange); }
         .hero-banner h2 { color: white; margin-bottom: 15px; font-size: 32px; }
         .hero-banner p { color: #94a3b8; font-size: 18px; max-width: 650px; margin: 0 auto 25px auto; line-height: 1.6; }
         
+        /* Cards */
         .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
         .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 18px; }
         .service-card p { color: #64748b; font-size: 15px; line-height: 1.5; }
@@ -59,24 +68,24 @@
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 11px; padding: 3px 7px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
         
+        /* Footer */
         footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #38bdf8; text-decoration: none; margin: 0 10px; cursor: pointer; }
+        footer a { color: #38bdf8; text-decoration: none; margin: 0 12px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
+<!-- Clean Header (Only core navigation items) -->
 <header>
-    <h1>🛡️ VeriShield INDIA</h1>
-    <nav>
-        <a onclick="showPage('homePage')">Home</a>
-        <a onclick="showPage('servicesPage')">Services</a>
-        <a onclick="showPage('hrPage')">HR Portal</a>
-        <a onclick="showPage('candidatePage')">Candidate Portal</a>
-        <a onclick="showPage('clientsPage')">Our Clients</a>
-        <a onclick="showPage('faqPage')">FAQ</a>
-        <a onclick="showPage('aboutPage')">About Us</a>
-        <a onclick="showPage('contactPage')">Contact Us</a>
+    <h1 onclick="showPage('homePage')">🛡️ VeriShield INDIA</h1>
+    <nav id="mainNav">
+        <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
+        <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
+        <a onclick="showPage('hrPage')" id="nav-hrPage">HR Portal</a>
+        <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate Portal</a>
+        <a onclick="showPage('clientsPage')" id="nav-clientsPage">Our Clients</a>
+        <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
     </nav>
 </header>
 
@@ -327,22 +336,47 @@
         <p style="font-size: 14px; color: #64748b;">Our corporate support desk operates 24/7 to assist HR professionals and enterprise clients with real-time verification inquiries.</p>
     </div>
 
+    <!-- 9. Disclaimer Page -->
+    <div id="disclaimerPage" class="page">
+        <h2>Legal Disclaimer</h2>
+        <p>The information and verification services provided by VeriShield India are conducted in strict compliance with candidate consent, data protection norms, and official database guidelines. VeriShield India acts as a technology and screening facilitator. While we source data from authorized government, legal, and educational repositories, we do not guarantee absolute liability for third-party database errors or delayed public record updates. Clients are advised to use screening reports as a vital component of their comprehensive hiring evaluation process.</p>
+    </div>
+
+    <!-- 10. Privacy Policy Page -->
+    <div id="privacyPage" class="page">
+        <h2>Privacy Policy & Compliance</h2>
+        <p>At VeriShield India, we take your data privacy with utmost seriousness. We adhere to global data privacy standards, the Digital Personal Data Protection (DPDP) Act, and industry-best encryption protocols to ensure secure handling of candidate Personally Identifiable Information (PII).</p>
+        <p><strong>Data Collection & Usage:</strong> Candidate data (such as PAN, addresses, face selfies, and GPS geo-tags) is collected solely for background screening purposes with explicit legal consent. We never sell, share, or monetize candidate data with third-party marketing entities.</p>
+        <p><strong>Data Retention & Security:</strong> All records are stored in encrypted cloud repositories and automatically purged or anonymized in compliance with corporate data retention agreements.</p>
+    </div>
+
 </div>
 
+<!-- Professional Footer with About, Contact, Disclaimer & Privacy -->
 <footer>
     <p>&copy; 2026 VeriShield India. All rights reserved. Trusted verification partner for global enterprises including <strong>Zero Crime India</strong>.</p>
     <div style="margin-top: 12px;">
         <a onclick="showPage('aboutPage')">About Us</a> | 
         <a onclick="showPage('contactPage')">Contact Us</a> | 
-        <a onclick="alert('Disclaimer: All verifications are conducted in strict compliance with candidate consent, data protection norms, and official database guidelines.')">Disclaimer</a> | 
-        <a onclick="alert('Privacy Policy: We adhere to global data privacy standards, ensuring secure handling of candidate PII.')">Privacy Policy</a>
+        <a onclick="showPage('disclaimerPage')">Disclaimer</a> | 
+        <a onclick="showPage('privacyPage')">Privacy Policy</a>
     </div>
 </footer>
 
 <script>
     function showPage(pageId) {
+        // Hide all pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        // Show selected page
         document.getElementById(pageId).classList.add('active');
+        
+        // Update active nav style
+        document.querySelectorAll('nav a').forEach(a => a.classList.remove('active-nav'));
+        const activeNav = document.getElementById('nav-' + pageId);
+        if(activeNav) {
+            activeNav.classList.add('active-nav');
+        }
+        
         window.scrollTo(0, 0);
     }
 
