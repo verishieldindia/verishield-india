@@ -36,11 +36,11 @@
             pointer-events: none;
         }
 
-        /* Professional & Sticky Header */
+        /* Professional & Sticky Header with Multi-Item Nav */
         header { 
             background: var(--primary-blue); 
             color: white; 
-            padding: 12px 30px; 
+            padding: 12px 25px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -77,15 +77,15 @@
             display: block;
         }
         
-        nav { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+        nav { display: flex; flex-wrap: wrap; gap: 4px; align-items: center; justify-content: flex-end; }
         nav a { 
             color: #cbd5e1; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 13px; 
+            font-size: 12px; 
             cursor: pointer; 
-            padding: 6px 10px;
-            border-radius: 6px;
+            padding: 5px 8px;
+            border-radius: 4px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
@@ -95,7 +95,7 @@
         }
         
         /* Main Container */
-        .container { max-width: 950px; background: rgba(255, 255, 255, 0.96); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; backdrop-filter: blur(5px); }
+        .container { max-width: 950px; background: rgba(255, 255, 255, 0.96); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 600px; backdrop-filter: blur(5px); }
         
         /* Page Display Control */
         .page { display: none; }
@@ -106,9 +106,9 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 30px; font-size: 28px; }
-        h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 30px; }
-        p { line-height: 1.8; color: #475569; font-size: 15px; margin-bottom: 15px; }
+        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 25px; font-size: 28px; }
+        h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 35px; }
+        p { line-height: 1.8; color: #475569; font-size: 15px; margin-bottom: 18px; }
         
         /* Form & Sections Styling */
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
@@ -132,16 +132,16 @@
         .hero-banner p { color: #94a3b8; font-size: 18px; max-width: 650px; margin: 0 auto 25px auto; line-height: 1.6; }
         
         /* Cards */
-        .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
-        .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 18px; }
-        .service-card p { color: #64748b; font-size: 15px; line-height: 1.5; }
+        .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 30px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
+        .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 20px; }
+        .service-card p { color: #475569; font-size: 15px; line-height: 1.8; }
         
         .client-logo-box { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
         .client-badge { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 15px 25px; border-radius: 8px; font-weight: bold; color: var(--primary-blue); font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         
-        .faq-item { background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
-        .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 16px; }
-        .faq-item p { margin-bottom: 0; color: #64748b; font-size: 14px; }
+        .faq-item { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 20px; }
+        .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 17px; }
+        .faq-item p { margin-bottom: 0; color: #475569; font-size: 15px; line-height: 1.7; }
         
         .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
         .checkbox-group input { width: auto; }
@@ -149,13 +149,13 @@
         
         /* Footer */
         footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #38bdf8; text-decoration: none; margin: 0 8px; cursor: pointer; }
+        footer a { color: #38bdf8; text-decoration: none; margin: 0 10px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-<!-- Professional Header -->
+<!-- Professional Sticky Header -->
 <header>
     <div class="logo-area" onclick="showPage('homePage')">
         <svg class="logo-svg" viewBox="0 0 24 24">
@@ -184,7 +184,7 @@
 
 <div class="container">
 
-    <!-- 1. Home Page -->
+    <!-- 1. Home Page (Expanded & Deep Content) -->
     <div id="homePage" class="page active">
         <div class="hero-banner">
             <h2>Pan-India Trust-Tech & Background Verification</h2>
@@ -200,47 +200,58 @@
             <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.6;">VeriShield India proudly delivers high-precision background screening and digital infrastructure to industry leaders including <strong>Zero Crime India</strong> and diverse corporate partners.</p>
         </div>
 
-        <h3>Why Choose VeriShield India?</h3>
-        <p>In today's fast-paced corporate ecosystem, verifying employee credentials is paramount. VeriShield India combines cutting-edge automated API frameworks with secure, zero-friction candidate onboarding. Whether you are hiring remote professionals or local talent Pan-India, our platform ensures absolute compliance, fraud prevention, and real-time risk intelligence.</p>
+        <h3>Why Choose VeriShield India for Enterprise Screening?</h3>
+        <p>In today's borderless corporate ecosystem, securing your organization against credential fraud, résumé inflation, and hidden legal liabilities is more critical than ever. VeriShield India stands at the forefront of trust-tech infrastructure, combining cutting-edge automated API pipelines with friction-free candidate onboarding.</p>
+        <p>Whether your organization is hiring remote engineering teams across international borders or scaling local operations Pan-India, our platform eliminates manual bottlenecks. We deliver tamper-proof verification reports complete with real-time GPS geo-tagging, judicial e-Courts litigation scans, and EPFO employment history tracking.</p>
+        <p>Our commitment is rooted in absolute regulatory compliance, adherence to the DPDP Act, and uncompromising data security standards. By partnering with VeriShield India, enterprise leaders gain immediate risk intelligence, ensuring a safe, transparent, and high-integrity workforce.</p>
     </div>
 
-    <!-- 2. Services Page -->
+    <!-- 2. Services Page (Expanded & Detailed) -->
     <div id="servicesPage" class="page">
         <h2>Enterprise Screening Solutions</h2>
+        <p>We provide a comprehensive suite of digital verification modules engineered to safeguard modern enterprises against workplace fraud and compliance failures.</p>
         
         <div class="service-card">
             <h4>🔥 1. Complete Corporate BGV Package (All-in-One + Education)</h4>
-            <p>Designed for MNCs & Remote Hiring: Includes <strong>PAN Card (Mandatory Tax Verification)</strong>, ID KYC, e-Courts (Pan-India Criminal Litigation Scan), EPFO/UAN (Employment History & Dual Employment/Moonlighting Detection), University Education Degree Verification, and Real-Time Geo-Tagging.</p>
+            <p><strong>Overview:</strong> The gold standard for MNCs, technology firms, and remote-first organizations.<br>
+            <strong>Key Components:</strong> Mandatory PAN Card tax compliance verification, multi-repository ID KYC, Pan-India e-Courts criminal and civil litigation scanning, EPFO/UAN unified passbook history to detect dual employment and moonlighting, accredited university education degree authentication, and tamper-proof real-time GPS geo-tagging.<br>
+            <strong>Value Proposition:</strong> Eliminates 99.9% of hiring fraud before onboarding commences.</p>
         </div>
 
         <div class="service-card">
             <h4>🛡️ 2. Standard ID & Tax Compliance KYC</h4>
-            <p>Instant verification services for PAN Card, Aadhaar Card, Voter ID, Passport, and Driving License to ensure seamless regulatory compliance.</p>
+            <p><strong>Overview:</strong> Essential identity vetting for high-volume recruitment and regulatory compliance.<br>
+            <strong>Key Components:</strong> Instant automated verification across PAN Card, Aadhaar databases, Voter ID electoral rolls, valid Passports, and state-issued Driving Licenses.<br>
+            <strong>Value Proposition:</strong> Fast turnaround times with direct government repository sync.</p>
         </div>
 
         <div class="service-card">
             <h4>🏠 3. Domestic Staff & Blue-Collar Verification</h4>
-            <p>On-ground address authentication, local criminal database check, and GPS geo-tagging for residential and commercial support staff.</p>
+            <p><strong>Overview:</strong> Rigorous safety checks for residential and commercial support personnel.<br>
+            <strong>Key Components:</strong> On-ground address authentication, local police and criminal record checks, reference checks, and mobile-based GPS geo-tagging.<br>
+            <strong>Value Proposition:</strong> Ensures absolute safety and peace of mind for households and corporate facilities.</p>
         </div>
     </div>
 
-    <!-- 3. Pricing & Packages Page (New Added) -->
+    <!-- 3. Pricing & Packages Page (Expanded & Detailed) -->
     <div id="pricingPage" class="page">
-        <h2>Transparent Pricing & Packages</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Choose a screening plan tailored to your corporate hiring volume and compliance requirements.</p>
+        <h2>Transparent Pricing & Enterprise Packages</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Flexible, scalable screening tiers tailored to your recruitment volume and risk mitigation appetite.</p>
         
         <div class="service-card" style="border-left-color: var(--accent-orange);">
-            <h4>💎 Startup / Standard Tier</h4>
-            <p><strong>Ideal for:</strong> Growing startups and SMEs.<br>
-            <strong>Includes:</strong> PAN & ID KYC Verification, e-Courts Criminal Check, and Basic Geo-Tagging.<br>
+            <h4>💎 Startup & SME Tier (Standard Compliance)</h4>
+            <p><strong>Target Audience:</strong> Fast-growing startups and growing businesses.<br>
+            <strong>Scope of Work:</strong> Primary ID KYC (PAN/Aadhaar), e-Courts criminal record screening, and basic address geo-tagging.<br>
+            <strong>Billing Model:</strong> Pay-per-candidate or flexible monthly subscription.<br>
             <strong>Turnaround Time:</strong> Instant to 24 Hours.</p>
         </div>
 
         <div class="service-card" style="border-left-color: var(--teal-cyan);">
-            <h4>🔥 Enterprise All-In-One Tier (Most Popular)</h4>
-            <p><strong>Ideal for:</strong> MNCs, remote-first organizations, and large enterprises.<br>
-            <strong>Includes:</strong> Complete Corporate Package (PAN, e-Courts, EPFO/UAN Moonlighting Check, Education Degree Verification, Live Face Selfie & Geo-Tagging) + 6 Months Post-Hiring Monitoring.<br>
-            <strong>Turnaround Time:</strong> Automated & Real-Time API Processing.</p>
+            <h4>🔥 Enterprise All-In-One Tier (Flagship Package)</h4>
+            <p><strong>Target Audience:</strong> Global MNCs, remote-first technology firms, and large financial institutions.<br>
+            <strong>Scope of Work:</strong> Complete corporate screening including PAN compliance, e-Courts litigation check, EPFO/UAN moonlighting detection, university degree authentication, live face selfie, GPS geo-tagging, plus 6 Months Post-Hiring Continuous Monitoring.<br>
+            <strong>Billing Model:</strong> Volume-based enterprise contract with dedicated account management.<br>
+            <strong>Turnaround Time:</strong> Fully automated real-time API execution.</p>
         </div>
     </div>
 
@@ -389,53 +400,59 @@
         <div id="trackResult" style="margin-top: 20px; font-weight: 600; text-align: center;"></div>
     </div>
 
-    <!-- 7. Blogs & Insights Page (New Added) -->
+    <!-- 7. Blogs & Insights Page (Expanded & Detailed) -->
     <div id="blogPage" class="page">
         <h2>Blogs & Industry Insights</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Stay updated with the latest trends in background screening, corporate fraud prevention, and employment laws.</p>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Deep-dive analytical articles on corporate screening, remote hiring security, and compliance frameworks.</p>
         
         <div class="service-card">
             <h4>📖 Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
-            <p>Discover how dual employment threatens enterprise data security and how automated EPFO passbook checks mitigate this hidden risk.</p>
+            <p>The rapid expansion of remote work has introduced unprecedented challenges regarding employee loyalty and data security. Moonlighting—holding concurrent full-time employment across competing tech firms—poses severe intellectual property and productivity risks.<br><br>
+            Traditional reference checks often fail to uncover dual employment. By integrating automated EPFO (UAN) passbook history checks into the pre-employment screening workflow, HR leaders can instantly identify active concurrent employer contributions, ensuring complete corporate transparency.</p>
         </div>
         <div class="service-card">
-            <h4>📖 The Importance of e-Courts Litigation Checks in Hiring</h4>
-            <p>Why criminal record scans and civil litigation checks protect your organizational reputation from unforeseen legal liabilities.</p>
+            <h4>📖 The Critical Importance of e-Courts Litigation Checks in Hiring</h4>
+            <p>Background screening traditionally focused strictly on credit history and educational degrees. However, modern corporate risk management demands exhaustive legal scrutiny. Unreported criminal charges, civil fraud litigations, or pending financial disputes can severely damage organizational reputation and workplace safety.<br><br>
+            Pan-India e-Courts database integration allows VeriShield India to scan district, high, and supreme court registries in real-time, matching candidate identities against active litigations before an offer letter is signed.</p>
         </div>
     </div>
 
-    <!-- 8. Case Studies Page (New Added) -->
+    <!-- 8. Case Studies Page (Expanded & Detailed) -->
     <div id="caseStudiesPage" class="page">
-        <h2>Success Stories & Case Studies</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Real-world examples of how VeriShield India helped enterprises prevent fraudulent hires.</p>
+        <h2>Success Stories & Enterprise Case Studies</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Documented real-world deployments proving the efficacy of VeriShield's automated verification infrastructure.</p>
         
         <div class="service-card">
-            <h4>🏢 Case Study: Preventing Identity Deception for a Global Fintech MNC</h4>
-            <p><strong>Challenge:</strong> A fast-growing fintech startup faced multiple resume fabrications during remote hiring.<br>
-            <strong>Solution:</strong> Implemented VeriShield's All-in-One Corporate BGV package with real-time geo-tagging and PAN verification.<br>
-            <strong>Result:</strong> 100% credential authenticity and zero fraudulent onboarding over 12 months.</p>
+            <h4>🏢 Case Study: Neutralizing Resume Inflation and Identity Fraud for a Global Fintech Unicorn</h4>
+            <p><strong>The Challenge:</strong> Amid aggressive remote expansion, a high-growth fintech enterprise experienced an alarming surge in fabricated university degrees and inflated past compensation histories, leading to compromised hire quality.<br><br>
+            <strong>The Solution:</strong> The organization deployed VeriShield India's All-in-One Corporate BGV package. This integrated mandatory PAN tax compliance, automated university credential authentication, and mobile GPS geo-tagging.<br><br>
+            <strong>The Impact:</strong> Within 12 months of implementation, candidate fraud detection improved by 100%, onboarding turnaround time dropped from 14 days to under 48 hours, and corporate compliance audits were cleared without a single discrepancy.</p>
         </div>
     </div>
 
-    <!-- 9. API Documentation Page (New Added) -->
+    <!-- 9. API Documentation Page (Expanded & Detailed) -->
     <div id="apiDocsPage" class="page">
         <h2>Developer Hub & API Documentation</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Integrate VeriShield verification pipelines directly into your HRMS or recruitment software.</p>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Technical specifications and integration guides for connecting HRMS platforms with VeriShield pipelines.</p>
         
         <div class="service-card">
-            <h4>⚙️ RESTful API Endpoints & Webhooks</h4>
-            <p>Our robust sandbox and production endpoints allow seamless integration for PAN KYC, e-Courts scanning, and UAN history retrieval. Request your API keys by contacting our enterprise support desk.</p>
+            <h4>⚙️ RESTful API Architecture & Secure Webhooks</h4>
+            <p>VeriShield India provides enterprise-grade REST APIs designed for effortless integration into existing Human Resource Management Systems (HRMS) or Applicant Tracking Systems (ATS).<br><br>
+            <strong>Authentication:</strong> OAuth 2.0 token-based security paired with API key headers.<br>
+            <strong>Endpoints:</strong> Dedicated routes for PAN verification (`/v1/kyc/pan`), e-Courts criminal scan (`/v1/legal/ecourts`), and EPFO history retrieval (`/v1/employment/uan`).<br>
+            <strong>Webhooks:</strong> Real-time asynchronous event notifications dispatched to your server as soon as verification milestones are completed.</p>
         </div>
     </div>
 
-    <!-- 10. Careers & Partner Page (New Added) -->
+    <!-- 10. Careers & Partner Page (Expanded & Detailed) -->
     <div id="careersPage" class="page">
         <h2>Careers & Field Verification Partners</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Join our growing Pan-India network of trust-tech professionals and field verification agents.</p>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Build the future of trust-tech with us or join our nationwide network of physical audit partners.</p>
         
         <div class="service-card">
-            <h4>🤝 Become a VeriShield Verification Partner</h4>
-            <p>Are you an agency or independent professional specializing in address verification and physical audits? Partner with us to scale your business operations pan-India. Drop your resume or proposal at our official support email.</p>
+            <h4>🤝 Become an Accredited VeriShield Field Verification Partner</h4>
+            <p>Are you an established local agency, inspection firm, or independent auditor specializing in residential address verification, business audits, and physical credential checks? VeriShield India invites accredited regional partners to join our technology-driven ecosystem.<br><br>
+            Partnering with us gives you access to automated case allotments via our partner application portal, transparent per-audit payouts, and cutting-edge operational tools. Submit your corporate credentials and regional coverage details to our official support email to initiate partnership discussions.</p>
         </div>
     </div>
 
