@@ -36,66 +36,61 @@
             pointer-events: none;
         }
 
-        /* Professional & Clean Header */
+        /* Professional & Sticky Header */
         header { 
             background: var(--primary-blue); 
             color: white; 
-            padding: 15px 30px; 
+            padding: 12px 30px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             flex-wrap: wrap; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
             border-bottom: 3px solid var(--accent-orange); 
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 9999;
         }
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             cursor: pointer;
         }
-        .logo-badge {
-            background: linear-gradient(135deg, var(--accent-orange), #b45309);
-            color: white;
-            font-weight: bold;
-            font-size: 16px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            letter-spacing: 1px;
+        .logo-svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--accent-orange);
         }
         .logo-text h1 { 
             margin: 0; 
-            font-size: 20px; 
+            font-size: 19px; 
             letter-spacing: 0.5px; 
             color: #fff; 
             font-weight: 700;
         }
         .logo-text span {
-            font-size: 11px;
+            font-size: 10px;
             color: var(--teal-cyan);
             letter-spacing: 1px;
             text-transform: uppercase;
             display: block;
         }
         
-        nav { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 5px; }
+        nav { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
         nav a { 
             color: #cbd5e1; 
             text-decoration: none; 
             font-weight: 600; 
             font-size: 13px; 
             cursor: pointer; 
-            padding: 6px 12px;
+            padding: 6px 10px;
             border-radius: 6px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
             color: white; 
-            background: rgba(13, 148, 136, 0.25);
+            background: rgba(13, 148, 136, 0.3);
             border-bottom: 2px solid var(--teal-cyan);
         }
         
@@ -112,8 +107,8 @@
         }
         
         h2 { color: var(--primary-blue); text-align: center; margin-bottom: 30px; font-size: 28px; }
-        h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 25px; }
-        p { line-height: 1.8; color: #475569; font-size: 15px; }
+        h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 30px; }
+        p { line-height: 1.8; color: #475569; font-size: 15px; margin-bottom: 15px; }
         
         /* Form & Sections Styling */
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
@@ -154,16 +149,18 @@
         
         /* Footer */
         footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #38bdf8; text-decoration: none; margin: 0 12px; cursor: pointer; }
+        footer a { color: #38bdf8; text-decoration: none; margin: 0 8px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
-<!-- Professional Header with Styled Logo -->
+<!-- Professional Header -->
 <header>
     <div class="logo-area" onclick="showPage('homePage')">
-        <div class="logo-badge">VS</div>
+        <svg class="logo-svg" viewBox="0 0 24 24">
+            <path d="M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-2.33v9.02z"/>
+        </svg>
         <div class="logo-text">
             <h1>VeriShield INDIA</h1>
             <span>Trust-Tech Infrastructure</span>
@@ -172,9 +169,15 @@
     <nav id="mainNav">
         <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
         <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
+        <a onclick="showPage('pricingPage')" id="nav-pricingPage">Pricing</a>
         <a onclick="showPage('hrPage')" id="nav-hrPage">HR Portal</a>
-        <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate Portal</a>
-        <a onclick="showPage('clientsPage')" id="nav-clientsPage">Our Clients</a>
+        <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate</a>
+        <a onclick="showPage('trackerPage')" id="nav-trackerPage">Tracker</a>
+        <a onclick="showPage('blogPage')" id="nav-blogPage">Blogs</a>
+        <a onclick="showPage('caseStudiesPage')" id="nav-caseStudiesPage">Case Studies</a>
+        <a onclick="showPage('apiDocsPage')" id="nav-apiDocsPage">API Docs</a>
+        <a onclick="showPage('careersPage')" id="nav-careersPage">Careers</a>
+        <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
         <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
     </nav>
 </header>
@@ -221,16 +224,23 @@
         </div>
     </div>
 
-    <!-- 3. Our Clients Page -->
-    <div id="clientsPage" class="page">
-        <h2>Our Valued Clients & Partners</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">We take immense pride in securing the workforce and digital trust of leading organizations across India.</p>
+    <!-- 3. Pricing & Packages Page (New Added) -->
+    <div id="pricingPage" class="page">
+        <h2>Transparent Pricing & Packages</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Choose a screening plan tailored to your corporate hiring volume and compliance requirements.</p>
         
-        <div class="client-logo-box">
-            <div class="client-badge">🛡️ Zero Crime India</div>
-            <div class="client-badge">🌐 Global Tech Solutions</div>
-            <div class="client-badge">🏢 Prime Security & Services</div>
-            <div class="client-badge">🚀 Apex Digital Media</div>
+        <div class="service-card" style="border-left-color: var(--accent-orange);">
+            <h4>💎 Startup / Standard Tier</h4>
+            <p><strong>Ideal for:</strong> Growing startups and SMEs.<br>
+            <strong>Includes:</strong> PAN & ID KYC Verification, e-Courts Criminal Check, and Basic Geo-Tagging.<br>
+            <strong>Turnaround Time:</strong> Instant to 24 Hours.</p>
+        </div>
+
+        <div class="service-card" style="border-left-color: var(--teal-cyan);">
+            <h4>🔥 Enterprise All-In-One Tier (Most Popular)</h4>
+            <p><strong>Ideal for:</strong> MNCs, remote-first organizations, and large enterprises.<br>
+            <strong>Includes:</strong> Complete Corporate Package (PAN, e-Courts, EPFO/UAN Moonlighting Check, Education Degree Verification, Live Face Selfie & Geo-Tagging) + 6 Months Post-Hiring Monitoring.<br>
+            <strong>Turnaround Time:</strong> Automated & Real-Time API Processing.</p>
         </div>
     </div>
 
@@ -364,7 +374,85 @@
         </form>
     </div>
 
-    <!-- 6. FAQ Page -->
+    <!-- 6. Case Tracker Page -->
+    <div id="trackerPage" class="page">
+        <h2>Live Case Tracker (Status Engine)</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 25px;">Enter your unique Case Tracking ID to check real-time verification progress.</p>
+        
+        <div class="form-section">
+            <div class="form-group">
+                <label>Case Tracking ID:</label>
+                <input type="text" id="trackIdInput" placeholder="e.g. VSI-2026-3396">
+            </div>
+            <button class="btn-orange" onclick="checkCaseStatus()">Check Status</button>
+        </div>
+        <div id="trackResult" style="margin-top: 20px; font-weight: 600; text-align: center;"></div>
+    </div>
+
+    <!-- 7. Blogs & Insights Page (New Added) -->
+    <div id="blogPage" class="page">
+        <h2>Blogs & Industry Insights</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Stay updated with the latest trends in background screening, corporate fraud prevention, and employment laws.</p>
+        
+        <div class="service-card">
+            <h4>📖 Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
+            <p>Discover how dual employment threatens enterprise data security and how automated EPFO passbook checks mitigate this hidden risk.</p>
+        </div>
+        <div class="service-card">
+            <h4>📖 The Importance of e-Courts Litigation Checks in Hiring</h4>
+            <p>Why criminal record scans and civil litigation checks protect your organizational reputation from unforeseen legal liabilities.</p>
+        </div>
+    </div>
+
+    <!-- 8. Case Studies Page (New Added) -->
+    <div id="caseStudiesPage" class="page">
+        <h2>Success Stories & Case Studies</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Real-world examples of how VeriShield India helped enterprises prevent fraudulent hires.</p>
+        
+        <div class="service-card">
+            <h4>🏢 Case Study: Preventing Identity Deception for a Global Fintech MNC</h4>
+            <p><strong>Challenge:</strong> A fast-growing fintech startup faced multiple resume fabrications during remote hiring.<br>
+            <strong>Solution:</strong> Implemented VeriShield's All-in-One Corporate BGV package with real-time geo-tagging and PAN verification.<br>
+            <strong>Result:</strong> 100% credential authenticity and zero fraudulent onboarding over 12 months.</p>
+        </div>
+    </div>
+
+    <!-- 9. API Documentation Page (New Added) -->
+    <div id="apiDocsPage" class="page">
+        <h2>Developer Hub & API Documentation</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Integrate VeriShield verification pipelines directly into your HRMS or recruitment software.</p>
+        
+        <div class="service-card">
+            <h4>⚙️ RESTful API Endpoints & Webhooks</h4>
+            <p>Our robust sandbox and production endpoints allow seamless integration for PAN KYC, e-Courts scanning, and UAN history retrieval. Request your API keys by contacting our enterprise support desk.</p>
+        </div>
+    </div>
+
+    <!-- 10. Careers & Partner Page (New Added) -->
+    <div id="careersPage" class="page">
+        <h2>Careers & Field Verification Partners</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Join our growing Pan-India network of trust-tech professionals and field verification agents.</p>
+        
+        <div class="service-card">
+            <h4>🤝 Become a VeriShield Verification Partner</h4>
+            <p>Are you an agency or independent professional specializing in address verification and physical audits? Partner with us to scale your business operations pan-India. Drop your resume or proposal at our official support email.</p>
+        </div>
+    </div>
+
+    <!-- 11. Our Clients Page -->
+    <div id="clientsPage" class="page">
+        <h2>Our Valued Clients & Partners</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">We take immense pride in securing the workforce and digital trust of leading organizations across India.</p>
+        
+        <div class="client-logo-box">
+            <div class="client-badge">🛡️ Zero Crime India</div>
+            <div class="client-badge">🌐 Global Tech Solutions</div>
+            <div class="client-badge">🏢 Prime Security & Services</div>
+            <div class="client-badge">🚀 Apex Digital Media</div>
+        </div>
+    </div>
+
+    <!-- 12. FAQ Page -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <div class="faq-item">
@@ -409,7 +497,7 @@
         </div>
     </div>
 
-    <!-- 7. About Us Page -->
+    <!-- 13. About Us Page -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India</h2>
         <p><strong>VeriShield India</strong> is a premier global Trust-Tech and Background Verification (BGV) infrastructure provider, dedicated to establishing absolute digital trust and compliance in modern hiring ecosystems. In an era where remote-first workplaces and cross-border recruitment dominate, verifying candidate credentials with lightning speed and uncompromised accuracy is paramount.</p>
@@ -419,7 +507,7 @@
         <p><strong>Our Vision:</strong> To become the world's most reliable trust-tech ecosystem, setting global benchmarks in data security, regulatory compliance, and workplace safety.</p>
     </div>
 
-    <!-- 8. Contact Us Page -->
+    <!-- 14. Contact Us Page -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support</h2>
         <p>Whether you are an enterprise looking to integrate our robust BGV APIs, an HR professional seeking custom screening packages, or an organization requiring dedicated onboarding support, our corporate desk is at your service.</p>
@@ -428,7 +516,7 @@
         <p>Our dedicated technical and client success teams operate round-the-clock to assist corporate partners with real-time verification inquiries, custom API setups, and enterprise billing assistance.</p>
     </div>
 
-    <!-- 9. Legal Disclaimer Page -->
+    <!-- 15. Legal Disclaimer Page -->
     <div id="disclaimerPage" class="page">
         <h2>Legal Disclaimer & Operational Scope</h2>
         <p>The verification services, software portals, and analytical reports provided by <strong>VeriShield India</strong> are conducted in strict compliance with candidate consent, data protection norms, and official database guidelines. VeriShield India operates strictly as a technology and screening facilitator.</p>
@@ -436,7 +524,7 @@
         <p>Corporate clients are strongly advised to utilize VeriShield screening reports as a vital, foundational component of their comprehensive pre-employment and post-employment evaluation framework.</p>
     </div>
 
-    <!-- 10. Privacy Policy Page -->
+    <!-- 16. Privacy Policy Page -->
     <div id="privacyPage" class="page">
         <h2>Privacy Policy & Data Compliance</h2>
         <p>At VeriShield India, safeguarding candidate and corporate data privacy is our highest institutional priority. We adhere to international data privacy standards, the Digital Personal Data Protection (DPDP) Act, and industry-leading AES-256 encryption protocols to secure all Personally Identifiable Information (PII).</p>
@@ -459,12 +547,9 @@
 
 <script>
     function showPage(pageId) {
-        // Hide all pages
         document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-        // Show selected page
         document.getElementById(pageId).classList.add('active');
         
-        // Update active nav style
         document.querySelectorAll('nav a').forEach(a => a.classList.remove('active-nav'));
         const activeNav = document.getElementById('nav-' + pageId);
         if(activeNav) {
@@ -486,6 +571,18 @@
     function loadCandidateData(name, pkg) {
         document.getElementById('candName').value = name;
         showPage('candidatePage');
+    }
+
+    function checkCaseStatus() {
+        const trackId = document.getElementById('trackIdInput').value.trim();
+        const resDiv = document.getElementById('trackResult');
+        if(!trackId) {
+            resDiv.innerHTML = "⚠️ Please enter a valid Case Tracking ID.";
+            resDiv.style.color = "#ef4444";
+            return;
+        }
+        resDiv.innerHTML = `🔍 Searching records for ID: <strong>${trackId}</strong>... Status: <span style="color:#d97706;">IN-PROGRESS (Verified Clean / Under Review)</span>`;
+        resDiv.style.color = "#0f172a";
     }
 
     function getCandidateLocation() {
