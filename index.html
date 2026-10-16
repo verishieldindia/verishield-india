@@ -6,7 +6,6 @@
     <title>VeriShield India - Global Trust-Tech & Background Verification Platform</title>
     <style>
         :root {
-            /* Updated Professional Theme Colors (Clean & Corporate) */
             --primary-blue: #0f172a;
             --accent-orange: #d97706;
             --teal-cyan: #0d9488;
@@ -187,10 +186,10 @@
             position: fixed;
             bottom: 85px;
             right: 20px;
-            width: 300px;
+            width: 320px;
             background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
             z-index: 99999;
             display: none;
             overflow: hidden;
@@ -207,36 +206,36 @@
             align-items: center;
         }
         .chat-box-body {
-            padding: 12px;
-            max-height: 220px;
+            padding: 15px;
+            max-height: 260px;
             overflow-y: auto;
             background: #f8f9fa;
             font-size: 13px;
             text-align: left;
         }
         .chat-box-footer {
-            padding: 8px;
+            padding: 10px;
             background: #fff;
             border-top: 1px solid #e2e8f0;
             display: flex;
-            gap: 6px;
+            gap: 8px;
         }
         .chat-box-footer input {
             padding: 8px;
-            font-size: 12px;
+            font-size: 13px;
             width: 100%;
         }
         .chat-box-footer button {
             width: auto;
-            padding: 6px 10px;
-            font-size: 12px;
+            padding: 6px 12px;
+            font-size: 13px;
         }
 
         .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 11px; padding: 3px 7px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
         
-        /* Footer (Strictly Unchanged) */
+        /* Footer */
         footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
         footer a { color: #38bdf8; text-decoration: none; margin: 0 10px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
@@ -248,6 +247,7 @@
 <header>
     <div class="header-top">
         <div class="logo-area" onclick="showPage('homePage')">
+            <!-- Proper Logo Implementation with Fallbacks -->
             <img src="logo.png" alt="VeriShield Logo" class="site-logo" onerror="this.src='logo.jpg'; this.onerror=function(){this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'%23d97706\'><path d=\'M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z\'/></svg>';}">
             <div class="logo-text">
                 <h1>VeriShield INDIA</h1>
@@ -527,42 +527,78 @@
         </div>
     </div>
 
-    <!-- 12. FAQ Page -->
+    <!-- 12. FAQ Page (Full 10 Questions) -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <div class="faq-item">
-            <h4>Q1. Is Geo-Tagging mandatory for both selfie and home address?</h4>
-            <p>Yes, real-time GPS coordinates must be successfully fetched separately for both your selfie location and residential address.</p>
+            <h4>Q1. How does HR initiate a candidate verification?</h4>
+            <p>The HR logs into the Enterprise HR Portal, enters candidate details, selects the screening package, and generates a secure, locked link.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q2. Can the candidate change the verification package?</h4>
+            <p>No, the package is securely locked by the HR during link generation. The candidate can only submit personal details and verification documents.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q3. Is PAN Card mandatory for all candidates?</h4>
+            <p>Yes, PAN Card is strictly mandatory for tax compliance and primary identity cross-referencing.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q4. How does real-time Geo-Tagging work?</h4>
+            <p>The candidate's smartphone browser securely captures precise GPS coordinates (Latitude & Longitude) along with a live rear-camera photo of their residential entrance.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q5. Where does the final verification report get delivered?</h4>
+            <p>The comprehensive PDF report containing digital signatures and secure QR codes is sent directly to the HR's registered email ID.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q6. What checks are included in the All-in-One Corporate Package?</h4>
+            <p>It includes PAN KYC, e-Courts criminal litigation scan, EPFO/UAN employment history & moonlighting check, university education degree verification, and geo-tagging.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q7. Is candidate consent legally required?</h4>
+            <p>Yes, every candidate must explicitly check the legal consent box before submitting their onboarding and verification data.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q8. How long does the screening process take?</h4>
+            <p>Automated database and ID checks are processed instantly upon HR payment confirmation, while comprehensive reports are delivered within 24-48 hours.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q9. Does VeriShield India comply with data privacy norms?</h4>
+            <p>Yes, we strictly adhere to global data privacy standards, the DPDP Act, and secure handling of candidate Personally Identifiable Information (PII).</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q10. How can HR track ongoing cases?</h4>
+            <p>HR receives automated status updates and can access enterprise screening records directly through their dedicated portal access.</p>
         </div>
     </div>
 
     <!-- 13. About Us Page -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India</h2>
-        <p>VeriShield India is a premier global Trust-Tech and Background Verification infrastructure provider.</p>
+        <p><strong>VeriShield India</strong> is a premier global Trust-Tech and Background Verification (BGV) infrastructure provider, dedicated to establishing absolute digital trust and compliance in modern hiring ecosystems.</p>
     </div>
 
     <!-- 14. Contact Us Page -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support</h2>
-        <p>Official Support Email: <a href="mailto:verishieldindia@gmail.com">verishieldindia@gmail.com</a></p>
+        <p>Official Support Email: <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none;">verishieldindia@gmail.com</a></p>
     </div>
 
     <!-- 15. Disclaimer Page -->
     <div id="disclaimerPage" class="page">
         <h2>Legal Disclaimer & Operational Scope</h2>
-        <p>VeriShield India acts as a technology and screening facilitator in strict compliance with candidate consent.</p>
+        <p>VeriShield India operates strictly as a technology and screening facilitator in compliance with candidate consent and data protection norms.</p>
     </div>
 
     <!-- 16. Privacy Policy Page -->
     <div id="privacyPage" class="page">
         <h2>Privacy Policy & Data Compliance</h2>
-        <p>We adhere to international data privacy standards and the DPDP Act to ensure secure handling of candidate PII.</p>
+        <p>We adhere to international data privacy standards, the Digital Personal Data Protection (DPDP) Act, and AES-256 encryption protocols.</p>
     </div>
 
 </div>
 
-<!-- Floating Live Chat Support Widget (Always visible on all pages) -->
+<!-- Floating Live Chat Support Widget (Restored Native Chat Box) -->
 <div class="chat-widget-btn" onclick="toggleChatBox()" title="Chat with Support">💬</div>
 <div class="chat-box-container" id="chatBoxContainer">
     <div class="chat-box-header">
@@ -572,11 +608,10 @@
     <div class="chat-box-body" id="chatBoxBody">
         <p><strong>Support Bot:</strong> Hello! Welcome to VeriShield India. How can we assist you with background verification today?</p>
         <p>📧 Email: <strong>verishieldindia@gmail.com</strong></p>
-        <p>🕒 Support: 24/7 Pan-India & Global Support</p>
     </div>
     <div class="chat-box-footer">
         <input type="text" id="chatUserInput" placeholder="Type your message..." onkeypress="handleChatEnter(event)">
-        <button style="background:var(--teal-cyan); color:#fff; border:none; border-radius:4px; padding:6px 10px; cursor:pointer;" onclick="sendChatMessage()">Send</button>
+        <button style="background:var(--teal-cyan); color:#fff; border:none; border-radius:4px; padding:6px 12px; cursor:pointer;" onclick="sendChatMessage()">Send</button>
     </div>
 </div>
 
@@ -605,7 +640,7 @@
         window.scrollTo(0, 0);
     }
 
-    // Live Chat Box Toggle & Message Logic
+    // Native Interactive Chat Bot Logic
     function toggleChatBox() {
         const box = document.getElementById('chatBoxContainer');
         box.style.display = box.style.display === 'block' ? 'none' : 'block';
@@ -620,10 +655,21 @@
         body.innerHTML += `<p><strong>You:</strong> ${text}</p>`;
         input.value = '';
 
+        let botReply = "Thank you for reaching out to VeriShield India. Our team will review your query and get back to you via <strong>verishieldindia@gmail.com</strong>.";
+        const lowerText = text.toLowerCase();
+
+        if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') || lowerText.includes('pricing')) {
+            botReply = "Our pricing starts with standard SME ID KYC and goes up to our comprehensive Enterprise All-In-One package. Please visit our <strong>Pricing</strong> tab for details!";
+        } else if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie')) {
+            botReply = "Candidates must complete their secure onboarding via the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, and real-time GPS geo-tagging.";
+        } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report')) {
+            botReply = "HR professionals can log into the <strong>HR Portal</strong>, lock screening packages, and generate secure candidate links.";
+        }
+
         setTimeout(() => {
-            body.innerHTML += `<p><strong>Support Bot:</strong> Thank you for your query. Our team has received your message and will also follow up via email at <strong>verishieldindia@gmail.com</strong>.</p>`;
+            body.innerHTML += `<p><strong>Support Bot:</strong> ${botReply}</p>`;
             body.scrollTop = body.scrollHeight;
-        }, 1000);
+        }, 800);
 
         body.scrollTop = body.scrollHeight;
     }
@@ -660,7 +706,6 @@
         resDiv.style.color = "#0f172a";
     }
 
-    // सेल्फी जियो-टैगिंग
     function getSelfieLocation() {
         const statusDiv = document.getElementById("selfieLocStatus");
         if (navigator.geolocation) {
@@ -685,7 +730,6 @@
         }
     }
 
-    // घर का जियो-टैगिंग
     function getHomeLocation() {
         const statusDiv = document.getElementById("homeLocStatus");
         if (navigator.geolocation) {
@@ -710,7 +754,6 @@
         }
     }
 
-    // सख्त वैलिडेशन
     function validateCandidateForm(event) {
         const selfieCoords = document.getElementById('selfieGeoCoords').value;
         const homeCoords = document.getElementById('homeGeoCoords').value;
