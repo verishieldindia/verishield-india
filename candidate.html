@@ -36,11 +36,11 @@
             pointer-events: none;
         }
 
-        /* Professional Header & Navigation */
+        /* Professional & Clean Header */
         header { 
             background: var(--primary-blue); 
             color: white; 
-            padding: 16px 40px; 
+            padding: 15px 30px; 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
@@ -54,45 +54,60 @@
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             cursor: pointer;
         }
-        .logo-shield {
-            font-size: 24px;
-            background: var(--accent-orange);
+        .logo-badge {
+            background: linear-gradient(135deg, var(--accent-orange), #b45309);
             color: white;
-            padding: 6px 10px;
-            border-radius: 6px;
             font-weight: bold;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
         }
-        header h1 { margin: 0; font-size: 22px; letter-spacing: 0.5px; color: #fff; }
+        .logo-text h1 { 
+            margin: 0; 
+            font-size: 20px; 
+            letter-spacing: 0.5px; 
+            color: #fff; 
+            font-weight: 700;
+        }
+        .logo-text span {
+            font-size: 11px;
+            color: var(--teal-cyan);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: block;
+        }
         
-        nav { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+        nav { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 5px; }
         nav a { 
             color: #cbd5e1; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 14px; 
+            font-size: 13px; 
             cursor: pointer; 
-            padding: 8px 14px;
+            padding: 6px 12px;
             border-radius: 6px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
             color: white; 
-            background: rgba(13, 148, 136, 0.2);
+            background: rgba(13, 148, 136, 0.25);
             border-bottom: 2px solid var(--teal-cyan);
         }
         
         /* Main Container */
-        .container { max-width: 950px; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; backdrop-filter: blur(5px); }
+        .container { max-width: 950px; background: rgba(255, 255, 255, 0.96); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 500px; backdrop-filter: blur(5px); }
         
         /* Page Display Control */
         .page { display: none; }
-        .page.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        .page.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(5px); }
+            from { opacity: 0; transform: translateY(4px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
@@ -145,11 +160,14 @@
 </head>
 <body>
 
-<!-- Clean & Professional Header -->
+<!-- Professional Header with Styled Logo -->
 <header>
     <div class="logo-area" onclick="showPage('homePage')">
-        <div class="logo-shield">VS</div>
-        <h1>VeriShield INDIA</h1>
+        <div class="logo-badge">VS</div>
+        <div class="logo-text">
+            <h1>VeriShield INDIA</h1>
+            <span>Trust-Tech Infrastructure</span>
+        </div>
     </div>
     <nav id="mainNav">
         <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
