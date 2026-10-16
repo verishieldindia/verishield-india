@@ -3,44 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VeriShield India - Global Trust-Tech & Background Verification Platform</title>
+    <title>VeriShield India - Pan-India & Global Trust-Tech BGV Platform</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f8f9fa; margin: 0; padding: 0; color: #333; }
-        header { background: #1a252f; color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; }
-        nav { display: flex; flex-wrap: wrap; gap: 20px; }
+        :root {
+            --primary-blue: #0f172a;
+            --accent-orange: #d97706;
+            --teal-cyan: #0d9488;
+            --bg-light: #f8f9fa;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg-light); margin: 0; padding: 0; color: #333; }
+        header { background: var(--primary-blue); color: white; padding: 18px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 2px 8px rgba(0,0,0,0.15); border-bottom: 3px solid var(--accent-orange); }
+        header h1 { margin: 0; font-size: 24px; letter-spacing: 0.5px; display: flex; align-items: center; gap: 10px; }
+        nav { display: flex; flex-wrap: wrap; gap: 18px; }
         nav a { color: #ecf0f1; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: color 0.3s; }
-        nav a:hover { color: #3498db; }
+        nav a:hover { color: var(--teal-cyan); }
         
-        .container { max-width: 900px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; }
+        .container { max-width: 950px; background: #fff; padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; }
         .page { display: none; }
         .page.active { display: block; }
         
-        h2 { color: #1a252f; text-align: center; margin-bottom: 30px; font-size: 28px; }
+        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 30px; font-size: 28px; }
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
-        .form-section h3 { margin-top: 0; color: #2980b9; font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
+        .form-section h3 { margin-top: 0; color: var(--teal-cyan); font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
         .form-group { margin-bottom: 18px; }
         label { display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50; font-size: 14px; }
         input, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #fff; }
-        .guideline { font-size: 13px; color: #d97706; background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 8px; border-left: 4px solid #f59e0b; }
-        button { width: 100%; background: #10b981; color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
-        button:hover { background: #059669; }
-        .btn-blue { background: #2563eb; margin-top: 8px; padding: 12px; font-size: 14px; }
-        .btn-blue:hover { background: #1d4ed8; }
+        .guideline { font-size: 13px; color: var(--accent-orange); background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 8px; border-left: 4px solid var(--accent-orange); }
         
-        .hero-banner { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); color: white; border-radius: 10px; margin-bottom: 30px; }
-        .hero-banner h2 { color: white; margin-bottom: 15px; }
-        .hero-banner p { color: #94a3b8; font-size: 18px; max-width: 600px; margin: 0 auto 25px auto; }
+        button { width: 100%; background: var(--teal-cyan); color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        button:hover { background: #0f766e; }
+        .btn-orange { background: var(--accent-orange); }
+        .btn-orange:hover { background: #b45309; }
         
-        .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
-        .service-card h4 { margin-top: 0; color: #1e293b; font-size: 18px; }
+        .hero-banner { text-align: center; padding: 45px 20px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 10px; margin-bottom: 30px; border-bottom: 4px solid var(--accent-orange); }
+        .hero-banner h2 { color: white; margin-bottom: 15px; font-size: 32px; }
+        .hero-banner p { color: #94a3b8; font-size: 18px; max-width: 650px; margin: 0 auto 25px auto; line-height: 1.6; }
+        
+        .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
+        .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 18px; }
         .service-card p { color: #64748b; font-size: 15px; line-height: 1.5; }
+        
+        .client-logo-box { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
+        .client-badge { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 15px 25px; border-radius: 8px; font-weight: bold; color: var(--primary-blue); font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         
         .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 11px; padding: 3px 7px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
         
-        footer { text-align: center; padding: 25px; background: #1a252f; color: #94a3b8; margin-top: 50px; font-size: 13px; }
+        footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
         footer a { color: #38bdf8; text-decoration: none; margin: 0 12px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
     </style>
@@ -48,14 +58,14 @@
 <body>
 
 <header>
-    <h1>VeriShield INDIA</h1>
+    <h1>🛡️ VeriShield INDIA</h1>
     <nav>
         <a onclick="showPage('homePage')">Home</a>
         <a onclick="showPage('servicesPage')">Services</a>
+        <a onclick="showPage('clientsPage')">Our Clients</a>
         <a onclick="showPage('hrPage')">HR Portal</a>
         <a onclick="showPage('candidatePage')">Candidate Portal</a>
-        <a onclick="showPage('aboutPage')">About Us</a>
-        <a onclick="showPage('contactPage')">Contact Us</a>
+        <a onclick="showPage('faqPage')">FAQ</a>
     </nav>
 </header>
 
@@ -64,17 +74,17 @@
     <!-- 1. Home Page -->
     <div id="homePage" class="page active">
         <div class="hero-banner">
-            <h2>Global Trust-Tech & Background Verification</h2>
-            <p>Empowering Pan-India & International Enterprises with Instant, Secure, and 100% Digital Candidate Onboarding & Screening.</p>
+            <h2>Pan-India Trust-Tech & Background Verification</h2>
+            <p>Empowering Global & Domestic Enterprises with Instant, Secure, and 100% Digital Candidate Screening, e-Courts Litigations, and Geo-Tagging.</p>
             <div>
-                <button style="width: auto; padding: 12px 30px; display: inline-block;" onclick="showPage('servicesPage')">Explore Solutions</button>
+                <button class="btn-orange" style="width: auto; padding: 12px 30px; display: inline-block;" onclick="showPage('servicesPage')">Explore Solutions</button>
                 <button style="width: auto; padding: 12px 30px; background: #2563eb; margin-left: 10px; display: inline-block;" onclick="showPage('hrPage')">Enterprise Login</button>
             </div>
         </div>
         
-        <div style="background: #f0fdf4; border-left: 4px solid #10b981; padding: 20px; border-radius: 8px; margin: 25px 0;">
+        <div style="background: #f0fdf4; border-left: 4px solid var(--teal-cyan); padding: 20px; border-radius: 8px; margin: 25px 0;">
             <h4 style="margin: 0 0 8px 0; color: #065f46; font-size: 16px;">🛡️ Trusted Enterprise Client Showcase</h4>
-            <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.6;">VeriShield India proudly delivers high-precision background screening, e-Courts litigation checks, and digital geo-tagging infrastructure to industry leaders including <strong>Zero Crime India</strong> and diverse corporate partners.</p>
+            <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.6;">VeriShield India proudly delivers high-precision background screening and digital infrastructure to industry leaders including <strong>Zero Crime India</strong> and diverse corporate partners.</p>
         </div>
     </div>
 
@@ -83,7 +93,7 @@
         <h2>Enterprise Screening Solutions</h2>
         
         <div class="service-card">
-            <h4>🔥 1. Complete Global & Corporate BGV Package (All-in-One + Education)</h4>
+            <h4>🔥 1. Complete Corporate BGV Package (All-in-One + Education)</h4>
             <p>Designed for MNCs & Remote Hiring: Includes <strong>PAN Card (Mandatory Tax Verification)</strong>, ID KYC, e-Courts (Pan-India Criminal Litigation Scan), EPFO/UAN (Employment History & Dual Employment/Moonlighting Detection), University Education Degree Verification, and Real-Time Geo-Tagging.</p>
         </div>
 
@@ -98,7 +108,20 @@
         </div>
     </div>
 
-    <!-- 3. HR Portal Page -->
+    <!-- 3. Our Clients Page (New Added) -->
+    <div id="clientsPage" class="page">
+        <h2>Our Valued Clients & Partners</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">We take immense pride in securing the workforce and digital trust of leading organizations across India.</p>
+        
+        <div class="client-logo-box">
+            <div class="client-badge">🛡️ Zero Crime India</div>
+            <div class="client-badge">🌐 Global Tech Solutions</div>
+            <div class="client-badge">🏢 Prime Security & Services</div>
+            <div class="client-badge">🚀 Apex Digital Media</div>
+        </div>
+    </div>
+
+    <!-- 4. HR Portal Page -->
     <div id="hrPage" class="page">
         <h2>Enterprise HR Portal (Onboarding & Package Lock)</h2>
         <form id="hrForm" onsubmit="generateCandidateLink(event)">
@@ -137,12 +160,12 @@
                     </select>
                 </div>
             </div>
-            <button type="submit">Generate Secure Candidate Link</button>
+            <button type="submit" class="btn-orange">Generate Secure Candidate Link</button>
         </form>
         <div id="linkOutput" style="margin-top: 20px; font-weight: 600; color: #059669; text-align: center;"></div>
     </div>
 
-    <!-- 4. Candidate Portal Page -->
+    <!-- 5. Candidate Portal Page -->
     <div id="candidatePage" class="page">
         <h2>Candidate Secure Onboarding Portal</h2>
         <form id="candidateForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="validateCandidateForm(event)">
@@ -228,18 +251,31 @@
         </form>
     </div>
 
-    <!-- 5. About Us Page -->
-    <div id="aboutPage" class="page">
-        <h2>About VeriShield India</h2>
-        <p style="line-height: 1.7; color: #475569;">VeriShield India is a premier global Trust-Tech and Background Verification infrastructure provider. We deliver lightning-fast, highly accurate, and legally compliant screening solutions to enterprises, remote-first startups, and multinational corporations worldwide. Backed by strategic data alliances with organizations like <strong>Zero Crime India</strong>, we guarantee absolute transparency and risk mitigation in global hiring.</p>
+    <!-- 6. FAQ Page (New Added) -->
+    <div id="faqPage" class="page">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="service-card">
+            <h4>Q1. How does the candidate onboarding link work?</h4>
+            <p>The HR generates a secure, locked verification link from the HR Portal and shares it with the candidate. The candidate cannot alter the screening package.</p>
+        </div>
+        <div class="service-card">
+            <h4>Q2. Is Geo-Tagging mandatory?</h4>
+            <p>Yes, real-time GPS coordinates and live entrance photos are securely captured to authenticate the candidate's current residential address.</p>
+        </div>
     </div>
 
-    <!-- 6. Contact Us Page -->
+    <!-- 7. About Us Page -->
+    <div id="aboutPage" class="page">
+        <h2>About VeriShield India</h2>
+        <p style="line-height: 1.7; color: #475569;">VeriShield India is a premier Trust-Tech and Background Verification infrastructure provider. We deliver lightning-fast, highly accurate, and legally compliant screening solutions to enterprises, remote-first startups, and corporations worldwide. Backed by strategic data standards, we guarantee absolute transparency and risk mitigation in global hiring.</p>
+    </div>
+
+    <!-- 8. Contact Us Page -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support</h2>
         <p style="color: #475569; line-height: 1.6;">For enterprise onboarding, API integration queries, or custom screening packages, connect with our team:</p>
         <p style="font-size: 16px;"><strong>Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none;">verishieldindia@gmail.com</a></p>
-        <p style="font-size: 16px;"><strong>Operational Reach:</strong> Pan-India & Global Remote Enterprise Support</p>
+        <p style="font-size: 16px;"><strong>Operational Reach:</strong> Pan-India & Global Enterprise Support</p>
     </div>
 
 </div>
