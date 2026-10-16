@@ -17,7 +17,7 @@
             background: var(--bg-light); 
             margin: 0; 
             padding: 0; 
-            color: #333;
+            color: #1e293b;
             position: relative;
         }
         
@@ -39,7 +39,7 @@
         header { 
             background: var(--primary-blue); 
             color: white; 
-            padding: 12px 15px; 
+            padding: 14px 18px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
             border-bottom: 3px solid var(--accent-orange); 
             position: sticky;
@@ -50,7 +50,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
         .logo-area {
             display: flex;
@@ -59,8 +59,8 @@
             cursor: pointer;
         }
         .site-logo {
-            width: 44px;
-            height: 44px;
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
             border: 2px solid var(--accent-orange);
             background: #ffffff;
@@ -69,13 +69,13 @@
         }
         .logo-text h1 { 
             margin: 0; 
-            font-size: 17px; 
+            font-size: 18px; 
             letter-spacing: 0.5px; 
             color: #fff; 
             font-weight: 700;
         }
         .logo-text span {
-            font-size: 9px;
+            font-size: 10px;
             color: var(--teal-cyan);
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -85,9 +85,9 @@
         nav { 
             display: flex; 
             flex-direction: column;
-            gap: 4px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 6px;
+            gap: 6px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 8px;
         }
         .nav-row {
             display: flex;
@@ -96,73 +96,73 @@
             gap: 6px;
         }
         nav a { 
-            color: #cbd5e1; 
+            color: #e2e8f0; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 11px; 
+            font-size: 12px; 
             cursor: pointer; 
-            padding: 4px 8px;
+            padding: 5px 10px;
             border-radius: 4px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
             color: white; 
-            background: rgba(13, 148, 136, 0.4);
+            background: rgba(13, 148, 136, 0.5);
             border-bottom: 2px solid var(--teal-cyan);
         }
         
-        .container { max-width: 950px; background: rgba(255, 255, 255, 0.96); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 35px auto; min-height: 650px; }
+        .container { max-width: 1050px; background: rgba(255, 255, 255, 0.98); padding: 55px; border-radius: 14px; box-shadow: 0 8px 25px rgba(0,0,0,0.08); margin: 40px auto; min-height: 800px; }
         
         .page { display: none; }
         .page.active { display: block; }
         
-        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 25px; font-size: 28px; }
-        h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 35px; font-size: 20px; }
-        p { line-height: 1.9; color: #475569; font-size: 15px; margin-bottom: 20px; text-align: justify; }
+        h2 { color: var(--primary-blue); text-align: center; margin-bottom: 30px; font-size: 32px; font-weight: 700; }
+        h3 { color: var(--primary-blue); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-top: 45px; font-size: 22px; font-weight: 600; }
+        p { line-height: 1.95; color: #334155; font-size: 17px; margin-bottom: 26px; text-align: justify; }
         
-        .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
-        .form-section h3 { margin-top: 0; color: var(--teal-cyan); font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
-        .form-group { margin-bottom: 18px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #2c3e50; font-size: 14px; }
-        input, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #fff; }
-        .guideline { font-size: 13px; color: var(--accent-orange); background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 8px; border-left: 4px solid var(--accent-orange); }
+        .form-section { background: #fdfdfd; border: 1px solid #cbd5e1; padding: 35px; border-radius: 12px; margin-bottom: 30px; }
+        .form-section h3 { margin-top: 0; color: var(--teal-cyan); font-size: 19px; border-bottom: 2px solid #e2e8f0; padding-bottom: 12px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e293b; font-size: 15px; }
+        input, select { width: 100%; padding: 14px; border: 1px solid #94a3b8; border-radius: 6px; font-size: 16px; box-sizing: border-box; background: #fff; }
+        .guideline { font-size: 14px; color: #b45309; background: #fef3c7; padding: 14px; border-radius: 6px; margin-top: 10px; border-left: 4px solid var(--accent-orange); font-weight: 500; }
         
-        button { width: 100%; background: var(--teal-cyan); color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
+        button { width: 100%; background: var(--teal-cyan); color: white; padding: 16px; border: none; border-radius: 6px; font-size: 17px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
         button:hover { background: #0f766e; }
         .btn-orange { background: var(--accent-orange); }
         .btn-orange:hover { background: #b45309; }
-        .btn-blue { background: #2563eb; margin-top: 8px; padding: 12px; font-size: 14px; }
+        .btn-blue { background: #2563eb; margin-top: 8px; padding: 14px; font-size: 15px; }
         .btn-blue:hover { background: #1d4ed8; }
         
-        .hero-banner { text-align: center; padding: 45px 20px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 10px; margin-bottom: 30px; border-bottom: 4px solid var(--accent-orange); }
-        .hero-banner h2 { color: white; margin-bottom: 15px; font-size: 32px; }
-        .hero-banner p { color: #94a3b8; font-size: 17px; max-width: 650px; margin: 0 auto 25px auto; line-height: 1.6; text-align: center; }
+        .hero-banner { text-align: center; padding: 50px 25px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 12px; margin-bottom: 35px; border-bottom: 4px solid var(--accent-orange); }
+        .hero-banner h2 { color: white; margin-bottom: 15px; font-size: 34px; }
+        .hero-banner p { color: #cbd5e1; font-size: 18px; max-width: 750px; margin: 0 auto 30px auto; line-height: 1.7; text-align: center; }
         
-        .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 25px; border-radius: 10px; margin-bottom: 22px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
-        .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 18px; }
-        .service-card p { color: #475569; font-size: 15px; line-height: 1.8; text-align: left; }
+        .service-card { background: #fff; border: 1px solid #cbd5e1; padding: 35px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); border-left: 5px solid var(--teal-cyan); }
+        .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 21px; font-weight: 700; margin-bottom: 15px; }
+        .service-card p { color: #334155; font-size: 17px; line-height: 1.95; text-align: left; }
         
-        .client-logo-box { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 20px; }
-        .client-badge { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 15px 25px; border-radius: 8px; font-weight: bold; color: var(--primary-blue); font-size: 16px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .client-logo-box { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 25px; }
+        .client-badge { background: #f1f5f9; border: 1px solid #cbd5e1; padding: 16px 28px; border-radius: 8px; font-weight: bold; color: var(--primary-blue); font-size: 17px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
         
-        .faq-item { background: #fff; border: 1px solid #e2e8f0; padding: 22px; border-radius: 10px; margin-bottom: 18px; }
-        .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 16px; }
-        .faq-item p { margin-bottom: 0; color: #475569; font-size: 14px; line-height: 1.7; text-align: left; }
+        .faq-item { background: #fff; border: 1px solid #cbd5e1; padding: 25px; border-radius: 12px; margin-bottom: 20px; }
+        .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 18px; font-weight: 700; margin-bottom: 10px; }
+        .faq-item p { margin-bottom: 0; color: #334155; font-size: 16px; line-height: 1.9; text-align: left; }
         
-        /* Chat Widget & Modal */
+        /* Chat Widget */
         .chat-widget-btn {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 25px;
+            right: 25px;
             background: var(--chat-green);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 30px;
             cursor: pointer;
             box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
             z-index: 99999;
@@ -197,7 +197,7 @@
             background: var(--chat-green);
             color: white;
             padding: 18px 22px;
-            font-size: 18px;
+            font-size: 19px;
             font-weight: bold;
             display: flex;
             justify-content: space-between;
@@ -205,61 +205,61 @@
         }
         .chat-modal-body {
             flex: 1;
-            padding: 22px;
+            padding: 25px;
             overflow-y: auto;
             background: #f8fafc;
-            font-size: 14px;
+            font-size: 16px;
             text-align: left;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 15px;
         }
         .chat-msg-bot {
             background: #e2e8f0;
             color: #0f172a;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 12px;
             max-width: 85%;
             align-self: flex-start;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .chat-msg-user {
             background: var(--chat-green);
             color: white;
-            padding: 12px 16px;
+            padding: 14px 18px;
             border-radius: 12px;
             max-width: 85%;
             align-self: flex-end;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         .chat-modal-footer {
-            padding: 15px 22px;
+            padding: 18px 22px;
             background: #fff;
             border-top: 1px solid #cbd5e1;
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
         .chat-modal-footer input {
-            padding: 12px;
-            font-size: 14px;
+            padding: 14px;
+            font-size: 16px;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             width: 100%;
         }
         .chat-modal-footer button {
             width: auto;
-            padding: 0 22px;
+            padding: 0 25px;
             background: var(--chat-green);
             color: #fff;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
         }
-        .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
+        .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 22px; }
         .checkbox-group input { width: auto; }
-        .badge-mandatory { background: #ef4444; color: white; font-size: 11px; padding: 3px 7px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
+        .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 3px 8px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
         
-        footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #38bdf8; text-decoration: none; margin: 0 10px; cursor: pointer; }
+        footer { text-align: center; padding: 30px; background: var(--primary-blue); color: #cbd5e1; margin-top: 60px; font-size: 14px; border-top: 3px solid var(--accent-orange); }
+        footer a { color: #38bdf8; text-decoration: none; margin: 0 12px; cursor: pointer; font-weight: 600; }
         footer a:hover { text-decoration: underline; }
     </style>
 </head>
@@ -298,47 +298,76 @@
 
 <div class="container">
 
+    <!-- 1. HOME PAGE (Extensively Detailed) -->
     <div id="homePage" class="page active">
         <div class="hero-banner">
-            <h2>Pan-India Trust-Tech & Background Verification</h2>
-            <p>Empowering Global & Domestic Enterprises with Instant, Secure, and 100% Digital Candidate Screening, e-Courts Litigations, and Geo-Tagging.</p>
+            <h2>Pan-India Trust-Tech & Background Verification Infrastructure</h2>
+            <p>Empowering Global Enterprises and Domestic Corporations with Instant, Secure, Tamper-Proof Digital Candidate Screening, e-Courts Litigations, EPFO Unified Passbook Audits, and Real-Time GPS Geo-Tagging.</p>
             <div>
-                <button class="btn-orange" style="width: auto; padding: 12px 30px; display: inline-block;" onclick="showPage('servicesPage')">Explore Solutions</button>
-                <button style="width: auto; padding: 12px 30px; background: #2563eb; margin-left: 10px; display: inline-block;" onclick="showPage('hrPage')">Enterprise Login</button>
+                <button class="btn-orange" style="width: auto; padding: 14px 35px; display: inline-block;" onclick="showPage('servicesPage')">Explore Solutions</button>
+                <button style="width: auto; padding: 14px 35px; background: #2563eb; margin-left: 10px; display: inline-block;" onclick="showPage('hrPage')">Enterprise Login</button>
             </div>
         </div>
-        <div style="background: #f0fdf4; border-left: 4px solid var(--teal-cyan); padding: 20px; border-radius: 8px; margin: 25px 0;">
-            <h4 style="margin: 0 0 8px 0; color: #065f46; font-size: 16px;">🛡️ Trusted Enterprise Client Showcase</h4>
-            <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.6;">VeriShield India proudly delivers high-precision background screening and digital infrastructure to industry leaders including <strong>Zero Crime India</strong> and diverse corporate partners.</p>
+        
+        <div style="background: #f0fdf4; border-left: 5px solid var(--teal-cyan); padding: 22px; border-radius: 8px; margin: 30px 0;">
+            <h4 style="margin: 0 0 10px 0; color: #065f46; font-size: 18px;">🛡️ Trusted Enterprise Client Showcase</h4>
+            <p style="margin: 0; font-size: 16px; color: #334155; line-height: 1.7;">VeriShield India proudly delivers high-precision background screening and digital trust infrastructure to industry leaders including <strong>Zero Crime India</strong> and diverse multinational corporate partners across multiple global jurisdictions.</p>
         </div>
-        <h3>Why Choose VeriShield India for Enterprise Screening?</h3>
-        <p>In today's borderless corporate ecosystem, verifying employee credentials is paramount. VeriShield India stands at the forefront of trust-tech infrastructure, combining cutting-edge automated API pipelines with friction-free candidate onboarding. Whether your organization is hiring remote engineering teams across international borders or scaling local operations Pan-India, our platform eliminates manual bottlenecks. We deliver tamper-proof verification reports complete with real-time GPS geo-tagging, judicial e-Courts litigation scans, and EPFO employment history tracking.</p>
+
+        <h3>Comprehensive Enterprise Trust Infrastructure</h3>
+        <p>In today's highly competitive and borderless corporate ecosystem, verifying employee credentials with absolute precision is paramount. VeriShield India stands at the absolute forefront of trust-tech infrastructure, combining cutting-edge automated API pipelines with friction-free candidate onboarding mechanisms. Whether your organization is hiring remote engineering teams across international borders or scaling local operations Pan-India, our platform eliminates manual administrative bottlenecks. We deliver tamper-proof verification reports complete with real-time GPS geo-tagging, judicial e-Courts litigation scans, and EPFO employment history tracking.</p>
+        
+        <p>Our robust verification architecture is engineered to protect modern enterprises from resume padding, fraudulent identity credentials, dual employment, and financial compliance failures. By deploying state-of-the-art encryption and automated database cross-referencing, VeriShield India ensures that your human capital investments are built upon an unshakeable foundation of trust and verifiable authenticity.</p>
+
+        <h3>Strategic Pillars of Our Screening Framework</h3>
+        <p>VeriShield India operates on four foundational pillars: speed, accuracy, regulatory compliance, and total transparency. Our enterprise-grade solutions integrate seamlessly into existing human resource management systems (HRMS) and applicant tracking systems (ATS), enabling talent acquisition teams to execute deep-level background vetting without disrupting workflow efficiency.</p>
     </div>
 
+    <!-- 2. SERVICES PAGE (Extensively Detailed) -->
     <div id="servicesPage" class="page">
         <h2>Enterprise Screening Solutions & Verification Modules</h2>
-        <p>VeriShield India provides an exhaustive suite of digital verification modules engineered to safeguard modern enterprises against workplace fraud, credential inflation, resume padding, and compliance failures.</p>
+        <p>VeriShield India provides an exhaustive suite of digital verification modules engineered to safeguard modern enterprises against workplace fraud, credential inflation, resume padding, and compliance failures. Our multi-layered screening protocols are designed to cater to diverse organizational tiers with uncompromising accuracy and speed.</p>
+        
         <div class="service-card">
             <h4>🔥 1. Complete Corporate BGV Package (All-in-One + Education)</h4>
-            <p><strong>Overview:</strong> The gold standard for MNCs, technology firms, and remote-first organizations seeking absolute risk mitigation.<br><strong>Key Components:</strong> Mandatory PAN Card tax compliance verification, multi-repository ID KYC, Pan-India e-Courts criminal and civil litigation scanning, EPFO/UAN unified passbook history to detect dual employment and moonlighting, accredited university education degree authentication, and tamper-proof real-time GPS geo-tagging.</p>
+            <p><strong>Overview:</strong> The gold standard for MNCs, technology firms, and remote-first organizations seeking absolute risk mitigation across all hiring vectors.<br><strong>Key Components:</strong> Mandatory PAN Card tax compliance verification, multi-repository ID KYC, Pan-India e-Courts criminal and civil litigation scanning, EPFO/UAN unified passbook history to detect dual employment and moonlighting, accredited university education degree authentication, and tamper-proof real-time GPS geo-tagging.</p>
         </div>
+
         <div class="service-card">
             <h4>💼 2. White-Collar Executive Screening Tier</h4>
-            <p><strong>Overview:</strong> Tailored specifically for senior management, technology leads, financial analysts, and corporate executives.<br><strong>Key Components:</strong> Direct employment tenure validation across past employers, professional reference interviews, executive directorship checks, global sanctions screening, credit history checks, and educational credential validation.</p>
+            <p><strong>Overview:</strong> Tailored specifically for senior management, technology leads, financial analysts, and corporate executives where leadership integrity is critical.<br><strong>Key Components:</strong> Direct employment tenure validation across past employers, professional reference interviews, executive directorship checks, global sanctions screening, credit history checks, and educational credential validation.</p>
+        </div>
+
+        <div class="service-card">
+            <h4>⚙️ 3. Blue-Collar & Operational Workforce Screening</h4>
+            <p><strong>Overview:</strong> Designed for manufacturing plants, logistics hubs, warehousing networks, and field operations requiring rapid verification.<br><strong>Key Components:</strong> Instant identity cross-referencing, local police station background verification, physical address confirmation via GPS-tagged field auditors, and previous employment record checks.</p>
+        </div>
+
+        <div class="service-card">
+            <h4>🌐 4. Cross-Border & MNC Compliance Tier</h4>
+            <p><strong>Overview:</strong> Built for multinational organizations hiring remote talent or independent contractors across international borders.<br><strong>Key Components:</strong> Global watch-list and international sanctions screening, multi-jurisdiction litigation checks, compliance audits under global regulatory standards, and deep financial background validation.</p>
         </div>
     </div>
 
+    <!-- 3. PRICING PAGE (Extensively Detailed) -->
     <div id="pricingPage" class="page">
         <h2>Transparent Pricing & Custom Enterprise Quotations</h2>
         <p>At VeriShield India, we understand that every organization possesses unique recruitment volumes, risk profiles, and operational demands. Rather than rigid one-size-fits-all pricing, we offer flexible, customized enterprise pricing tiers tailored precisely to your scale.</p>
+        
         <div class="service-card" style="border-left-color: var(--accent-orange);">
             <h4>💬 Custom Enterprise Quotations & Contact Requirement</h4>
-            <p>To ensure absolute transparency and provide optimized pricing based on monthly candidate volume, API integration depth, and specific module selection, our pricing is structured on a customized quotation model.<br><br><strong>How to Get Your Quote:</strong> Please contact our enterprise sales desk directly at <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a> or use our secure <strong>HR Portal</strong> to initiate a consultation.</p>
+            <p>To ensure absolute transparency and provide optimized pricing based on monthly candidate volume, API integration depth, and specific module selection, our pricing is structured on a customized quotation model.<br><br><strong>How to Get Your Quote:</strong> Please contact our enterprise sales desk directly at <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a> or use our secure <strong>HR Portal</strong> to initiate a consultation. Our corporate team responds within 2 business hours with a comprehensive rate card.</p>
         </div>
+
+        <h3>Flexible Billing & SLA Guarantees</h3>
+        <p>We provide volume-based slab discounts, pay-as-you-go API credit bundles, and dedicated annual enterprise service contracts backed by strict SLA guarantees. Our financial transparency ensures no hidden fees or unexpected administrative overheads for growing corporations.</p>
     </div>
 
+    <!-- 4. HR PORTAL PAGE (Extensively Detailed) -->
     <div id="hrPage" class="page">
         <h2>Enterprise HR Portal (Onboarding & Package Lock)</h2>
+        <p>The Enterprise HR Portal serves as the primary command center for human resource leaders to manage candidate onboarding, lock verification packages, and track report delivery securely.</p>
+        
         <form id="hrForm" onsubmit="generateCandidateLink(event)">
             <div class="form-section">
                 <h3>Corporate & HR Information</h3>
@@ -351,6 +380,7 @@
                     <input type="email" id="hrEmail" required value="verishieldindia@gmail.com">
                 </div>
             </div>
+
             <div class="form-section">
                 <h3>Candidate Profile & Locked Package</h3>
                 <div class="form-group">
@@ -379,8 +409,11 @@
         <div id="linkOutput" style="margin-top: 20px; font-weight: 600; color: #059669; text-align: center;"></div>
     </div>
 
+    <!-- 5. CANDIDATE PORTAL PAGE (Extensively Detailed) -->
     <div id="candidatePage" class="page">
         <h2>Candidate Secure Onboarding Portal</h2>
+        <p>Welcome to the candidate onboarding portal. Please fill in your authentic details, provide your PAN identification, and complete the mandatory GPS geo-tagging steps.</p>
+        
         <form id="candidateForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="validateCandidateForm(event)">
             <div class="form-section">
                 <h3>1. Personal & Family Information</h3>
@@ -405,6 +438,7 @@
                     <input type="email" id="candEmail" name="candidateEmail" required placeholder="email@candidate.com">
                 </div>
             </div>
+
             <div class="form-section">
                 <h3>2. Identity Verification (PAN Mandatory)</h3>
                 <div class="form-group">
@@ -412,30 +446,35 @@
                     <input type="text" id="candPan" name="panNumber" required placeholder="ABCDE1234F">
                 </div>
             </div>
+
             <div class="form-section">
                 <h3>3. Official Live Face Selfie & Geo-Tagging</h3>
                 <div class="guideline">💡 Upload a clear portrait selfie showing both shoulders and your face clearly. Real-time GPS location tagging is mandatory for this step.</div>
-                <div class="form-group" style="margin-top: 12px;">
+                <div class="form-group" style="margin-top: 15px;">
                     <label>Live Face Selfie Photo:</label>
                     <input type="file" id="faceSelfie" name="faceSelfie" accept="image/*" capture="user" required>
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn-blue" onclick="getSelfieLocation()">📍 Fetch GPS Geo-Tag for Selfie Location</button>
-                    <div id="selfieLocStatus" style="font-size: 13px; color: #d97706; margin-top: 6px;">Selfie GPS not captured yet. (Mandatory)</div>
+                    <div id="selfieLocStatus" style="font-size: 14px; color: #d97706; margin-top: 8px;">Selfie GPS not captured yet. (Mandatory)</div>
                     <input type="hidden" id="selfieGeoCoords" name="selfieGeoCoordinates" required>
                 </div>
             </div>
+
             <div class="form-group checkbox-group">
                 <input type="checkbox" id="candConsent" required>
-                <label for="candConsent" style="margin-bottom:0; font-weight:normal; font-size:13px;">I hereby certify that all information submitted is accurate and provide my explicit legal consent for background screening and data processing. (Mandatory)</label>
+                <label for="candConsent" style="margin-bottom:0; font-weight:normal; font-size:15px;">I hereby certify that all information submitted is accurate and provide my explicit legal consent for background screening and data processing. (Mandatory)</label>
             </div>
+
             <button type="submit" style="margin-top: 25px;">Submit Verification Data to HR</button>
         </form>
     </div>
 
+    <!-- 6. TRACKER PAGE (Extensively Detailed) -->
     <div id="trackerPage" class="page">
         <h2>Live Case Tracker (Status Engine)</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 25px;">Enter your unique Case Tracking ID to check real-time verification progress.</p>
+        <p style="text-align: center; color: #475569; margin-bottom: 25px;">Enter your unique Case Tracking ID to check real-time verification progress.</p>
+        
         <div class="form-section">
             <div class="form-group">
                 <label>Case Tracking ID:</label>
@@ -446,45 +485,59 @@
         <div id="trackResult" style="margin-top: 20px; font-weight: 600; text-align: center;"></div>
     </div>
 
+    <!-- 7. BLOGS PAGE (Extensively Detailed) -->
     <div id="blogPage" class="page">
         <h2>Blogs & Enterprise Industry Insights</h2>
         <p>Explore thought leadership articles, compliance deep-dives, and strategic guidance on mitigating corporate risk through advanced background screening infrastructure.</p>
+        
         <div class="service-card">
             <h4>📖 Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
             <p>Discover how dual employment threatens enterprise data security and intellectual property rights. We analyze how automated EPFO unified passbook history checks and multi-repository employment tracking effectively mitigate this hidden risk across global engineering and remote-first technology hubs.</p>
         </div>
+
+        <div class="service-card">
+            <h4>📖 The Evolution of Digital Trust-Tech in Post-Pandemic Recruitment</h4>
+            <p>Traditional paper-based background checks are increasingly obsolete in modern corporate ecosystems. Learn how real-time GPS geo-tagging, judicial e-Courts litigation scans, and instant API-driven PAN/KYC verifications are transforming HR onboarding speed and compliance integrity.</p>
+        </div>
     </div>
 
+    <!-- 8. CASE STUDIES PAGE (Extensively Detailed) -->
     <div id="caseStudiesPage" class="page">
         <h2>Enterprise Success Stories & Case Studies</h2>
         <p>Real-world impact assessments demonstrating how leading global organizations partner with VeriShield India to achieve flawless compliance and eliminate fraudulent hiring.</p>
+        
         <div class="service-card">
             <h4>🏢 Case Study: Neutralizing Resume Inflation for a Global Fintech Unicorn</h4>
             <p><strong>Client Profile:</strong> A rapidly expanding fintech unicorn scaling engineering and risk management teams across Pan-India.<br><strong>The Challenge:</strong> High volume of candidate applications with credential inflation and fabricated employment timelines.<br><strong>The VeriShield Solution:</strong> Implementation of VeriShield's Flagship All-in-One BGV package coupled with automated EPFO checks and real-time residential geo-tagging.<br><strong>The Result:</strong> Achieved 100% credential authenticity, zero fraudulent onboarding over 12 months, and reduced overall onboarding verification cycle time from 14 days down to 36 hours.</p>
         </div>
     </div>
 
+    <!-- 9. API DOCS PAGE (Extensively Detailed) -->
     <div id="apiDocsPage" class="page">
         <h2>Developer Hub & Enterprise API Documentation</h2>
         <p>Comprehensive technical specifications for integrating VeriShield India’s powerful RESTful APIs and secure webhooks directly into enterprise HRMS, ATS, and recruitment software.</p>
+        
         <div class="service-card">
             <h4>⚙️ RESTful API Architecture & Secure Endpoints</h4>
             <p>Our developer-friendly JSON APIs support robust authentication via Bearer Tokens, TLS 1.3 encryption, and asynchronous webhook callbacks. Key integration endpoints include:<br>- <code>POST /api/v1/kyc/pan-verify</code> (Instant PAN Tax Compliance & Identity Check)<br>- <code>POST /api/v1/bgv/ecourts-scan</code> (Pan-India Civil & Criminal Litigation Search)<br>- <code>POST /api/v1/bgv/uan-history</code> (EPFO Unified Passbook & Moonlighting Detection)</p>
         </div>
     </div>
 
+    <!-- 10. CAREERS PAGE (Extensively Detailed) -->
     <div id="careersPage" class="page">
         <h2>Careers & Field Verification Partner Network</h2>
         <p>Join VeriShield India’s dynamic ecosystem of technologists, legal compliance experts, and accredited field verification auditors across Pan-India.</p>
+        
         <div class="service-card">
             <h4>🤝 Become an Accredited VeriShield Field Verification Partner</h4>
             <p>We are actively expanding our pan-India network of independent address auditors, legal verification specialists, and local investigators across all 28 states and 8 union territories. Partners benefit from automated task dispatching, transparent digital payouts, and standardized audit protocols. To apply, please submit your agency credentials and regional coverage details to our corporate team via email at <strong>verishieldindia@gmail.com</strong>.</p>
         </div>
     </div>
 
+    <!-- 11. CLIENTS PAGE (Extensively Detailed) -->
     <div id="clientsPage" class="page">
         <h2>Our Valued Clients & Partners</h2>
-        <p style="text-align: center; color: #64748b; margin-bottom: 30px;">Proudly powering trust-tech infrastructure and background screening for esteemed industry leaders.</p>
+        <p style="text-align: center; color: #475569; margin-bottom: 30px;">Proudly powering trust-tech infrastructure and background screening for esteemed industry leaders.</p>
         <div class="client-logo-box">
             <div class="client-badge">🛡️ Zero Crime India</div>
             <div class="client-badge">🌐 Global Tech Solutions</div>
@@ -493,47 +546,96 @@
         </div>
     </div>
 
+    <!-- 12. FAQ PAGE (Extensively Detailed - 10 FAQs) -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
+        <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and automated API security.</p>
+        
         <div class="faq-item">
-            <h4>Q1. How does HR initiate a candidate verification?</h4>
-            <p>The HR logs into the Enterprise HR Portal, enters candidate details, selects the screening package, and generates a secure, locked link.</p>
+            <h4>Q1. How does HR initiate candidate verification on the platform?</h4>
+            <p>HR professionals log into the Enterprise HR Portal, input candidate details, select the appropriate background verification package, and generate a secure, locked verification link instantly.</p>
         </div>
         <div class="faq-item">
-            <h4>Q2. Can the candidate change the verification package?</h4>
-            <p>No, the package is securely locked by the HR during link generation. The candidate can only submit personal details and verification documents.</p>
+            <h4>Q2. Can candidates modify their screening package once generated?</h4>
+            <p>No, the screening package is securely locked by HR during link generation. Candidates can only submit their personal information, identity credentials, and compliance documents.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q3. Is PAN Card verification mandatory for all candidates?</h4>
+            <p>Yes, PAN Card details are strictly mandatory to ensure tax compliance, financial verification, and primary identity cross-referencing across government databases.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q4. How does real-time GPS Geo-Tagging work during onboarding?</h4>
+            <p>The candidate's smartphone browser securely captures precise GPS coordinates (Latitude and Longitude) along with a live rear-camera photo of their residential entrance to prevent fraud.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q5. Where are the final background verification reports delivered?</h4>
+            <p>Comprehensive PDF reports containing digital signatures, secure QR verification codes, and audit trails are sent directly to the HR's registered corporate email ID.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q6. What advanced checks are included in the All-in-One Corporate Package?</h4>
+            <p>It includes PAN KYC, Pan-India e-Courts criminal/civil litigation checks, EPFO/UAN unified passbook history for moonlighting detection, university degree authentication, and GPS geo-tagging.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q7. Is candidate legal consent required before screening?</h4>
+            <p>Yes, every candidate must explicitly check the mandatory legal consent box confirming that all submitted details are accurate and authorizing compliance screening.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q8. How long does the complete verification process take?</h4>
+            <p>Automated database checks and ID KYC are executed instantly upon submission, while comprehensive multi-tier reports are delivered within 24 to 48 business hours.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q9. Does VeriShield India comply with data privacy regulations?</h4>
+            <p>Yes, we strictly adhere to global data privacy frameworks, the Digital Personal Data Protection (DPDP) Act, and stringent corporate confidentiality protocols.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q10. How do we handle candidate data privacy after report delivery?</h4>
+            <p>We enforce a strict Zero-Data Retention Policy. All raw candidate personal files and documents are automatically and permanently erased from active servers once reports are sent to HR.</p>
         </div>
     </div>
 
+    <!-- 13. ABOUT US PAGE (Extensively Detailed) -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India & Trust-Tech Infrastructure</h2>
         <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated API pipelines with rigorous field verification protocols across Pan-India.</p>
+        
         <h3>Our Vision & Strategic Mission</h3>
-        <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences.</p>
+        <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences. We empower organizations across Pan-India and international borders to make informed, risk-free hiring decisions without administrative friction.</p>
+        
+        <h3>Core Technological Infrastructure</h3>
+        <p>Traditional background verification methods are often plagued by manual delays, human error, and lack of transparency. VeriShield India disrupts this legacy paradigm through our proprietary automated verification engine. By seamlessly interfacing with government registries, judicial e-Courts databases, EPFO employment passbooks, and accredited university repositories, we execute comprehensive multi-tier screening within hours rather than weeks.</p>
     </div>
 
+    <!-- 14. CONTACT US PAGE (Extensively Detailed) -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support Center</h2>
         <p>VeriShield India maintains dedicated communication channels to assist enterprise HR leaders, recruitment agencies, and candidates with immediate technical assistance, report tracking, and customized BGV package consultations.</p>
+        
         <div class="service-card">
             <h4>🏢 Corporate Headquarters & Regional Hubs</h4>
-            <p><strong>Primary Operations:</strong> Cyber City, DLF Phase 3, Sector 24, Gurugram, Haryana 122002, India<br><strong>Pan-India Network:</strong> Active field audit coverage across 28 states and 8 union territories.</p>
+            <p><strong>Primary Operations:</strong> Cyber City, DLF Phase 3, Sector 24, Gurugram, Haryana 122002, India<br><strong>Pan-India Network:</strong> Active field audit coverage across 28 states and 8 union territories, ensuring prompt physical address verification and local court record authentication.</p>
         </div>
+
         <div class="service-card">
             <h4>📞 Official Direct Support Channels</h4>
-            <p><strong>Primary Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br><strong>Enterprise Sales & Custom API Integration:</strong> corporate@verishield-india.vercel.app</p>
+            <p><strong>Primary Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br><strong>Enterprise Sales & Custom API Integration:</strong> corporate@verishield-india.vercel.app<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
         </div>
     </div>
 
+    <!-- 15. DISCLAIMER PAGE (Extensively Detailed) -->
     <div id="disclaimerPage" class="page">
         <h2>Comprehensive Legal Disclaimer & Operational Scope</h2>
         <p><strong>1. Acceptance of National & International Standards:</strong> VeriShield India operates in strict compliance with national legal frameworks (including the Information Technology Act and Digital Personal Data Protection - DPDP Act) as well as international compliance standards (such as GDPR and global corporate governance norms).</p>
-        <p><strong>2. Nature of Screening Services:</strong> VeriShield India operates strictly as an independent technology facilitator and background screening provider. Our verification reports—including e-Courts litigation scans, EPFO history checks, and educational credential authentications—are compiled using official government databases and public records.</p>
+        
+        <p><strong>2. Nature of Screening Services:</strong> VeriShield India operates strictly as an independent technology facilitator and background screening provider. Our verification reports—including e-Courts litigation scans, EPFO history checks, and educational credential authentications—are compiled using official government databases, public records, and direct institutional responses as available at the time of inquiry.</p>
+
+        <p><strong>3. Limitation of Liability:</strong> VeriShield India, its directors, employees, and technology partners shall not be held legally or financially liable for any direct, indirect, incidental, or consequential damages arising from employment hiring decisions, contractual disputes, or third-party data discrepancies based on reports delivered through our platform.</p>
     </div>
 
+    <!-- 16. PRIVACY POLICY PAGE (Extensively Detailed) -->
     <div id="privacyPage" class="page">
         <h2>Privacy Policy & Zero-Data Retention Compliance</h2>
         <p><strong>1. Commitment to Data Security & Zero Retention:</strong> VeriShield India is profoundly committed to protecting the privacy, confidentiality, and security of Personally Identifiable Information (PII) entrusted to us by candidates, corporate clients, and partner organizations. We strictly adhere to global data privacy frameworks and the Digital Personal Data Protection (DPDP) Act.</p>
+
         <p><strong>2. 100% Automatic Data Deletion Policy:</strong> We maintain a strict <strong>Zero-Data Retention Policy</strong>. VeriShield India <strong>does not permanently store or archive candidate personal details or raw documents</strong>. Once the comprehensive verification report is successfully generated and securely transmitted to the registered HR email ID, all raw candidate data, images, and sensitive files are <strong>automatically and permanently erased</strong> from our active servers to ensure absolute data privacy and eliminate breach risks.</p>
     </div>
 
@@ -546,7 +648,7 @@
     <div class="chat-modal-content">
         <div class="chat-modal-header">
             <span>🛡️ VeriShield India - Smart AI Live Support</span>
-            <span style="cursor:pointer; font-size: 20px; font-weight: bold;" onclick="toggleChatModal()">✕</span>
+            <span style="cursor:pointer; font-size: 22px; font-weight: bold;" onclick="toggleChatModal()">✕</span>
         </div>
         <div class="chat-modal-body" id="chatModalBody">
             <div class="chat-msg-bot">
@@ -562,7 +664,7 @@
 
 <footer>
     <p>&copy; 2026 VeriShield India. All rights reserved. Trusted verification partner for global enterprises including <strong>Zero Crime India</strong>.</p>
-    <div style="margin-top: 12px;">
+    <div style="margin-top: 15px;">
         <a onclick="showPage('aboutPage')">About Us</a> | 
         <a onclick="showPage('contactPage')">Contact Us</a> | 
         <a onclick="showPage('disclaimerPage')">Disclaimer</a> | 
