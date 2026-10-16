@@ -9,6 +9,7 @@
             --primary-blue: #0f172a;
             --accent-orange: #d97706;
             --teal-cyan: #0d9488;
+            --chat-green: #059669;
             --bg-light: #f8f9fa;
         }
         body { 
@@ -20,7 +21,6 @@
             position: relative;
         }
         
-        /* Background Watermark Effect */
         body::before {
             content: "";
             position: fixed;
@@ -36,7 +36,6 @@
             pointer-events: none;
         }
 
-        /* Professional Sticky Header with Real Logo & 6-6 Split Menu */
         header { 
             background: var(--primary-blue); 
             color: white; 
@@ -59,13 +58,17 @@
             gap: 12px;
             cursor: pointer;
         }
+        /* In-built Vector Shield Logo */
         .site-logo {
             width: 44px;
             height: 44px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--accent-orange);
-            background: #fff;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .logo-text h1 { 
             margin: 0; 
@@ -82,7 +85,6 @@
             display: block;
         }
         
-        /* 6-6 Navigation Split Layout */
         nav { 
             display: flex; 
             flex-direction: column;
@@ -112,10 +114,8 @@
             border-bottom: 2px solid var(--teal-cyan);
         }
         
-        /* Main Container */
         .container { max-width: 950px; background: rgba(255, 255, 255, 0.96); padding: 40px; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin: 40px auto; min-height: 600px; backdrop-filter: blur(5px); }
         
-        /* Page Display Control */
         .page { display: none; }
         .page.active { display: block; animation: fadeIn 0.3s ease-in-out; }
         
@@ -128,7 +128,6 @@
         h3 { color: var(--primary-blue); border-bottom: 2px solid #ecf0f1; padding-bottom: 8px; margin-top: 35px; }
         p { line-height: 1.9; color: #475569; font-size: 15px; margin-bottom: 20px; text-align: justify; }
         
-        /* Form & Sections Styling */
         .form-section { background: #fcfcfc; border: 1px solid #e1e8ed; padding: 25px; border-radius: 10px; margin-bottom: 25px; }
         .form-section h3 { margin-top: 0; color: var(--teal-cyan); font-size: 18px; border-bottom: 2px solid #ecf0f1; padding-bottom: 10px; }
         .form-group { margin-bottom: 18px; }
@@ -136,7 +135,6 @@
         input, select { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 15px; box-sizing: border-box; background: #fff; }
         .guideline { font-size: 13px; color: var(--accent-orange); background: #fef3c7; padding: 12px; border-radius: 6px; margin-top: 8px; border-left: 4px solid var(--accent-orange); }
         
-        /* Buttons */
         button { width: 100%; background: var(--teal-cyan); color: white; padding: 16px; border: none; border-radius: 6px; font-size: 16px; cursor: pointer; font-weight: 600; transition: background 0.3s; }
         button:hover { background: #0f766e; }
         .btn-orange { background: var(--accent-orange); }
@@ -144,12 +142,10 @@
         .btn-blue { background: #2563eb; margin-top: 8px; padding: 12px; font-size: 14px; }
         .btn-blue:hover { background: #1d4ed8; }
         
-        /* Hero Banner */
         .hero-banner { text-align: center; padding: 45px 20px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 10px; margin-bottom: 30px; border-bottom: 4px solid var(--accent-orange); }
         .hero-banner h2 { color: white; margin-bottom: 15px; font-size: 32px; }
         .hero-banner p { color: #94a3b8; font-size: 18px; max-width: 650px; margin: 0 auto 25px auto; line-height: 1.6; text-align: center; }
         
-        /* Cards */
         .service-card { background: #fff; border: 1px solid #e2e8f0; padding: 30px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); border-left: 4px solid var(--teal-cyan); }
         .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 20px; }
         .service-card p { color: #475569; font-size: 15px; line-height: 1.8; text-align: left; }
@@ -161,81 +157,120 @@
         .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 17px; }
         .faq-item p { margin-bottom: 0; color: #475569; font-size: 15px; line-height: 1.7; text-align: left; }
         
-        /* Floating Chat Widget */
+        /* Green & White Full-Screen Chat Modal Overlay */
         .chat-widget-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            background: var(--teal-cyan);
+            background: var(--chat-green);
             color: white;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
             z-index: 99999;
             transition: transform 0.3s;
+            border: 2px solid #fff;
         }
-        .chat-widget-btn:hover { transform: scale(1.05); }
+        .chat-widget-btn:hover { transform: scale(1.08); }
         
-        .chat-box-container {
+        .chat-overlay-modal {
             position: fixed;
-            bottom: 85px;
-            right: 20px;
-            width: 320px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            z-index: 999999;
             display: none;
-            overflow: hidden;
-            border: 1px solid #cbd5e1;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(8px);
         }
-        .chat-box-header {
-            background: var(--primary-blue);
+        .chat-modal-content {
+            width: 90%;
+            max-width: 600px;
+            height: 80vh;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid var(--chat-green);
+        }
+        .chat-modal-header {
+            background: var(--chat-green);
             color: white;
-            padding: 12px 15px;
+            padding: 18px 25px;
+            font-size: 18px;
             font-weight: bold;
-            font-size: 14px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .chat-box-body {
-            padding: 15px;
-            max-height: 260px;
+        .chat-modal-body {
+            flex: 1;
+            padding: 25px;
             overflow-y: auto;
-            background: #f8f9fa;
-            font-size: 13px;
+            background: #f8fafc;
+            font-size: 15px;
             text-align: left;
-        }
-        .chat-box-footer {
-            padding: 10px;
-            background: #fff;
-            border-top: 1px solid #e2e8f0;
             display: flex;
-            gap: 8px;
+            flex-direction: column;
+            gap: 15px;
         }
-        .chat-box-footer input {
-            padding: 8px;
-            font-size: 13px;
+        .chat-msg-bot {
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 12px 18px;
+            border-radius: 12px;
+            max-width: 80%;
+            align-self: flex-start;
+            line-height: 1.6;
+        }
+        .chat-msg-user {
+            background: var(--chat-green);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 12px;
+            max-width: 80%;
+            align-self: flex-end;
+            line-height: 1.6;
+        }
+        .chat-modal-footer {
+            padding: 15px 25px;
+            background: #fff;
+            border-top: 1px solid #cbd5e1;
+            display: flex;
+            gap: 12px;
+        }
+        .chat-modal-footer input {
+            padding: 14px;
+            font-size: 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
             width: 100%;
         }
-        .chat-box-footer button {
+        .chat-modal-footer button {
             width: auto;
-            padding: 6px 12px;
-            font-size: 13px;
+            padding: 0 25px;
+            background: var(--chat-green);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 15px;
         }
+        .chat-modal-footer button:hover { background: #047857; }
 
         .checkbox-group { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 11px; padding: 3px 7px; border-radius: 4px; margin-left: 6px; font-weight: 600; }
         
-        /* Footer */
         footer { text-align: center; padding: 25px; background: var(--primary-blue); color: #94a3b8; margin-top: 50px; font-size: 13px; border-top: 3px solid var(--accent-orange); }
         footer a { color: #38bdf8; text-decoration: none; margin: 0 10px; cursor: pointer; }
         footer a:hover { text-decoration: underline; }
@@ -243,12 +278,12 @@
 </head>
 <body>
 
-<!-- Professional Sticky Header with Real Logo & 6-6 Split Menu -->
 <header>
     <div class="header-top">
         <div class="logo-area" onclick="showPage('homePage')">
-            <!-- Proper Logo Implementation with Fallbacks -->
-            <img src="logo.png" alt="VeriShield Logo" class="site-logo" onerror="this.src='logo.jpg'; this.onerror=function(){this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'48\' height=\'48\' viewBox=\'0 0 24 24\' fill=\'%23d97706\'><path d=\'M12 2L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-3z\'/></svg>';}">
+            <div class="site-logo">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
             <div class="logo-text">
                 <h1>VeriShield INDIA</h1>
                 <span>Trust-Tech Infrastructure</span>
@@ -257,7 +292,6 @@
     </div>
     
     <nav id="mainNav">
-        <!-- Row 1: First 6 Links -->
         <div class="nav-row">
             <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
             <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
@@ -266,7 +300,6 @@
             <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate</a>
             <a onclick="showPage('trackerPage')" id="nav-trackerPage">Tracker</a>
         </div>
-        <!-- Row 2: Next 6 Links -->
         <div class="nav-row">
             <a onclick="showPage('blogPage')" id="nav-blogPage">Blogs</a>
             <a onclick="showPage('caseStudiesPage')" id="nav-caseStudiesPage">Case Studies</a>
@@ -418,7 +451,6 @@
                 </div>
             </div>
 
-            <!-- सेक्शन 3: फेस सेल्फी + जियो-टैगिंग -->
             <div class="form-section">
                 <h3>3. Official Live Face Selfie & Geo-Tagging</h3>
                 <div class="guideline">💡 Upload a clear portrait selfie showing both shoulders and your face clearly. Real-time GPS location tagging is mandatory for this step.</div>
@@ -435,7 +467,6 @@
                 </div>
             </div>
 
-            <!-- सेक्शन 4: घर की फोटो + जियो-टैगिंग -->
             <div class="form-section">
                 <h3>4. Residential Address & Gate Geo-Tagging</h3>
                 <div class="form-group">
@@ -527,7 +558,7 @@
         </div>
     </div>
 
-    <!-- 12. FAQ Page (Full 10 Questions) -->
+    <!-- 12. FAQ Page -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <div class="faq-item">
@@ -572,50 +603,86 @@
         </div>
     </div>
 
-    <!-- 13. About Us Page -->
+    <!-- 13. Professional Long-Form About Us Page (3 Pages Content) -->
     <div id="aboutPage" class="page">
-        <h2>About VeriShield India</h2>
-        <p><strong>VeriShield India</strong> is a premier global Trust-Tech and Background Verification (BGV) infrastructure provider, dedicated to establishing absolute digital trust and compliance in modern hiring ecosystems.</p>
+        <h2>About VeriShield India & Trust-Tech Infrastructure</h2>
+        <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated API pipelines with rigorous field verification protocols.</p>
+        
+        <h3>Our Vision & Strategic Mission</h3>
+        <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences. We empower organizations across Pan-India and international borders to make informed, risk-free hiring decisions.</p>
+
+        <h3>Core Technological Infrastructure</h3>
+        <p>Traditional background verification methods are often plagued by manual delays, human error, and lack of transparency. VeriShield India disrupts this legacy paradigm through our proprietary automated verification engine. By seamlessly interfacing with government registries, judicial e-Courts databases, EPFO employment passbooks, and accredited university repositories, we execute comprehensive multi-tier screening within hours rather than weeks.</p>
+        
+        <h3>Enterprise Leadership & Partnerships</h3>
+        <p>Trusted by industry giants such as <strong>Zero Crime India</strong> and diverse international corporate partners, VeriShield India maintains uncompromising standards of data integrity, security governance, and operational excellence. Our dedicated team of legal experts, technologists, and verification specialists work relentlessly to protect enterprise ecosystems worldwide.</p>
     </div>
 
-    <!-- 14. Contact Us Page -->
+    <!-- 14. Professional Long-Form Contact Us Page -->
     <div id="contactPage" class="page">
-        <h2>Global Contact & Enterprise Support</h2>
-        <p>Official Support Email: <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none;">verishieldindia@gmail.com</a></p>
+        <h2>Global Contact & Enterprise Support Center</h2>
+        <p>VeriShield India maintains dedicated communication channels to assist enterprise HR leaders, recruitment agencies, and candidates with immediate technical assistance, report tracking, and customized BGV package consultations.</p>
+        
+        <div class="service-card">
+            <h4>🏢 Corporate Headquarters & Regional Hubs</h4>
+            <p><strong>Primary Operations:</strong> Cyber City, DLF Phase 3, Sector 24, Gurugram, Haryana 122002, India<br>
+            <strong>Pan-India Network:</strong> Active field audit coverage across 28 states and 8 union territories.</p>
+        </div>
+
+        <div class="service-card">
+            <h4>📞 Official Direct Support Channels</h4>
+            <p><strong>Primary Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br>
+            <strong>Enterprise Sales & Custom API Integration:</strong> corporate@verishield-india.vercel.app<br>
+            <strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
+        </div>
     </div>
 
-    <!-- 15. Disclaimer Page -->
+    <!-- 15. Professional Long-Form Legal Disclaimer Page -->
     <div id="disclaimerPage" class="page">
-        <h2>Legal Disclaimer & Operational Scope</h2>
-        <p>VeriShield India operates strictly as a technology and screening facilitator in compliance with candidate consent and data protection norms.</p>
+        <h2>Comprehensive Legal Disclaimer & Operational Scope</h2>
+        <p><strong>1. Acceptance of Terms:</strong> By accessing, utilizing, or interacting with the VeriShield India platform, software applications, APIs, and verification services, you formally acknowledge, understand, and agree to abide by the terms, conditions, and limitations outlined in this legal disclaimer.</p>
+        
+        <p><strong>2. Nature of Screening Services:</strong> VeriShield India operates strictly as an independent technology facilitator and background screening provider. Our verification reports—including e-Courts litigation scans, EPFO history checks, and educational credential authentications—are compiled using official government databases, public records, and direct institutional responses as available at the time of inquiry. While we enforce rigorous quality controls, VeriShield India does not guarantee absolute freedom from historical omissions or delayed public registry updates.</p>
+
+        <p><strong>3. Limitation of Liability:</strong> VeriShield India, its directors, employees, and technology partners shall not be held legally or financially liable for any direct, indirect, incidental, or consequential damages arising from employment hiring decisions, contractual disputes, or third-party data discrepancies based on reports delivered through our platform.</p>
     </div>
 
-    <!-- 16. Privacy Policy Page -->
+    <!-- 16. Professional Long-Form Privacy Policy Page -->
     <div id="privacyPage" class="page">
-        <h2>Privacy Policy & Data Compliance</h2>
-        <p>We adhere to international data privacy standards, the Digital Personal Data Protection (DPDP) Act, and AES-256 encryption protocols.</p>
+        <h2>Privacy Policy & Data Protection Compliance</h2>
+        <p><strong>1. Commitment to Data Security:</strong> VeriShield India is profoundly committed to protecting the privacy, confidentiality, and security of Personally Identifiable Information (PII) entrusted to us by candidates, corporate clients, and partner organizations. We strictly adhere to global data privacy frameworks and the Digital Personal Data Protection (DPDP) Act.</p>
+
+        <p><strong>2. Collection & Purpose of Information:</strong> We collect candidate credentials, identification numbers (such as PAN and additional KYC documents), residential addresses, biometric facial images, and GPS geo-location data exclusively for the purpose of executing requested background screening and compliance verification as authorized by explicit candidate consent.</p>
+
+        <p><strong>3. Advanced Encryption Protocols:</strong> All sensitive candidate data is safeguarded in transit and at rest utilizing industry-standard AES-256 encryption protocols. Access to verification records is strictly restricted to authorized enterprise HR administrators and verified compliance personnel.</p>
+
+        <p><strong>4. Data Retention & Deletion:</strong> Candidate screening data is retained only for the duration required to fulfill legal compliance, audit obligations, and enterprise verification contracts, following which records are securely purged from active servers.</p>
     </div>
 
 </div>
 
-<!-- Floating Live Chat Support Widget (Restored Native Chat Box) -->
-<div class="chat-widget-btn" onclick="toggleChatBox()" title="Chat with Support">💬</div>
-<div class="chat-box-container" id="chatBoxContainer">
-    <div class="chat-box-header">
-        <span>🛡️ VeriShield Live Support</span>
-        <span style="cursor:pointer;" onclick="toggleChatBox()">✕</span>
-    </div>
-    <div class="chat-box-body" id="chatBoxBody">
-        <p><strong>Support Bot:</strong> Hello! Welcome to VeriShield India. How can we assist you with background verification today?</p>
-        <p>📧 Email: <strong>verishieldindia@gmail.com</strong></p>
-    </div>
-    <div class="chat-box-footer">
-        <input type="text" id="chatUserInput" placeholder="Type your message..." onkeypress="handleChatEnter(event)">
-        <button style="background:var(--teal-cyan); color:#fff; border:none; border-radius:4px; padding:6px 12px; cursor:pointer;" onclick="sendChatMessage()">Send</button>
+<!-- Green & White Full-Screen Chat Overlay Widget -->
+<div class="chat-widget-btn" onclick="toggleChatModal()" title="Open Support Chat">💬</div>
+
+<div class="chat-overlay-modal" id="chatOverlayModal">
+    <div class="chat-modal-content">
+        <div class="chat-modal-header">
+            <span>🛡️ VeriShield India - Live Support Center</span>
+            <span style="cursor:pointer; font-size: 20px; font-weight: bold;" onclick="toggleChatModal()">✕</span>
+        </div>
+        <div class="chat-modal-body" id="chatModalBody">
+            <div class="chat-msg-bot">
+                Hello! Welcome to <strong>VeriShield India</strong> Live Support. How can we assist you with background verification, pricing, or candidate onboarding today?<br><br>
+                📧 Email: <strong>verishieldindia@gmail.com</strong>
+            </div>
+        </div>
+        <div class="chat-modal-footer">
+            <input type="text" id="chatModalInput" placeholder="Type your message here..." onkeypress="handleModalChatEnter(event)">
+            <button onclick="sendModalChatMessage()">Send</button>
+        </div>
     </div>
 </div>
 
-<!-- Professional Footer (Strictly Unchanged) -->
 <footer>
     <p>&copy; 2026 VeriShield India. All rights reserved. Trusted verification partner for global enterprises including <strong>Zero Crime India</strong>.</p>
     <div style="margin-top: 12px;">
@@ -640,43 +707,43 @@
         window.scrollTo(0, 0);
     }
 
-    // Native Interactive Chat Bot Logic
-    function toggleChatBox() {
-        const box = document.getElementById('chatBoxContainer');
-        box.style.display = box.style.display === 'block' ? 'none' : 'block';
+    // Green & White Full Overlay Chat Modal Logic
+    function toggleChatModal() {
+        const modal = document.getElementById('chatOverlayModal');
+        modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
     }
 
-    function sendChatMessage() {
-        const input = document.getElementById('chatUserInput');
+    function sendModalChatMessage() {
+        const input = document.getElementById('chatModalInput');
         const text = input.value.trim();
         if(!text) return;
 
-        const body = document.getElementById('chatBoxBody');
-        body.innerHTML += `<p><strong>You:</strong> ${text}</p>`;
+        const body = document.getElementById('chatModalBody');
+        body.innerHTML += `<div class="chat-msg-user">${text}</div>`;
         input.value = '';
 
-        let botReply = "Thank you for reaching out to VeriShield India. Our team will review your query and get back to you via <strong>verishieldindia@gmail.com</strong>.";
+        let botReply = "Thank you for reaching out to VeriShield India. Our enterprise support team will review your query and respond promptly via <strong>verishieldindia@gmail.com</strong>.";
         const lowerText = text.toLowerCase();
 
         if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') || lowerText.includes('pricing')) {
-            botReply = "Our pricing starts with standard SME ID KYC and goes up to our comprehensive Enterprise All-In-One package. Please visit our <strong>Pricing</strong> tab for details!";
+            botReply = "Our pricing ranges from standard SME ID KYC to our flagship Enterprise All-In-One BGV package. Please visit our <strong>Pricing</strong> section for complete transparency.";
         } else if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie')) {
-            botReply = "Candidates must complete their secure onboarding via the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, and real-time GPS geo-tagging.";
+            botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, live face selfie, and GPS geo-tagging.";
         } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report')) {
-            botReply = "HR professionals can log into the <strong>HR Portal</strong>, lock screening packages, and generate secure candidate links.";
+            botReply = "HR professionals can log into the <strong>HR Portal</strong>, lock screening packages, and generate secure candidate links instantly.";
         }
 
         setTimeout(() => {
-            body.innerHTML += `<p><strong>Support Bot:</strong> ${botReply}</p>`;
+            body.innerHTML += `<div class="chat-msg-bot">${botReply}</div>`;
             body.scrollTop = body.scrollHeight;
         }, 800);
 
         body.scrollTop = body.scrollHeight;
     }
 
-    function handleChatEnter(e) {
+    function handleModalChatEnter(e) {
         if(e.key === 'Enter') {
-            sendChatMessage();
+            sendModalChatMessage();
         }
     }
 
