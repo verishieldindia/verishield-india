@@ -402,7 +402,7 @@
         </div>
     </div>
 
-    <!-- 3. HR PORTAL PAGE (Updated with Packages & See More Customize Option) -->
+    <!-- 3. HR PORTAL PAGE (Updated with 3 Packages + See More Customize Option) -->
     <div id="hrPage" class="page">
         <h2>Enterprise HR Portal (Onboarding & Package Selection)</h2>
         <p>Select your pre-defined verification package or click <strong>"See More (Customize Checks)"</strong> to handpick specific verification modules. <em>Security Note: Final password-protected PDF reports are sent exclusively to the authorized HR Email ID.</em></p>
@@ -452,7 +452,7 @@
                     <input type="email" id="hrCandidateEmail" required placeholder="candidate@email.com">
                 </div>
                 
-                <!-- See More: Customized Checkbox Modules (Without CIBIL, MCA, Drug, Social, Ref) -->
+                <!-- See More: Customized Checkbox Modules -->
                 <div id="customCheckboxesContainer" class="form-group" style="background: #f8fafc; padding: 20px; border-radius: 10px; border: 1px solid #cbd5e1; margin-top: 20px; display: none;">
                     <label style="margin-bottom: 12px; color: var(--primary-blue); font-size: 16px;"><strong>Customize Verification Checks (See More Options):</strong></label>
                     
@@ -515,10 +515,10 @@
         <div id="linkOutput" style="margin-top: 25px; font-weight: 600; color: #059669; text-align: center; font-size: 18px;"></div>
     </div>
 
-    <!-- 4. CANDIDATE PORTAL PAGE -->
+    <!-- 4. CANDIDATE PORTAL PAGE (Updated with PAN Mandatory + ID Dropdown + DigiLocker) -->
     <div id="candidatePage" class="page">
         <h2>Candidate Secure Onboarding Portal</h2>
-        <p>Welcome to the candidate onboarding portal. Please fill in your authentic details, provide your PAN identification, and complete the mandatory GPS geo-tagging steps.</p>
+        <p>Welcome to the candidate onboarding portal. Please fill in your authentic details, provide your PAN identification, select your ID proof, and complete the mandatory GPS geo-tagging steps.</p>
         
         <form id="candidateForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="validateCandidateForm(event)">
             <div class="form-section">
@@ -546,14 +546,24 @@
             </div>
 
             <div class="form-section">
-                <h3>2. Identity Verification (PAN Mandatory) & DigiLocker Sync</h3>
+                <h3>2. Identity Verification (PAN Mandatory + Additional ID Proof)</h3>
                 <div class="form-group">
                     <label>PAN Card Number (Tax Compliance) <span class="badge-mandatory">Mandatory</span>:</label>
                     <input type="text" id="candPan" name="panNumber" required placeholder="ABCDE1234F">
                 </div>
-                <div class="form-group" style="margin-top: 15px;">
-                    <button type="button" class="btn-blue" onclick="alert('🔗 DigiLocker Authentication Successful! Verified ID and Education documents synced securely.')">🔐 Sync & Authenticate via DigiLocker (Optional)</button>
-                    <div style="font-size: 13px; color: #059669; margin-top: 5px;">Fast-track verification using government-backed DigiLocker integration.</div>
+                <div class="form-group">
+                    <label>Select Additional Government ID Proof:</label>
+                    <select id="candIdType" required>
+                        <option value="digilocker">DigiLocker (Recommended - Sync Govt Documents)</option>
+                        <option value="aadhaar">Aadhaar Card</option>
+                        <option value="voter">Voter ID Card</option>
+                        <option value="dl">Driving License (DL)</option>
+                        <option value="passport">Passport</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>ID Card Number / DigiLocker Reference:</label>
+                    <input type="text" id="candIdNumber" required placeholder="Enter ID Number or DigiLocker Ref">
                 </div>
             </div>
 
@@ -595,30 +605,30 @@
         <div id="trackResult" style="margin-top: 25px;"></div>
     </div>
 
-    <!-- 6. BLOGS PAGE -->
+    <!-- 6. BLOGS PAGE (Detailed & Deep Content) -->
     <div id="blogPage" class="page">
         <h2>Blogs & Enterprise Industry Insights</h2>
         <p>Explore thought leadership articles, compliance deep-dives, and strategic guidance on mitigating corporate risk through advanced background screening infrastructure.</p>
         
         <div class="service-card">
-            <h4>📖 Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
-            <p>Discover how dual employment threatens enterprise data security and intellectual property rights. We analyze how automated EPFO unified passbook history checks and multi-repository employment tracking effectively mitigate this hidden risk across global engineering and remote-first technology hubs.</p>
+            <h4>📖 Deep-Dive: Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
+            <p>In the post-pandemic digital economy, remote work has unlocked unprecedented global talent pools, but it has simultaneously introduced severe vulnerabilities—chief among them being dual employment, commonly known as "moonlighting." When software engineers or financial analysts simultaneously commit to two full-time corporate contracts, enterprises face catastrophic risks regarding intellectual property theft, data leakage, code contamination, and severe productivity drop-offs. Traditional HR background checks only review past employment at the time of onboarding, leaving organizations completely blind to parallel employment during the tenure.<br><br>VeriShield India solves this critical enterprise risk by deploying automated EPFO (Employee Provident Fund Organisation) unified passbook history audits and multi-repository employment tracking. By continuously cross-referencing statutory social security contributions and UAN updates, our platform instantly flags simultaneous employer contributions, enabling compliance officers and HR leaders to neutralize hidden liabilities before data breaches occur. Safeguarding your proprietary assets requires more than a handshake; it demands institutionalized, real-time trust-tech infrastructure.</p>
         </div>
 
         <div class="service-card">
             <h4>📖 The Evolution of Digital Trust-Tech in Post-Pandemic Recruitment</h4>
-            <p>Traditional paper-based background checks are increasingly obsolete in modern corporate ecosystems. Learn how real-time GPS geo-tagging, judicial e-Courts litigation scans, and instant API-driven PAN/KYC verifications are transforming HR onboarding speed and compliance integrity.</p>
+            <p>The traditional paradigm of paper-based background verification—characterized by physical mailers, delayed university verification letters, and manual police station visits—is utterly obsolete in today’s hyper-fast corporate ecosystem. Modern enterprises scale across international borders within days, requiring background screening velocity that matches operational speed. This white paper explores the transformative impact of digital trust-tech infrastructure on corporate recruitment.<br><br>By integrating real-time GPS residential geo-tagging, judicial e-Courts civil/criminal litigation scans, and instant API-driven PAN/KYC verifications, VeriShield India compresses a cumbersome 14-day background verification cycle down to under 36 hours. Furthermore, automated compliance adherence to global privacy frameworks such as the Digital Personal Data Protection (DPDP) Act ensures that speed never compromises legal integrity. Discover how adopting programmatic candidate screening protects your brand equity, eliminates resume inflation, and establishes an unshakeable foundation of corporate compliance.</p>
         </div>
     </div>
 
-    <!-- 7. CASE STUDIES PAGE -->
+    <!-- 7. CASE STUDIES PAGE (Detailed & Deep Content) -->
     <div id="caseStudiesPage" class="page">
         <h2>Enterprise Success Stories & Case Studies</h2>
         <p>Real-world impact assessments demonstrating how leading global organizations partner with VeriShield India to achieve flawless compliance and eliminate fraudulent hiring.</p>
         
         <div class="service-card">
-            <h4>🏢 Case Study: Neutralizing Resume Inflation for a Global Fintech Unicorn</h4>
-            <p><strong>Client Profile:</strong> A rapidly expanding fintech unicorn scaling engineering and risk management teams across Pan-India.<br><strong>The Challenge:</strong> High volume of candidate applications with credential inflation and fabricated employment timelines.<br><strong>The VeriShield Solution:</strong> Implementation of VeriShield's Flagship All-in-One BGV package coupled with automated EPFO checks and real-time residential geo-tagging.<br><strong>The Result:</strong> Achieved 100% credential authenticity, zero fraudulent onboarding over 12 months, and reduced overall onboarding verification cycle time from 14 days down to 36 hours.</p>
+            <h4>🏢 Case Study: Neutralizing Resume Inflation and Credential Fraud for a Global Fintech Unicorn</h4>
+            <p><strong>Client Profile:</strong> A rapidly expanding global fintech unicorn scaling high-velocity engineering, data science, and risk management teams across Pan-India and international hubs.<br><br><strong>The Business Challenge:</strong> Amid hyper-growth recruitment drives, the client encountered an alarming surge in candidate applications featuring fabricated employment timelines, inflated tenure dates at premier technology firms, and unverified degree credentials. Manual HR verification queues created a massive hiring bottleneck, forcing recruitment teams to wait up to three weeks per candidate, resulting in top engineering talent accepting competing offers.<br><br><strong>The VeriShield Solution:</strong> The client deployed VeriShield India’s flagship All-in-One Corporate BGV package. This integrated automated EPFO unified passbook audits, instantaneous university degree repository checks, and tamper-proof real-time residential GPS geo-tagging directly into their applicant tracking system (ATS).<br><br><strong>The Quantifiable Result:</strong> Within 12 months of deployment, VeriShield India achieved 100% credential authenticity across 1,400+ onboarded professionals, resulting in zero fraudulent hirings. Furthermore, the average onboarding verification cycle time plummeted from 14 business days down to just 36 hours, allowing the fintech unicorn to secure top-tier talent faster than industry competitors while maintaining immaculate regulatory compliance.</p>
         </div>
     </div>
 
@@ -642,14 +652,14 @@
         </div>
     </div>
 
-    <!-- 10. FAQ PAGE (20 Complete Questions) -->
+    <!-- 10. FAQ PAGE (Complete 20 Questions) -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and security protocols.</p>
         
         <div class="faq-item">
             <h4>Q1. How does HR initiate candidate verification on the platform?</h4>
-            <p>HR professionals can select pre-configured packages or use the "See More" customize option or bulk CSV upload in the Enterprise HR Portal.</p>
+            <p>HR professionals can select pre-configured packages or use the "See More" customize option or bulk CSV upload in the Enterprise HR Portal to generate locked verification links instantly.</p>
         </div>
         <div class="faq-item">
             <h4>Q2. Who receives the final background verification report?</h4>
@@ -660,8 +670,8 @@
             <p>Yes, PAN Card details are strictly mandatory to ensure tax compliance, financial verification, and primary identity cross-referencing across government databases.</p>
         </div>
         <div class="faq-item">
-            <h4>Q4. How does DigiLocker integration help during onboarding?</h4>
-            <p>DigiLocker allows candidates to securely sync verified government identity and educational documents instantly, minimizing manual entry and API overheads.</p>
+            <h4>Q4. What additional ID proofs are supported during candidate onboarding?</h4>
+            <p>Candidates can provide DigiLocker sync references, Aadhaar Cards, Voter ID Cards, Driving Licenses, or Passports alongside mandatory PAN compliance.</p>
         </div>
         <div class="faq-item">
             <h4>Q5. How does real-time GPS Geo-Tagging work during onboarding?</h4>
@@ -886,7 +896,7 @@
         var lowerText = text.toLowerCase();
 
         if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie') || lowerText.includes('digilocker')) {
-            botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, GPS geo-tagging, and DigiLocker sync.";
+            botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, GPS geo-tagging, and ID proof selection.";
         } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report') || lowerText.includes('bulk')) {
             botReply = "HR professionals can use the <strong>Enterprise HR Portal</strong> to pick tiered packages or customize check-boxes, as well as upload bulk CSV files. Final reports are sent <strong>exclusively to the HR Email</strong>.";
         } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase')) {
