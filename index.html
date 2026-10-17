@@ -21,7 +21,6 @@
             position: relative;
         }
         
-        /* Updated watermark background using the actual uploaded logo.jpg */
         body::before {
             content: "";
             position: fixed;
@@ -38,12 +37,13 @@
             pointer-events: none;
         }
 
+        /* Header updated to Orange as requested */
         header { 
-            background: var(--primary-blue); 
+            background: var(--accent-orange); 
             color: white; 
             padding: 16px 20px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
-            border-bottom: 3px solid var(--accent-orange); 
+            border-bottom: 3px solid var(--primary-blue); 
             position: sticky;
             top: 0;
             z-index: 9999;
@@ -65,7 +65,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            border: 2px solid var(--accent-orange);
+            border: 2px solid #ffffff;
             background: #ffffff;
             object-fit: cover;
             flex-shrink: 0;
@@ -79,7 +79,7 @@
         }
         .logo-text span {
             font-size: 10px;
-            color: var(--teal-cyan);
+            color: #fef3c7;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             display: block;
@@ -89,7 +89,7 @@
             display: flex; 
             flex-direction: column;
             gap: 8px;
-            border-top: 1px solid rgba(255,255,255,0.15);
+            border-top: 1px solid rgba(255,255,255,0.2);
             padding-top: 10px;
             max-width: 1350px;
             margin: 0 auto;
@@ -98,22 +98,22 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
         nav a { 
-            color: #e2e8f0; 
+            color: #fef3c7; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 12px; 
+            font-size: 13px; 
             cursor: pointer; 
-            padding: 6px 12px;
+            padding: 6px 14px;
             border-radius: 4px;
             transition: all 0.3s ease; 
         }
         nav a:hover, nav a.active-nav { 
             color: white; 
-            background: rgba(13, 148, 136, 0.5);
-            border-bottom: 2px solid var(--teal-cyan);
+            background: rgba(255, 255, 255, 0.2);
+            border-bottom: 2px solid #ffffff;
         }
         
         .container { 
@@ -273,8 +273,9 @@
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 4px 9px; border-radius: 4px; margin-left: 8px; font-weight: 600; }
         
-        footer { text-align: center; padding: 35px; background: var(--primary-blue); color: #cbd5e1; margin-top: 70px; font-size: 14.5px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #38bdf8; text-decoration: none; margin: 0 15px; cursor: pointer; font-weight: 600; }
+        /* Footer updated to Green as requested */
+        footer { text-align: center; padding: 35px; background: var(--chat-green); color: #ffffff; margin-top: 70px; font-size: 14.5px; border-top: 3px solid var(--accent-orange); }
+        footer a { color: #fef3c7; text-decoration: none; margin: 0 15px; cursor: pointer; font-weight: 600; }
         footer a:hover { text-decoration: underline; }
 
         @media (max-width: 768px) {
@@ -303,7 +304,6 @@
         <div class="nav-row">
             <a onclick="showPage('homePage')" id="nav-homePage" class="active-nav">Home</a>
             <a onclick="showPage('servicesPage')" id="nav-servicesPage">Services</a>
-            <a onclick="showPage('pricingPage')" id="nav-pricingPage">Pricing</a>
             <a onclick="showPage('hrPage')" id="nav-hrPage">HR Portal</a>
             <a onclick="showPage('candidatePage')" id="nav-candidatePage">Candidate</a>
             <a onclick="showPage('trackerPage')" id="nav-trackerPage">Tracker</a>
@@ -311,7 +311,6 @@
         <div class="nav-row">
             <a onclick="showPage('blogPage')" id="nav-blogPage">Blogs</a>
             <a onclick="showPage('caseStudiesPage')" id="nav-caseStudiesPage">Case Studies</a>
-            <a onclick="showPage('apiDocsPage')" id="nav-apiDocsPage">API Docs</a>
             <a onclick="showPage('careersPage')" id="nav-careersPage">Careers</a>
             <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
             <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
@@ -372,21 +371,7 @@
         </div>
     </div>
 
-    <!-- 3. PRICING PAGE -->
-    <div id="pricingPage" class="page">
-        <h2>Transparent Pricing & Custom Enterprise Quotations</h2>
-        <p>At VeriShield India, we understand that every organization possesses unique recruitment volumes, risk profiles, and operational demands. Rather than rigid one-size-fits-all pricing, we offer flexible, customized enterprise pricing tiers tailored precisely to your scale.</p>
-        
-        <div class="service-card" style="border-left-color: var(--accent-orange);">
-            <h4>💬 Custom Enterprise Quotations & Contact Requirement</h4>
-            <p>To ensure absolute transparency and provide optimized pricing based on monthly candidate volume, API integration depth, and specific module selection, our pricing is structured on a customized quotation model.<br><br><strong>How to Get Your Quote:</strong> Please contact our enterprise sales desk directly at <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a> or use our secure <strong>HR Portal</strong> to initiate a consultation. Our corporate team responds within 2 business hours with a comprehensive rate card.</p>
-        </div>
-
-        <h3>Flexible Billing & SLA Guarantees</h3>
-        <p>We provide volume-based slab discounts, pay-as-you-go API credit bundles, and dedicated annual enterprise service contracts backed by strict SLA guarantees. Our financial transparency ensures no hidden fees or unexpected administrative overheads for growing corporations.</p>
-    </div>
-
-    <!-- 4. HR PORTAL PAGE -->
+    <!-- 3. HR PORTAL PAGE -->
     <div id="hrPage" class="page">
         <h2>Enterprise HR Portal (Onboarding & Package Lock)</h2>
         <p>The Enterprise HR Portal serves as the primary command center for human resource leaders to manage candidate onboarding, lock verification packages, and track report delivery securely.</p>
@@ -432,7 +417,7 @@
         <div id="linkOutput" style="margin-top: 25px; font-weight: 600; color: #059669; text-align: center; font-size: 18px;"></div>
     </div>
 
-    <!-- 5. CANDIDATE PORTAL PAGE -->
+    <!-- 4. CANDIDATE PORTAL PAGE -->
     <div id="candidatePage" class="page">
         <h2>Candidate Secure Onboarding Portal</h2>
         <p>Welcome to the candidate onboarding portal. Please fill in your authentic details, provide your PAN identification, and complete the mandatory GPS geo-tagging steps.</p>
@@ -493,7 +478,7 @@
         </form>
     </div>
 
-    <!-- 6. TRACKER PAGE -->
+    <!-- 5. TRACKER PAGE -->
     <div id="trackerPage" class="page">
         <h2>Live Case Tracker (Status Engine)</h2>
         <p style="text-align: center; color: #475569; margin-bottom: 30px;">Enter your unique Case Tracking ID to check real-time verification progress.</p>
@@ -508,7 +493,7 @@
         <div id="trackResult" style="margin-top: 25px; font-weight: 600; text-align: center; font-size: 18px;"></div>
     </div>
 
-    <!-- 7. BLOGS PAGE -->
+    <!-- 6. BLOGS PAGE -->
     <div id="blogPage" class="page">
         <h2>Blogs & Enterprise Industry Insights</h2>
         <p>Explore thought leadership articles, compliance deep-dives, and strategic guidance on mitigating corporate risk through advanced background screening infrastructure.</p>
@@ -524,7 +509,7 @@
         </div>
     </div>
 
-    <!-- 8. CASE STUDIES PAGE -->
+    <!-- 7. CASE STUDIES PAGE -->
     <div id="caseStudiesPage" class="page">
         <h2>Enterprise Success Stories & Case Studies</h2>
         <p>Real-world impact assessments demonstrating how leading global organizations partner with VeriShield India to achieve flawless compliance and eliminate fraudulent hiring.</p>
@@ -535,18 +520,7 @@
         </div>
     </div>
 
-    <!-- 9. API DOCS PAGE -->
-    <div id="apiDocsPage" class="page">
-        <h2>Developer Hub & Enterprise API Documentation</h2>
-        <p>Comprehensive technical specifications for integrating VeriShield India’s powerful RESTful APIs and secure webhooks directly into enterprise HRMS, ATS, and recruitment software.</p>
-        
-        <div class="service-card">
-            <h4>⚙️ RESTful API Architecture & Secure Endpoints</h4>
-            <p>Our developer-friendly JSON APIs support robust authentication via Bearer Tokens, TLS 1.3 encryption, and asynchronous webhook callbacks. Key integration endpoints include:<br>- <code>POST /api/v1/kyc/pan-verify</code> (Instant PAN Tax Compliance & Identity Check)<br>- <code>POST /api/v1/bgv/ecourts-scan</code> (Pan-India Civil & Criminal Litigation Search)<br>- <code>POST /api/v1/bgv/uan-history</code> (EPFO Unified Passbook & Moonlighting Detection)</p>
-        </div>
-    </div>
-
-    <!-- 10. CAREERS PAGE -->
+    <!-- 8. CAREERS PAGE -->
     <div id="careersPage" class="page">
         <h2>Careers & Field Verification Partner Network</h2>
         <p>Join VeriShield India’s dynamic ecosystem of technologists, legal compliance experts, and accredited field verification auditors across Pan-India.</p>
@@ -557,7 +531,7 @@
         </div>
     </div>
 
-    <!-- 11. CLIENTS PAGE -->
+    <!-- 9. CLIENTS PAGE -->
     <div id="clientsPage" class="page">
         <h2>Our Valued Clients & Partners</h2>
         <p style="text-align: center; color: #475569; margin-bottom: 35px;">Proudly powering trust-tech infrastructure and background screening for esteemed industry leaders.</p>
@@ -569,10 +543,10 @@
         </div>
     </div>
 
-    <!-- 12. FAQ PAGE -->
+    <!-- 10. FAQ PAGE -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
-        <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and automated API security.</p>
+        <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and security protocols.</p>
         
         <div class="faq-item">
             <h4>Q1. How does HR initiate candidate verification on the platform?</h4>
@@ -616,10 +590,10 @@
         </div>
     </div>
 
-    <!-- 13. ABOUT US PAGE -->
+    <!-- 11. ABOUT US PAGE -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India & Trust-Tech Infrastructure</h2>
-        <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated API pipelines with rigorous field verification protocols across Pan-India.</p>
+        <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated pipelines with rigorous field verification protocols across Pan-India.</p>
         
         <h3>Our Vision & Strategic Mission</h3>
         <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences. We empower organizations across Pan-India and international borders to make informed, risk-free hiring decisions without administrative friction.</p>
@@ -628,7 +602,7 @@
         <p>Traditional background verification methods are often plagued by manual delays, human error, and lack of transparency. VeriShield India disrupts this legacy paradigm through our proprietary automated verification engine. By seamlessly interfacing with government registries, judicial e-Courts databases, EPFO employment passbooks, and accredited university repositories, we execute comprehensive multi-tier screening within hours rather than weeks.</p>
     </div>
 
-    <!-- 14. CONTACT US PAGE -->
+    <!-- 12. CONTACT US PAGE -->
     <div id="contactPage" class="page">
         <h2>Global Contact & Enterprise Support Center</h2>
         <p>VeriShield India maintains dedicated communication channels to assist enterprise HR leaders, recruitment agencies, and candidates with immediate technical assistance, report tracking, and customized BGV package consultations.</p>
@@ -640,11 +614,11 @@
 
         <div class="service-card">
             <h4>📞 Official Direct Support Channels</h4>
-            <p><strong>Primary Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br><strong>Enterprise Sales & Custom API Integration:</strong> corporate@verishield-india.vercel.app<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
+            <p><strong>Primary Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br><strong>Enterprise Sales & Business Consultation:</strong> corporate@verishield-india.vercel.app<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
         </div>
     </div>
 
-    <!-- 15. DISCLAIMER PAGE -->
+    <!-- 13. DISCLAIMER PAGE -->
     <div id="disclaimerPage" class="page">
         <h2>Comprehensive Legal Disclaimer & Operational Scope</h2>
         <p><strong>1. Acceptance of National & International Standards:</strong> VeriShield India operates in strict compliance with national legal frameworks (including the Information Technology Act and Digital Personal Data Protection - DPDP Act) as well as international compliance standards (such as GDPR and global corporate governance norms).</p>
@@ -654,7 +628,7 @@
         <p><strong>3. Limitation of Liability:</strong> VeriShield India, its directors, employees, and technology partners shall not be held legally or financially liable for any direct, indirect, incidental, or consequential damages arising from employment hiring decisions, contractual disputes, or third-party data discrepancies based on reports delivered through our platform.</p>
     </div>
 
-    <!-- 16. PRIVACY POLICY PAGE -->
+    <!-- 14. PRIVACY POLICY PAGE -->
     <div id="privacyPage" class="page">
         <h2>Privacy Policy & Zero-Data Retention Compliance</h2>
         <p><strong>1. Commitment to Data Security & Zero Retention:</strong> VeriShield India is profoundly committed to protecting the privacy, confidentiality, and security of Personally Identifiable Information (PII) entrusted to us by candidates, corporate clients, and partner organizations. We strictly adhere to global data privacy frameworks and the Digital Personal Data Protection (DPDP) Act.</p>
@@ -675,7 +649,7 @@
         </div>
         <div class="chat-modal-body" id="chatModalBody">
             <div class="chat-msg-bot">
-                Hello! Welcome to <strong>VeriShield India</strong> Enterprise Support. How can we assist you today? You can ask about our BGV packages, custom pricing quotes, candidate onboarding, API docs, or contact us at <strong>verishieldindia@gmail.com</strong>.
+                Hello! Welcome to <strong>VeriShield India</strong> Enterprise Support. How can we assist you today? You can ask about our BGV packages, custom corporate quotes, candidate onboarding, or contact us at <strong>verishieldindia@gmail.com</strong>.
             </div>
         </div>
         <div class="chat-modal-footer">
@@ -739,9 +713,7 @@
         var botReply = "Thank you for reaching out to VeriShield India. Our enterprise support team will review your query and respond promptly via <strong>verishieldindia@gmail.com</strong>.";
         var lowerText = text.toLowerCase();
 
-        if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') || lowerText.includes('pricing') || lowerText.includes('tier') || lowerText.includes('quote')) {
-            botReply = "Our pricing is structured on customized enterprise quotations tailored to your volume. Please visit our <strong>Pricing</strong> page or contact our corporate desk at <strong>verishieldindia@gmail.com</strong> for a custom rate card.";
-        } else if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie')) {
+        if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie')) {
             botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, and GPS geo-tagging.";
         } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report')) {
             botReply = "HR professionals can log into the <strong>HR Portal</strong>, lock screening packages, and generate secure candidate links instantly.";
