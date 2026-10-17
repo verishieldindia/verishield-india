@@ -37,13 +37,13 @@
             pointer-events: none;
         }
 
-        /* Header updated to Orange as requested */
+        /* Header - Orange */
         header { 
             background: var(--accent-orange); 
             color: white; 
-            padding: 16px 20px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
-            border-bottom: 3px solid var(--primary-blue); 
+            padding: 18px 24px; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2); 
+            border-bottom: 3px solid #b45309; 
             position: sticky;
             top: 0;
             z-index: 9999;
@@ -53,7 +53,7 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1350px;
-            margin: 0 auto 12px auto;
+            margin: 0 auto 14px auto;
         }
         .logo-area {
             display: flex;
@@ -62,35 +62,37 @@
             cursor: pointer;
         }
         .site-logo {
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             border-radius: 50%;
             border: 2px solid #ffffff;
             background: #ffffff;
             object-fit: cover;
             flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
         .logo-text h1 { 
             margin: 0; 
-            font-size: 20px; 
+            font-size: 22px; 
             letter-spacing: 0.5px; 
             color: #fff; 
             font-weight: 700;
         }
         .logo-text span {
-            font-size: 10px;
+            font-size: 11px;
             color: #fef3c7;
             letter-spacing: 1.5px;
             text-transform: uppercase;
             display: block;
         }
         
+        /* Clean Header Navigation Tabs */
         nav { 
             display: flex; 
             flex-direction: column;
             gap: 8px;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.25);
+            padding-top: 12px;
             max-width: 1350px;
             margin: 0 auto;
         }
@@ -101,19 +103,20 @@
             gap: 10px;
         }
         nav a { 
-            color: #fef3c7; 
+            color: #ffffff; 
             text-decoration: none; 
             font-weight: 600; 
-            font-size: 13px; 
+            font-size: 13.5px; 
             cursor: pointer; 
-            padding: 6px 14px;
-            border-radius: 4px;
+            padding: 7px 16px;
+            border-radius: 6px;
             transition: all 0.3s ease; 
+            background: rgba(0,0,0,0.1);
         }
         nav a:hover, nav a.active-nav { 
-            color: white; 
-            background: rgba(255, 255, 255, 0.2);
-            border-bottom: 2px solid #ffffff;
+            color: var(--accent-orange); 
+            background: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         
         .container { 
@@ -149,9 +152,20 @@
         .btn-blue { background: #2563eb; margin-top: 10px; padding: 15px; font-size: 16px; }
         .btn-blue:hover { background: #1d4ed8; }
         
-        .hero-banner { text-align: center; padding: 60px 40px; background: linear-gradient(135deg, var(--primary-blue) 0%, #1e293b 100%); color: white; border-radius: 16px; margin-bottom: 40px; border-bottom: 5px solid var(--accent-orange); }
-        .hero-banner h2 { color: white; margin-bottom: 20px; font-size: 38px; }
-        .hero-banner p { color: #cbd5e1; font-size: 19px; max-width: 950px; margin: 0 auto 30px auto; line-height: 1.8; text-align: center; }
+        /* Modernized Professional Hero Banner */
+        .hero-banner { 
+            text-align: center; 
+            padding: 55px 40px; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: white; 
+            border-radius: 16px; 
+            margin-bottom: 40px; 
+            border-top: 4px solid var(--accent-orange);
+            border-bottom: 4px solid var(--chat-green);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+        .hero-banner h2 { color: white; margin-bottom: 18px; font-size: 34px; font-weight: 700; }
+        .hero-banner p { color: #cbd5e1; font-size: 18px; max-width: 900px; margin: 0 auto; line-height: 1.8; text-align: center; }
         
         .service-card { background: #fff; border: 1px solid #cbd5e1; padding: 35px; border-radius: 14px; margin-bottom: 28px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border-left: 6px solid var(--teal-cyan); }
         .service-card h4 { margin-top: 0; color: var(--primary-blue); font-size: 22px; font-weight: 700; margin-bottom: 15px; }
@@ -273,17 +287,50 @@
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 4px 9px; border-radius: 4px; margin-left: 8px; font-weight: 600; }
         
-        /* Footer updated to Green as requested */
-        footer { text-align: center; padding: 35px; background: var(--chat-green); color: #ffffff; margin-top: 70px; font-size: 14.5px; border-top: 3px solid var(--accent-orange); }
-        footer a { color: #fef3c7; text-decoration: none; margin: 0 15px; cursor: pointer; font-weight: 600; }
-        footer a:hover { text-decoration: underline; }
+        /* Footer - Green with clean single-line landing links */
+        footer { 
+            text-align: center; 
+            padding: 35px 20px; 
+            background: var(--chat-green); 
+            color: #ffffff; 
+            margin-top: 70px; 
+            font-size: 15px; 
+            border-top: 3px solid var(--accent-orange); 
+        }
+        footer p {
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        .footer-links-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 10px;
+        }
+        footer a { 
+            color: #ffffff; 
+            text-decoration: none; 
+            font-weight: 600; 
+            cursor: pointer; 
+            font-size: 15px;
+            transition: opacity 0.2s;
+        }
+        footer a:hover { 
+            opacity: 0.8;
+            text-decoration: underline; 
+        }
 
         @media (max-width: 768px) {
             .container { width: 95%; padding: 25px 20px; margin: 20px auto; }
             .hero-banner { padding: 40px 20px; }
-            .hero-banner h2 { font-size: 28px; }
+            .hero-banner h2 { font-size: 26px; }
             h2 { font-size: 26px; }
             .service-card { padding: 22px; }
+            .footer-links-row { gap: 12px; }
         }
     </style>
 </head>
@@ -325,10 +372,6 @@
         <div class="hero-banner">
             <h2>Pan-India Trust-Tech & Background Verification Infrastructure</h2>
             <p>Empowering Global Enterprises and Domestic Corporations with Instant, Secure, Tamper-Proof Digital Candidate Screening, e-Courts Litigations, EPFO Unified Passbook Audits, and Real-Time GPS Geo-Tagging.</p>
-            <div>
-                <button class="btn-orange" style="width: auto; padding: 16px 40px; display: inline-block;" onclick="showPage('servicesPage')">Explore Solutions</button>
-                <button style="width: auto; padding: 16px 40px; background: #2563eb; margin-left: 15px; display: inline-block;" onclick="showPage('hrPage')">Enterprise Login</button>
-            </div>
         </div>
         
         <div style="background: #f0fdf4; border-left: 6px solid var(--teal-cyan); padding: 25px; border-radius: 10px; margin: 35px 0;">
@@ -629,180 +672,4 @@
     </div>
 
     <!-- 14. PRIVACY POLICY PAGE -->
-    <div id="privacyPage" class="page">
-        <h2>Privacy Policy & Zero-Data Retention Compliance</h2>
-        <p><strong>1. Commitment to Data Security & Zero Retention:</strong> VeriShield India is profoundly committed to protecting the privacy, confidentiality, and security of Personally Identifiable Information (PII) entrusted to us by candidates, corporate clients, and partner organizations. We strictly adhere to global data privacy frameworks and the Digital Personal Data Protection (DPDP) Act.</p>
-
-        <p><strong>2. 100% Automatic Data Deletion Policy:</strong> We maintain a strict <strong>Zero-Data Retention Policy</strong>. VeriShield India <strong>does not permanently store or archive candidate personal details or raw documents</strong>. Once the comprehensive verification report is successfully generated and securely transmitted to the registered HR email ID, all raw candidate data, images, and sensitive files are <strong>automatically and permanently erased</strong> from our active servers to ensure absolute data privacy and eliminate breach risks.</p>
-    </div>
-
-</div>
-
-<!-- Chat Widget -->
-<div class="chat-widget-btn" onclick="toggleChatModal()" title="Open Support Chat">💬</div>
-
-<div class="chat-overlay-modal" id="chatOverlayModal">
-    <div class="chat-modal-content">
-        <div class="chat-modal-header">
-            <span>🛡️ VeriShield India - Smart AI Live Support</span>
-            <span style="cursor:pointer; font-size: 24px; font-weight: bold;" onclick="toggleChatModal()">✕</span>
-        </div>
-        <div class="chat-modal-body" id="chatModalBody">
-            <div class="chat-msg-bot">
-                Hello! Welcome to <strong>VeriShield India</strong> Enterprise Support. How can we assist you today? You can ask about our BGV packages, custom corporate quotes, candidate onboarding, or contact us at <strong>verishieldindia@gmail.com</strong>.
-            </div>
-        </div>
-        <div class="chat-modal-footer">
-            <input type="text" id="chatModalInput" placeholder="Type your question here..." onkeypress="handleModalChatEnter(event)">
-            <button onclick="sendModalChatMessage()">Send</button>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2026 VeriShield India. All rights reserved. Trusted verification partner for global enterprises including <strong>Zero Crime India</strong>.</p>
-    <div style="margin-top: 18px;">
-        <a onclick="showPage('aboutPage')">About Us</a> | 
-        <a onclick="showPage('contactPage')">Contact Us</a> | 
-        <a onclick="showPage('disclaimerPage')">Disclaimer</a> | 
-        <a onclick="showPage('privacyPage')">Privacy Policy</a>
-    </div>
-</footer>
-
-<script>
-    function showPage(pageId) {
-        var pages = document.querySelectorAll('.page');
-        for (var i = 0; i < pages.length; i++) {
-            pages[i].classList.remove('active');
-        }
-        var target = document.getElementById(pageId);
-        if (target) {
-            target.classList.add('active');
-        }
-        
-        var links = document.querySelectorAll('nav a');
-        for (var j = 0; j < links.length; j++) {
-            links[j].classList.remove('active-nav');
-        }
-        var activeLink = document.getElementById('nav-' + pageId);
-        if (activeLink) {
-            activeLink.classList.add('active-nav');
-        }
-        
-        window.scrollTo(0, 0);
-    }
-
-    function toggleChatModal() {
-        var modal = document.getElementById('chatOverlayModal');
-        if (modal.style.display === 'flex') {
-            modal.style.display = 'none';
-        } else {
-            modal.style.display = 'flex';
-        }
-    }
-
-    function sendModalChatMessage() {
-        var input = document.getElementById('chatModalInput');
-        var text = input.value.trim();
-        if(!text) return;
-
-        var body = document.getElementById('chatModalBody');
-        body.innerHTML += '<div class="chat-msg-user">' + text + '</div>';
-        input.value = '';
-
-        var botReply = "Thank you for reaching out to VeriShield India. Our enterprise support team will review your query and respond promptly via <strong>verishieldindia@gmail.com</strong>.";
-        var lowerText = text.toLowerCase();
-
-        if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie')) {
-            botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, and GPS geo-tagging.";
-        } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report')) {
-            botReply = "HR professionals can log into the <strong>HR Portal</strong>, lock screening packages, and generate secure candidate links instantly.";
-        } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase')) {
-            botReply = "VeriShield India follows a strict <strong>Zero-Data Retention Policy</strong>. We do not store candidate personal details once the report is generated. All data is automatically and permanently erased!";
-        } else if (lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('support')) {
-            botReply = "You can contact our corporate headquarters at Cyber City, Gurugram or reach our official support desk anytime via email at <strong>verishieldindia@gmail.com</strong>.";
-        }
-
-        setTimeout(function() {
-            body.innerHTML += '<div class="chat-msg-bot">' + botReply + '</div>';
-            body.scrollTop = body.scrollHeight;
-        }, 800);
-
-        body.scrollTop = body.scrollHeight;
-    }
-
-    function handleModalChatEnter(e) {
-        if(e.key === 'Enter') {
-            sendModalChatMessage();
-        }
-    }
-
-    function generateCandidateLink(event) {
-        event.preventDefault();
-        var candidateName = document.getElementById('hrCandidateName').value;
-        var pkg = document.getElementById('hrLockedPackage').value;
-        var uniqueLink = "https://verishield-india.vercel.app/?package=" + pkg + "&name=" + encodeURIComponent(candidateName);
-        
-        document.getElementById('linkOutput').innerHTML = "✅ Secure Enterprise Link Generated!<br><a href='#' onclick=\"loadCandidateData('" + candidateName + "', '" + pkg + "')\" style='color: #2563eb; word-break: break-all;'>" + uniqueLink + "</a>";
-    }
-
-    function loadCandidateData(name, pkg) {
-        document.getElementById('candName').value = name;
-        showPage('candidatePage');
-    }
-
-    function checkCaseStatus() {
-        var trackId = document.getElementById('trackIdInput').value.trim();
-        var resDiv = document.getElementById('trackResult');
-        if(!trackId) {
-            resDiv.innerHTML = "⚠️ Please enter a valid Case Tracking ID.";
-            resDiv.style.color = "#ef4444";
-            return;
-        }
-        resDiv.innerHTML = "🔍 Searching records for ID: <strong>" + trackId + "</strong>... Status: <span style='color:#d97706;'>IN-PROGRESS (Verified Clean / Under Review)</span>";
-        resDiv.style.color = "#0f172a";
-    }
-
-    function getSelfieLocation() {
-        var statusDiv = document.getElementById("selfieLocStatus");
-        if (navigator.geolocation) {
-            statusDiv.innerHTML = "Acquiring GPS for selfie location...";
-            navigator.geolocation.getCurrentPosition(
-                function(pos) {
-                    var lat = pos.coords.latitude;
-                    var lon = pos.coords.longitude;
-                    document.getElementById("selfieGeoCoords").value = "Lat: " + lat + ", Lon: " + lon;
-                    statusDiv.innerHTML = "✅ Selfie GPS Tagged! (Lat: " + lat.toFixed(4) + ", Lon: " + lon.toFixed(4) + ")";
-                    statusDiv.style.color = "#10b981";
-                },
-                function(err) {
-                    statusDiv.innerHTML = "❌ Location denied. Please enable GPS.";
-                    statusDiv.style.color = "#ef4444";
-                    document.getElementById("selfieGeoCoords").value = "";
-                },
-                { enableHighAccuracy: true }
-            );
-        } else {
-            statusDiv.innerHTML = "Geolocation not supported.";
-        }
-    }
-
-    function validateCandidateForm(event) {
-        var selfieCoords = document.getElementById('selfieGeoCoords').value;
-        var consentChecked = document.getElementById('candConsent').checked;
-
-        if (!selfieCoords) {
-            event.preventDefault();
-            alert("⚠️ Mandatory Warning: Please fetch the GPS Geo-Tag for your Face Selfie before submitting!");
-            return;
-        }
-
-        if (!consentChecked) {
-            event.preventDefault();
-            alert("⚠️ Mandatory Warning: You must check the legal consent box to proceed with background verification.");
-        }
-    }
-</script>
-
-</body>
-</html>
+    <div id="privacyPage" class
