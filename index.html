@@ -580,7 +580,7 @@
 
         <!-- CANDIDATE FORM (Web3Forms Endpoint with Real Key) -->
         <form id="candidateForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="validateCandidateForm(event)">
-            <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c">
+            <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c6f7">
             <input type="hidden" name="subject" value="New Candidate Verification Submission">
 
             <div class="form-section">
@@ -659,7 +659,7 @@
             </p>
             
             <form action="https://api.web3forms.com/submit" method="POST" style="margin-top: 15px;">
-                <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c">
+                <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c6f7">
                 <input type="hidden" name="subject" value="New Dispute / Clarification Request">
 
                 <div class="form-group">
@@ -918,17 +918,13 @@
         </div>
         <div class="faq-item">
             <h4>📖 Pan-India e-Courts Litigation Check</h4>
-            <p>A comprehensive judicial database scan covering district courts, high courts, and the Supreme Court of India to unearth any active civil or criminal legal proceedings involving the candidate.</p>
-        </div>
-        <div class="faq-item">
-            <h4>📖 GPS Residential Geo-Tagging</h4>
-            <p>A tamper-proof digital address verification method that captures precise latitude/longitude coordinates and a live rear-camera photograph of the candidate's residence.</p>
+            <p>यह पेज एचआर और कंप्लायंस अधिकारियों के लिए बीजीवी से जुड़ी तकनीकी शर्तों को स्पष्ट करता है।</p>
         </div>
     </div>
 
 </div>
 
-<!-- Chat Widget -->
+<!-- Chat Widget (Powered by Web3Forms Direct Inquiry Form with Real Key) -->
 <div class="chat-widget-btn" onclick="toggleChatModal()" title="Open Support Chat">💬</div>
 
 <div class="chat-overlay-modal" id="chatOverlayModal">
@@ -943,7 +939,7 @@
             </div>
             
             <form action="https://api.web3forms.com/submit" method="POST" style="background: #fff; padding: 18px; border-radius: 10px; border: 1px solid #cbd5e1; margin-top: 10px;">
-                <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c">
+                <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c6f7">
                 <input type="hidden" name="subject" value="New Inquiry from VeriShield India Chat Widget">
                 
                 <div style="margin-bottom: 12px;">
@@ -1054,7 +1050,7 @@
         body.innerHTML += '<div class="chat-msg-user">' + text + '</div>';
         input.value = '';
 
-        var botReply = "Thank you for reaching out to VeriShield India. For custom enterprise inquiries, you can directly email our support team at <strong>support@verishieldindia.com</strong>.";
+        var botReply = "Thank you for reaching out to VeriShield India. For custom enterprise inquiries, you can directly email our support team at <strong>verishieldindia@gmail.com</strong>.";
         var lowerText = text.toLowerCase();
 
         if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie') || lowerText.includes('digilocker')) {
@@ -1064,11 +1060,11 @@
         } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase')) {
             botReply = "VeriShield India follows a strict <strong>Zero-Data Retention Policy</strong>. All raw candidate data is automatically and permanently erased once reports are dispatched to HR!";
         } else if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') ||lowerText.includes('fee')) {
-            botReply = "We offer flexible enterprise screening packages including Basic Standard, Full Corporate BGV, and Executive Premium (Coming Soon). Contact us via email for custom enterprise pricing.";
+            botReply = "offering flexible enterprise screening packages including Basic Standard, Full Corporate BGV, and Executive Premium (Coming Soon). Contact us via email for custom enterprise pricing.";
         } else if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('hey')) {
             botReply = "Hello! Welcome to VeriShield India. How can we assist you with background screening or enterprise onboarding today?";
-        } else if (lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('support')) {
-            botReply = "You can contact our virtual headquarters or reach our official support desk anytime via email at <strong>support@verishieldindia.com</strong>.";
+        } else if (lowerText.includes('content') || lowerText.includes('email') || lowerText.includes('support')) {
+            botReply = "You can contact our virtual headquarters or reach our official support desk anytime via email at <strong>verishieldindia@gmail.com</strong>.";
         }
 
         setTimeout(function() {
@@ -1123,7 +1119,6 @@
             return;
         }
         
-        // Multi-Stage Progress Visualizer (Secured via Case ID input)
         resDiv.innerHTML = "<h4>🔍 Tracking Report for ID: <span style='color:var(--teal-cyan);'>" + trackId + "</span></h4>" +
             "<div class='progress-timeline'>" +
                 "<div class='step-item completed'>✅ Step 1: Candidate Data & PAN Verified (100%)</div>" +
@@ -1164,13 +1159,13 @@
 
         if (!selfieCoords) {
             event.preventDefault();
-            alert("⚠️ Mandatory Warning: Please fetch the GPS Geo-Tag for your Face Selfie before submitting[span_1](start_span)[span_1](end_span)!");
+            alert("⚠️ Mandatory Warning: Please fetch the GPS Geo-Tag for your Face Selfie before submitting!");
             return;
         }
 
         if (!consentChecked) {
             event.preventDefault();
-            alert("⚠️ Mandatory Warning: You must check the legal consent box to proceed with background verification[span_2](start_span)[span_2](end_span).");
+            alert("⚠️ Mandatory Warning: You must check the legal consent box to proceed with background verification.");
         }
     }
 </script>
