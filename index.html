@@ -39,7 +39,7 @@
             pointer-events: none;
         }
 
-        /* Header - Deep Blue */
+        /* Header - Solid Deep Blue */
         header { 
             background: var(--primary-blue); 
             color: white; 
@@ -101,7 +101,6 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
-            align-items: center;
         }
         nav a { 
             color: #ffffff; 
@@ -203,12 +202,13 @@
         .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 19px; font-weight: 700; margin-bottom: 10px; }
         .faq-item p { margin-bottom: 0; color: #334155; font-size: 16.5px; line-height: 1.9; text-align: left; }
         
+        /* Tracker Progress Timeline */
         .progress-timeline { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; text-align: left; }
         .step-item { display: flex; align-items: center; gap: 15px; background: #f8fafc; padding: 15px 20px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 16px; font-weight: 600; color: #475569; }
         .step-item.completed { background: #f0fdf4; border-color: #10b981; color: #065f46; }
         .step-item.active-step { background: #fef3c7; border-color: var(--accent-orange); color: #b45309; }
 
-        /* Chat Widget Styles */
+        /* Chat Widget */
         .chat-widget-btn {
             position: fixed;
             bottom: 30px;
@@ -242,7 +242,7 @@
         }
         .chat-modal-content {
             width: 90%;
-            max-width: 620px;
+            max-width: 680px;
             height: 85vh;
             background: #ffffff;
             border-radius: 18px;
@@ -264,10 +264,10 @@
         }
         .chat-modal-body {
             flex: 1;
-            padding: 25px;
+            padding: 28px;
             overflow-y: auto;
             background: #f8fafc;
-            font-size: 16px;
+            font-size: 16.5px;
             text-align: left;
             display: flex;
             flex-direction: column;
@@ -278,15 +278,46 @@
             color: #0f172a;
             padding: 15px 18px;
             border-radius: 14px;
-            max-width: 90%;
+            max-width: 85%;
             align-self: flex-start;
             line-height: 1.8;
         }
-        
+        .chat-msg-user {
+            background: var(--chat-green);
+            color: white;
+            padding: 15px 18px;
+            border-radius: 14px;
+            max-width: 85%;
+            align-self: flex-end;
+            line-height: 1.8;
+        }
+        .chat-modal-footer {
+            padding: 18px 25px;
+            background: #fff;
+            border-top: 1px solid #cbd5e1;
+            display: flex;
+            gap: 15px;
+        }
+        .chat-modal-footer input {
+            padding: 15px;
+            font-size: 16.5px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            width: 100%;
+        }
+        .chat-modal-footer button {
+            width: auto;
+            padding: 0 28px;
+            background: var(--chat-green);
+            color: #fff;
+            border-radius: 8px;
+            font-size: 16.5px;
+        }
         .checkbox-group { display: flex; align-items: center; gap: 15px; margin-top: 24px; }
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 4px 9px; border-radius: 4px; margin-left: 8px; font-weight: 600; }
         
+        /* Footer - Solid Green with clean single-line links */
         footer { 
             text-align: center; 
             padding: 35px 20px; 
@@ -448,6 +479,7 @@
 
             <div class="form-section">
                 <h3>Select Verification Package</h3>
+                
                 <div class="form-group">
                     <label>Choose Pre-configured Package:</label>
                     <select id="hrPackageTier" onchange="handlePackageTierChange(this.value)" required>
@@ -619,11 +651,11 @@
             <button type="submit" style="margin-top: 30px;">Submit Verification Data to HR</button>
         </form>
 
-        <!-- Candidate Dispute / Re-Check Resolution Desk (With Mobile Number & Real Key) -->
+        <!-- Candidate Dispute / Re-Check Resolution Desk -->
         <div class="form-section" style="background: #fffbeb; border: 1px solid #f59e0b; margin-top: 35px;">
             <h3 style="color: #b45309; border-bottom: 2px solid #f59e0b; margin-top: 0;">⚠️ Report Disparity & Dispute Resolution Desk</h3>
             <p style="font-size: 15.5px; color: #334155; line-height: 1.8;">
-                If any discrepancy or data mismatch is identified in your screening process, you can submit an official clarification or re-check request below.
+                If any discrepancy or data mismatch is identified in your screening process, you can submit an official clarification request below.
             </p>
             
             <form action="https://api.web3forms.com/submit" method="POST" style="margin-top: 15px;">
@@ -675,6 +707,11 @@
             <h4>📖 Deep-Dive: Why Moonlighting Detection is Crucial for Remote Tech Teams</h4>
             <p>In the post-pandemic digital economy, remote work has unlocked unprecedented global talent pools, but it has simultaneously introduced severe vulnerabilities—chief among them being dual employment, commonly known as "moonlighting." When software engineers or financial analysts simultaneously commit to two full-time corporate contracts, enterprises face catastrophic risks regarding intellectual property theft, data leakage, code contamination, and severe productivity drop-offs. Traditional HR background checks only review past employment at the time of onboarding, leaving organizations completely blind to parallel employment during the tenure.<br><br>VeriShield India solves this critical enterprise risk by deploying automated EPFO (Employee Provident Fund Organisation) unified passbook history audits and multi-repository employment tracking. By continuously cross-referencing statutory social security contributions and UAN updates, our platform instantly flags simultaneous employer contributions, enabling compliance officers and HR leaders to neutralize hidden liabilities before data breaches occur. Safeguarding your proprietary assets requires more than a handshake; it demands institutionalized, real-time trust-tech infrastructure.</p>
         </div>
+
+        <div class="service-card">
+            <h4>📖 The Evolution of Digital Trust-Tech in Post-Pandemic Recruitment</h4>
+            <p>The traditional paradigm of paper-based background verification—characterized by physical mailers, delayed university verification letters, and manual police station visits—is utterly obsolete in today’s hyper-fast corporate ecosystem. Modern enterprises scale across international borders within days, requiring background screening velocity that matches operational speed. This white paper explores the transformative impact of digital trust-tech infrastructure on corporate recruitment.<br><br>By integrating real-time GPS residential geo-tagging, judicial e-Courts civil/criminal litigation scans, and instant API-driven PAN/KYC verifications, VeriShield India compresses a cumbersome 14-day background verification cycle down to under 36 hours. Furthermore, automated compliance adherence to global privacy frameworks such as the Digital Personal Data Protection (DPDP) Act ensures that speed never compromises legal integrity. Discover how adopting programmatic candidate screening protects your brand equity, eliminates resume inflation, and establishes an unshakeable foundation of corporate compliance.</p>
+        </div>
     </div>
 
     <!-- 7. CASE STUDIES PAGE -->
@@ -708,7 +745,7 @@
         </div>
     </div>
 
-    <!-- 10. FAQ PAGE -->
+    <!-- 10. FAQ PAGE (Complete 20 Questions) -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and security protocols.</p>
@@ -721,12 +758,87 @@
             <h4>Q2. Who receives the final background verification report?</h4>
             <p>To ensure strict confidentiality and data protection, password-protected PDF reports are sent <strong>exclusively to the authorized HR Email ID</strong> and never to candidates.</p>
         </div>
+        <div class="faq-item">
+            <h4>Q3. Is PAN Card verification mandatory for all candidates?</h4>
+            <p>Yes, PAN Card details are strictly mandatory to ensure tax compliance, financial verification, and primary identity cross-referencing across government databases.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q4. What additional ID proofs are supported during candidate onboarding?</h4>
+            <p>Candidates can provide DigiLocker sync references, Aadhaar Cards, Voter ID Cards, Driving Licenses, or Passports alongside mandatory PAN compliance.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q5. How does real-time GPS Geo-Tagging work during onboarding?</h4>
+            <p>The candidate's smartphone browser securely captures precise GPS coordinates (Latitude and Longitude) along with a live rear-camera photo of their residential entrance to prevent fraud.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q6. What advanced checks are included in the Full Corporate Package?</h4>
+            <p>It includes PAN KYC, Pan-India e-Courts criminal/civil litigation checks, EPFO/UAN unified passbook history for moonlighting detection, university degree authentication, and GPS geo-tagging.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q7. Does VeriShield India comply with data privacy regulations?</h4>
+            <p>Yes, we strictly adhere to global data privacy frameworks, the Digital Personal Data Protection (DPDP) Act, and stringent corporate confidentiality protocols.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q8. How do we handle candidate data privacy after report delivery?</h4>
+            <p>We enforce a strict Zero-Data Retention Policy. All raw candidate personal files and documents are automatically and permanently erased from active servers once reports are sent to HR.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q9. Can candidates modify their screening package once generated?</h4>
+            <p>No, the screening package is securely locked by HR during link generation. Candidates can only submit their personal information, identity credentials, and compliance documents.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q10. Is candidate legal consent required before screening?</h4>
+            <p>Yes, every candidate must explicitly check the mandatory legal consent box confirming that all submitted details are accurate and authorizing compliance screening.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q11. What is Moonlighting Detection and how is it performed?</h4>
+            <p>Moonlighting detection identifies dual or parallel employment using automated EPFO unified passbook history checks and multi-repository employment tracking.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q12. How are field verification checks conducted across Pan-India?</h4>
+            <p>We utilize an accredited network of independent address auditors, legal specialists, and local investigators across all 28 states and 8 union territories.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q13. Can startup companies and small businesses use VeriShield India?</h4>
+            <p>Yes, our platform scales effortlessly to serve startups, mid-sized firms, and large multinational enterprises with flexible verification tiers.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q14. How secure is the candidate data transmission?</h4>
+            <p>All data submitted through candidate onboarding links is encrypted using state-of-the-art protocols to prevent interception or tampering.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q15. What happens if a candidate provides incorrect or fake documents?</h4>
+            <p>Our automated discrepancy flags and database cross-referencing immediately catch fabrications, alerting HR in the final audit report.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q16. Are international educational degrees verified?</h4>
+            <p>Yes, through our cross-border compliance tiers, we authenticate international educational credentials and global watch-lists.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q17. How can an agency join the Field Verification Partner Network?</h4>
+            <p>Agencies and independent investigators can submit their credentials and regional coverage details via email to support@verishieldindia.com.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q18. What is the benefit of judicial e-Courts litigation screening?</h4>
+            <p>It scans pan-India civil and criminal court records to identify any active or past legal litigations involving the candidate.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q19. How does the live case tracker function for users?</h4>
+            <p>Users enter their unique case tracking ID in the Tracker portal to review real-time progress across multiple verification stages.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Q20. Who should I contact for technical or corporate support?</h4>
+            <p>You can reach our enterprise support team anytime through our official corporate email at support@verishieldindia.com.</p>
+        </div>
     </div>
 
     <!-- 11. ABOUT US PAGE -->
     <div id="aboutPage" class="page">
         <h2>About VeriShield India & Zero Data Retention Policy</h2>
         <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated pipelines with rigorous field verification protocols across Pan-India.</p>
+        
+        <h3>Our Vision & Strategic Mission</h3>
+        <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences. We empower organizations across Pan-India and international borders to make informed, risk-free hiring decisions without administrative friction.</p>
         
         <h3>Zero Data Retention (ZDR) Policy</h3>
         <p>At VeriShield India, data privacy and absolute confidentiality are our highest priorities. We strictly adhere to a <strong>Zero Data Retention (ZDR) Policy</strong>. We ensure that no sensitive candidate personal information, identity records, biometric selfies, or raw verification documents are stored, archived, or retained on our active servers longer than operationally necessary. Once the final password-protected audit report is successfully dispatched to the authorized HR email ID, all raw candidate data is automatically and permanently erased, guaranteeing complete compliance with privacy laws and total data security.</p>
@@ -738,6 +850,11 @@
         <p>VeriShield India maintains dedicated communication channels to assist enterprise HR leaders, recruitment agencies, and candidates with immediate technical assistance, report tracking, and customized BGV package consultations.</p>
         
         <div class="service-card">
+            <h4>🏢 Corporate Headquarters & Regional Hubs</h4>
+            <p><strong>Primary Operations:</strong> Virtual Headquarters & Remote-First Global Operations (Digital Infrastructure)<br><strong>Pan-India Network:</strong> Active field audit coverage across 28 states and 8 union territories, ensuring prompt physical address verification and local court record authentication.</p>
+        </div>
+
+        <div class="service-card">
             <h4>📞 Official Direct Support Channels</h4>
             <p><strong>Primary Official Support Email:</strong> <a href="mailto:support@verishieldindia.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">support@verishieldindia.com</a><br><strong>Enterprise Sales & Business Consultation:</strong> corporate@verishieldindia.com<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
         </div>
@@ -747,12 +864,18 @@
     <div id="disclaimerPage" class="page">
         <h2>Comprehensive Legal Disclaimer & Operational Scope</h2>
         <p><strong>1. Acceptance of National & International Standards:</strong> VeriShield India operates in strict compliance with national legal frameworks (including the Information Technology Act and Digital Personal Data Protection - DPDP Act) as well as international compliance standards (such as GDPR and global corporate governance norms).</p>
+        
+        <p><strong>2. Nature of Screening Services:</strong> VeriShield India operates strictly as an independent technology facilitator and background screening provider. Our verification reports—including e-Courts litigation scans, EPFO history checks, and educational credential authentications—are compiled using official government databases, public records, and direct institutional responses as available at the time of inquiry.</p>
+
+        <p><strong>3. Limitation of Liability:</strong> VeriShield India, its directors, employees, and technology partners shall not be held legally or financially liable for any direct, indirect, incidental, or consequential damages arising from employment hiring decisions, contractual disputes, or third-party data discrepancies based on reports delivered through our platform.</p>
     </div>
 
     <!-- 14. PRIVACY POLICY PAGE -->
     <div id="privacyPage" class="page">
         <h2>Privacy Policy & Zero-Data Retention Compliance</h2>
         <p><strong>1. Commitment to Data Security & Zero Retention:</strong> VeriShield India is profoundly committed to protecting the privacy, confidentiality, and security of Personally Identifiable Information (PII) entrusted to us by candidates, corporate clients, and partner organizations. We strictly adhere to global data privacy frameworks and the Digital Personal Data Protection (DPDP) Act.</p>
+
+        <p><strong>2. 100% Automatic Data Deletion Policy:</strong> We maintain a strict <strong>Zero-Data Retention Policy</strong>. VeriShield India <strong>does not permanently store or archive candidate personal details or raw documents</strong>. Once the comprehensive verification report is successfully generated and securely transmitted to the registered HR email ID, all raw candidate data, images, and sensitive files are <strong>automatically and permanently erased</strong> from our active servers to ensure absolute data privacy and eliminate breach risks.</p>
     </div>
 
     <!-- 15. SAMPLE REPORT PDF PAGE -->
@@ -805,7 +928,7 @@
 
 </div>
 
-<!-- Chat Widget (Powered by Web3Forms Direct Inquiry Form with Real Key) -->
+<!-- Chat Widget -->
 <div class="chat-widget-btn" onclick="toggleChatModal()" title="Open Support Chat">💬</div>
 
 <div class="chat-overlay-modal" id="chatOverlayModal">
@@ -869,6 +992,7 @@
         if (target) {
             target.classList.add('active');
         }
+        
         var links = document.querySelectorAll('nav a');
         for (var j = 0; j < links.length; j++) {
             links[j].classList.remove('active-nav');
@@ -877,6 +1001,7 @@
         if (activeLink) {
             activeLink.classList.add('active-nav');
         }
+        
         window.scrollTo(0, 0);
     }
 
@@ -892,24 +1017,121 @@
         var bulkForm = document.getElementById('bulkHrForm');
         var singleBtn = document.getElementById('singleTabBtn');
         var bulkBtn = document.getElementById('bulkTabBtn');
+        var output = document.getElementById('linkOutput');
+
+        output.innerHTML = '';
+
         if(mode === 'single') {
             singleForm.style.display = 'block';
             bulkForm.style.display = 'none';
             singleBtn.className = 'btn-orange';
             bulkBtn.className = 'btn-blue';
+            bulkBtn.style.marginTop = '0';
         } else {
             singleForm.style.display = 'none';
             bulkForm.style.display = 'block';
             singleBtn.className = 'btn-blue';
             bulkBtn.className = 'btn-orange';
+            singleBtn.style.marginTop = '0';
         }
     }
 
     function toggleChatModal() {
         var modal = document.getElementById('chatOverlayModal');
-        if (modal) {
-            modal.style.display = (modal.style.display === 'flex') ? 'none' : 'flex';
+        if (modal.style.display === 'flex') {
+            modal.style.display = 'none';
+        } else {
+            modal.style.display = 'flex';
         }
+    }
+
+    function sendModalChatMessage() {
+        var input = document.getElementById('chatModalInput');
+        var text = input.value.trim();
+        if(!text) return;
+
+        var body = document.getElementById('chatModalBody');
+        body.innerHTML += '<div class="chat-msg-user">' + text + '</div>';
+        input.value = '';
+
+        var botReply = "Thank you for reaching out to VeriShield India. For custom enterprise inquiries, you can directly email our support team at <strong>support@verishieldindia.com</strong>.";
+        var lowerText = text.toLowerCase();
+
+        if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie') || lowerText.includes('digilocker')) {
+            botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, GPS geo-tagging, and ID proof selection.";
+        } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report') || lowerText.includes('bulk')) {
+            botReply = "HR professionals can use the <strong>Enterprise HR Portal</strong> to pick tiered packages or customize check-boxes, as well as upload bulk CSV files. Final reports are sent <strong>exclusively to the HR Email</strong>.";
+        } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase')) {
+            botReply = "VeriShield India follows a strict <strong>Zero-Data Retention Policy</strong>. All raw candidate data is automatically and permanently erased once reports are dispatched to HR!";
+        } else if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') ||lowerText.includes('fee')) {
+            botReply = "We offer flexible enterprise screening packages including Basic Standard, Full Corporate BGV, and Executive Premium (Coming Soon). Contact us via email for custom enterprise pricing.";
+        } else if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('hey')) {
+            botReply = "Hello! Welcome to VeriShield India. How can we assist you with background screening or enterprise onboarding today?";
+        } else if (lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('support')) {
+            botReply = "You can contact our virtual headquarters or reach our official support desk anytime via email at <strong>support@verishieldindia.com</strong>.";
+        }
+
+        setTimeout(function() {
+            body.innerHTML += '<div class="chat-msg-bot">' + botReply + '</div>';
+            body.scrollTop = body.scrollHeight;
+        }, 800);
+
+        body.scrollTop = body.scrollHeight;
+    }
+
+    function handleModalChatEnter(e) {
+        if(e.key === 'Enter') {
+            sendModalChatMessage();
+        }
+    }
+
+    function generateCandidateLink(event) {
+        event.preventDefault();
+        var candidateName = document.getElementById('hrCandidateName').value;
+        var tier = document.getElementById('hrPackageTier').value;
+        var uniqueLink = "https://verishield-india.vercel.app/?tier=" + tier + "&name=" + encodeURIComponent(candidateName);
+        
+        document.getElementById('linkOutput').innerHTML = "✅ Secure Enterprise Link Generated for <strong>" + candidateName + "</strong> (Tier: " + tier.toUpperCase() + ")!<br><a href='#' onclick=\"loadCandidateData('" + candidateName + "')\" style='color: #2563eb; word-break: break-all;'>" + uniqueLink + "</a><br><small style='color: #475569;'>🔒 Final password-protected report will be delivered exclusively to HR Email.</small>";
+    }
+
+    function generateBulkLinks(event) {
+        event.preventDefault();
+        var fileInput = document.getElementById('bulkCsvFile');
+        var company = document.getElementById('bulkHrCompany').value;
+        var pkg = document.getElementById('bulkLockedPackage').value;
+        var hrMail = document.getElementById('bulkHrEmail').value;
+
+        if(fileInput.files.length === 0) {
+            alert("⚠️ Please select a CSV file first!");
+            return;
+        }
+
+        document.getElementById('linkOutput').innerHTML = "🚀 <strong>Bulk Upload Successful!</strong><br>Processed CSV for <strong>" + company + "</strong> (Package: " + pkg.toUpperCase() + ").<br>Secure onboarding links generated. 🔒 All final reports & passwords will be dispatched securely to <strong>" + hrMail + "</strong>.";
+    }
+
+    function loadCandidateData(name) {
+        document.getElementById('candName').value = name;
+        showPage('candidatePage');
+    }
+
+    function checkCaseStatus() {
+        var trackId = document.getElementById('trackIdInput').value.trim();
+        var resDiv = document.getElementById('trackResult');
+        if(!trackId) {
+            resDiv.innerHTML = "⚠️ Please enter a valid Case Tracking ID.";
+            resDiv.style.color = "#ef4444";
+            return;
+        }
+        
+        // Multi-Stage Progress Visualizer (Secured via Case ID input)
+        resDiv.innerHTML = "<h4>🔍 Tracking Report for ID: <span style='color:var(--teal-cyan);'>" + trackId + "</span></h4>" +
+            "<div class='progress-timeline'>" +
+                "<div class='step-item completed'>✅ Step 1: Candidate Data & PAN Verified (100%)</div>" +
+                "<div class='step-item completed'>✅ Step 2: Live Face Selfie & GPS Geo-Tagging Authenticated</div>" +
+                "<div class='step-item active-step'>🔄 Step 3: Pan-India e-Courts & EPFO Passbook Audit (In-Progress)</div>" +
+                "<div class='step-item'>⏳ Step 4: Final Secure Report Dispatch to HR Email (Pending)</div>" +
+            "</div>" +
+            "<p style='margin-top: 15px; font-size: 14.5px; color: #b45309;'>🔒 <em>Note: Detailed PDF verification report and unlock password are accessible exclusively via authorized HR portal / registered HR email.</em></p>";
     }
 
     function getSelfieLocation() {
@@ -933,6 +1155,22 @@
             );
         } else {
             statusDiv.innerHTML = "Geolocation not supported.";
+        }
+    }
+
+    function validateCandidateForm(event) {
+        var selfieCoords = document.getElementById('selfieGeoCoords').value;
+        var consentChecked = document.getElementById('candConsent').checked;
+
+        if (!selfieCoords) {
+            event.preventDefault();
+            alert("⚠️ Mandatory Warning: Please fetch the GPS Geo-Tag for your Face Selfie before submitting[span_1](start_span)[span_1](end_span)!");
+            return;
+        }
+
+        if (!consentChecked) {
+            event.preventDefault();
+            alert("⚠️ Mandatory Warning: You must check the legal consent box to proceed with background verification[span_2](start_span)[span_2](end_span).");
         }
     }
 </script>
