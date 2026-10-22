@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VeriShield India - Global Trust-Tech & Background Verification Platform</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <style>
         :root {
             --primary-blue: #0f172a;
@@ -37,13 +39,13 @@
             pointer-events: none;
         }
 
-        /* Header - Solid Orange */
+        /* Header - Changed from Orange to Deep Blue */
         header { 
-            background: var(--accent-orange); 
+            background: var(--primary-blue); 
             color: white; 
             padding: 16px 20px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.25); 
-            border-bottom: 3px solid #b45309; 
+            border-bottom: 3px solid var(--accent-orange); 
             position: sticky;
             top: 0;
             z-index: 9999;
@@ -99,6 +101,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 8px;
+            align-items: center;
         }
         nav a { 
             color: #ffffff; 
@@ -112,9 +115,44 @@
             background: rgba(0, 0, 0, 0.12);
         }
         nav a:hover, nav a.active-nav { 
-            color: var(--accent-orange); 
+            color: var(--primary-blue); 
             background: #ffffff;
             box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        }
+
+        /* More Dropdown Menu Styling */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-blue);
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+            z-index: 99999;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 0;
+            left: 0;
+            top: 100%;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            background: transparent !important;
+            border-radius: 0;
+        }
+        .dropdown-content a:hover {
+            background: rgba(255,255,255,0.15) !important;
+            color: var(--accent-orange);
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
         }
         
         .container { 
@@ -165,13 +203,11 @@
         .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 19px; font-weight: 700; margin-bottom: 10px; }
         .faq-item p { margin-bottom: 0; color: #334155; font-size: 16.5px; line-height: 1.9; text-align: left; }
         
-        /* Tracker Progress Timeline */
         .progress-timeline { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; text-align: left; }
         .step-item { display: flex; align-items: center; gap: 15px; background: #f8fafc; padding: 15px 20px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 16px; font-weight: 600; color: #475569; }
         .step-item.completed { background: #f0fdf4; border-color: #10b981; color: #065f46; }
         .step-item.active-step { background: #fef3c7; border-color: var(--accent-orange); color: #b45309; }
 
-        /* Chat Widget */
         .chat-widget-btn {
             position: fixed;
             bottom: 30px;
@@ -280,7 +316,6 @@
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 4px 9px; border-radius: 4px; margin-left: 8px; font-weight: 600; }
         
-        /* Footer - Solid Green with clean single-line links */
         footer { 
             text-align: center; 
             padding: 35px 20px; 
@@ -354,6 +389,16 @@
             <a onclick="showPage('careersPage')" id="nav-careersPage">Careers</a>
             <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
             <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
+            <!-- Added More Dropdown Menu -->
+            <div class="dropdown">
+                <a>More ▼</a>
+                <div class="dropdown-content">
+                    <a onclick="showPage('aboutPage')">About Us</a>
+                    <a onclick="showPage('contactPage')">Contact Us</a>
+                    <a onclick="showPage('disclaimerPage')">Disclaimer</a>
+                    <a onclick="showPage('privacyPage')">Privacy Policy</a>
+                </div>
+            </div>
         </div>
     </nav>
 </header>
@@ -365,6 +410,10 @@
         <div class="hero-banner">
             <h2>Pan-India Trust-Tech & Background Verification Infrastructure</h2>
             <p>Empowering Global Enterprises and Domestic Corporations with Instant, Secure, Tamper-Proof Digital Candidate Screening, e-Courts Litigations, EPFO Unified Passbook Audits, and Real-Time GPS Geo-Tagging.</p>
+            <!-- Added Request a Demo Button on Home Page -->
+            <div style="margin-top: 30px;">
+                <button onclick="showPage('hrPage')" class="btn-orange" style="max-width: 250px; margin: 0 auto; display: block; font-size: 18px; padding: 14px 25px;">🚀 Request a Demo</button>
+            </div>
         </div>
         
         <div style="background: #f0fdf4; border-left: 6px solid var(--teal-cyan); padding: 25px; border-radius: 10px; margin: 35px 0;">
@@ -402,7 +451,7 @@
         </div>
     </div>
 
-    <!-- 3. HR PORTAL PAGE (Updated with 3 Packages + See More Customize Option) -->
+    <!-- 3. HR PORTAL PAGE -->
     <div id="hrPage" class="page">
         <h2>Enterprise HR Portal (Onboarding & Package Selection)</h2>
         <p>Select your pre-defined verification package or click <strong>"See More (Customize Checks)"</strong> to handpick specific verification modules. <em>Security Note: Final password-protected PDF reports are sent exclusively to the authorized HR Email ID.</em></p>
@@ -422,7 +471,7 @@
                 </div>
                 <div class="form-group">
                     <label>HR Email ID (Secure Exclusive Destination for Final Report & Password):</label>
-                    <input type="email" id="hrEmail" required value="verishieldindia@gmail.com">
+                    <input type="email" id="hrEmail" required value="support@verishieldindia.com">
                 </div>
             </div>
 
@@ -452,7 +501,6 @@
                     <input type="email" id="hrCandidateEmail" required placeholder="candidate@email.com">
                 </div>
                 
-                <!-- See More: Customized Checkbox Modules -->
                 <div id="customCheckboxesContainer" class="form-group" style="background: #f8fafc; padding: 20px; border-radius: 10px; border: 1px solid #cbd5e1; margin-top: 20px; display: none;">
                     <label style="margin-bottom: 12px; color: var(--primary-blue); font-size: 16px;"><strong>Customize Verification Checks (See More Options):</strong></label>
                     
@@ -489,7 +537,7 @@
                 </div>
                 <div class="form-group">
                     <label>HR Email ID (Exclusive Destination for All Reports & Passwords):</label>
-                    <input type="email" id="bulkHrEmail" required value="verishieldindia@gmail.com">
+                    <input type="email" id="bulkHrEmail" required value="support@verishieldindia.com">
                 </div>
                 <div class="form-group">
                     <label>Select Locked Screening Package for All Candidates:</label>
@@ -515,7 +563,7 @@
         <div id="linkOutput" style="margin-top: 25px; font-weight: 600; color: #059669; text-align: center; font-size: 18px;"></div>
     </div>
 
-    <!-- 4. CANDIDATE PORTAL PAGE (Updated with PAN Mandatory + ID Dropdown + DigiLocker) -->
+    <!-- 4. CANDIDATE PORTAL PAGE -->
     <div id="candidatePage" class="page">
         <h2>Candidate Secure Onboarding Portal</h2>
         <p>Welcome to the candidate onboarding portal. Please fill in your authentic details, provide your PAN identification, select your ID proof, and complete the mandatory GPS geo-tagging steps.</p>
@@ -605,7 +653,7 @@
         <div id="trackResult" style="margin-top: 25px;"></div>
     </div>
 
-    <!-- 6. BLOGS PAGE (Detailed & Deep Content) -->
+    <!-- 6. BLOGS PAGE -->
     <div id="blogPage" class="page">
         <h2>Blogs & Enterprise Industry Insights</h2>
         <p>Explore thought leadership articles, compliance deep-dives, and strategic guidance on mitigating corporate risk through advanced background screening infrastructure.</p>
@@ -621,7 +669,7 @@
         </div>
     </div>
 
-    <!-- 7. CASE STUDIES PAGE (Detailed & Deep Content) -->
+    <!-- 7. CASE STUDIES PAGE -->
     <div id="caseStudiesPage" class="page">
         <h2>Enterprise Success Stories & Case Studies</h2>
         <p>Real-world impact assessments demonstrating how leading global organizations partner with VeriShield India to achieve flawless compliance and eliminate fraudulent hiring.</p>
@@ -639,7 +687,7 @@
         
         <div class="service-card">
             <h4>🤝 Become an Accredited VeriShield Field Verification Partner</h4>
-            <p>We are actively expanding our pan-India network of independent address auditors, legal verification specialists, and local investigators across all 28 states and 8 union territories. Partners benefit from automated task dispatching, transparent digital payouts, and standardized audit protocols. To apply, please submit your agency credentials and regional coverage details to our corporate team via email at <strong>verishieldindia@gmail.com</strong>.</p>
+            <p>We are actively expanding our pan-India network of independent address auditors, legal verification specialists, and local investigators across all 28 states and 8 union territories. Partners benefit from automated task dispatching, transparent digital payouts, and standardized audit protocols. To apply, please submit your agency credentials and regional coverage details to our corporate team via email at <strong>support@verishieldindia.com</strong>.</p>
         </div>
     </div>
 
@@ -652,7 +700,7 @@
         </div>
     </div>
 
-    <!-- 10. FAQ PAGE (Complete 20 Questions) -->
+    <!-- 10. FAQ PAGE -->
     <div id="faqPage" class="page">
         <h2>Frequently Asked Questions (FAQ)</h2>
         <p>Find comprehensive answers regarding enterprise background verification, candidate onboarding, compliance standards, and security protocols.</p>
@@ -723,7 +771,7 @@
         </div>
         <div class="faq-item">
             <h4>Q17. How can an agency join the Field Verification Partner Network?</h4>
-            <p>Agencies and independent investigators can submit their credentials and regional coverage details via email to verishieldindia@gmail.com.</p>
+            <p>Agencies and independent investigators can submit their credentials and regional coverage details via email to support@verishieldindia.com.</p>
         </div>
         <div class="faq-item">
             <h4>Q18. What is the benefit of judicial e-Courts litigation screening?</h4>
@@ -735,20 +783,20 @@
         </div>
         <div class="faq-item">
             <h4>Q20. Who should I contact for technical or corporate support?</h4>
-            <p>You can reach our enterprise support team anytime through our official corporate email at verishieldindia@gmail.com.</p>
+            <p>You can reach our enterprise support team anytime through our official corporate email at support@verishieldindia.com.</p>
         </div>
     </div>
 
-    <!-- 11. ABOUT US PAGE -->
+    <!-- 11. ABOUT US PAGE (Updated with Zero Data Retention Policy) -->
     <div id="aboutPage" class="page">
-        <h2>About VeriShield India & Trust-Tech Infrastructure</h2>
+        <h2>About VeriShield India & Zero Data Retention Policy</h2>
         <p><strong>VeriShield India</strong> stands at the pinnacle of global Trust-Tech and Background Verification (BGV) infrastructure, engineered specifically to address the complex compliance, security, and verification challenges faced by modern enterprises, multinational corporations, and remote-first organizations. Established with a vision to eliminate workplace fraud and credential inflation, our platform integrates cutting-edge automated pipelines with rigorous field verification protocols across Pan-India.</p>
         
         <h3>Our Vision & Strategic Mission</h3>
         <p>In today's highly dynamic digital economy, establishing absolute trust between employers and candidates is paramount. Our mission is to deliver instantaneous, tamper-proof, and 100% compliant background screening solutions that safeguard enterprise assets while ensuring friction-free onboarding experiences. We empower organizations across Pan-India and international borders to make informed, risk-free hiring decisions without administrative friction.</p>
         
-        <h3>Core Technological Infrastructure</h3>
-        <p>Traditional background verification methods are often plagued by manual delays, human error, and lack of transparency. VeriShield India disrupts this legacy paradigm through our proprietary automated verification engine. By seamlessly interfacing with government registries, judicial e-Courts databases, EPFO employment passbooks, and accredited university repositories, we execute comprehensive multi-tier screening within hours rather than weeks.</p>
+        <h3>Zero Data Retention (ZDR) Policy</h3>
+        <p>At VeriShield India, data privacy and absolute confidentiality are our highest priorities. We strictly adhere to a <strong>Zero Data Retention (ZDR) Policy</strong>. We ensure that no sensitive candidate personal information, identity records, biometric selfies, or raw verification documents are stored, archived, or retained on our active servers longer than operationally necessary. Once the final password-protected audit report is successfully dispatched to the authorized HR email ID, all raw candidate data is automatically and permanently erased, guaranteeing complete compliance with privacy laws and total data security.</p>
     </div>
 
     <!-- 12. CONTACT US PAGE -->
@@ -763,7 +811,7 @@
 
         <div class="service-card">
             <h4>📞 Official Direct Support Channels</h4>
-            <p><strong>Primary Official Support Email:</strong> <a href="mailto:verishieldindia@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">verishieldindia@gmail.com</a><br><strong>Enterprise Sales & Business Consultation:</strong> corporate@verishield-india.vercel.app<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
+            <p><strong>Primary Official Support Email:</strong> <a href="mailto:support@verishieldindia.com" style="color: #2563eb; text-decoration: none; font-weight: bold;">support@verishieldindia.com</a><br><strong>Enterprise Sales & Business Consultation:</strong> corporate@verishieldindia.com<br><strong>Business Hours:</strong> Monday through Saturday, 9:00 AM – 7:00 PM IST (24/7 automated emergency case tracking available online).</p>
         </div>
     </div>
 
@@ -798,7 +846,7 @@
         </div>
         <div class="chat-modal-body" id="chatModalBody">
             <div class="chat-msg-bot">
-                Hello! Welcome to <strong>VeriShield India</strong> Enterprise Support. How can we assist you today? You can ask about our BGV packages, custom corporate quotes, candidate onboarding, or contact us at <strong>verishieldindia@gmail.com</strong>.
+                Hello! Welcome to <strong>VeriShield India</strong> Enterprise Support. How can we assist you today? You can ask about our BGV packages, custom corporate quotes, candidate onboarding, or contact us at <strong>support@verishieldindia.com</strong>.
             </div>
         </div>
         <div class="chat-modal-footer">
@@ -892,21 +940,21 @@
         body.innerHTML += '<div class="chat-msg-user">' + text + '</div>';
         input.value = '';
 
-        var botReply = "Thank you for reaching out to VeriShield India. For custom enterprise inquiries, you can directly email our support team at <strong>verishieldindia@gmail.com</strong>.";
+        var botReply = "Thank you for reaching out to VeriShield India. For custom enterprise inquiries, you can directly email our support team at <strong>support@verishieldindia.com</strong>.";
         var lowerText = text.toLowerCase();
 
         if (lowerText.includes('candidate') || lowerText.includes('onboard') || lowerText.includes('form') || lowerText.includes('selfie') || lowerText.includes('digilocker')) {
             botReply = "Candidates can complete their secure digital onboarding through the <strong>Candidate Portal</strong> by providing PAN, official live face selfie, GPS geo-tagging, and ID proof selection.";
         } else if (lowerText.includes('hr') || lowerText.includes('employer') || lowerText.includes('report') || lowerText.includes('bulk')) {
             botReply = "HR professionals can use the <strong>Enterprise HR Portal</strong> to pick tiered packages or customize check-boxes, as well as upload bulk CSV files. Final reports are sent <strong>exclusively to the HR Email</strong>.";
-        } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase')) {
+        } else if (lowerText.includes('privacy') || lowerText.includes('data') || lowerText.includes('delete') || lowerText.includes('erase') || lowerText.includes('retention')) {
             botReply = "VeriShield India follows a strict <strong>Zero-Data Retention Policy</strong>. All raw candidate data is automatically and permanently erased once reports are dispatched to HR!";
         } else if (lowerText.includes('price') || lowerText.includes('cost') || lowerText.includes('package') ||lowerText.includes('fee')) {
             botReply = "We offer flexible enterprise screening packages including Basic Standard, Full Corporate BGV, and Executive Premium (Coming Soon). Contact us via email for custom enterprise pricing.";
         } else if (lowerText.includes('hello') || lowerText.includes('hi') || lowerText.includes('hey')) {
             botReply = "Hello! Welcome to VeriShield India. How can we assist you with background screening or enterprise onboarding today?";
         } else if (lowerText.includes('contact') || lowerText.includes('email') || lowerText.includes('support')) {
-            botReply = "You can contact our virtual headquarters or reach our official support desk anytime via email at <strong>verishieldindia@gmail.com</strong>.";
+            botReply = "You can contact our virtual headquarters or reach our official support desk anytime via email at <strong>support@verishieldindia.com</strong>.";
         }
 
         setTimeout(function() {
@@ -927,7 +975,7 @@
         event.preventDefault();
         var candidateName = document.getElementById('hrCandidateName').value;
         var tier = document.getElementById('hrPackageTier').value;
-        var uniqueLink = "https://verishield-india.vercel.app/?tier=" + tier + "&name=" + encodeURIComponent(candidateName);
+        var uniqueLink = "https://verishieldindia.com/?tier=" + tier + "&name=" + encodeURIComponent(candidateName);
         
         document.getElementById('linkOutput').innerHTML = "✅ Secure Enterprise Link Generated for <strong>" + candidateName + "</strong> (Tier: " + tier.toUpperCase() + ")!<br><a href='#' onclick=\"loadCandidateData('" + candidateName + "')\" style='color: #2563eb; word-break: break-all;'>" + uniqueLink + "</a><br><small style='color: #475569;'>🔒 Final password-protected report will be delivered exclusively to HR Email.</small>";
     }
@@ -961,7 +1009,6 @@
             return;
         }
         
-        // Multi-Stage Progress Visualizer (Secured via Case ID input)
         resDiv.innerHTML = "<h4>🔍 Tracking Report for ID: <span style='color:var(--teal-cyan);'>" + trackId + "</span></h4>" +
             "<div class='progress-timeline'>" +
                 "<div class='step-item completed'>✅ Step 1: Candidate Data & PAN Verified (100%)</div>" +
