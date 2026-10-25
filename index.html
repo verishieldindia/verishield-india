@@ -202,11 +202,32 @@
         .faq-item h4 { margin-top: 0; color: var(--primary-blue); font-size: 19px; font-weight: 700; margin-bottom: 10px; }
         .faq-item p { margin-bottom: 0; color: #334155; font-size: 16.5px; line-height: 1.9; text-align: left; }
         
-        /* Tracker Progress Timeline */
-        .progress-timeline { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; text-align: left; }
-        .step-item { display: flex; align-items: center; gap: 15px; background: #f8fafc; padding: 15px 20px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 16px; font-weight: 600; color: #475569; }
-        .step-item.completed { background: #f0fdf4; border-color: #10b981; color: #065f46; }
-        .step-item.active-step { background: #fef3c7; border-color: var(--accent-orange); color: #b45309; }
+        /* Circular Selfie Preview Box */
+        .selfie-preview-container {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 3px dashed var(--teal-cyan);
+            margin: 15px auto;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            position: relative;
+        }
+        .selfie-preview-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        .selfie-placeholder-text {
+            font-size: 13px;
+            color: #64748b;
+            text-align: center;
+            padding: 10px;
+        }
 
         /* Chat Widget */
         .chat-widget-btn {
@@ -291,33 +312,11 @@
             align-self: flex-end;
             line-height: 1.8;
         }
-        .chat-modal-footer {
-            padding: 18px 25px;
-            background: #fff;
-            border-top: 1px solid #cbd5e1;
-            display: flex;
-            gap: 15px;
-        }
-        .chat-modal-footer input {
-            padding: 15px;
-            font-size: 16.5px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            width: 100%;
-        }
-        .chat-modal-footer button {
-            width: auto;
-            padding: 0 28px;
-            background: var(--chat-green);
-            color: #fff;
-            border-radius: 8px;
-            font-size: 16.5px;
-        }
         .checkbox-group { display: flex; align-items: center; gap: 15px; margin-top: 24px; }
         .checkbox-group input { width: auto; }
         .badge-mandatory { background: #ef4444; color: white; font-size: 12px; padding: 4px 9px; border-radius: 4px; margin-left: 8px; font-weight: 600; }
         
-        /* Footer - Solid Green with clean single-line links */
+        /* Footer */
         footer { 
             text-align: center; 
             padding: 35px 20px; 
@@ -392,7 +391,6 @@
             <a onclick="showPage('clientsPage')" id="nav-clientsPage">Clients</a>
             <a onclick="showPage('faqPage')" id="nav-faqPage">FAQ</a>
             
-            <!-- More Dropdown Menu Linking to Dedicated Pages -->
             <div class="dropdown">
                 <a>More ▼</a>
                 <div class="dropdown-content">
@@ -578,8 +576,7 @@
             </p>
         </div>
 
-        <!-- CANDIDATE FORM (Web3Forms Endpoint with Real Key) -->
-        <form id="candidateForm" action="https://api.web3forms.com/submit" method="POST" onsubmit="validateCandidateForm(event)">
+        <form id="candidateForm" action="https://api.web3forms.com/submit" method="POST">
             <input type="hidden" name="access_key" value="9c047a2b-2649-4b70-88ad-99264229c6f7">
             <input type="hidden" name="subject" value="New Candidate Verification Submission">
 
@@ -632,9 +629,16 @@
             <div class="form-section">
                 <h3>3. Official Live Face Selfie & Geo-Tagging</h3>
                 <div class="guideline">💡 Upload a clear portrait selfie showing both shoulders and your face clearly. Real-time GPS location tagging is mandatory for this step.</div>
+                
+                <!-- Circular Face Guide Preview Box -->
+                <div class="selfie-preview-container" id="imagePreviewBox">
+                    <span class="selfie-placeholder-text">सर्कुलर सेल्फी प्रीव्यू (यहाँ फोटो दिखेगी)</span>
+                    <img id="previewImg" alt="Selfie Preview">
+                </div>
+
                 <div class="form-group" style="margin-top: 18px;">
                     <label>Live Face Selfie Photo:</label>
-                    <input type="file" id="faceSelfie" name="faceSelfie" accept="image/*" capture="user" required>
+                    <input type="file" id="faceSelfie" name="faceSelfie" accept="image/*" capture="user" required onchange="previewSelfie(event)">
                 </div>
                 <div class="form-group">
                     <button type="button" class="btn-blue" onclick="getSelfieLocation()">📍 Fetch GPS Geo-Tag for Selfie Location</button>
@@ -924,7 +928,7 @@
 
 </div>
 
-<!-- Chat Widget (Powered by Web3Forms Direct Inquiry Form with Real Key) -->
+<!-- Chat Widget -->
 <div class="chat-widget-btn" onclick="toggleChatModal()" title="Open Support Chat">💬</div>
 
 <div class="chat-overlay-modal" id="chatOverlayModal">
@@ -979,7 +983,7 @@
 </footer>
 
 <script>
-    // Zoop.one Test API Key Integrated Successfully
+    // Zoop.one Test API Key Configured
     const ZOOP_TEST_API_KEY = 'app_test_45423d76f26545728b26d4da80674';
 
     function showPage(pageId) {
@@ -1035,7 +1039,6 @@
         }
     }
 
-    // HR Portal Single Candidate Link Generator (Zoop.one API Integrated)
     function generateCandidateLink(event) {
         event.preventDefault();
         var company = document.getElementById('hrCompany').value;
@@ -1056,7 +1059,6 @@
             '<small style="color: #059669; font-weight: bold;">🔒 Secure audit report & password will be routed exclusively to: ' + email + '</small>';
     }
 
-    // HR Portal Bulk CSV Batch Processor
     function generateBulkLinks(event) {
         event.preventDefault();
         var company = document.getElementById('bulkHrCompany').value;
@@ -1070,6 +1072,72 @@
             '<strong>Package Applied:</strong> ' + lockedPkg.toUpperCase() + '<br>' +
             '<span style="color: #2563eb;">🔗 Batch Reference ID: ' + batchId + '</span><br>' +
             '<small style="color: #059669; font-weight: bold;">🔒 All candidate reports will be dispatched securely to: ' + email + '</small>';
+    }
+
+    // GPS Geo-Tagging Function for Candidate Selfie Location
+    function getSelfieLocation() {
+        var statusDiv = document.getElementById('selfieLocStatus');
+        var coordsInput = document.getElementById('selfieGeoCoords');
+        
+        if (!navigator.geolocation) {
+            statusDiv.innerHTML = "❌ आपका ब्राउज़र जियोलोकेशन को सपोर्ट नहीं करता है।";
+            statusDiv.style.color = "#ef4444";
+            return;
+        }
+
+        statusDiv.innerHTML = "📍 जीपीएस लोकेशन खोजी जा रही है... कृपया प्रतीक्षा करें।";
+        statusDiv.style.color = "#d97706";
+        
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                var lat = position.coords.latitude;
+                var lng = position.coords.longitude;
+                var coordsText = "Lat: " + lat.toFixed(6) + ", Lng: " + lng.toFixed(6);
+                
+                coordsInput.value = coordsText;
+                statusDiv.innerHTML = "✅ जीपीएस सफलताપूर्वक कैप्चर हो गया! (" + coordsText + ")";
+                statusDiv.style.color = "#059669";
+            },
+            function(error) {
+                var errorMsg = "❌ जीपीएस एरर: ";
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        errorMsg += "यूज़र ने लोकेशन की परमिशन नहीं दी (Permission Denied).";
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        errorMsg += "लोकेशन की जानकारी उपलब्ध नहीं है (Position Unavailable).";
+                        break;
+                    case error.TIMEOUT:
+                        errorMsg += "लोकेशन प्राप्त करने में समय समाप्त हो गया (Timeout).";
+                        break;
+                    default:
+                        errorMsg += "अज्ञात त्रुटि (Unknown Error).";
+                        break;
+                }
+                statusDiv.innerHTML = errorMsg;
+                statusDiv.style.color = "#ef4444";
+            },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+        );
+    }
+
+    // Circular Selfie Preview Function
+    function previewSelfie(event) {
+        var file = event.target.files[0];
+        if (file) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var previewImg = document.getElementById('previewImg');
+                var placeholder = document.querySelector('.selfie-placeholder-text');
+                
+                previewImg.src = e.target.result;
+                previewImg.style.display = 'block';
+                if(placeholder) {
+                    placeholder.style.display = 'none';
+                }
+            }
+            reader.readAsDataURL(file);
+        }
     }
 
     function toggleChatModal() {
