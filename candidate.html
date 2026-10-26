@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VeriShield India - Candidate Verification Portal</title>
+    
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('e8AahBRNLcw9W4sRM');
+    </script>
+
+    <style>
+        :root {
+            --primary-blue: #0f172a;
+            --accent-orange: #d97706;
+            --chat-green: #059669;
+            --bg-light: #f8f9fa;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-light);
+            margin: 0;
+            padding: 0;
+            color: #1e293b;
+        }
+        header {
+            background: var(--primary-blue);
+            color: white;
+            padding: 16px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--accent-orange);
+            text-align: center;
+        }
+        .container {
+            max-width: 700px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        h2 { color: var(--primary-blue); border-bottom: 2px solid var(--accent-orange); padding-bottom: 10px; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #334155; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background: var(--chat-green);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .submit-btn:hover { background: #047857; }
+        .tracking-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>VeriShield India - Candidate Onboarding</h1>
+    </header>
+
+    <div class="container">
+        <div id="trackingDisplay" class="tracking-badge">Loading Tracking ID...</div>
+        
+        <h2>Candidate Verification Form</h2>
+        <form id="candidateForm">
+            <div class="form-group">
+                <label>Full Name as per PAN / Aadhaar <span style="color: red;">*</span></label>
+                <input type="text" id="candFullName" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label>PAN Card Number <span style="color: red;">*</span></label>
+                <input type="text" id="candPan" placeholder="ABCDE1234F" required>
+            </div>
+
+            <div class="form-group">
+                <label>Aadhaar Card Number <span style="color: red;">*</span></label>
+                <input type="text" id="candAadhaar" placeholder="12-digit Aadhaar Number" required>
+            </div>
+
+            <div class="form-group">
+                <label for="additional-id-type">Select Additional ID Proof:</label>
+                <select id="additional-id-type" name="additional_id_type">
+                    <option value="">-- Choose Option --</option>
+                    <option value="digilocker">DigiLocker Verified ID</option>
+                    <option value="voter_id">Voter ID Card</option>
+                    <option value="driving_license">Driving License (DL)</option>
+                    <option value="passport">Passport</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Additional ID Number / Reference</label>
+                <input type="text" id="candAddIdNumber" placeholder="Enter ID reference number">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Verification Details</button>
+        </form>
+        <div id="responseMsg" style="margin-top: 20px; font-weight: bold;"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // URL से ट्रैकिंग आईडी निकालना
+            const urlParams = new URLSearchParams(window.location.search);
+            const trackingId = urlParams.get('id') || 'VSI-UNKNOWN';
+            
+            document.getElementById('trackingDisplay').textContent = "Tracking ID: " + trackingId;
+
+            const form = document.getElementById('candidateForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const fullName = document.getElementById('candFullName').value;
+                const pan = document.getElementById('candPan').value;
+                const aadhaar = document.getElementById('candAadhaar').value;
+                const idType = document.getElementById('additional-id-type').value;
+                const idNumber = document.getElementById('candAddIdNumber').value;
+
+                // EmailJS के जरिए HR / सपोर्ट (`support@verishieldindia.com`) को मेल भेजना
+                emailjs.send("service_2vde5ns", "template_patgrns", {
+                    company_name: "Client Enterprise",
+                    candidate_name: fullName,
+                    tracking_link: "Tracking ID: " + trackingId + " | PAN: " + pan + " | Aadhaar: " + aadhaar + " | ID Type: " + idType
+                }).then(function(response) {
+                    document.getElementById('responseMsginnerHTML = `<span style="color: green;">✅ Verification details submitted successfully! Report routed to HR.</span>`;
+                    form.reset();
+                }, function(error) {
+                    document.getElementById('responseMsg').innerHTML = `<span style="color: red;">❌ Submission failed. Please try again.</span>`;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
