@@ -1212,30 +1212,78 @@
             candidate_name: candidateName, 
             package_tier: packageTier, 
             status: status 
-          }
-        ]);
 
-      if (error) {
-        console.error('डेटा सेव करने में एरर:', error.message);
-        alert('डेटा सेव नहीं हो पाया!');
-      } else {
-        console.log('डेटा सफलतापूर्वक सेव हो गया!', trackingId);                 // ईमेल भेजने का कोड
-                emailjs.send("service_2vde5ns", "template_patgrns", {
-
-                    company_name: companyname,
-                    candidate_name: candidatename,
-                    tracking_link: "https://verishieldindia.com/verify/" + trackingId
-                })
-                .then(function(response) {
-                    console.log("SUCCESS!", response.status, response.text);
-                }, function(error) {
-                    console.log("FAILED...", error);
-                });
-
-        alert('केस सफलतापूर्वक दर्ज हो गया! Tracking ID: ' + trackingId);
-      }
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    let generateBtnTarget = null;
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(btn => {
+        if (btn.textContent.includes('Generate Secure Candidate Link')) {
+            generateBtnTarget = btn;
+        }
     });
-  }
+
+    if (generateBtnTarget) {
+        generateBtnTarget.addEventListener('click', async function(e) {
+            // फॉर्म से वैल्यू उठाना
+            let companyName = "Zero Crime India";
+            let hrEmail = "support@verishieldindia.com";
+            let candidateName = "Candidate";
+            let mobileNumber = "";
+            
+            const inputs = document.querySelectorAll('.form-section input, .form-section select');
+            inputs.forEach(input => {
+                if(input.placeholder && input.placeholder.includes('Zero Crime India')) companyName = input.value || companyName;
+                if(input.placeholder && input.placeholder.includes('support@verishieldindia.com')) hrEmail = input.value || hrEmail;
+                if(input.placeholder && input.placeholder.includes('Rahul Sharma')) candidateName = input.value || candidateName;
+                if(input.type === 'tel' || (input.placeholder && input.placeholder.includes('9876543210'))) mobileNumber = input.value;
+            });
+
+            const selectTag = document.querySelector('.form-section select');
+            const packageTier = selectTag ? selectTag.value : "Standard Package";
+
+            // 1. ट्रैकिंग आईडी जनरेट करना
+            const trackingid = 'VSI-' + Math.floor(100000 + Math.random() * 900000);
+            
+            // 2. EmailJS के जरिए सपोर्ट ईमेल पर भेजना
+            if (typeof emailjs !== 'undefined') {
+                emailjs.send("service_2vde5ns", "template_patgrns", {
+                    company_name: companyName,
+                    candidate_name: candidateName,
+                    tracking_link: "https://verishieldindia.com/candidate?id=" + trackingid
+                }).then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                });
+            }
+
+            // 3. स्क्रीन पर पूरी तरह से क्लिकेबल लिंक दिखाना (innerHTML का उपयोग)
+            let linkOutput = document.getElementById('linkOutput');
+            if (!linkOutput) {
+                linkOutput = document.createElement('div');
+                linkOutput.id = 'linkOutput';
+                const hrForm = document.querySelector('form');
+                if(hrForm) hrForm.appendChild(linkOutput);
+            }
+
+            linkOutput.innerHTML = `
+                <div style="background: #e6f4ea; border: 1px solid #34a853; padding: 15px; border-radius: 8px; margin-top: 20px; color: #137333; font-family: sans-serif;">
+                    <strong>✅ Verification Link Generated Successfully!</strong><br>
+                    Company: ${companyName}<br>
+                    Candidate: ${candidateName} (${mobileNumber})<br>
+                    Package Tier: ${packageTier}<br>
+                    Tracking ID: <b>${trackingid}</b><br><br>
+                    🔗 <a href="https://verishieldindia.com/candidate?id=${trackingid}" target="_blank" style="color: #1a73e8; text-decoration: underline; font-weight: bold; font-size: 16px;">
+                        Click here to open Candidate Onboarding Link
+                    </a><br><br>
+                    🔒 Secure audit report & password will be routed exclusively to: ${hrEmail}
+                </div>
+            `;
+        });
+    }
+});
 </script>
+
     </body>
 </html>
