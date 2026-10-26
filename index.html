@@ -627,12 +627,19 @@
                     <input type="text" id="candAadhaar" name="aadhaarNumber" required placeholder="Enter 12-digit Aadhaar Number or Ref">
                 </div>
                 <div class="form-group">
-                    <label>Additional ID Proof (Voter ID / Driving License / Passport):</label>
-                    <input type="text" id="candIdNumber" name="idNumber" placeholder="Enter Additional ID Number (Optional)">
-                </div>
-            </div>
+                    
+<div class="form-group">
+    <label for="additional-id-type">Select Additional ID Proof:</label>
+    <select id="additional-id-type" name="additional_id_type" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: 1px solid #ccc;">
+        <option value="">-- Choose Option --</option>
+        <option value="digilocker">DigiLocker Verified ID</option>
+        <option value="voter_id">Voter ID Card</option>
+        <option value="driving_license">Driving License (DL)</option>
+        <option value="passport">Passport</option>
+    </select>
+    <input type="text" id="candAddIdNumber" name="candAddIdNumber" placeholder="Enter Selected ID Number / Reference">
+</div>
 
-            <div class="form-section">
                 <h3>3. Official Live Face Selfie & Geo-Tagging</h3>
                 <div class="guideline">💡 Upload a clear portrait selfie showing both shoulders and your face clearly. Real-time GPS location tagging is mandatory for this step.</div>
                 
