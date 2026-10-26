@@ -1166,3 +1166,47 @@
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1dmhta25uZWFnYWpmbHRzaHNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMDM3NTMsImV4cCI6MjEwODU3OTc1M30.I1Lkr9s3pkFZB9OSazFNVWWnXAob1nY0sBSQicC8GOE';
   const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 </script>
+
+  // सही तरीके से बटन को ढूंढने का कोड
+  let generateBtn = null;
+  const buttons = document.querySelectorAll('button');
+  buttons.forEach(btn => {
+    if (btn.textContent.includes('Generate Secure Candidate Link')) {
+      generateBtn = btn;
+    }
+  });
+
+  if (generateBtn) {
+    generateBtn.addEventListener('click', async function (e) {
+      
+      // 1. फॉर्म से वैल्यू उठाएं
+      const companyName = document.querySelector('input[placeholder*="Zero Crime India"]')?.value || "N/A";
+      const candidateName = document.querySelector('input[placeholder*="Rahul Sharma"]')?.value || "N/A";
+      const packageTier = document.querySelector('select')?.value || "Standard Package";
+      
+      // 2. एक यूनीक Tracking ID बनाएं
+      const trackingId = 'VS-' + Math.floor(100000 + Math.random() * 900000);
+      const status = 'Initiated';
+
+      // 3. Supabase डेटाबेस में डेटा भेजें
+      const { data, error } = await _supabase
+        .from('cases')
+        .insert([
+          { 
+            tracking_id: trackingId, 
+            company_name: companyName, 
+            candidate_name: candidateName, 
+            package_tier: packageTier, 
+            status: status 
+          }
+        ]);
+
+      if (error) {
+        console.error('डेटा सेव करने में एरर:', error.message);
+        alert('डेटा सेव नहीं हो पाया!');
+      } else {
+        console.log('डेटा सफलतापूर्वक सेव हो गया!', trackingId);
+        alert('केस सफलतापूर्वक दर्ज हो गया! Tracking ID: ' + trackingId);
+      }
+    });
+  }
