@@ -1250,7 +1250,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 emailjs.send("service_2vde5ns", "template_patgrns", {
                     company_name: companyName,
                     candidate_name: candidateName,
-                    tracking_link: "https://verishieldindia.com/candidate?id=" + trackingid
+                    tracking_link: "https://verishieldindia.com/candidate.html?id=" + trackingid
                 }).then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                 }, function(error) {
@@ -1274,7 +1274,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     Candidate: ${candidateName} (${mobileNumber})<br>
                     Package Tier: ${packageTier}<br>
                     Tracking ID: <b>${trackingid}</b><br><br>
-                    🔗 <a href="https://verishieldindia.com/candidate?id=${trackingid}" target="_blank" style="color: #1a73e8; text-decoration: underline; font-weight: bold; font-size: 16px;">
+                    🔗 <a href="https://verishieldindia.com/candidate.html?id=${trackingid}" target="_blank" style="color: #1a73e8; text-decoration: underline; font-weight: bold; font-size: 16px;">
                         Click here to open Candidate Onboarding Link
                     </a><br><br>
                     🔒 Secure audit report & password will be routed exclusively to: ${hrEmail}
