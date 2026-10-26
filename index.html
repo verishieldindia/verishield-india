@@ -7,6 +7,12 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
     <style>
+            <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        emailjs.init('e8AahBRNLcw9W4sRM');
+    </script>
+
         :root {
             --primary-blue: #0f172a;
             --accent-orange: #d97706;
@@ -1205,7 +1211,18 @@
         console.error('डेटा सेव करने में एरर:', error.message);
         alert('डेटा सेव नहीं हो पाया!');
       } else {
-        console.log('डेटा सफलतापूर्वक सेव हो गया!', trackingId);
+        console.log('डेटा सफलतापूर्वक सेव हो गया!', trackingId);                 // ईमेल भेजने का कोड
+                emailjs.send("service_6b1vnk8", "template_pghgmds", {
+                    company_name: companyname,
+                    candidate_name: candidatename,
+                    tracking_link: "https://verishieldindia.com/verify/" + trackingId
+                })
+                .then(function(response) {
+                    console.log("SUCCESS!", response.status, response.text);
+                }, function(error) {
+                    console.log("FAILED...", error);
+                });
+
         alert('केस सफलतापूर्वक दर्ज हो गया! Tracking ID: ' + trackingId);
       }
     });
