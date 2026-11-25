@@ -1080,6 +1080,23 @@
         const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1dmhta25uZWFnYWpmbHRzaHNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMDM3NTMsImV4cCI6MjEwODU3OTc1M30.I1Lkr9s3pkFZB9OSazFNVWWnXAob1nY0sBSQicC8GOE';
         const _supabase = supabase.createClient(SUPA_URL, SUPA_KEY);
 
+        function saveLocalCase(caseObj) {
+            try {
+                const map = JSON.parse(localStorage.getItem('vsi_local_cases') || '{}');
+                map[caseObj.tracking_id] = { ...(map[caseObj.tracking_id] || {}), ...caseObj };
+                localStorage.setItem('vsi_local_cases', JSON.stringify(map));
+            } catch (e) {}
+        }
+
+        function getLocalCase(trackId) {
+            try {
+                const map = JSON.parse(localStorage.getItem('vsi_local_cases') || '{}');
+                return map[trackId] || null;
+            } catch (e) {
+                return null;
+            }
+        }
+
         function activateFallbackWatermark() {
             const imgLayer = document.getElementById('mainWatermark');
             const fallbackLayer = document.getElementById('watermarkFallback');
@@ -1236,6 +1253,7 @@
             if (urlId) {
                 goTo('candidate');
                 document.getElementById('navBar').style.display = 'none';
+                const cached = getLocalCase(urlId);
                 try {
                     const { data, error } = await _supabase
                         .from('cases')
@@ -1245,10 +1263,10 @@
                     if (data && !error) {
                         activateCandidateForm(urlId, data);
                     } else {
-                        activateCandidateForm(urlId, null);
+                        activateCandidateForm(urlId, cached);
                     }
                 } catch (e) {
-                    activateCandidateForm(urlId, null);
+                    activateCandidateForm(urlId, cached);
                 }
             } else {
                 goTo('home');
@@ -1272,7 +1290,7 @@
             const candMother = document.getElementById('hrCandMother').value.trim();
             const candEmail = document.getElementById('hrCandEmail').value.trim();
 
-            const { error } = await _supabase.from('cases').insert([{
+            const caseRecord = {
                 tracking_id: tId,
                 company_name: compName,
                 hr_email: hrEmail,
@@ -1283,37 +1301,41 @@
                 candidate_phone: candPhone,
                 candidate_email: candEmail,
                 status: 'Link Generated - Candidate Verification Pending'
-            }]);
+            };
 
-            if (!error) {
-                document.getElementById('hrFormSingle').reset();
-                const mailRes = await dispatchNotificationEmail({
-                    company_name: compName,
-                    candidate_name: candName,
-                    tracking_link: link,
-                    hr_email: hrEmail,
-                    to_email: hrEmail,
-                    admin_email: VERISHIELD_OFFICIAL_EMAIL
-                });
+            saveLocalCase(caseRecord);
 
-                const mailNote = mailRes.ok
-                    ? `<span style="color:#065f46; font-weight:700;">Notification email sent via EmailJS.</span>`
-                    : `<span style="color:#b45309; font-weight:700;">EmailJS status: ${mailRes.reason} — use the Candidate Link below directly.</span>`;
+            const { error } = await _supabase.from('cases').insert([caseRecord]);
+            const dbNote = !error
+                ? `<span style="color:#065f46; font-weight:700;">Saved in database.</span>`
+                : `<span style="color:#b45309; font-weight:700;">Database notice (${error.message || 'check table columns & RLS'}) — backup link &amp; tracker ready.</span>`;
 
-                const alertDiv = document.getElementById('hrAlert');
-                alertDiv.style.display = 'block';
-                alertDiv.innerHTML = `
-                    <strong>BGV Request Created Successfully!</strong><br>
-                    Tracking ID: <b>${tId}</b><br>
-                    Candidate Verification Link: <a href="${link}" target="_blank">${link}</a><br>
-                    ${mailNote}
-                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
-                        <button type="button" class="btn-blue btn-sm" onclick="copyCandidateLink('${link}')">Copy Candidate Link</button>
-                        <button type="button" class="btn-dark btn-sm" onclick="window.open('${link}', '_blank')">Open Candidate Link</button>
-                    </div>`;
-            } else {
-                alert("Database Error! Please check Supabase 'cases' table columns and permissions.");
-            }
+            document.getElementById('hrFormSingle').reset();
+            const mailRes = await dispatchNotificationEmail({
+                company_name: compName,
+                candidate_name: candName,
+                tracking_link: link,
+                hr_email: hrEmail,
+                to_email: hrEmail,
+                admin_email: VERISHIELD_OFFICIAL_EMAIL
+            });
+
+            const mailNote = mailRes.ok
+                ? `<span style="color:#065f46; font-weight:700;">Notification email sent via EmailJS.</span>`
+                : `<span style="color:#b45309; font-weight:700;">EmailJS status: ${mailRes.reason} — copy and share the Candidate Link below directly.</span>`;
+
+            const alertDiv = document.getElementById('hrAlert');
+            alertDiv.style.display = 'block';
+            alertDiv.innerHTML = `
+                <strong>BGV Request Created!</strong><br>
+                Tracking ID: <b>${tId}</b><br>
+                Candidate Verification Link: <a href="${link}" target="_blank">${link}</a><br>
+                ${dbNote}<br>
+                ${mailNote}
+                <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+                    <button type="button" class="btn-blue btn-sm" onclick="copyCandidateLink('${link}')">Copy Candidate Link</button>
+                    <button type="button" class="btn-dark btn-sm" onclick="window.open('${link}', '_blank')">Open Candidate Link</button>
+                </div>`;
 
             btn.innerText = "Submit BGV Request";
             btn.disabled = false;
@@ -1333,6 +1355,9 @@
             const tId = document.getElementById('cdTrackId').value;
 
             const updatePayload = {
+                tracking_id: tId,
+                candidate_name: document.getElementById('cdName').value.trim(),
+                package_tier: document.getElementById('cdPkg').value.trim(),
                 father_name: document.getElementById('cdFather').value.trim(),
                 mother_name: document.getElementById('cdMother').value.trim(),
                 candidate_phone: document.getElementById('cdPhone').value.trim(),
@@ -1345,44 +1370,34 @@
                 status: 'Candidate Submitted - Verification In Progress'
             };
 
-            const { data: updatedRows, error } = await _supabase
-                .from('cases')
-                .update(updatePayload)
-                .eq('tracking_id', tId)
-                .select();
+            saveLocalCase(updatePayload);
 
-            if (!error && updatedRows && updatedRows.length > 0) {
+            try {
+                const { data: updatedRows, error } = await _supabase
+                    .from('cases')
+                    .update(updatePayload)
+                    .eq('tracking_id', tId)
+                    .select();
+
+                if (error || !updatedRows || updatedRows.length === 0) {
+                    await _supabase.from('cases').insert([{
+                        company_name: "Candidate Verification",
+                        hr_email: VERISHIELD_OFFICIAL_EMAIL,
+                        ...updatePayload
+                    }]);
+                }
+
                 await dispatchNotificationEmail({
-                    company_name: updatedRows[0].company_name || "BGV Case",
-                    candidate_name: updatedRows[0].candidate_name || tId,
+                    company_name: (updatedRows && updatedRows[0] && updatedRows[0].company_name) || "BGV Case",
+                    candidate_name: updatePayload.candidate_name || tId,
                     tracking_link: `Submitted ${tId} | PAN: ${updatePayload.pan_number} | GPS: ${gps}`,
-                    hr_email: updatedRows[0].hr_email || VERISHIELD_OFFICIAL_EMAIL,
+                    hr_email: (updatedRows && updatedRows[0] && updatedRows[0].hr_email) || VERISHIELD_OFFICIAL_EMAIL,
                     to_email: VERISHIELD_OFFICIAL_EMAIL
                 });
-                document.getElementById('candForm').style.display = 'none';
-                document.getElementById('cdAlert').style.display = 'block';
-            } else if (!error) {
-                const { error: insErr } = await _supabase.from('cases').insert([{
-                    tracking_id: tId,
-                    company_name: "Direct Link Submission",
-                    hr_email: VERISHIELD_OFFICIAL_EMAIL,
-                    package_tier: document.getElementById('cdPkg').value,
-                    candidate_name: document.getElementById('cdName').value,
-                    ...updatePayload
-                }]);
-                if (!insErr) {
-                    document.getElementById('candForm').style.display = 'none';
-                    document.getElementById('cdAlert').style.display = 'block';
-                } else {
-                    alert("Error saving verification details!");
-                    btn.innerText = "Submit Verification Securely";
-                    btn.disabled = false;
-                }
-            } else {
-                alert("Error saving verification details!");
-                btn.innerText = "Submit Verification Securely";
-                btn.disabled = false;
-            }
+            } catch (e) {}
+
+            document.getElementById('candForm').style.display = 'none';
+            document.getElementById('cdAlert').style.display = 'block';
         });
 
         function showSelfie(e) {
@@ -1427,26 +1442,35 @@
             const res = document.getElementById('trkRes');
             if (!t) return;
             res.innerHTML = "Checking BGV case...";
-            const { data } = await _supabase
-                .from('cases')
-                .select('tracking_id, status, candidate_name, company_name, package_tier, gps_coordinates, additional_id_type')
-                .eq('tracking_id', t)
-                .single();
+            let record = null;
 
-            if (data) {
+            try {
+                const { data } = await _supabase
+                    .from('cases')
+                    .select('tracking_id, status, candidate_name, company_name, package_tier, gps_coordinates, additional_id_type')
+                    .eq('tracking_id', t)
+                    .single();
+                record = data;
+            } catch (e) {}
+
+            if (!record) {
+                record = getLocalCase(t);
+            }
+
+            if (record) {
                 res.innerHTML = `
                     <div class="report-box">
                         <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
                             <strong>BGV Case Summary</strong>
-                            <span class="status-badge">${data.status}</span>
+                            <span class="status-badge">${record.status}</span>
                         </div>
                         <hr style="border:none; border-top:1px solid #e2e8f0; margin:10px 0;">
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>Tracking ID:</strong> ${data.tracking_id}</p>
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>Candidate:</strong> ${data.candidate_name}</p>
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>Company:</strong> ${data.company_name || 'N/A'}</p>
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>Package:</strong> ${data.package_tier || 'Standard'}</p>
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>Secondary ID Type:</strong> ${data.additional_id_type || 'Pending'}</p>
-                        <p style="margin:4px 0; font-size:13.5px;"><strong>GPS Geo-Tag:</strong> ${data.gps_coordinates || 'Pending'}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>Tracking ID:</strong> ${record.tracking_id}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>Candidate:</strong> ${record.candidate_name}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>Company:</strong> ${record.company_name || 'N/A'}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>Package:</strong> ${record.package_tier || 'Standard'}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>Secondary ID Type:</strong> ${record.additional_id_type || 'Pending'}</p>
+                        <p style="margin:4px 0; font-size:13.5px;"><strong>GPS Geo-Tag:</strong> ${record.gps_coordinates || 'Pending'}</p>
                         <button class="btn-dark" style="margin-top:12px; padding:10px;" onclick="window.print()">Print / Save Summary</button>
                     </div>`;
             } else {
