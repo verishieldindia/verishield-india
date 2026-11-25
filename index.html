@@ -32,7 +32,7 @@
             --danger: #dc2626;
             --bg-light: #f1f5f9;
             --text-main: #0f172a;
-            --text-muted: #475569;
+            --text-muted: #334155;
             --safe-top: env(safe-area-inset-top, 0px);
             --safe-bottom: env(safe-area-inset-bottom, 0px);
         }
@@ -44,38 +44,46 @@
 
         html, body {
             width: 100%;
-            min-height: 100%;
+            min-height: 100dvh;
             margin: 0;
             padding: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg-light);
+            background-color: var(--primary);
             color: var(--text-main);
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
+        }
+
+        .app-shell {
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            background-color: var(--bg-light);
+            position: relative;
         }
 
         /* SINGLE CLEAN WATERMARK LAYER */
         .bgv-watermark {
             position: fixed;
             inset: 0;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
             background-image: url('logo.jpg');
             background-repeat: repeat;
-            background-size: 165px 165px;
-            opacity: 0.055;
+            background-size: 160px 160px;
+            opacity: 0.05;
             transform: rotate(-16deg) scale(1.12);
         }
 
         .bgv-watermark-fallback {
             position: fixed;
             inset: 0;
-            z-index: -1;
+            z-index: 0;
             pointer-events: none;
             display: none;
-            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-            gap: 36px;
-            padding: 28px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 32px;
+            padding: 24px;
             opacity: 0.035;
             user-select: none;
         }
@@ -93,7 +101,7 @@
         }
 
         .wm-item span {
-            font-size: 16px;
+            font-size: 15px;
             border: 2px solid var(--primary);
             padding: 5px 12px;
             border-radius: 8px;
@@ -106,7 +114,7 @@
 
         /* HEADER */
         header {
-            background: rgba(10, 25, 47, 0.97);
+            background: rgba(10, 25, 47, 0.98);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             color: white;
@@ -136,8 +144,8 @@
         }
 
         .logo-box img {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid var(--secondary);
             background: white;
@@ -147,7 +155,7 @@
 
         .logo-box div h1 {
             margin: 0;
-            font-size: 19px;
+            font-size: 18px;
             color: white;
             font-weight: 800;
             white-space: nowrap;
@@ -233,14 +241,17 @@
         }
 
         .container {
+            flex: 1 0 auto;
+            width: 100%;
             max-width: 1100px;
-            margin: 24px auto;
-            padding: 32px;
-            background: rgba(255, 255, 255, 0.97);
+            margin: 20px auto;
+            padding: 28px;
+            background: rgba(255, 255, 255, 0.98);
             border-radius: 14px;
             box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-            min-height: 60vh;
             border: 1px solid #e2e8f0;
+            position: relative;
+            z-index: 1;
         }
 
         .page {
@@ -263,15 +274,15 @@
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 14px;
             margin-top: 0;
-            margin-bottom: 24px;
-            font-size: 24px;
+            margin-bottom: 22px;
+            font-size: 22px;
             font-weight: 800;
         }
 
         .section-box {
             background: #f8fafc;
             border: 1px solid #cbd5e1;
-            padding: 22px;
+            padding: 20px;
             border-radius: 12px;
             margin-bottom: 18px;
         }
@@ -281,19 +292,20 @@
             border: 1px solid #cbd5e1;
             border-left: 4px solid var(--primary);
             border-radius: 10px;
-            padding: 18px 20px;
+            padding: 16px 18px;
             margin-bottom: 14px;
         }
 
         .legal-card h3 {
             margin: 0 0 8px 0;
             color: var(--primary);
-            font-size: 16px;
+            font-size: 15.5px;
+            font-weight: 700;
         }
 
         .legal-card p {
             margin: 0;
-            color: #334155;
+            color: #1e293b;
             font-size: 14px;
             line-height: 1.75;
         }
@@ -302,31 +314,30 @@
             display: inline-block;
             background: #eff6ff;
             border: 1px solid #93c5fd;
-            color: #1e40af;
+            color: #1e3a8a;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 12.5px;
             padding: 6px 14px;
             border-radius: 999px;
             margin-bottom: 14px;
         }
 
-        .grid-2 {
+        /* Mobile-first responsive grids */
+        .grid-2, .grid-3, .grid-4 {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 16px;
-        }
-
-        .grid-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            grid-template-columns: 1fr;
             gap: 14px;
         }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-            margin-bottom: 18px;
+        @media (min-width: 640px) {
+            .grid-2 { grid-template-columns: repeat(2, 1fr); }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 900px) {
+            .grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .grid-4 { grid-template-columns: repeat(4, 1fr); }
         }
 
         .stat-card {
@@ -352,14 +363,14 @@
             padding: 16px;
         }
 
-        .bgv-module-card h4 { margin: 0 0 6px 0; color: var(--primary); font-size: 15px; }
-        .bgv-module-card p { margin: 0; color: var(--text-muted); font-size: 13px; line-height: 1.5; }
+        .bgv-module-card h4 { margin: 0 0 6px 0; color: var(--primary); font-size: 15px; font-weight: 700; }
+        .bgv-module-card p { margin: 0; color: #334155; font-size: 13.5px; line-height: 1.6; }
 
         .pkg-card {
             background: white;
-            border: 2px solid #e2e8f0;
+            border: 2px solid #cbd5e1;
             border-radius: 12px;
-            padding: 22px;
+            padding: 20px;
         }
 
         .pkg-card.featured {
@@ -368,14 +379,14 @@
         }
 
         .pkg-quote-tag {
-            font-size: 18px;
+            font-size: 17px;
             font-weight: 800;
             color: var(--primary);
             margin: 8px 0 12px 0;
         }
 
         .form-group { margin-bottom: 14px; }
-        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13.5px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13.5px; color: var(--primary); }
 
         input, select, textarea {
             width: 100%;
@@ -385,6 +396,7 @@
             font-size: 16px;
             font-family: inherit;
             background: white;
+            color: var(--text-main);
         }
 
         input:focus, select:focus, textarea:focus {
@@ -395,7 +407,7 @@
 
         input[readonly] {
             background: #e2e8f0;
-            color: #475569;
+            color: #334155;
             font-weight: 700;
         }
 
@@ -500,7 +512,7 @@
 
         .faq-card {
             background: white;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #cbd5e1;
             border-left: 4px solid var(--accent);
             border-radius: 8px;
             padding: 14px 16px;
@@ -511,19 +523,20 @@
             color: var(--primary);
             margin: 0 0 6px 0;
             font-size: 15px;
+            font-weight: 700;
         }
 
         .faq-card p {
             margin: 0;
-            color: var(--text-muted);
+            color: #1e293b;
             font-size: 14px;
             line-height: 1.65;
         }
 
         .info-list {
-            margin: 10px 0 0 0;
+            margin: 8px 0 0 0;
             padding-left: 20px;
-            color: #334155;
+            color: #1e293b;
             line-height: 1.75;
             font-size: 14px;
         }
@@ -531,17 +544,17 @@
         /* CHAT WIDGET */
         .chat-widget-btn {
             position: fixed;
-            bottom: calc(20px + var(--safe-bottom));
-            right: 20px;
+            bottom: calc(18px + var(--safe-bottom));
+            right: 18px;
             background: var(--secondary);
             color: white;
-            width: 58px;
-            height: 58px;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 25px;
+            font-size: 24px;
             cursor: pointer;
             box-shadow: 0 8px 22px rgba(16, 185, 129, 0.4);
             z-index: 9999;
@@ -551,7 +564,7 @@
 
         .chat-modal {
             position: fixed;
-            bottom: calc(88px + var(--safe-bottom));
+            bottom: calc(84px + var(--safe-bottom));
             right: 16px;
             left: 16px;
             max-width: 350px;
@@ -582,41 +595,55 @@
         }
 
         footer {
+            flex-shrink: 0;
             background: var(--primary);
-            color: #cbd5e1;
+            color: #e2e8f0;
             text-align: center;
-            padding: 28px 16px calc(28px + var(--safe-bottom)) 16px;
-            margin-top: 40px;
+            padding: 26px 16px calc(26px + var(--safe-bottom)) 16px;
             border-top: 4px solid var(--secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-email-line {
+            font-size: 13.5px;
+            margin-top: 8px;
+            color: #6ee7b7;
+            font-weight: 600;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 18px;
+            gap: 16px;
             margin-top: 14px;
             flex-wrap: wrap;
         }
 
         .footer-links a {
-            color: #6ee7b7;
+            color: #ffffff;
             text-decoration: none;
-            font-size: 13.5px;
+            font-size: 13px;
             cursor: pointer;
             font-weight: 600;
+            padding: 4px 6px;
         }
 
-        .footer-links a:hover { text-decoration: underline; }
+        .footer-links a:hover {
+            color: #6ee7b7;
+            text-decoration: underline;
+        }
 
         @media print {
             header, nav, .chat-widget-btn, .chat-modal, footer, .tab-btns, button { display: none !important; }
-            .container { box-shadow: none; border: none; margin: 0; padding: 10px; }
+            .app-shell, .container { background: white !important; box-shadow: none; border: none; margin: 0; padding: 10px; }
         }
 
         @media (max-width: 640px) {
             .container {
+                width: calc(100% - 24px);
                 padding: 16px;
-                margin: 12px;
+                margin: 12px auto;
                 border-radius: 12px;
             }
             .header-badges { display: none; }
@@ -625,6 +652,7 @@
     </style>
 </head>
 <body>
+<div class="app-shell">
 
     <!-- SINGLE CLEAN BGV / VERISHIELD WATERMARK LAYER -->
     <div class="bgv-watermark" id="mainWatermark" aria-hidden="true"></div>
@@ -637,12 +665,12 @@
                 <img src="logo.jpg" alt="VeriShield India Logo" onerror="this.style.display='none'; activateFallbackWatermark();">
                 <div>
                     <h1>VeriShield INDIA</h1>
-                    <span>BGV & Trust-Tech Infrastructure</span>
+                    <span>BGV &amp; Trust-Tech Infrastructure</span>
                 </div>
             </div>
             <div class="header-badges">
-                <div class="pill">🌐 100% Virtual Office</div>
-                <div class="pill blue">🔒 Zero Data Retention</div>
+                <div class="pill">100% Virtual Office</div>
+                <div class="pill blue">Zero Data Retention</div>
             </div>
         </div>
         <nav id="navBar">
@@ -652,7 +680,7 @@
             <a onclick="goTo('hr')" id="nav-hr">HR Portal</a>
             <a onclick="goTo('candidate')" id="nav-candidate">Candidate</a>
             <a onclick="goTo('tracker')" id="nav-tracker">Tracker</a>
-            <a onclick="goTo('admin')" id="nav-admin">🔐 Admin</a>
+            <a onclick="goTo('admin')" id="nav-admin">Admin</a>
         </nav>
     </header>
 
@@ -660,9 +688,9 @@
 
         <!-- 1. HOME PAGE -->
         <div id="page-home" class="page active">
-            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 30px 22px; border-radius: 12px; text-align: center; color: white; border-bottom: 5px solid var(--secondary);">
-                <h2 style="color:white; border:none; margin-top:0; margin-bottom:10px; font-size: 25px;">VeriShield India — Digital Background Verification</h2>
-                <p style="color: #cbd5e1; line-height: 1.7; font-size: 15px; max-width: 740px; margin: 0 auto;">Identity KYC, Live Selfie & GPS Geo-Tagging, Pan-India e-Courts Litigation Screening, EPFO/UAN Moonlighting Audits, and Live Case Tracking with Zero Data Retention.</p>
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 28px 20px; border-radius: 12px; text-align: center; color: white; border-bottom: 5px solid var(--secondary);">
+                <h2 style="color:white; border:none; margin-top:0; margin-bottom:10px; font-size: 24px;">VeriShield India &mdash; Digital Background Verification</h2>
+                <p style="color: #e2e8f0; line-height: 1.7; font-size: 15px; max-width: 740px; margin: 0 auto;">Identity KYC, Live Selfie &amp; GPS Geo-Tagging, Pan-India e-Courts Litigation Screening, EPFO/UAN Moonlighting Audits, and Live Case Tracking with Zero Data Retention.</p>
                 <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                     <button class="btn-primary" style="width: auto; padding: 11px 22px;" onclick="goTo('hr')">Start HR Onboarding</button>
                     <button class="btn-blue" style="width: auto; padding: 11px 22px;" onclick="goTo('tracker')">Track Case</button>
@@ -674,15 +702,15 @@
                 <h3 style="margin-top:0; color:var(--primary);">Core Verification Capabilities</h3>
                 <div class="grid-3">
                     <div class="bgv-module-card">
-                        <h4>1. Identity & KYC Verification</h4>
+                        <h4>1. Identity &amp; KYC Verification</h4>
                         <p>Mandatory PAN verification and secondary government ID checks (Aadhaar / DigiLocker / Voter ID / DL) with explicit candidate consent.</p>
                     </div>
                     <div class="bgv-module-card">
-                        <h4>2. Live Selfie & GPS Geo-Tagging</h4>
+                        <h4>2. Live Selfie &amp; GPS Geo-Tagging</h4>
                         <p>Real-time latitude and longitude capture alongside live portrait verification across Android and Apple devices.</p>
                     </div>
                     <div class="bgv-module-card">
-                        <h4>3. Litigation & Employment Audit</h4>
+                        <h4>3. Litigation &amp; Employment Audit</h4>
                         <p>Pan-India e-Courts record checks and EPFO/UAN passbook overlap checks for moonlighting risk detection.</p>
                     </div>
                 </div>
@@ -690,7 +718,7 @@
 
             <div class="section-box">
                 <h3 style="margin-top:0; color:var(--primary);">Zero Data Retention (ZDR) Commitment</h3>
-                <p style="line-height:1.7; color:#334155; margin:0;">Once the verification report is dispatched to the authorized corporate HR email ID, raw candidate data is purged under strict Zero Data Retention protocols.</p>
+                <p style="line-height:1.7; color:#1e293b; margin:0;">Once the verification report is dispatched to the authorized corporate HR email ID, raw candidate data is purged under strict Zero Data Retention protocols.</p>
             </div>
         </div>
 
@@ -699,28 +727,28 @@
             <h2 class="title">Background Verification (BGV) Suite</h2>
             <div class="grid-2">
                 <div class="bgv-module-card">
-                    <h4>🪪 Identity & KYC Screening</h4>
+                    <h4>Identity &amp; KYC Screening</h4>
                     <p>Verifies mandatory PAN details and cross-checks secondary ID records (Aadhaar, DigiLocker ID, Voter ID, Driving License).</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>📍 Digital Address & Live GPS Geo-Tagging</h4>
+                    <h4>Digital Address &amp; Live GPS Geo-Tagging</h4>
                     <p>Captures real-time GPS coordinates (Lat/Lng), residential address, and live selfie proof.</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>⚖️ Pan-India e-Courts Litigation Check</h4>
+                    <h4>Pan-India e-Courts Litigation Check</h4>
                     <p>Screens civil and criminal court registries to identify active or past legal disputes.</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>💼 EPFO / UAN Moonlighting Audit</h4>
+                    <h4>EPFO / UAN Moonlighting Audit</h4>
                     <p>Reviews employment overlap and unified passbook history to detect dual employment.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 3. PACKAGES PAGE (CUSTOM QUOTE / FLEXIBLE PRICING) -->
+        <!-- 3. PACKAGES PAGE -->
         <div id="page-services" class="page">
-            <h2 class="title">Enterprise Verification Modules & Packages</h2>
-            <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 22px auto; font-size:14px;">
+            <h2 class="title">Enterprise Verification Modules &amp; Packages</h2>
+            <p style="text-align:center; color:#334155; max-width:680px; margin:0 auto 22px auto; font-size:14px; line-height:1.65;">
                 Select a verification tier based on your hiring risk level. Custom volume pricing is available for startups, SMEs, and enterprise bulk onboarding.
             </p>
             <div class="grid-2">
@@ -740,7 +768,7 @@
                 <div class="pkg-card featured">
                     <span style="background:var(--secondary); color:white; padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">COMPREHENSIVE TIER</span>
                     <h3 style="color:var(--primary); margin-bottom:4px;">Advanced Corporate BGV</h3>
-                    <div class="pkg-quote-tag">Enterprise & Bulk Corporate Quote</div>
+                    <div class="pkg-quote-tag">Enterprise &amp; Bulk Corporate Quote</div>
                     <ul class="info-list" style="margin-bottom:16px;">
                         <li>Everything in Basic Standard Package</li>
                         <li>Pan-India e-Courts Litigation Screening</li>
@@ -762,12 +790,14 @@
 
             <form id="hrFormSingle">
                 <div class="section-box">
-                    <h3 style="margin-top:0;">Corporate Details</h3>
-                    <div class="form-group"><label>Company Name</label><input type="text" id="hrComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
-                    <div class="form-group"><label>Authorized HR Email ID</label><input type="email" id="hrEmail" required placeholder="hr@company.com"></div>
+                    <h3 style="margin-top:0; color:var(--primary);">Corporate Details</h3>
+                    <div class="grid-2">
+                        <div class="form-group" style="margin-bottom:0;"><label>Company Name</label><input type="text" id="hrComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
+                        <div class="form-group" style="margin-bottom:0;"><label>Authorized HR Email ID</label><input type="email" id="hrEmail" required placeholder="hr@company.com"></div>
+                    </div>
                 </div>
                 <div class="section-box">
-                    <h3 style="margin-top:0;">Candidate & Verification Scope</h3>
+                    <h3 style="margin-top:0; color:var(--primary);">Candidate &amp; Verification Scope</h3>
                     <div class="form-group">
                         <label>Select Verification Package</label>
                         <select id="hrPkg" required>
@@ -781,23 +811,25 @@
                         <div class="form-group"><label>Father's Name</label><input type="text" id="hrCandFather" required></div>
                         <div class="form-group"><label>Mother's Name</label><input type="text" id="hrCandMother" required></div>
                     </div>
-                    <div class="form-group"><label>Candidate Email ID</label><input type="email" id="hrCandEmail" required></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Candidate Email ID</label><input type="email" id="hrCandEmail" required></div>
                 </div>
                 <button type="submit" class="btn-primary" id="btnHrSub">Submit BGV Request</button>
             </form>
 
             <form id="hrFormBulk" style="display:none;" onsubmit="handleBulkUpload(event)">
                 <div class="section-box">
-                    <h3 style="margin-top:0;">Bulk CSV Upload</h3>
-                    <div class="form-group"><label>Company Name</label><input type="text" id="bulkComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
-                    <div class="form-group"><label>Authorized HR Email ID</label><input type="email" id="bulkEmail" required placeholder="hr@company.com"></div>
+                    <h3 style="margin-top:0; color:var(--primary);">Bulk CSV Upload</h3>
+                    <div class="grid-2">
+                        <div class="form-group"><label>Company Name</label><input type="text" id="bulkComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
+                        <div class="form-group"><label>Authorized HR Email ID</label><input type="email" id="bulkEmail" required placeholder="hr@company.com"></div>
+                    </div>
                     <div class="form-group">
                         <label>Package Tier for Batch</label>
                         <select id="bulkPkg"><option>Basic Package</option><option>Advanced Package</option></select>
                     </div>
-                    <div class="form-group"><label>Upload CSV File</label><input type="file" id="bulkFile" accept=".csv" required></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Upload CSV File</label><input type="file" id="bulkFile" accept=".csv" required></div>
                 </div>
-                <button type="submit" class="btn-primary" id="btnBulkSub">Upload & Process Bulk CSV</button>
+                <button type="submit" class="btn-primary" id="btnBulkSub">Upload &amp; Process Bulk CSV</button>
             </form>
 
             <div id="hrAlert" style="display:none; margin-top:18px; padding:16px; background:#f0fdf4; border:1px solid #10b981; color:#065f46; border-radius:10px; line-height:1.6;"></div>
@@ -806,11 +838,20 @@
         <!-- 5. CANDIDATE PORTAL -->
         <div id="page-candidate" class="page">
             <h2 class="title">Candidate Secure BGV Onboarding</h2>
-            <div id="candLoad" style="text-align:center; padding:24px; font-weight:bold; color:var(--accent);">Verifying secure link... (Please open via your unique HR verification link, e.g. ?id=VSI-XXXXXX)</div>
+            <div id="candLoad" class="section-box" style="text-align:center; padding:24px;">
+                <p style="font-weight:700; color:var(--accent); margin-top:0;">Verifying secure link...</p>
+                <p style="color:#334155; font-size:14px; line-height:1.65; margin-bottom:16px;">
+                    Candidates must open the unique verification link generated by HR (for example: <code>?id=VSI-123456</code>). If you are checking an existing case or creating a request, use the options below.
+                </p>
+                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                    <button class="btn-blue" style="width:auto; padding:10px 20px;" onclick="goTo('tracker')">Track Existing Case</button>
+                    <button class="btn-dark" style="width:auto; padding:10px 20px;" onclick="goTo('hr')">Go to HR Portal</button>
+                </div>
+            </div>
 
             <form id="candForm" style="display:none;">
                 <div class="section-box">
-                    <h3 style="margin-top:0;">1. Candidate Information</h3>
+                    <h3 style="margin-top:0; color:var(--primary);">1. Candidate Information</h3>
                     <div class="grid-2">
                         <div class="form-group"><label>Full Name (Locked)</label><input type="text" id="cdName" readonly></div>
                         <div class="form-group"><label>Assigned Package (Locked)</label><input type="text" id="cdPkg" readonly></div>
@@ -819,12 +860,12 @@
                         <div class="form-group"><label>Mobile Number</label><input type="tel" id="cdPhone" required></div>
                         <div class="form-group"><label>Email ID</label><input type="email" id="cdEmail" required></div>
                     </div>
-                    <div class="form-group"><label>Full Residential Address</label><textarea id="cdAddress" rows="2" required></textarea></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Full Residential Address</label><textarea id="cdAddress" rows="2" required></textarea></div>
                     <input type="hidden" id="cdTrackId">
                 </div>
 
                 <div class="section-box">
-                    <h3 style="margin-top:0;">2. Identity Verification</h3>
+                    <h3 style="margin-top:0; color:var(--primary);">2. Identity Verification</h3>
                     <div class="grid-2">
                         <div class="form-group"><label style="color:#dc2626;">PAN Card Number (Mandatory)</label><input type="text" id="cdPan" required placeholder="ABCDE1234F" style="text-transform:uppercase;"></div>
                         <div class="form-group">
@@ -838,18 +879,18 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group"><label>Secondary ID Number</label><input type="text" id="cdIdNum" required></div>
+                    <div class="form-group" style="margin-bottom:0;"><label>Secondary ID Number</label><input type="text" id="cdIdNum" required></div>
                 </div>
 
                 <div class="section-box">
-                    <h3 style="margin-top:0;">3. Live Selfie & GPS Geo-Tagging</h3>
+                    <h3 style="margin-top:0; color:var(--primary);">3. Live Selfie &amp; GPS Geo-Tagging</h3>
                     <div class="selfie-box">
-                        <span id="sfText" style="color:var(--text-muted); font-size:13px;">Live Photo</span>
+                        <span id="sfText" style="color:#475569; font-size:13px;">Live Photo</span>
                         <img id="sfImg" alt="Candidate Selfie">
                     </div>
                     <div class="form-group"><input type="file" accept="image/*" capture="user" onchange="showSelfie(event)" required></div>
-                    <div class="form-group">
-                        <button type="button" class="btn-blue" onclick="getLoc()">📍 Capture Live GPS (Lat/Lng)</button>
+                    <div class="form-group" style="margin-bottom:0;">
+                        <button type="button" class="btn-blue" onclick="getLoc()">Capture Live GPS (Lat/Lng)</button>
                         <p id="locText" style="color:#dc2626; font-size:13px; margin-top:6px; font-weight:bold;">GPS capture is mandatory.</p>
                         <input type="hidden" id="cdGps" required>
                     </div>
@@ -857,14 +898,14 @@
 
                 <div class="form-group" style="display:flex; gap:10px; align-items:flex-start;">
                     <input type="checkbox" required style="width:20px; height:20px; flex-shrink:0; margin-top:2px;">
-                    <label style="font-weight:normal; font-size:13px; color:var(--text-muted);">I hereby provide explicit consent to VeriShield India to verify my submitted details for background screening, subject to Zero Data Retention after report delivery.</label>
+                    <label style="font-weight:normal; font-size:13px; color:#334155;">I hereby provide explicit consent to VeriShield India to verify my submitted details for background screening, subject to Zero Data Retention after report delivery.</label>
                 </div>
 
                 <button type="submit" class="btn-primary" id="btnCdSub">Submit Verification Securely</button>
             </form>
 
             <div id="cdAlert" style="display:none; margin-top:20px; padding:22px; background:#f0fdf4; border:1px solid #10b981; color:#065f46; text-align:center; border-radius:10px;">
-                <h3>✅ Verification Details Submitted Successfully!</h3>
+                <h3>Verification Details Submitted Successfully!</h3>
                 <p>Your information has been recorded securely. Once the audit report is delivered to HR, raw personal data will be erased under our Zero Data Retention policy.</p>
             </div>
         </div>
@@ -872,33 +913,37 @@
         <!-- 6. TRACKER PAGE -->
         <div id="page-tracker" class="page">
             <h2 class="title">Live Case Tracker</h2>
-            <div class="section-box" style="max-width: 520px; margin: 0 auto;">
+            <div class="section-box" style="max-width: 540px; margin: 0 auto;">
                 <label>Enter Case Tracking ID</label>
-                <input type="text" id="trkInput" placeholder="e.g. VSI-123456" style="margin-bottom:12px; text-transform:uppercase;">
-                <button class="btn-primary" onclick="chkStatus()">Check Status & Summary</button>
+                <input type="text" id="trkInput" placeholder="E.G. VSI-123456" style="margin-bottom:12px; text-transform:uppercase;">
+                <button class="btn-primary" onclick="chkStatus()">Check Status &amp; Summary</button>
                 <div id="trkRes" style="margin-top: 16px;"></div>
+                <hr style="border:none; border-top:1px solid #cbd5e1; margin:20px 0 14px 0;">
+                <p style="margin:0; font-size:13px; color:#334155; line-height:1.6;">
+                    <strong>How Tracking Works:</strong> Enter your unique Tracking ID (such as <code>VSI-123456</code>) to view real-time verification status and print a case summary. For assistance, contact <strong class="dynamic-email">verishieldindia@gmail.com</strong>.
+                </p>
             </div>
         </div>
 
         <!-- 7. ADMIN STATUS PANEL -->
         <div id="page-admin" class="page">
-            <h2 class="title">🔐 VeriShield Admin Status Panel</h2>
+            <h2 class="title">VeriShield Admin Status Panel</h2>
 
             <div id="adminLoginBox" class="section-box" style="max-width: 420px; margin: 0 auto; text-align: center;">
                 <h3 style="margin-top:0; color:var(--primary);">Authorized Admin Login</h3>
-                <p style="font-size:13.5px; color:var(--text-muted);">Enter Admin Passcode to manage live BGV cases.</p>
+                <p style="font-size:13.5px; color:#334155;">Enter Admin Passcode to manage live BGV cases.</p>
                 <div class="form-group">
                     <input type="password" id="adminPassInput" placeholder="Enter Admin Passcode" onkeydown="if(event.key==='Enter') loginAdmin()">
                 </div>
                 <button class="btn-dark" onclick="loginAdmin()">Unlock Admin Panel</button>
-                <p id="adminLoginErr" style="color:var(--danger); font-size:13px; font-weight:600; margin-top:10px; display:none;">❌ Incorrect Admin Passcode</p>
+                <p id="adminLoginErr" style="color:var(--danger); font-size:13px; font-weight:600; margin-top:10px; display:none;">Incorrect Admin Passcode</p>
             </div>
 
             <div id="adminDashboard" style="display:none;">
                 <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
-                    <span style="font-size:13px; color:var(--text-muted);">Admin: <strong class="dynamic-email">verishieldindia@gmail.com</strong></span>
+                    <span style="font-size:13px; color:#334155;">Admin: <strong class="dynamic-email">verishieldindia@gmail.com</strong></span>
                     <div style="display:flex; gap:8px;">
-                        <button class="btn-blue btn-sm" onclick="loadAdminCases()">🔄 Refresh</button>
+                        <button class="btn-blue btn-sm" onclick="loadAdminCases()">Refresh</button>
                         <button class="btn-danger btn-sm" onclick="logoutAdmin()">Logout</button>
                     </div>
                 </div>
@@ -944,7 +989,7 @@
                 </div>
 
                 <div id="adminCasesContainer">
-                    <p style="text-align:center; color:var(--text-muted);">Loading cases...</p>
+                    <p style="text-align:center; color:#334155;">Loading cases...</p>
                 </div>
             </div>
         </div>
@@ -953,7 +998,7 @@
         <div id="page-about" class="page">
             <h2 class="title">About VeriShield India</h2>
             <div class="section-box">
-                <div class="virtual-badge">🌐 100% Virtual Office & Cloud-First BGV Infrastructure</div>
+                <div class="virtual-badge">100% Virtual Office &amp; Cloud-First BGV Infrastructure</div>
                 <div class="legal-card">
                     <h3>1. Who We Are</h3>
                     <p><strong>VeriShield India</strong> is a digital Background Verification (BGV) and Trust-Tech platform built to help employers, startups, and HR teams verify candidate credentials with speed, transparency, and strict privacy compliance.</p>
@@ -965,9 +1010,9 @@
                 <div class="legal-card">
                     <h3>3. Core Screening Capabilities</h3>
                     <ul class="info-list">
-                        <li><strong>Identity & KYC Checks:</strong> Mandatory PAN verification and secondary government ID validation.</li>
-                        <li><strong>Live Geo-Tagging & Portrait Capture:</strong> Real-time GPS coordinates (Lat/Lng) and live selfie capture to deter proxy or address fraud.</li>
-                        <li><strong>Litigation & Employment Audits:</strong> Pan-India e-Courts record checks and EPFO/UAN moonlighting screening.</li>
+                        <li><strong>Identity &amp; KYC Checks:</strong> Mandatory PAN verification and secondary government ID validation.</li>
+                        <li><strong>Live Geo-Tagging &amp; Portrait Capture:</strong> Real-time GPS coordinates (Lat/Lng) and live selfie capture to deter proxy or address fraud.</li>
+                        <li><strong>Litigation &amp; Employment Audits:</strong> Pan-India e-Courts record checks and EPFO/UAN moonlighting screening.</li>
                         <li><strong>Zero Data Retention (ZDR):</strong> Permanent redaction/erasure of raw personal data after report delivery to HR.</li>
                     </ul>
                 </div>
@@ -978,30 +1023,30 @@
         <div id="page-contact" class="page">
             <h2 class="title">Contact Us</h2>
             <div class="section-box">
-                <div class="virtual-badge">🏢 Virtual Office Mode: 100% Online Support (No Physical Walk-In)</div>
+                <div class="virtual-badge">Virtual Office Mode: 100% Online Support (No Physical Walk-In)</div>
                 <div class="legal-card">
                     <h3>1. Official Email Channel</h3>
                     <p>For corporate onboarding, custom quotes, technical support, or verification status inquiries, reach us directly at:<br>
                     <strong>Official Email ID:</strong> <a href="mailto:verishieldindia@gmail.com" style="color:var(--accent); font-weight:700;" class="dynamic-email">verishieldindia@gmail.com</a></p>
                 </div>
                 <div class="legal-card">
-                    <h3>2. Virtual Office Details & Working Hours</h3>
-                    <p><strong>Office Type:</strong> Virtual Digital Office — Pan-India Remote Operations, India<br>
-                    <strong>Support Hours:</strong> Monday to Saturday, 10:00 AM – 7:00 PM IST<br>
+                    <h3>2. Virtual Office Details &amp; Working Hours</h3>
+                    <p><strong>Office Type:</strong> Virtual Digital Office &mdash; Pan-India Remote Operations, India<br>
+                    <strong>Support Hours:</strong> Monday to Saturday, 10:00 AM &ndash; 7:00 PM IST<br>
                     <strong>Standard Response Time:</strong> Within 24 business hours via email or live chat.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>3. Instant Help & Case Status</h3>
-                    <p>Use the floating <strong>💬 Live Help</strong> button at the bottom right to send an instant message, or visit the <strong>Tracker</strong> section with your Case Tracking ID (e.g., <code>VSI-123456</code>) for real-time updates.</p>
+                    <h3>3. Instant Help &amp; Case Status</h3>
+                    <p>Use the floating <strong>Live Help</strong> chat button at the bottom right to send an instant message, or visit the <strong>Tracker</strong> section with your Case Tracking ID (e.g., <code>VSI-123456</code>) for real-time updates.</p>
                 </div>
             </div>
         </div>
 
         <!-- PRIVACY POLICY PAGE -->
         <div id="page-privacy" class="page">
-            <h2 class="title">Privacy Policy & Zero Data Retention</h2>
+            <h2 class="title">Privacy Policy &amp; Zero Data Retention</h2>
             <div class="section-box">
-                <div class="virtual-badge">🔒 Data Protection & Zero Data Retention (ZDR) Mandate</div>
+                <div class="virtual-badge">Data Protection &amp; Zero Data Retention (ZDR) Mandate</div>
                 <div class="legal-card">
                     <h3>1. Information We Collect</h3>
                     <p>We collect only the information strictly required to execute background verification: corporate HR name and email, candidate name, parents' names, phone number, email address, residential address, PAN number, secondary government ID details, live selfie image, live GPS coordinates, and explicit consent.</p>
@@ -1015,11 +1060,11 @@
                     <p>Verification submissions are processed only after the candidate actively checks the mandatory legal consent declaration and grants device permissions for live camera and GPS location capture.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>4. Zero Data Retention (ZDR) & Data Erasure</h3>
+                    <h3>4. Zero Data Retention (ZDR) &amp; Data Erasure</h3>
                     <p>Under our <strong>Zero Data Retention (ZDR) Policy</strong>, once the final verification report is dispatched to the authorized HR email ID, sensitive raw candidate identifiers (PAN, secondary ID number, residential address, and GPS coordinates) are permanently purged/redacted from active storage.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>5. Security & Data Subject Requests</h3>
+                    <h3>5. Security &amp; Data Subject Requests</h3>
                     <p>All platform communications are encrypted over HTTPS. Candidates or corporate clients seeking data access, correction, or immediate erasure may contact <strong class="dynamic-email">verishieldindia@gmail.com</strong> with their Tracking ID.</p>
                 </div>
             </div>
@@ -1029,13 +1074,13 @@
         <div id="page-disclaimer" class="page">
             <h2 class="title">Legal Disclaimer</h2>
             <div class="section-box">
-                <div class="virtual-badge">⚖️ Important Operational & Legal Notice</div>
+                <div class="virtual-badge">Important Operational &amp; Legal Notice</div>
                 <div class="legal-card">
                     <h3>1. Role as Technology Facilitator</h3>
                     <p><strong>VeriShield India</strong> operates strictly as an independent background screening and technology facilitator. We compile verification summaries based on candidate-submitted records, consented digital checks, and available public or official databases.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>2. Third-Party & Public Record Limitations</h3>
+                    <h3>2. Third-Party &amp; Public Record Limitations</h3>
                     <p>While we strive for high accuracy, verification outputs rely on candidate-provided information and external registries (such as court or employment records). VeriShield India is not liable for delays, omissions, or inaccuracies originating from third-party or government data sources.</p>
                 </div>
                 <div class="legal-card">
@@ -1043,7 +1088,7 @@
                     <p>Audit reports are provided solely as decision-support inputs for internal HR risk assessment. All hiring, onboarding, retention, or termination decisions rest exclusively with the client organization.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>4. Technical & Device Dependencies</h3>
+                    <h3>4. Technical &amp; Device Dependencies</h3>
                     <p>Live selfie capture and GPS geo-tagging accuracy depend on the candidate's mobile device hardware, browser permissions, GPS signal strength, and internet connectivity.</p>
                 </div>
                 <div class="legal-card">
@@ -1053,21 +1098,21 @@
             </div>
         </div>
 
-        <!-- TERMS & LEGAL (INCLUDING CONTRACTORS CLAUSE) PAGE -->
+        <!-- TERMS & LEGAL PAGE -->
         <div id="page-legal" class="page">
-            <h2 class="title">Terms of Use & Legal Compliance</h2>
+            <h2 class="title">Terms of Use &amp; Legal Compliance</h2>
             <div class="section-box">
-                <div class="virtual-badge">📜 Platform Terms, Billing & Independent Contractors</div>
+                <div class="virtual-badge">Platform Terms, Billing &amp; Independent Contractors</div>
                 <div class="legal-card">
                     <h3>1. Authorized Corporate Use</h3>
                     <p>Corporate HR users confirm that they have a legitimate employment or onboarding purpose and lawful basis before submitting any candidate's details for background verification.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>2. Billing & Custom Quotes</h3>
+                    <h3>2. Billing &amp; Custom Quotes</h3>
                     <p>Service fees are governed by the agreed corporate quote or package tier selected at the time of onboarding. Bulk CSV batches and enterprise engagements are billed per agreed commercial terms.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>3. Independent Contractors & Field Auditors</h3>
+                    <h3>3. Independent Contractors &amp; Field Auditors</h3>
                     <p>Any external verification specialists, address auditors, or field partners engaged by VeriShield India operate strictly as <strong>independent contractors</strong> (not employees or agents with authority to bind the company) and are bound by strict confidentiality, non-disclosure, and data protection obligations.</p>
                 </div>
                 <div class="legal-card">
@@ -1075,7 +1120,7 @@
                     <p>Submitting falsified documents, impersonating another individual, attempting unauthorized access to the Admin Panel, or scraping platform data is strictly prohibited and may result in immediate termination of access.</p>
                 </div>
                 <div class="legal-card">
-                    <h3>5. Governing Law & Contact</h3>
+                    <h3>5. Governing Law &amp; Contact</h3>
                     <p>These terms are governed by the applicable laws of India. For legal or compliance queries, contact <strong class="dynamic-email">verishieldindia@gmail.com</strong>.</p>
                 </div>
             </div>
@@ -1115,7 +1160,7 @@
                 </div>
                 <div class="faq-card">
                     <h4>Q8. How can I contact VeriShield India for quotes or support?</h4>
-                    <p>Email us at <strong class="dynamic-email">verishieldindia@gmail.com</strong> or click the floating <strong>💬 Live Help</strong> button at the bottom right of the screen.</p>
+                    <p>Email us at <strong class="dynamic-email">verishieldindia@gmail.com</strong> or click the floating <strong>Live Help</strong> chat button at the bottom right of the screen.</p>
                 </div>
             </div>
         </div>
@@ -1126,8 +1171,8 @@
     <div class="chat-widget-btn" onclick="toggleChat()" title="VeriShield Live Help">💬</div>
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
-            <span>🛡️ VeriShield BGV Help</span>
-            <span style="cursor:pointer; font-size:18px; padding:0 4px;" onclick="toggleChat()">✕</span>
+            <span>VeriShield BGV Help</span>
+            <span style="cursor:pointer; font-size:18px; padding:0 4px;" onclick="toggleChat()">&#10005;</span>
         </div>
         <div class="chat-body">
             <p style="margin-top:0;">Send your query to <strong class="dynamic-email">verishieldindia@gmail.com</strong>:</p>
@@ -1144,7 +1189,7 @@
     <!-- FOOTER -->
     <footer>
         <div>&copy; 2026 VeriShield India. All Rights Reserved. (100% Virtual Office &bull; Zero Data Retention Platform)</div>
-        <div style="font-size:13px; margin-top:6px; color:#94a3b8;">Official Email: <span class="dynamic-email">verishieldindia@gmail.com</span></div>
+        <div class="footer-email-line">Official Email: <span class="dynamic-email">verishieldindia@gmail.com</span></div>
         <div class="footer-links">
             <a onclick="goTo('about')">About Us</a>
             <a onclick="goTo('contact')">Contact Us</a>
@@ -1154,6 +1199,8 @@
             <a onclick="goTo('fdr')">FAQ</a>
         </div>
     </footer>
+
+</div>
 
     <script>
         const VERISHIELD_OFFICIAL_EMAIL = "verishieldindia@gmail.com";
@@ -1279,7 +1326,7 @@
             });
 
             if (filtered.length === 0) {
-                container.innerHTML = `<div class="section-box" style="text-align:center; color:var(--text-muted);">No matching BGV cases found.</div>`;
+                container.innerHTML = `<div class="section-box" style="text-align:center; color:#334155;">No matching BGV cases found.</div>`;
                 return;
             }
 
@@ -1310,12 +1357,12 @@
                             <div>
                                 <strong style="font-size:15px; color:var(--primary);">${c.tracking_id}</strong> &mdash;
                                 <span style="font-weight:700;">${c.candidate_name || 'N/A'}</span>
-                                <span style="font-size:12.5px; color:var(--text-muted);"> (${c.company_name || 'No Company'})</span>
+                                <span style="font-size:12.5px; color:#334155;"> (${c.company_name || 'No Company'})</span>
                             </div>
                             <span class="status-badge ${badgeClass}">${c.status || 'Pending'}</span>
                         </div>
 
-                        <div class="grid-3" style="font-size:13px; color:#334155;">
+                        <div class="grid-3" style="font-size:13px; color:#1e293b;">
                             <div><strong>Package:</strong> ${c.package_tier || 'Standard'}</div>
                             <div><strong>HR Email:</strong> ${c.hr_email || 'N/A'}</div>
                             <div><strong>Phone:</strong> ${c.candidate_phone || 'N/A'}</div>
@@ -1463,7 +1510,7 @@
                     if (data.candidate_phone) document.getElementById('cdPhone').value = data.candidate_phone;
                     if (data.candidate_email) document.getElementById('cdEmail').value = data.candidate_email;
                 } else {
-                    document.getElementById('candLoad').innerHTML = '<span style="color:red;">Invalid or Expired Verification Link.</span>';
+                    document.getElementById('candLoad').innerHTML = '<p style="color:#dc2626; font-weight:700; margin:0;">Invalid or Expired Verification Link.</p>';
                 }
             } else {
                 goTo('home');
@@ -1618,5 +1665,6 @@
             }
         }
     </script>
+</div>
 </body>
 </html>
