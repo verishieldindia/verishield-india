@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
@@ -8,7 +8,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="VeriShield India">
     <meta name="mobile-web-app-capable" content="yes">
-    <title>VeriShield India - BGV & Trust-Tech App</title>
+    <title>VeriShield India - Digital Background Verification Platform</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -54,7 +54,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* SINGLE CLEAN BGV / VERISHIELD WATERMARK LAYER */
+        /* SINGLE CLEAN WATERMARK LAYER */
         .bgv-watermark {
             position: fixed;
             inset: 0;
@@ -276,6 +276,40 @@
             margin-bottom: 18px;
         }
 
+        .legal-card {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            padding: 18px 20px;
+            margin-bottom: 14px;
+        }
+
+        .legal-card h3 {
+            margin: 0 0 8px 0;
+            color: var(--primary);
+            font-size: 16px;
+        }
+
+        .legal-card p {
+            margin: 0;
+            color: #334155;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .virtual-badge {
+            display: inline-block;
+            background: #eff6ff;
+            border: 1px solid #93c5fd;
+            color: #1e40af;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+        }
+
         .grid-2 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -333,8 +367,8 @@
             background: #f0fdf4;
         }
 
-        .pkg-price {
-            font-size: 26px;
+        .pkg-quote-tag {
+            font-size: 18px;
             font-weight: 800;
             color: var(--primary);
             margin: 8px 0 12px 0;
@@ -464,7 +498,6 @@
             border-top: 1px dashed #cbd5e1;
         }
 
-        /* FAQ ACCORDION / CARDS */
         .faq-card {
             background: white;
             border: 1px solid #e2e8f0;
@@ -492,7 +525,7 @@
             padding-left: 20px;
             color: #334155;
             line-height: 1.75;
-            font-size: 14.5px;
+            font-size: 14px;
         }
 
         /* CHAT WIDGET */
@@ -593,7 +626,7 @@
 </head>
 <body>
 
-    <!-- SINGLE BGV / VERISHIELD WATERMARK LAYER -->
+    <!-- SINGLE CLEAN BGV / VERISHIELD WATERMARK LAYER -->
     <div class="bgv-watermark" id="mainWatermark" aria-hidden="true"></div>
     <div class="bgv-watermark-fallback" id="watermarkFallback" aria-hidden="true"></div>
 
@@ -601,14 +634,14 @@
     <header id="mainHead">
         <div class="header-top">
             <div class="logo-box" onclick="goTo('home')">
-                <img src="logo.jpg" alt="VeriShield BGV Logo" onerror="this.style.display='none'; activateFallbackWatermark();">
+                <img src="logo.jpg" alt="VeriShield India Logo" onerror="this.style.display='none'; activateFallbackWatermark();">
                 <div>
                     <h1>VeriShield INDIA</h1>
-                    <span>BGV & Trust-Tech App</span>
+                    <span>BGV & Trust-Tech Infrastructure</span>
                 </div>
             </div>
             <div class="header-badges">
-                <div class="pill">📱 Android & iOS Ready</div>
+                <div class="pill">🌐 100% Virtual Office</div>
                 <div class="pill blue">🔒 Zero Data Retention</div>
             </div>
         </div>
@@ -627,91 +660,94 @@
 
         <!-- 1. HOME PAGE -->
         <div id="page-home" class="page active">
-            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 28px 20px; border-radius: 12px; text-align: center; color: white; border-bottom: 5px solid var(--secondary);">
-                <h2 style="color:white; border:none; margin-top:0; margin-bottom:10px; font-size: 24px;">VeriShield India — BGV Platform</h2>
-                <p style="color: #cbd5e1; line-height: 1.7; font-size: 15px; max-width: 720px; margin: 0 auto;">Identity KYC, Live Selfie & GPS Geo-Tagging, e-Courts Litigation Screening, EPFO/UAN Moonlighting Audits & Instant Case Tracking across Android & Apple devices.</p>
+            <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); padding: 30px 22px; border-radius: 12px; text-align: center; color: white; border-bottom: 5px solid var(--secondary);">
+                <h2 style="color:white; border:none; margin-top:0; margin-bottom:10px; font-size: 25px;">VeriShield India — Digital Background Verification</h2>
+                <p style="color: #cbd5e1; line-height: 1.7; font-size: 15px; max-width: 740px; margin: 0 auto;">Identity KYC, Live Selfie & GPS Geo-Tagging, Pan-India e-Courts Litigation Screening, EPFO/UAN Moonlighting Audits, and Live Case Tracking with Zero Data Retention.</p>
                 <div style="margin-top: 20px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                    <button class="btn-primary" style="width: auto; padding: 11px 22px;" onclick="goTo('hr')">Start HR BGV Request</button>
+                    <button class="btn-primary" style="width: auto; padding: 11px 22px;" onclick="goTo('hr')">Start HR Onboarding</button>
                     <button class="btn-blue" style="width: auto; padding: 11px 22px;" onclick="goTo('tracker')">Track Case</button>
-                    <button style="width: auto; padding: 11px 22px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);" onclick="goTo('admin')">Admin Panel</button>
+                    <button style="width: auto; padding: 11px 22px; background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.3);" onclick="goTo('about')">About Virtual Office</button>
                 </div>
             </div>
 
             <div class="section-box" style="margin-top: 22px;">
-                <h3 style="margin-top:0; color:var(--primary);">Core BGV Modules</h3>
+                <h3 style="margin-top:0; color:var(--primary);">Core Verification Capabilities</h3>
                 <div class="grid-3">
                     <div class="bgv-module-card">
-                        <h4>1. Identity & KYC Check</h4>
-                        <p>PAN verification and secondary ID validation (Aadhaar/DigiLocker/DL/Voter ID) with candidate consent.</p>
+                        <h4>1. Identity & KYC Verification</h4>
+                        <p>Mandatory PAN verification and secondary government ID checks (Aadhaar / DigiLocker / Voter ID / DL) with explicit candidate consent.</p>
                     </div>
                     <div class="bgv-module-card">
-                        <h4>2. GPS & Live Selfie</h4>
-                        <p>Real-time latitude/longitude geo-tagging with live front-camera photo capture.</p>
+                        <h4>2. Live Selfie & GPS Geo-Tagging</h4>
+                        <p>Real-time latitude and longitude capture alongside live portrait verification across Android and Apple devices.</p>
                     </div>
                     <div class="bgv-module-card">
-                        <h4>3. Court, EPFO & Moonlighting</h4>
-                        <p>e-Courts litigation check and UAN/EPFO passbook audit for dual-employment detection.</p>
+                        <h4>3. Litigation & Employment Audit</h4>
+                        <p>Pan-India e-Courts record checks and EPFO/UAN passbook overlap checks for moonlighting risk detection.</p>
                     </div>
                 </div>
             </div>
 
             <div class="section-box">
-                <h3 style="margin-top:0; color:var(--primary);">Zero Data Retention (ZDR) Policy</h3>
-                <p style="line-height:1.7; color:#334155; margin:0;">Once the BGV report is dispatched to HR, raw candidate data is purged under strict Zero Data Retention guidelines.</p>
+                <h3 style="margin-top:0; color:var(--primary);">Zero Data Retention (ZDR) Commitment</h3>
+                <p style="line-height:1.7; color:#334155; margin:0;">Once the verification report is dispatched to the authorized corporate HR email ID, raw candidate data is purged under strict Zero Data Retention protocols.</p>
             </div>
         </div>
 
         <!-- 2. BGV SUITE -->
         <div id="page-bgv-suite" class="page">
-            <h2 class="title">BGV Verification Functions</h2>
+            <h2 class="title">Background Verification (BGV) Suite</h2>
             <div class="grid-2">
                 <div class="bgv-module-card">
-                    <h4>🪪 Identity & Government KYC</h4>
-                    <p>Validates PAN and secondary ID details (Aadhaar, DigiLocker ID, Voter ID, Driving License).</p>
+                    <h4>🪪 Identity & KYC Screening</h4>
+                    <p>Verifies mandatory PAN details and cross-checks secondary ID records (Aadhaar, DigiLocker ID, Voter ID, Driving License).</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>📍 Live GPS & Selfie Capture</h4>
-                    <p>Captures real-time Lat/Lng coordinates, address, and live selfie proof on Android & iOS.</p>
+                    <h4>📍 Digital Address & Live GPS Geo-Tagging</h4>
+                    <p>Captures real-time GPS coordinates (Lat/Lng), residential address, and live selfie proof.</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>⚖️ e-Courts Litigation Screening</h4>
-                    <p>Screens civil and criminal court records across court registries.</p>
+                    <h4>⚖️ Pan-India e-Courts Litigation Check</h4>
+                    <p>Screens civil and criminal court registries to identify active or past legal disputes.</p>
                 </div>
                 <div class="bgv-module-card">
-                    <h4>💼 EPFO / UAN Moonlighting Check</h4>
-                    <p>Audits employment overlap and EPFO/UAN passbook records.</p>
+                    <h4>💼 EPFO / UAN Moonlighting Audit</h4>
+                    <p>Reviews employment overlap and unified passbook history to detect dual employment.</p>
                 </div>
             </div>
         </div>
 
-        <!-- 3. PACKAGES PAGE -->
+        <!-- 3. PACKAGES PAGE (CUSTOM QUOTE / FLEXIBLE PRICING) -->
         <div id="page-services" class="page">
-            <h2 class="title">BGV Verification Packages</h2>
+            <h2 class="title">Enterprise Verification Modules & Packages</h2>
+            <p style="text-align:center; color:var(--text-muted); max-width:680px; margin:0 auto 22px auto; font-size:14px;">
+                Select a verification tier based on your hiring risk level. Custom volume pricing is available for startups, SMEs, and enterprise bulk onboarding.
+            </p>
             <div class="grid-2">
                 <div class="pkg-card">
-                    <span style="background:#e2e8f0; color:var(--primary); padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">BASIC</span>
+                    <span style="background:#e2e8f0; color:var(--primary); padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">STANDARD TIER</span>
                     <h3 style="color:var(--primary); margin-bottom:4px;">Basic Standard Package</h3>
-                    <div class="pkg-price">₹499 <span style="font-size:13px; color:var(--text-muted); font-weight:400;">/ candidate</span></div>
+                    <div class="pkg-quote-tag">Custom Quote / Per-Candidate Plan</div>
                     <ul class="info-list" style="margin-bottom:16px;">
-                        <li>PAN Card Verification</li>
-                        <li>Aadhaar / Secondary ID KYC</li>
-                        <li>Live Selfie Capture</li>
-                        <li>Real-Time GPS Geo-Tagging</li>
+                        <li>Mandatory PAN Card Verification</li>
+                        <li>Secondary Government ID KYC</li>
+                        <li>Live Portrait Selfie Capture</li>
+                        <li>Real-Time GPS Geo-Tagging (Lat/Lng)</li>
                     </ul>
-                    <button class="btn-blue" onclick="goTo('hr')">Start Basic BGV</button>
+                    <button class="btn-blue" onclick="goTo('hr')">Initiate Basic Verification</button>
                 </div>
 
                 <div class="pkg-card featured">
-                    <span style="background:var(--secondary); color:white; padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">RECOMMENDED</span>
+                    <span style="background:var(--secondary); color:white; padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">COMPREHENSIVE TIER</span>
                     <h3 style="color:var(--primary); margin-bottom:4px;">Advanced Corporate BGV</h3>
-                    <div class="pkg-price">₹999 <span style="font-size:13px; color:var(--text-muted); font-weight:400;">/ candidate</span></div>
+                    <div class="pkg-quote-tag">Enterprise & Bulk Corporate Quote</div>
                     <ul class="info-list" style="margin-bottom:16px;">
                         <li>Everything in Basic Standard Package</li>
-                        <li>Pan-India e-Courts Litigation Check</li>
+                        <li>Pan-India e-Courts Litigation Screening</li>
                         <li>EPFO / UAN Moonlighting Audit</li>
-                        <li>Encrypted BGV Summary Report</li>
+                        <li>Encrypted Digital Audit Report</li>
                     </ul>
-                    <button class="btn-primary" onclick="goTo('hr')">Start Advanced BGV</button>
+                    <button class="btn-primary" onclick="goTo('hr')">Initiate Advanced BGV</button>
                 </div>
             </div>
         </div>
@@ -721,31 +757,31 @@
             <h2 class="title">Corporate HR BGV Portal</h2>
             <div class="tab-btns">
                 <button id="btnTabSingle" class="active-tab" onclick="switchHrTab('single')">Single Candidate</button>
-                <button id="btnTabBulk" onclick="switchHrTab('bulk')">Bulk CSV</button>
+                <button id="btnTabBulk" onclick="switchHrTab('bulk')">Bulk Upload (CSV)</button>
             </div>
 
             <form id="hrFormSingle">
                 <div class="section-box">
                     <h3 style="margin-top:0;">Corporate Details</h3>
-                    <div class="form-group"><label>Company Name</label><input type="text" id="hrComp" required placeholder="e.g. XYZ Pvt Ltd"></div>
-                    <div class="form-group"><label>HR Email ID</label><input type="email" id="hrEmail" required placeholder="hr.company@gmail.com"></div>
+                    <div class="form-group"><label>Company Name</label><input type="text" id="hrComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
+                    <div class="form-group"><label>Authorized HR Email ID</label><input type="email" id="hrEmail" required placeholder="hr@company.com"></div>
                 </div>
                 <div class="section-box">
-                    <h3 style="margin-top:0;">Candidate & BGV Scope</h3>
+                    <h3 style="margin-top:0;">Candidate & Verification Scope</h3>
                     <div class="form-group">
                         <label>Select Verification Package</label>
                         <select id="hrPkg" required>
-                            <option value="Basic Package">Basic Standard Verification (₹499)</option>
-                            <option value="Advanced Package" selected>Advanced Corporate Verification (₹999)</option>
+                            <option value="Basic Package">Basic Standard Verification</option>
+                            <option value="Advanced Package" selected>Advanced Corporate Verification</option>
                         </select>
                     </div>
                     <div class="grid-2">
                         <div class="form-group"><label>Candidate Full Name</label><input type="text" id="hrCandName" required></div>
-                        <div class="form-group"><label>Candidate Mobile</label><input type="tel" id="hrCandPhone" required></div>
+                        <div class="form-group"><label>Candidate Mobile Number</label><input type="tel" id="hrCandPhone" required></div>
                         <div class="form-group"><label>Father's Name</label><input type="text" id="hrCandFather" required></div>
                         <div class="form-group"><label>Mother's Name</label><input type="text" id="hrCandMother" required></div>
                     </div>
-                    <div class="form-group"><label>Candidate Email</label><input type="email" id="hrCandEmail" required></div>
+                    <div class="form-group"><label>Candidate Email ID</label><input type="email" id="hrCandEmail" required></div>
                 </div>
                 <button type="submit" class="btn-primary" id="btnHrSub">Submit BGV Request</button>
             </form>
@@ -753,10 +789,10 @@
             <form id="hrFormBulk" style="display:none;" onsubmit="handleBulkUpload(event)">
                 <div class="section-box">
                     <h3 style="margin-top:0;">Bulk CSV Upload</h3>
-                    <div class="form-group"><label>Company Name</label><input type="text" id="bulkComp" required placeholder="e.g. XYZ Pvt Ltd"></div>
-                    <div class="form-group"><label>HR Email ID</label><input type="email" id="bulkEmail" required placeholder="hr.company@gmail.com"></div>
+                    <div class="form-group"><label>Company Name</label><input type="text" id="bulkComp" required placeholder="e.g. Acme Technologies Pvt Ltd"></div>
+                    <div class="form-group"><label>Authorized HR Email ID</label><input type="email" id="bulkEmail" required placeholder="hr@company.com"></div>
                     <div class="form-group">
-                        <label>Package Tier</label>
+                        <label>Package Tier for Batch</label>
                         <select id="bulkPkg"><option>Basic Package</option><option>Advanced Package</option></select>
                     </div>
                     <div class="form-group"><label>Upload CSV File</label><input type="file" id="bulkFile" accept=".csv" required></div>
@@ -770,11 +806,11 @@
         <!-- 5. CANDIDATE PORTAL -->
         <div id="page-candidate" class="page">
             <h2 class="title">Candidate Secure BGV Onboarding</h2>
-            <div id="candLoad" style="text-align:center; padding:24px; font-weight:bold; color:var(--accent);">Verifying secure link... (Open via your unique Tracking ID link, e.g. ?id=VSI-XXXXXX)</div>
+            <div id="candLoad" style="text-align:center; padding:24px; font-weight:bold; color:var(--accent);">Verifying secure link... (Please open via your unique HR verification link, e.g. ?id=VSI-XXXXXX)</div>
 
             <form id="candForm" style="display:none;">
                 <div class="section-box">
-                    <h3 style="margin-top:0;">1. Candidate Details</h3>
+                    <h3 style="margin-top:0;">1. Candidate Information</h3>
                     <div class="grid-2">
                         <div class="form-group"><label>Full Name (Locked)</label><input type="text" id="cdName" readonly></div>
                         <div class="form-group"><label>Assigned Package (Locked)</label><input type="text" id="cdPkg" readonly></div>
@@ -792,11 +828,11 @@
                     <div class="grid-2">
                         <div class="form-group"><label style="color:#dc2626;">PAN Card Number (Mandatory)</label><input type="text" id="cdPan" required placeholder="ABCDE1234F" style="text-transform:uppercase;"></div>
                         <div class="form-group">
-                            <label>Secondary ID Proof</label>
+                            <label>Secondary Government ID Proof</label>
                             <select id="cdIdType" required>
-                                <option value="">-- Select Option --</option>
+                                <option value="">-- Select ID Proof --</option>
                                 <option value="Aadhaar">Aadhaar Card</option>
-                                <option value="Digilocker">Digilocker Verified ID</option>
+                                <option value="Digilocker">DigiLocker Verified ID</option>
                                 <option value="Voter ID">Voter ID Card</option>
                                 <option value="Driving License">Driving License (DL)</option>
                             </select>
@@ -821,15 +857,15 @@
 
                 <div class="form-group" style="display:flex; gap:10px; align-items:flex-start;">
                     <input type="checkbox" required style="width:20px; height:20px; flex-shrink:0; margin-top:2px;">
-                    <label style="font-weight:normal; font-size:13px; color:var(--text-muted);">I authorize VeriShield India to perform background verification checks with Zero Data Retention after report delivery.</label>
+                    <label style="font-weight:normal; font-size:13px; color:var(--text-muted);">I hereby provide explicit consent to VeriShield India to verify my submitted details for background screening, subject to Zero Data Retention after report delivery.</label>
                 </div>
 
                 <button type="submit" class="btn-primary" id="btnCdSub">Submit Verification Securely</button>
             </form>
 
             <div id="cdAlert" style="display:none; margin-top:20px; padding:22px; background:#f0fdf4; border:1px solid #10b981; color:#065f46; text-align:center; border-radius:10px;">
-                <h3>✅ BGV Details Submitted Successfully!</h3>
-                <p>Your information has been recorded securely. Report will be shared with HR and raw data erased under ZDR.</p>
+                <h3>✅ Verification Details Submitted Successfully!</h3>
+                <p>Your information has been recorded securely. Once the audit report is delivered to HR, raw personal data will be erased under our Zero Data Retention policy.</p>
             </div>
         </div>
 
@@ -837,7 +873,7 @@
         <div id="page-tracker" class="page">
             <h2 class="title">Live Case Tracker</h2>
             <div class="section-box" style="max-width: 520px; margin: 0 auto;">
-                <label>Enter Tracking ID</label>
+                <label>Enter Case Tracking ID</label>
                 <input type="text" id="trkInput" placeholder="e.g. VSI-123456" style="margin-bottom:12px; text-transform:uppercase;">
                 <button class="btn-primary" onclick="chkStatus()">Check Status & Summary</button>
                 <div id="trkRes" style="margin-top: 16px;"></div>
@@ -913,109 +949,173 @@
             </div>
         </div>
 
-        <!-- IMPROVED ABOUT US PAGE -->
+        <!-- ABOUT US PAGE -->
         <div id="page-about" class="page">
-            <h2 class="title">About VeriShield India (हमारे बारे में)</h2>
+            <h2 class="title">About VeriShield India</h2>
             <div class="section-box">
-                <h3 style="margin-top:0; color:var(--primary);">हम कौन हैं और हम क्या करते हैं?</h3>
-                <p style="line-height:1.75; color:#334155;">
-                    <strong>VeriShield India</strong> एक डिजिटल Background Verification (BGV) और Trust-Tech प्लेटफ़ॉर्म है। जब कोई कंपनी या HR किसी नए कर्मचारी (Candidate) को हायर करता है, तो उसकी पहचान, पता, लोकेशन और रिकॉर्ड की विश्वसनीयता जांचने के लिए हमारा सिस्टम एक तेज़, पारदर्शी और आसान प्रक्रिया देता है।
-                </p>
-                <ul class="info-list">
-                    <li><strong>HR के लिए आसान शुरुआत:</strong> सिंगल या Bulk CSV के ज़रिए कैंडिडेट की वेरिफिकेशन रिक्वेस्ट शुरू करें।</li>
-                    <li><strong>कैंडिडेट के लिए मोबाइल-फ्रेंडली लिंक:</strong> Android और iPhone दोनों पर आसानी से KYC, लाइव सेल्फी और GPS लोकेशन सबमिट करने की सुविधा।</li>
-                    <li><strong>लाइव ट्रैकिंग और एडमिन कंट्रोल:</strong> हर केस की Tracking ID से स्थिति देखें और Admin Panel से स्टेटस अपडेट करें।</li>
-                </ul>
+                <div class="virtual-badge">🌐 100% Virtual Office & Cloud-First BGV Infrastructure</div>
+                <div class="legal-card">
+                    <h3>1. Who We Are</h3>
+                    <p><strong>VeriShield India</strong> is a digital Background Verification (BGV) and Trust-Tech platform built to help employers, startups, and HR teams verify candidate credentials with speed, transparency, and strict privacy compliance.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>2. Our Virtual Office Model</h3>
+                    <p>VeriShield India operates as a <strong>100% Virtual Digital Office</strong> with Pan-India remote operations. We do not maintain a physical walk-in counter; all HR onboarding requests, candidate verifications, live GPS checks, case tracking, and support workflows are conducted securely online.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>3. Core Screening Capabilities</h3>
+                    <ul class="info-list">
+                        <li><strong>Identity & KYC Checks:</strong> Mandatory PAN verification and secondary government ID validation.</li>
+                        <li><strong>Live Geo-Tagging & Portrait Capture:</strong> Real-time GPS coordinates (Lat/Lng) and live selfie capture to deter proxy or address fraud.</li>
+                        <li><strong>Litigation & Employment Audits:</strong> Pan-India e-Courts record checks and EPFO/UAN moonlighting screening.</li>
+                        <li><strong>Zero Data Retention (ZDR):</strong> Permanent redaction/erasure of raw personal data after report delivery to HR.</li>
+                    </ul>
+                </div>
             </div>
         </div>
 
-        <!-- IMPROVED CONTACT US PAGE -->
+        <!-- CONTACT US PAGE -->
         <div id="page-contact" class="page">
-            <h2 class="title">Contact Us (संपर्क करें)</h2>
+            <h2 class="title">Contact Us</h2>
             <div class="section-box">
-                <h3 style="margin-top:0; color:var(--primary);">सीधे संपर्क करने का तरीका</h3>
-                <p style="line-height:1.75; color:#334155;">
-                    वेरिफिकेशन पैकेज, HR ऑनबोर्डिंग, स्टेटस अपडेट या किसी भी सहायता के लिए आप हमसे सीधे ईमेल या नीचे दिए गए Live Help चैट बटन के माध्यम से संपर्क कर सकते हैं:
-                </p>
-                <ul class="info-list">
-                    <li><strong>Official Email ID:</strong> <span class="dynamic-email" style="font-weight:700; color:var(--primary);">verishieldindia@gmail.com</span></li>
-                    <li><strong>Live Chat Support:</strong> स्क्रीन के नीचे दाईं तरफ <strong>💬</strong> बटन पर क्लिक करके अपना नाम, मोबाइल नंबर और मैसेज भेजें।</li>
-                    <li><strong>Case Status Help:</strong> अपनी Tracking ID (जैसे <code>VSI-123456</code>) के साथ संपर्क करें ताकि आपकी क्वेरी जल्दी हल हो सके।</li>
-                </ul>
+                <div class="virtual-badge">🏢 Virtual Office Mode: 100% Online Support (No Physical Walk-In)</div>
+                <div class="legal-card">
+                    <h3>1. Official Email Channel</h3>
+                    <p>For corporate onboarding, custom quotes, technical support, or verification status inquiries, reach us directly at:<br>
+                    <strong>Official Email ID:</strong> <a href="mailto:verishieldindia@gmail.com" style="color:var(--accent); font-weight:700;" class="dynamic-email">verishieldindia@gmail.com</a></p>
+                </div>
+                <div class="legal-card">
+                    <h3>2. Virtual Office Details & Working Hours</h3>
+                    <p><strong>Office Type:</strong> Virtual Digital Office — Pan-India Remote Operations, India<br>
+                    <strong>Support Hours:</strong> Monday to Saturday, 10:00 AM – 7:00 PM IST<br>
+                    <strong>Standard Response Time:</strong> Within 24 business hours via email or live chat.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>3. Instant Help & Case Status</h3>
+                    <p>Use the floating <strong>💬 Live Help</strong> button at the bottom right to send an instant message, or visit the <strong>Tracker</strong> section with your Case Tracking ID (e.g., <code>VSI-123456</code>) for real-time updates.</p>
+                </div>
             </div>
         </div>
 
-        <!-- IMPROVED PRIVACY POLICY PAGE -->
+        <!-- PRIVACY POLICY PAGE -->
         <div id="page-privacy" class="page">
             <h2 class="title">Privacy Policy & Zero Data Retention</h2>
             <div class="section-box">
-                <h3 style="margin-top:0; color:var(--primary);">डेटा गोपनीयता और Zero Data Retention (ZDR)</h3>
-                <p style="line-height:1.75; color:#334155;">
-                    VeriShield India पर कैंडिडेट और कंपनी की गोपनीयता को प्राथमिकता दी जाती है। जानकारी केवल उसी वेरिफिकेशन उद्देश्य के लिए ली जाती है जिसके लिए कैंडिडेट ने सहमति दी है।
-                </p>
-                <ul class="info-list">
-                    <li><strong>सहमति के बाद ही प्रक्रिया:</strong> कैंडिडेट के स्पष्ट Consent और GPS/कैमरा अनुमति के बिना वेरिफिकेशन सबमिट नहीं होता।</li>
-                    <li><strong>Zero Data Retention (ZDR):</strong> रिपोर्ट तैयार होकर अधिकृत HR को भेजे जाने के बाद संवेदनशील/रॉ डेटा को हटाने (Wipe / Redact) की व्यवस्था रखी गई है।</li>
-                    <li><strong>अनाधिकृत शेयरिंग नहीं:</strong> कैंडिडेट की जानकारी बिना अधिकृत प्रक्रिया के किसी अज्ञात तीसरे पक्ष को नहीं दी जाती।</li>
-                </ul>
+                <div class="virtual-badge">🔒 Data Protection & Zero Data Retention (ZDR) Mandate</div>
+                <div class="legal-card">
+                    <h3>1. Information We Collect</h3>
+                    <p>We collect only the information strictly required to execute background verification: corporate HR name and email, candidate name, parents' names, phone number, email address, residential address, PAN number, secondary government ID details, live selfie image, live GPS coordinates, and explicit consent.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>2. Purpose Limitation</h3>
+                    <p>Collected data is used solely for conducting authorized background verification checks and delivering the encrypted audit report to the requesting corporate HR. VeriShield India never sells, rents, or uses candidate personal data for advertising or unrelated third-party marketing.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>3. Explicit Candidate Consent</h3>
+                    <p>Verification submissions are processed only after the candidate actively checks the mandatory legal consent declaration and grants device permissions for live camera and GPS location capture.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>4. Zero Data Retention (ZDR) & Data Erasure</h3>
+                    <p>Under our <strong>Zero Data Retention (ZDR) Policy</strong>, once the final verification report is dispatched to the authorized HR email ID, sensitive raw candidate identifiers (PAN, secondary ID number, residential address, and GPS coordinates) are permanently purged/redacted from active storage.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>5. Security & Data Subject Requests</h3>
+                    <p>All platform communications are encrypted over HTTPS. Candidates or corporate clients seeking data access, correction, or immediate erasure may contact <strong class="dynamic-email">verishieldindia@gmail.com</strong> with their Tracking ID.</p>
+                </div>
             </div>
         </div>
 
-        <!-- IMPROVED DISCLAIMER PAGE -->
+        <!-- DISCLAIMER PAGE -->
         <div id="page-disclaimer" class="page">
-            <h2 class="title">Legal Disclaimer (कानूनी अस्वीकरण)</h2>
+            <h2 class="title">Legal Disclaimer</h2>
             <div class="section-box">
-                <h3 style="margin-top:0; color:var(--primary);">सेवा की सीमाएं और सामान्य जानकारी</h3>
-                <p style="line-height:1.75; color:#334155;">
-                    VeriShield India एक टेक्नोलॉजी और वेरिफिकेशन सहायता प्लेटफ़ॉर्म है। अंतिम हायरिंग या कानूनी निर्णय पूरी तरह संबंधित कंपनी/HR की अपनी नीति और विवेक पर निर्भर करता है।
-                </p>
-                <ul class="info-list">
-                    <li><strong>डेटा की सटीकता:</strong> वेरिफिकेशन परिणाम कैंडिडेट द्वारा दी गई जानकारी, फ़ोन/ब्राउज़र परमिशन और उपलब्ध रिकॉर्ड्स पर आधारित होते हैं।</li>
-                    <li><strong>नेटवर्क और डिवाइस निर्भरता:</strong> लाइव सेल्फी और GPS लोकेशन के लिए इंटरनेट कनेक्शन तथा डिवाइस की कैमरा व लोकेशन परमिशन ऑन होना आवश्यक है।</li>
-                    <li><strong>कोई कानूनी या वित्तीय गारंटी नहीं:</strong> इस वेबसाइट पर दी गई जानकारी सामान्य मार्गदर्शन के लिए है; किसी विशेष कानूनी स्थिति में विशेषज्ञ से सलाह लें।</li>
-                </ul>
+                <div class="virtual-badge">⚖️ Important Operational & Legal Notice</div>
+                <div class="legal-card">
+                    <h3>1. Role as Technology Facilitator</h3>
+                    <p><strong>VeriShield India</strong> operates strictly as an independent background screening and technology facilitator. We compile verification summaries based on candidate-submitted records, consented digital checks, and available public or official databases.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>2. Third-Party & Public Record Limitations</h3>
+                    <p>While we strive for high accuracy, verification outputs rely on candidate-provided information and external registries (such as court or employment records). VeriShield India is not liable for delays, omissions, or inaccuracies originating from third-party or government data sources.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>3. Employer Hiring Discretion</h3>
+                    <p>Audit reports are provided solely as decision-support inputs for internal HR risk assessment. All hiring, onboarding, retention, or termination decisions rest exclusively with the client organization.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>4. Technical & Device Dependencies</h3>
+                    <p>Live selfie capture and GPS geo-tagging accuracy depend on the candidate's mobile device hardware, browser permissions, GPS signal strength, and internet connectivity.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>5. Virtual Office Communication</h3>
+                    <p>As a 100% Virtual Office platform, all formal notices, clarifications, or dispute inquiries must be submitted in writing to <strong class="dynamic-email">verishieldindia@gmail.com</strong>.</p>
+                </div>
             </div>
         </div>
 
-        <!-- IMPROVED FAQ (QUESTION & ANSWER) PAGE -->
+        <!-- TERMS & LEGAL (INCLUDING CONTRACTORS CLAUSE) PAGE -->
+        <div id="page-legal" class="page">
+            <h2 class="title">Terms of Use & Legal Compliance</h2>
+            <div class="section-box">
+                <div class="virtual-badge">📜 Platform Terms, Billing & Independent Contractors</div>
+                <div class="legal-card">
+                    <h3>1. Authorized Corporate Use</h3>
+                    <p>Corporate HR users confirm that they have a legitimate employment or onboarding purpose and lawful basis before submitting any candidate's details for background verification.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>2. Billing & Custom Quotes</h3>
+                    <p>Service fees are governed by the agreed corporate quote or package tier selected at the time of onboarding. Bulk CSV batches and enterprise engagements are billed per agreed commercial terms.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>3. Independent Contractors & Field Auditors</h3>
+                    <p>Any external verification specialists, address auditors, or field partners engaged by VeriShield India operate strictly as <strong>independent contractors</strong> (not employees or agents with authority to bind the company) and are bound by strict confidentiality, non-disclosure, and data protection obligations.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>4. Prohibited Activities</h3>
+                    <p>Submitting falsified documents, impersonating another individual, attempting unauthorized access to the Admin Panel, or scraping platform data is strictly prohibited and may result in immediate termination of access.</p>
+                </div>
+                <div class="legal-card">
+                    <h3>5. Governing Law & Contact</h3>
+                    <p>These terms are governed by the applicable laws of India. For legal or compliance queries, contact <strong class="dynamic-email">verishieldindia@gmail.com</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ PAGE -->
         <div id="page-fdr" class="page">
-            <h2 class="title">Frequently Asked Questions (प्रश्न और उत्तर)</h2>
+            <h2 class="title">Frequently Asked Questions (FAQ)</h2>
             <div class="section-box">
                 <div class="faq-card">
-                    <h4>सवाल 1: Background Verification (BGV) क्या है और यह क्यों ज़रूरी है?</h4>
-                    <p>उत्तर: यह किसी कैंडिडेट की पहचान, पते, लोकेशन और संबंधित रिकॉर्ड्स की जांच करने की प्रक्रिया है, ताकि कंपनी सुरक्षित और भरोसेमंद हायरिंग कर सके।</p>
+                    <h4>Q1. What is Background Verification (BGV) and why is it needed?</h4>
+                    <p>BGV is the structured process of verifying a candidate's identity, address/GPS location, litigation history, and employment credentials to ensure safe, compliant hiring.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 2: HR वेरिफिकेशन कैसे शुरू कर सकता है?</h4>
-                    <p>उत्तर: HR Portal में जाकर कंपनी व कैंडिडेट की जानकारी भरें और पैकेज चुनें। सबमिट करने पर Tracking ID बनती है और कैंडिडेट के लिए वेरिफिकेशन लिंक तैयार होता है।</p>
+                    <h4>Q2. Does VeriShield India have a physical walk-in office?</h4>
+                    <p>No. VeriShield India operates as a <strong>100% Virtual Office</strong> with Pan-India digital operations. All HR requests, candidate verifications, and support are handled online.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 3: कैंडिडेट को वेरिफिकेशन में क्या-क्या देना होता है?</h4>
-                    <p>उत्तर: कैंडिडेट को अपनी बुनियादी जानकारी, अनिवार्य PAN नंबर, Secondary ID (Aadhaar / DigiLocker / Voter ID / DL), लाइव सेल्फी, GPS लोकेशन और सहमति (Consent) देनी होती है।</p>
+                    <h4>Q3. How does HR initiate a candidate verification?</h4>
+                    <p>HR submits the candidate's basic details via the HR Portal (Single or Bulk CSV). The system generates a unique Tracking ID and a secure candidate verification link.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 4: Live Selfie और GPS Geo-Tagging क्यों ज़रूरी हैं?</h4>
-                    <p>उत्तर: इससे यह सुनिश्चित करने में मदद मिलती है कि वेरिफिकेशन फॉर्म सही व्यक्ति और सही लोकेशन से भरा जा रहा है, जिससे फ़र्ज़ी एंट्री का जोखिम कम होता है।</p>
+                    <h4>Q4. What documents and steps are mandatory for the candidate?</h4>
+                    <p>Candidates must provide a mandatory PAN Card number, a secondary government ID (Aadhaar, DigiLocker, Voter ID, or Driving License), a live selfie, live GPS coordinates, and explicit consent.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 5: Basic (₹499) और Advanced (₹999) पैकेज में क्या अंतर है?</h4>
-                    <p>उत्तर: Basic पैकेज में PAN, Secondary ID KYC, लाइव सेल्फी और GPS चेक शामिल हैं, जबकि Advanced पैकेज में इनके साथ e-Courts लिटिगेशन चेक और EPFO/UAN मूनलाइटिंग ऑडिट भी शामिल हैं।</p>
+                    <h4>Q5. Why are Live Selfie and GPS Geo-Tagging required?</h4>
+                    <p>Capturing real-time Lat/Lng coordinates along with a live portrait prevents proxy submissions and verifies physical location authenticity.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 6: कैंडिडेट या HR अपने केस का स्टेटस कैसे देख सकते हैं?</h4>
-                    <p>उत्तर: Tracker पेज पर अपनी Tracking ID (जैसे <code>VSI-123456</code>) डालकर केस का मौजूदा स्टेटस और समरी देखी जा सकती है।</p>
+                    <h4>Q6. How does Zero Data Retention (ZDR) protect candidate privacy?</h4>
+                    <p>Once the final report is shared with HR, raw sensitive identifiers (PAN, secondary ID number, residential address, and GPS data) are permanently redacted/wiped from active storage.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 7: Zero Data Retention (ZDR) कैसे काम करता है?</h4>
-                    <p>उत्तर: रिपोर्ट भेजने की प्रक्रिया के बाद Admin Panel से संवेदनशील डेटा को Wipe/Redact करके हटाने की सुविधा दी गई है ताकि अनावश्यक डेटा सुरक्षित न रहे।</p>
+                    <h4>Q7. Does this platform work on both Android and Apple devices?</h4>
+                    <p>Yes. The interface is built with mobile-first responsive design, safe-area support, and native camera/GPS prompts for both Android and iPhone/iPad browsers.</p>
                 </div>
                 <div class="faq-card">
-                    <h4>सवाल 8: क्या यह Android और iPhone दोनों पर चलता है?</h4>
-                    <p>उत्तर: हाँ, इसे मोबाइल-फ्रेंडली डिज़ाइन के साथ बनाया गया है ताकि Android और Apple (iPhone/iPad) दोनों के ब्राउज़र में आसानी से चल सके।</p>
-                </div>
-                <div class="faq-card">
-                    <h4>सवाल 9: सहायता या सवाल पूछने के लिए किस ईमेल पर संपर्क करें?</h4>
-                    <p>उत्तर: आप <span class="dynamic-email" style="font-weight:700; color:var(--primary);">verishieldindia@gmail.com</span> पर या नीचे दिए गए Live Help चैट बटन से सीधे संदेश भेज सकते हैं।</p>
+                    <h4>Q8. How can I contact VeriShield India for quotes or support?</h4>
+                    <p>Email us at <strong class="dynamic-email">verishieldindia@gmail.com</strong> or click the floating <strong>💬 Live Help</strong> button at the bottom right of the screen.</p>
                 </div>
             </div>
         </div>
@@ -1037,19 +1137,20 @@
                 <div class="form-group" style="margin-bottom:10px;"><textarea id="chatMsg" rows="2" placeholder="Describe your BGV query..." required style="padding:9px; font-size:15px;"></textarea></div>
                 <button type="submit" class="btn-primary" style="padding:9px; font-size:14px;">Send Message</button>
             </form>
-            <div id="chatSuccess" style="display:none; color:var(--secondary-dark); font-weight:bold; margin-top:8px; text-align:center;">Message sent!</div>
+            <div id="chatSuccess" style="display:none; color:var(--secondary-dark); font-weight:bold; margin-top:8px; text-align:center;">Message sent successfully!</div>
         </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-        <div>&copy; 2026 VeriShield India. All Rights Reserved. (Android & Apple Ready BGV Platform)</div>
+        <div>&copy; 2026 VeriShield India. All Rights Reserved. (100% Virtual Office &bull; Zero Data Retention Platform)</div>
         <div style="font-size:13px; margin-top:6px; color:#94a3b8;">Official Email: <span class="dynamic-email">verishieldindia@gmail.com</span></div>
         <div class="footer-links">
             <a onclick="goTo('about')">About Us</a>
             <a onclick="goTo('contact')">Contact Us</a>
-            <a onclick="goTo('disclaimer')">Disclaimer</a>
             <a onclick="goTo('privacy')">Privacy Policy</a>
+            <a onclick="goTo('disclaimer')">Disclaimer</a>
+            <a onclick="goTo('legal')">Terms &amp; Legal</a>
             <a onclick="goTo('fdr')">FAQ</a>
         </div>
     </footer>
@@ -1073,7 +1174,7 @@
                 if (!fallbackLayer.innerHTML.trim()) {
                     let html = '';
                     for (let i = 0; i < 20; i++) {
-                        html += `<div class="wm-item"><span>BGV • VERISHIELD</span><small>VERISHIELD INDIA</small></div>`;
+                        html += `<div class="wm-item"><span>BGV &bull; VERISHIELD</span><small>VERISHIELD INDIA</small></div>`;
                     }
                     fallbackLayer.innerHTML = html;
                 }
@@ -1085,7 +1186,6 @@
                 el.textContent = VERISHIELD_OFFICIAL_EMAIL;
             });
 
-            // Check if logo.jpg loads cleanly; if not, show single clean text watermark
             const probeImg = new Image();
             probeImg.src = 'logo.jpg';
             probeImg.onerror = () => activateFallbackWatermark();
@@ -1143,7 +1243,7 @@
                 .order('created_at', { ascending: false });
 
             if (error) {
-                container.innerHTML = `<div style="color:var(--danger); font-weight:bold; text-align:center;">❌ Error loading cases from Supabase.</div>`;
+                container.innerHTML = `<div style="color:var(--danger); font-weight:bold; text-align:center;">Error loading cases from database.</div>`;
                 return;
             }
 
@@ -1208,7 +1308,7 @@
                     <div class="admin-case-card">
                         <div class="admin-case-header">
                             <div>
-                                <strong style="font-size:15px; color:var(--primary);">${c.tracking_id}</strong> —
+                                <strong style="font-size:15px; color:var(--primary);">${c.tracking_id}</strong> &mdash;
                                 <span style="font-weight:700;">${c.candidate_name || 'N/A'}</span>
                                 <span style="font-size:12.5px; color:var(--text-muted);"> (${c.company_name || 'No Company'})</span>
                             </div>
@@ -1228,9 +1328,9 @@
                             <select id="sel-${c.tracking_id}" style="max-width:340px; padding:8px; font-size:14px;">
                                 ${optionsHtml}
                             </select>
-                            <button class="btn-primary btn-sm" onclick="updateCaseStatus('${c.tracking_id}')">💾 Update Status</button>
-                            <button class="btn-blue btn-sm" onclick="copyCandidateLink('${candLink}')">🔗 Copy Link</button>
-                            <button class="btn-danger btn-sm" onclick="purgeZdrData('${c.tracking_id}')">🗑️ ZDR Wipe</button>
+                            <button class="btn-primary btn-sm" onclick="updateCaseStatus('${c.tracking_id}')">Update Status</button>
+                            <button class="btn-blue btn-sm" onclick="copyCandidateLink('${candLink}')">Copy Link</button>
+                            <button class="btn-danger btn-sm" onclick="purgeZdrData('${c.tracking_id}')">ZDR Wipe</button>
                         </div>
                     </div>
                 `;
@@ -1248,21 +1348,21 @@
                 .eq('tracking_id', trackingId);
 
             if (!error) {
-                alert(`✅ Status updated for ${trackingId}:\n"${newStatus}"`);
+                alert(`Status updated for ${trackingId}:\n"${newStatus}"`);
                 loadAdminCases();
             } else {
-                alert("❌ Failed to update status in Supabase.");
+                alert("Failed to update status in database.");
             }
         }
 
         function copyCandidateLink(link) {
             navigator.clipboard.writeText(link).then(() => {
-                alert(`✅ Candidate Verification Link copied:\n${link}`);
+                alert(`Candidate Verification Link copied:\n${link}`);
             });
         }
 
         async function purgeZdrData(trackingId) {
-            const ok = confirm(`⚠️ Zero Data Retention (ZDR) Purge:\nPermanently erase raw PAN, ID Number, Address & GPS data for ${trackingId}?`);
+            const ok = confirm(`Zero Data Retention (ZDR) Purge:\nPermanently redact raw PAN, ID Number, Address & GPS data for ${trackingId}?`);
             if (!ok) return;
 
             const { error } = await _supabase
@@ -1277,10 +1377,10 @@
                 .eq('tracking_id', trackingId);
 
             if (!error) {
-                alert(`🔒 Raw candidate data permanently wiped under ZDR for ${trackingId}.`);
+                alert(`Raw candidate data permanently wiped under ZDR for ${trackingId}.`);
                 loadAdminCases();
             } else {
-                alert("❌ Error purging data.");
+                alert("Error purging data.");
             }
         }
 
@@ -1329,7 +1429,7 @@
                         document.getElementById('chatMsg').value = '';
                     }, 1800);
                 }).catch(() => {
-                    alert("Message submitted. Our team will reach out soon.");
+                    alert("Message submitted. Our team will reach out shortly.");
                     toggleChat();
                 });
             }
@@ -1341,7 +1441,7 @@
             const email = document.getElementById('bulkEmail').value;
             const file = document.getElementById('bulkFile').files[0];
             if (file) {
-                alert(`✅ Bulk CSV (${file.name}) selected for ${comp}. Verification batch will be processed and shared with ${email}.`);
+                alert(`Bulk CSV (${file.name}) uploaded for ${comp}. Verification links will be processed and sent to ${email}.`);
                 document.getElementById('hrFormBulk').reset();
             }
         }
@@ -1363,7 +1463,7 @@
                     if (data.candidate_phone) document.getElementById('cdPhone').value = data.candidate_phone;
                     if (data.candidate_email) document.getElementById('cdEmail').value = data.candidate_email;
                 } else {
-                    document.getElementById('candLoad').innerHTML = '<span style="color:red;">❌ Invalid or Expired Verification Link.</span>';
+                    document.getElementById('candLoad').innerHTML = '<span style="color:red;">Invalid or Expired Verification Link.</span>';
                 }
             } else {
                 goTo('home');
@@ -1398,7 +1498,7 @@
                 document.getElementById('hrFormSingle').reset();
                 const alertDiv = document.getElementById('hrAlert');
                 alertDiv.style.display = 'block';
-                alertDiv.innerHTML = `<strong>✅ BGV Request Created!</strong><br>Tracking ID: <b>${tId}</b><br>Candidate Link: <a href="${link}" target="_blank">${link}</a>`;
+                alertDiv.innerHTML = `<strong>BGV Request Created Successfully!</strong><br>Tracking ID: <b>${tId}</b><br>Candidate Verification Link: <a href="${link}" target="_blank">${link}</a>`;
 
                 emailjs.send("service_2vde5ns", "template_patgrns", {
                     company_name: document.getElementById('hrComp').value,
@@ -1407,7 +1507,7 @@
                     hr_email: hrEmail
                 });
             } else {
-                alert("Database Error!");
+                alert("Database Error! Please try again.");
             }
             btn.innerText = "Submit BGV Request";
             btn.disabled = false;
@@ -1417,7 +1517,7 @@
             e.preventDefault();
             const gps = document.getElementById('cdGps').value;
             if (!gps) {
-                alert("GPS capture required!");
+                alert("GPS capture is required before submitting.");
                 return;
             }
 
@@ -1443,7 +1543,7 @@
                 document.getElementById('candForm').style.display = 'none';
                 document.getElementById('cdAlert').style.display = 'block';
             } else {
-                alert("Error saving data!");
+                alert("Error saving verification details!");
                 btn.innerText = "Submit Verification Securely";
                 btn.disabled = false;
             }
@@ -1466,20 +1566,20 @@
             const txt = document.getElementById('locText');
             const inp = document.getElementById('cdGps');
             if (!navigator.geolocation) {
-                txt.innerText = "Location not supported on this browser.";
+                txt.innerText = "Geolocation is not supported on this browser.";
                 return;
             }
-            txt.innerText = "Fetching GPS...";
+            txt.innerText = "Fetching GPS coordinates...";
             txt.style.color = "#d97706";
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
                     const c = `Lat: ${pos.coords.latitude.toFixed(6)}, Lng: ${pos.coords.longitude.toFixed(6)}`;
                     inp.value = c;
-                    txt.innerText = `✅ Validated: ${c}`;
+                    txt.innerText = `Validated: ${c}`;
                     txt.style.color = "#059669";
                 },
                 () => {
-                    txt.innerText = "❌ Allow location permission in Android/iPhone settings.";
+                    txt.innerText = "Please allow location permission in your device browser settings.";
                     txt.style.color = "#dc2626";
                 },
                 { enableHighAccuracy: true, timeout: 10000 }
@@ -1511,10 +1611,10 @@
                         <p style="margin:4px 0; font-size:13.5px;"><strong>Package:</strong> ${data.package_tier || 'Standard'}</p>
                         <p style="margin:4px 0; font-size:13.5px;"><strong>Secondary ID Type:</strong> ${data.additional_id_type || 'Pending'}</p>
                         <p style="margin:4px 0; font-size:13.5px;"><strong>GPS Geo-Tag:</strong> ${data.gps_coordinates || 'Pending'}</p>
-                        <button class="btn-dark" style="margin-top:12px; padding:10px;" onclick="window.print()">🖨️ Print / Save Summary</button>
+                        <button class="btn-dark" style="margin-top:12px; padding:10px;" onclick="window.print()">Print / Save Summary</button>
                     </div>`;
             } else {
-                res.innerHTML = `<div style="color:#dc2626; font-weight:bold;">❌ Case not found.</div>`;
+                res.innerHTML = `<div style="color:#dc2626; font-weight:bold;">Case not found. Please check your Tracking ID.</div>`;
             }
         }
     </script>
