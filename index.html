@@ -112,7 +112,6 @@
             margin-top: 4px;
         }
 
-        /* HEADER */
         header {
             background: rgba(10, 25, 47, 0.98);
             backdrop-filter: blur(10px);
@@ -322,8 +321,7 @@
             margin-bottom: 14px;
         }
 
-        /* Mobile-first responsive grids */
-        .grid-2, .grid-3, .grid-4 {
+        .grid-2, .grid-3 {
             display: grid;
             grid-template-columns: 1fr;
             gap: 14px;
@@ -332,28 +330,11 @@
         @media (min-width: 640px) {
             .grid-2 { grid-template-columns: repeat(2, 1fr); }
             .grid-3 { grid-template-columns: repeat(2, 1fr); }
-            .grid-4 { grid-template-columns: repeat(2, 1fr); }
         }
 
         @media (min-width: 900px) {
             .grid-3 { grid-template-columns: repeat(3, 1fr); }
-            .grid-4 { grid-template-columns: repeat(4, 1fr); }
         }
-
-        .stat-card {
-            background: white;
-            border: 1px solid #cbd5e1;
-            border-top: 4px solid var(--primary);
-            border-radius: 10px;
-            padding: 14px;
-            text-align: center;
-        }
-
-        .stat-card.green { border-top-color: var(--secondary); }
-        .stat-card.amber { border-top-color: var(--amber); }
-        .stat-card.blue { border-top-color: var(--accent); }
-        .stat-num { font-size: 24px; font-weight: 800; color: var(--primary); }
-        .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-top: 4px; }
 
         .bgv-module-card {
             background: white;
@@ -431,8 +412,6 @@
         .btn-blue:hover { background: #1d4ed8; }
         .btn-dark { background: var(--primary); }
         .btn-dark:hover { background: var(--primary-light); }
-        .btn-danger { background: var(--danger); }
-        .btn-danger:hover { background: #b91c1c; }
         .btn-sm { width: auto; min-height: 38px; padding: 7px 12px; font-size: 12.5px; }
 
         .tab-btns { display: flex; gap: 10px; margin-bottom: 18px; }
@@ -477,39 +456,6 @@
             color: #166534;
         }
 
-        .status-badge.pending { background: #fef3c7; color: #92400e; }
-        .status-badge.alert { background: #fee2e2; color: #991b1b; }
-
-        .admin-case-card {
-            background: white;
-            border: 1px solid #cbd5e1;
-            border-radius: 10px;
-            padding: 16px;
-            margin-bottom: 14px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-        }
-
-        .admin-case-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-        }
-
-        .admin-actions {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px dashed #cbd5e1;
-        }
-
         .faq-card {
             background: white;
             border: 1px solid #cbd5e1;
@@ -541,7 +487,6 @@
             font-size: 14px;
         }
 
-        /* CHAT WIDGET */
         .chat-widget-btn {
             position: fixed;
             bottom: calc(18px + var(--safe-bottom));
@@ -654,11 +599,9 @@
 <body>
 <div class="app-shell">
 
-    <!-- SINGLE CLEAN BGV / VERISHIELD WATERMARK LAYER -->
     <div class="bgv-watermark" id="mainWatermark" aria-hidden="true"></div>
     <div class="bgv-watermark-fallback" id="watermarkFallback" aria-hidden="true"></div>
 
-    <!-- HEADER -->
     <header id="mainHead">
         <div class="header-top">
             <div class="logo-box" onclick="goTo('home')">
@@ -680,7 +623,6 @@
             <a onclick="goTo('hr')" id="nav-hr">HR Portal</a>
             <a onclick="goTo('candidate')" id="nav-candidate">Candidate</a>
             <a onclick="goTo('tracker')" id="nav-tracker">Tracker</a>
-            <a onclick="goTo('admin')" id="nav-admin">Admin</a>
         </nav>
     </header>
 
@@ -832,7 +774,7 @@
                 <button type="submit" class="btn-primary" id="btnBulkSub">Upload &amp; Process Bulk CSV</button>
             </form>
 
-            <div id="hrAlert" style="display:none; margin-top:18px; padding:16px; background:#f0fdf4; border:1px solid #10b981; color:#065f46; border-radius:10px; line-height:1.6;"></div>
+            <div id="hrAlert" style="display:none; margin-top:18px; padding:16px; background:#f0fdf4; border:1px solid #10b981; color:#065f46; border-radius:10px; line-height:1.65;"></div>
         </div>
 
         <!-- 5. CANDIDATE PORTAL -->
@@ -922,75 +864,6 @@
                 <p style="margin:0; font-size:13px; color:#334155; line-height:1.6;">
                     <strong>How Tracking Works:</strong> Enter your unique Tracking ID (such as <code>VSI-123456</code>) to view real-time verification status and print a case summary. For assistance, contact <strong class="dynamic-email">verishieldindia@gmail.com</strong>.
                 </p>
-            </div>
-        </div>
-
-        <!-- 7. ADMIN STATUS PANEL -->
-        <div id="page-admin" class="page">
-            <h2 class="title">VeriShield Admin Status Panel</h2>
-
-            <div id="adminLoginBox" class="section-box" style="max-width: 420px; margin: 0 auto; text-align: center;">
-                <h3 style="margin-top:0; color:var(--primary);">Authorized Admin Login</h3>
-                <p style="font-size:13.5px; color:#334155;">Enter Admin Passcode to manage live BGV cases.</p>
-                <div class="form-group">
-                    <input type="password" id="adminPassInput" placeholder="Enter Admin Passcode" onkeydown="if(event.key==='Enter') loginAdmin()">
-                </div>
-                <button class="btn-dark" onclick="loginAdmin()">Unlock Admin Panel</button>
-                <p id="adminLoginErr" style="color:var(--danger); font-size:13px; font-weight:600; margin-top:10px; display:none;">Incorrect Admin Passcode</p>
-            </div>
-
-            <div id="adminDashboard" style="display:none;">
-                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
-                    <span style="font-size:13px; color:#334155;">Admin: <strong class="dynamic-email">verishieldindia@gmail.com</strong></span>
-                    <div style="display:flex; gap:8px;">
-                        <button class="btn-blue btn-sm" onclick="loadAdminCases()">Refresh</button>
-                        <button class="btn-danger btn-sm" onclick="logoutAdmin()">Logout</button>
-                    </div>
-                </div>
-
-                <div class="grid-4">
-                    <div class="stat-card">
-                        <div class="stat-num" id="statTotal">0</div>
-                        <div class="stat-label">Total Cases</div>
-                    </div>
-                    <div class="stat-card amber">
-                        <div class="stat-num" id="statPending">0</div>
-                        <div class="stat-label">Pending / Active</div>
-                    </div>
-                    <div class="stat-card blue">
-                        <div class="stat-num" id="statSubmitted">0</div>
-                        <div class="stat-label">Submitted</div>
-                    </div>
-                    <div class="stat-card green">
-                        <div class="stat-num" id="statCompleted">0</div>
-                        <div class="stat-label">Cleared</div>
-                    </div>
-                </div>
-
-                <div class="section-box" style="padding:14px;">
-                    <div class="grid-2" style="margin-bottom:0;">
-                        <div class="form-group" style="margin-bottom:0;">
-                            <label>Search Tracking ID / Name / Company</label>
-                            <input type="text" id="adminSearchInput" placeholder="Search VSI-..., name, company..." oninput="renderAdminCases()">
-                        </div>
-                        <div class="form-group" style="margin-bottom:0;">
-                            <label>Filter by Status</label>
-                            <select id="adminStatusFilter" onchange="renderAdminCases()">
-                                <option value="ALL">All Statuses</option>
-                                <option value="Payment Pending / Link Sent to VeriShield Admin">Payment Pending / Link Sent</option>
-                                <option value="Link Sent to Candidate">Link Sent to Candidate</option>
-                                <option value="Candidate Submitted - Report Generation Pending">Candidate Submitted - Report Pending</option>
-                                <option value="Verification In Progress (e-Courts / EPFO)">Verification In Progress</option>
-                                <option value="BGV Cleared - Report Dispatched to HR">BGV Cleared - Report Dispatched</option>
-                                <option value="Discrepancy Flagged - Hold">Discrepancy Flagged - Hold</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="adminCasesContainer">
-                    <p style="text-align:center; color:#334155;">Loading cases...</p>
-                </div>
             </div>
         </div>
 
@@ -1117,7 +990,7 @@
                 </div>
                 <div class="legal-card">
                     <h3>4. Prohibited Activities</h3>
-                    <p>Submitting falsified documents, impersonating another individual, attempting unauthorized access to the Admin Panel, or scraping platform data is strictly prohibited and may result in immediate termination of access.</p>
+                    <p>Submitting falsified documents, impersonating another individual, or scraping platform data is strictly prohibited and may result in immediate termination of access.</p>
                 </div>
                 <div class="legal-card">
                     <h3>5. Governing Law &amp; Contact</h3>
@@ -1167,7 +1040,6 @@
 
     </div>
 
-    <!-- LIVE CHAT WIDGET -->
     <div class="chat-widget-btn" onclick="toggleChat()" title="VeriShield Live Help">💬</div>
     <div class="chat-modal" id="chatModal">
         <div class="chat-header">
@@ -1186,7 +1058,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div>&copy; 2026 VeriShield India. All Rights Reserved. (100% Virtual Office &bull; Zero Data Retention Platform)</div>
         <div class="footer-email-line">Official Email: <span class="dynamic-email">verishieldindia@gmail.com</span></div>
@@ -1200,17 +1071,14 @@
         </div>
     </footer>
 
-</div>
-
     <script>
         const VERISHIELD_OFFICIAL_EMAIL = "verishieldindia@gmail.com";
-        const ADMIN_PASSCODE = "VSI@2026";
+        const EMAILJS_SERVICE_ID = "service_2vde5ns";
+        const EMAILJS_TEMPLATE_ID = "template_patgrns";
 
         const SUPA_URL = 'https://puvhmknneagajfltshsc.supabase.co';
         const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB1dmhta25uZWFnYWpmbHRzaHNjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTMwMDM3NTMsImV4cCI6MjEwODU3OTc1M30.I1Lkr9s3pkFZB9OSazFNVWWnXAob1nY0sBSQicC8GOE';
         const _supabase = supabase.createClient(SUPA_URL, SUPA_KEY);
-
-        let allAdminCases = [];
 
         function activateFallbackWatermark() {
             const imgLayer = document.getElementById('mainWatermark');
@@ -1236,10 +1104,6 @@
             const probeImg = new Image();
             probeImg.src = 'logo.jpg';
             probeImg.onerror = () => activateFallbackWatermark();
-
-            if (sessionStorage.getItem('vsi_admin_auth') === 'true') {
-                unlockAdminUI();
-            }
         });
 
         function goTo(pageId) {
@@ -1255,179 +1119,28 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function loginAdmin() {
-            const pass = document.getElementById('adminPassInput').value;
-            const err = document.getElementById('adminLoginErr');
-            if (pass === ADMIN_PASSCODE) {
-                sessionStorage.setItem('vsi_admin_auth', 'true');
-                err.style.display = 'none';
-                unlockAdminUI();
-            } else {
-                err.style.display = 'block';
+        async function dispatchNotificationEmail(payload) {
+            if (typeof emailjs === 'undefined') {
+                return { ok: false, reason: 'EmailJS SDK not loaded' };
             }
-        }
-
-        function unlockAdminUI() {
-            document.getElementById('adminLoginBox').style.display = 'none';
-            document.getElementById('adminDashboard').style.display = 'block';
-            loadAdminCases();
-        }
-
-        function logoutAdmin() {
-            sessionStorage.removeItem('vsi_admin_auth');
-            document.getElementById('adminDashboard').style.display = 'none';
-            document.getElementById('adminLoginBox').style.display = 'block';
-            document.getElementById('adminPassInput').value = '';
-        }
-
-        async function loadAdminCases() {
-            const container = document.getElementById('adminCasesContainer');
-            container.innerHTML = `<p style="text-align:center; color:var(--accent); font-weight:600;">Fetching live BGV cases...</p>`;
-
-            const { data, error } = await _supabase
-                .from('cases')
-                .select('*')
-                .order('created_at', { ascending: false });
-
-            if (error) {
-                container.innerHTML = `<div style="color:var(--danger); font-weight:bold; text-align:center;">Error loading cases from database.</div>`;
-                return;
-            }
-
-            allAdminCases = data || [];
-            updateAdminStats();
-            renderAdminCases();
-        }
-
-        function updateAdminStats() {
-            const total = allAdminCases.length;
-            const cleared = allAdminCases.filter(c => (c.status || '').includes('Cleared')).length;
-            const submitted = allAdminCases.filter(c => (c.status || '').includes('Candidate Submitted')).length;
-            const pending = total - cleared;
-
-            document.getElementById('statTotal').textContent = total;
-            document.getElementById('statPending').textContent = pending;
-            document.getElementById('statSubmitted').textContent = submitted;
-            document.getElementById('statCompleted').textContent = cleared;
-        }
-
-        function renderAdminCases() {
-            const container = document.getElementById('adminCasesContainer');
-            const query = (document.getElementById('adminSearchInput').value || '').toLowerCase().trim();
-            const statusFilter = document.getElementById('adminStatusFilter').value;
-
-            const filtered = allAdminCases.filter(c => {
-                const matchesQuery =
-                    (c.tracking_id || '').toLowerCase().includes(query) ||
-                    (c.candidate_name || '').toLowerCase().includes(query) ||
-                    (c.company_name || '').toLowerCase().includes(query);
-                const matchesStatus = statusFilter === 'ALL' || c.status === statusFilter;
-                return matchesQuery && matchesStatus;
-            });
-
-            if (filtered.length === 0) {
-                container.innerHTML = `<div class="section-box" style="text-align:center; color:#334155;">No matching BGV cases found.</div>`;
-                return;
-            }
-
-            const statusOptions = [
-                "Payment Pending / Link Sent to VeriShield Admin",
-                "Link Sent to Candidate",
-                "Candidate Submitted - Report Generation Pending",
-                "Verification In Progress (e-Courts / EPFO)",
-                "BGV Cleared - Report Dispatched to HR",
-                "Discrepancy Flagged - Hold"
-            ];
-
-            container.innerHTML = filtered.map(c => {
-                const candLink = `${window.location.origin}${window.location.pathname}?id=${c.tracking_id}`;
-                const badgeClass = (c.status || '').includes('Cleared')
-                    ? ''
-                    : (c.status || '').includes('Discrepancy')
-                    ? 'alert'
-                    : 'pending';
-
-                const optionsHtml = statusOptions.map(opt =>
-                    `<option value="${opt}" ${c.status === opt ? 'selected' : ''}>${opt}</option>`
-                ).join('');
-
-                return `
-                    <div class="admin-case-card">
-                        <div class="admin-case-header">
-                            <div>
-                                <strong style="font-size:15px; color:var(--primary);">${c.tracking_id}</strong> &mdash;
-                                <span style="font-weight:700;">${c.candidate_name || 'N/A'}</span>
-                                <span style="font-size:12.5px; color:#334155;"> (${c.company_name || 'No Company'})</span>
-                            </div>
-                            <span class="status-badge ${badgeClass}">${c.status || 'Pending'}</span>
-                        </div>
-
-                        <div class="grid-3" style="font-size:13px; color:#1e293b;">
-                            <div><strong>Package:</strong> ${c.package_tier || 'Standard'}</div>
-                            <div><strong>HR Email:</strong> ${c.hr_email || 'N/A'}</div>
-                            <div><strong>Phone:</strong> ${c.candidate_phone || 'N/A'}</div>
-                            <div><strong>PAN:</strong> ${c.pan_number || 'Not Submitted'}</div>
-                            <div><strong>ID Proof:</strong> ${c.additional_id_type || 'N/A'} (${c.additional_id_number || '-'})</div>
-                            <div><strong>GPS:</strong> ${c.gps_coordinates || 'Not Captured'}</div>
-                        </div>
-
-                        <div class="admin-actions">
-                            <select id="sel-${c.tracking_id}" style="max-width:340px; padding:8px; font-size:14px;">
-                                ${optionsHtml}
-                            </select>
-                            <button class="btn-primary btn-sm" onclick="updateCaseStatus('${c.tracking_id}')">Update Status</button>
-                            <button class="btn-blue btn-sm" onclick="copyCandidateLink('${candLink}')">Copy Link</button>
-                            <button class="btn-danger btn-sm" onclick="purgeZdrData('${c.tracking_id}')">ZDR Wipe</button>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-        }
-
-        async function updateCaseStatus(trackingId) {
-            const selectEl = document.getElementById(`sel-${trackingId}`);
-            if (!selectEl) return;
-            const newStatus = selectEl.value;
-
-            const { error } = await _supabase
-                .from('cases')
-                .update({ status: newStatus })
-                .eq('tracking_id', trackingId);
-
-            if (!error) {
-                alert(`Status updated for ${trackingId}:\n"${newStatus}"`);
-                loadAdminCases();
-            } else {
-                alert("Failed to update status in database.");
+            try {
+                await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload);
+                return { ok: true };
+            } catch (err) {
+                console.error("EmailJS error:", err);
+                return { ok: false, reason: (err && (err.text || err.message)) || 'EmailJS delivery failed' };
             }
         }
 
         function copyCandidateLink(link) {
-            navigator.clipboard.writeText(link).then(() => {
-                alert(`Candidate Verification Link copied:\n${link}`);
-            });
-        }
-
-        async function purgeZdrData(trackingId) {
-            const ok = confirm(`Zero Data Retention (ZDR) Purge:\nPermanently redact raw PAN, ID Number, Address & GPS data for ${trackingId}?`);
-            if (!ok) return;
-
-            const { error } = await _supabase
-                .from('cases')
-                .update({
-                    pan_number: 'REDACTED (ZDR)',
-                    additional_id_number: 'REDACTED (ZDR)',
-                    address: 'REDACTED (ZDR)',
-                    gps_coordinates: 'REDACTED (ZDR)',
-                    status: 'BGV Cleared - Report Dispatched to HR'
-                })
-                .eq('tracking_id', trackingId);
-
-            if (!error) {
-                alert(`Raw candidate data permanently wiped under ZDR for ${trackingId}.`);
-                loadAdminCases();
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(link).then(() => {
+                    alert(`Candidate Verification Link copied:\n${link}`);
+                }).catch(() => {
+                    prompt("Copy Candidate Verification Link:", link);
+                });
             } else {
-                alert("Error purging data.");
+                prompt("Copy Candidate Verification Link:", link);
             }
         }
 
@@ -1454,63 +1167,88 @@
             modal.style.display = (modal.style.display === 'block') ? 'none' : 'block';
         }
 
-        function sendChatInquiry(e) {
+        async function sendChatInquiry(e) {
             e.preventDefault();
-            const name = document.getElementById('chatName').value;
-            const phone = document.getElementById('chatPhone').value;
-            const msg = document.getElementById('chatMsg').value;
+            const name = document.getElementById('chatName').value.trim();
+            const phone = document.getElementById('chatPhone').value.trim();
+            const msg = document.getElementById('chatMsg').value.trim();
 
-            if (typeof emailjs !== 'undefined') {
-                emailjs.send("service_2vde5ns", "template_patgrns", {
-                    company_name: "Live Chat Inquiry",
-                    candidate_name: name,
-                    tracking_link: `Phone: ${phone}, Message: ${msg}`,
-                    hr_email: VERISHIELD_OFFICIAL_EMAIL
-                }).then(() => {
-                    document.getElementById('chatSuccess').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('chatModal').style.display = 'none';
-                        document.getElementById('chatSuccess').style.display = 'none';
-                        document.getElementById('chatName').value = '';
-                        document.getElementById('chatPhone').value = '';
-                        document.getElementById('chatMsg').value = '';
-                    }, 1800);
-                }).catch(() => {
-                    alert("Message submitted. Our team will reach out shortly.");
-                    toggleChat();
-                });
+            const mailRes = await dispatchNotificationEmail({
+                company_name: "Live Chat Inquiry",
+                candidate_name: name,
+                tracking_link: `Phone: ${phone} | Message: ${msg}`,
+                hr_email: VERISHIELD_OFFICIAL_EMAIL,
+                to_email: VERISHIELD_OFFICIAL_EMAIL
+            });
+
+            if (mailRes.ok) {
+                document.getElementById('chatSuccess').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('chatModal').style.display = 'none';
+                    document.getElementById('chatSuccess').style.display = 'none';
+                    document.getElementById('chatName').value = '';
+                    document.getElementById('chatPhone').value = '';
+                    document.getElementById('chatMsg').value = '';
+                }, 1800);
+            } else {
+                alert(`EmailJS error (${mailRes.reason}). Please check your EmailJS service/template settings or email ${VERISHIELD_OFFICIAL_EMAIL}.`);
             }
         }
 
         function handleBulkUpload(e) {
             e.preventDefault();
-            const comp = document.getElementById('bulkComp').value;
-            const email = document.getElementById('bulkEmail').value;
+            const comp = document.getElementById('bulkComp').value.trim();
+            const email = document.getElementById('bulkEmail').value.trim();
             const file = document.getElementById('bulkFile').files[0];
-            if (file) {
-                alert(`Bulk CSV (${file.name}) uploaded for ${comp}. Verification links will be processed and sent to ${email}.`);
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = async (ev) => {
+                const lines = (ev.target.result || '').split(/\r?\n/).filter(l => l.trim().length > 0);
+                const estCount = Math.max(0, lines.length - 1);
+                await dispatchNotificationEmail({
+                    company_name: comp,
+                    candidate_name: `Bulk CSV Batch (${estCount} rows)`,
+                    tracking_link: `File: ${file.name} | HR Email: ${email}`,
+                    hr_email: email,
+                    to_email: VERISHIELD_OFFICIAL_EMAIL
+                });
+                alert(`Bulk CSV (${file.name}) received for ${comp}. Batch notification triggered for ${email}.`);
                 document.getElementById('hrFormBulk').reset();
-            }
+            };
+            reader.readAsText(file);
+        }
+
+        function activateCandidateForm(trackId, record) {
+            document.getElementById('candLoad').style.display = 'none';
+            document.getElementById('candForm').style.display = 'block';
+            document.getElementById('cdTrackId').value = trackId;
+            document.getElementById('cdPkg').value = (record && record.package_tier) ? record.package_tier : 'Advanced Package';
+            document.getElementById('cdName').value = (record && record.candidate_name) ? record.candidate_name : `Candidate (${trackId})`;
+            if (record && record.father_name) document.getElementById('cdFather').value = record.father_name;
+            if (record && record.mother_name) document.getElementById('cdMother').value = record.mother_name;
+            if (record && record.candidate_phone) document.getElementById('cdPhone').value = record.candidate_phone;
+            if (record && record.candidate_email) document.getElementById('cdEmail').value = record.candidate_email;
         }
 
         window.onload = async () => {
-            const urlId = new URLSearchParams(window.location.search).get('id');
+            const urlId = (new URLSearchParams(window.location.search).get('id') || '').trim().toUpperCase();
             if (urlId) {
                 goTo('candidate');
                 document.getElementById('navBar').style.display = 'none';
-                const { data, error } = await _supabase.from('cases').select('*').eq('tracking_id', urlId).single();
-                if (data && !error) {
-                    document.getElementById('candLoad').style.display = 'none';
-                    document.getElementById('candForm').style.display = 'block';
-                    document.getElementById('cdTrackId').value = data.tracking_id;
-                    document.getElementById('cdPkg').value = data.package_tier;
-                    document.getElementById('cdName').value = data.candidate_name;
-                    if (data.father_name) document.getElementById('cdFather').value = data.father_name;
-                    if (data.mother_name) document.getElementById('cdMother').value = data.mother_name;
-                    if (data.candidate_phone) document.getElementById('cdPhone').value = data.candidate_phone;
-                    if (data.candidate_email) document.getElementById('cdEmail').value = data.candidate_email;
-                } else {
-                    document.getElementById('candLoad').innerHTML = '<p style="color:#dc2626; font-weight:700; margin:0;">Invalid or Expired Verification Link.</p>';
+                try {
+                    const { data, error } = await _supabase
+                        .from('cases')
+                        .select('*')
+                        .eq('tracking_id', urlId)
+                        .single();
+                    if (data && !error) {
+                        activateCandidateForm(urlId, data);
+                    } else {
+                        activateCandidateForm(urlId, null);
+                    }
+                } catch (e) {
+                    activateCandidateForm(urlId, null);
                 }
             } else {
                 goTo('home');
@@ -1525,37 +1263,58 @@
 
             const tId = 'VSI-' + Math.floor(100000 + Math.random() * 900000);
             const link = window.location.origin + window.location.pathname + "?id=" + tId;
-            const hrEmail = document.getElementById('hrEmail').value;
-            const candName = document.getElementById('hrCandName').value;
+            const compName = document.getElementById('hrComp').value.trim();
+            const hrEmail = document.getElementById('hrEmail').value.trim();
+            const pkgTier = document.getElementById('hrPkg').value;
+            const candName = document.getElementById('hrCandName').value.trim();
+            const candPhone = document.getElementById('hrCandPhone').value.trim();
+            const candFather = document.getElementById('hrCandFather').value.trim();
+            const candMother = document.getElementById('hrCandMother').value.trim();
+            const candEmail = document.getElementById('hrCandEmail').value.trim();
 
             const { error } = await _supabase.from('cases').insert([{
                 tracking_id: tId,
-                company_name: document.getElementById('hrComp').value,
+                company_name: compName,
                 hr_email: hrEmail,
-                package_tier: document.getElementById('hrPkg').value,
+                package_tier: pkgTier,
                 candidate_name: candName,
-                father_name: document.getElementById('hrCandFather').value,
-                mother_name: document.getElementById('hrCandMother').value,
-                candidate_phone: document.getElementById('hrCandPhone').value,
-                candidate_email: document.getElementById('hrCandEmail').value,
-                status: 'Payment Pending / Link Sent to VeriShield Admin'
+                father_name: candFather,
+                mother_name: candMother,
+                candidate_phone: candPhone,
+                candidate_email: candEmail,
+                status: 'Link Generated - Candidate Verification Pending'
             }]);
 
             if (!error) {
                 document.getElementById('hrFormSingle').reset();
-                const alertDiv = document.getElementById('hrAlert');
-                alertDiv.style.display = 'block';
-                alertDiv.innerHTML = `<strong>BGV Request Created Successfully!</strong><br>Tracking ID: <b>${tId}</b><br>Candidate Verification Link: <a href="${link}" target="_blank">${link}</a>`;
-
-                emailjs.send("service_2vde5ns", "template_patgrns", {
-                    company_name: document.getElementById('hrComp').value,
+                const mailRes = await dispatchNotificationEmail({
+                    company_name: compName,
                     candidate_name: candName,
                     tracking_link: link,
-                    hr_email: hrEmail
+                    hr_email: hrEmail,
+                    to_email: hrEmail,
+                    admin_email: VERISHIELD_OFFICIAL_EMAIL
                 });
+
+                const mailNote = mailRes.ok
+                    ? `<span style="color:#065f46; font-weight:700;">Notification email sent via EmailJS.</span>`
+                    : `<span style="color:#b45309; font-weight:700;">EmailJS status: ${mailRes.reason} — use the Candidate Link below directly.</span>`;
+
+                const alertDiv = document.getElementById('hrAlert');
+                alertDiv.style.display = 'block';
+                alertDiv.innerHTML = `
+                    <strong>BGV Request Created Successfully!</strong><br>
+                    Tracking ID: <b>${tId}</b><br>
+                    Candidate Verification Link: <a href="${link}" target="_blank">${link}</a><br>
+                    ${mailNote}
+                    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:12px;">
+                        <button type="button" class="btn-blue btn-sm" onclick="copyCandidateLink('${link}')">Copy Candidate Link</button>
+                        <button type="button" class="btn-dark btn-sm" onclick="window.open('${link}', '_blank')">Open Candidate Link</button>
+                    </div>`;
             } else {
-                alert("Database Error! Please try again.");
+                alert("Database Error! Please check Supabase 'cases' table columns and permissions.");
             }
+
             btn.innerText = "Submit BGV Request";
             btn.disabled = false;
         });
@@ -1573,22 +1332,52 @@
             btn.disabled = true;
             const tId = document.getElementById('cdTrackId').value;
 
-            const { error } = await _supabase.from('cases').update({
-                father_name: document.getElementById('cdFather').value,
-                mother_name: document.getElementById('cdMother').value,
-                candidate_phone: document.getElementById('cdPhone').value,
-                candidate_email: document.getElementById('cdEmail').value,
-                address: document.getElementById('cdAddress').value,
-                pan_number: document.getElementById('cdPan').value.toUpperCase(),
+            const updatePayload = {
+                father_name: document.getElementById('cdFather').value.trim(),
+                mother_name: document.getElementById('cdMother').value.trim(),
+                candidate_phone: document.getElementById('cdPhone').value.trim(),
+                candidate_email: document.getElementById('cdEmail').value.trim(),
+                address: document.getElementById('cdAddress').value.trim(),
+                pan_number: document.getElementById('cdPan').value.trim().toUpperCase(),
                 additional_id_type: document.getElementById('cdIdType').value,
-                additional_id_number: document.getElementById('cdIdNum').value,
+                additional_id_number: document.getElementById('cdIdNum').value.trim(),
                 gps_coordinates: gps,
-                status: 'Candidate Submitted - Report Generation Pending'
-            }).eq('tracking_id', tId);
+                status: 'Candidate Submitted - Verification In Progress'
+            };
 
-            if (!error) {
+            const { data: updatedRows, error } = await _supabase
+                .from('cases')
+                .update(updatePayload)
+                .eq('tracking_id', tId)
+                .select();
+
+            if (!error && updatedRows && updatedRows.length > 0) {
+                await dispatchNotificationEmail({
+                    company_name: updatedRows[0].company_name || "BGV Case",
+                    candidate_name: updatedRows[0].candidate_name || tId,
+                    tracking_link: `Submitted ${tId} | PAN: ${updatePayload.pan_number} | GPS: ${gps}`,
+                    hr_email: updatedRows[0].hr_email || VERISHIELD_OFFICIAL_EMAIL,
+                    to_email: VERISHIELD_OFFICIAL_EMAIL
+                });
                 document.getElementById('candForm').style.display = 'none';
                 document.getElementById('cdAlert').style.display = 'block';
+            } else if (!error) {
+                const { error: insErr } = await _supabase.from('cases').insert([{
+                    tracking_id: tId,
+                    company_name: "Direct Link Submission",
+                    hr_email: VERISHIELD_OFFICIAL_EMAIL,
+                    package_tier: document.getElementById('cdPkg').value,
+                    candidate_name: document.getElementById('cdName').value,
+                    ...updatePayload
+                }]);
+                if (!insErr) {
+                    document.getElementById('candForm').style.display = 'none';
+                    document.getElementById('cdAlert').style.display = 'block';
+                } else {
+                    alert("Error saving verification details!");
+                    btn.innerText = "Submit Verification Securely";
+                    btn.disabled = false;
+                }
             } else {
                 alert("Error saving verification details!");
                 btn.innerText = "Submit Verification Securely";
