@@ -54,7 +54,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* BGV & VERISHIELD WATERMARK LAYER */
+        /* SINGLE CLEAN BGV / VERISHIELD WATERMARK LAYER */
         .bgv-watermark {
             position: fixed;
             inset: 0;
@@ -62,20 +62,20 @@
             pointer-events: none;
             background-image: url('logo.jpg');
             background-repeat: repeat;
-            background-size: 150px 150px;
-            opacity: 0.06;
-            transform: rotate(-18deg) scale(1.15);
+            background-size: 165px 165px;
+            opacity: 0.055;
+            transform: rotate(-16deg) scale(1.12);
         }
 
-        .bgv-watermark-overlay {
+        .bgv-watermark-fallback {
             position: fixed;
             inset: 0;
             z-index: -1;
             pointer-events: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 32px;
-            padding: 24px;
+            display: none;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 36px;
+            padding: 28px;
             opacity: 0.035;
             user-select: none;
         }
@@ -85,7 +85,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transform: rotate(-22deg);
+            transform: rotate(-20deg);
             font-weight: 800;
             color: var(--primary);
             letter-spacing: 1.5px;
@@ -104,7 +104,7 @@
             margin-top: 4px;
         }
 
-        /* HEADER (iOS Notch + Android Safe) */
+        /* HEADER */
         header {
             background: rgba(10, 25, 47, 0.97);
             backdrop-filter: blur(10px);
@@ -186,7 +186,6 @@
             color: #bfdbfe;
         }
 
-        /* Smooth Horizontal Scroll Nav on Mobile + Wrap on Desktop */
         nav {
             max-width: 1180px;
             margin: 10px auto 0 auto;
@@ -272,7 +271,7 @@
         .section-box {
             background: #f8fafc;
             border: 1px solid #cbd5e1;
-            padding: 20px;
+            padding: 22px;
             border-radius: 12px;
             margin-bottom: 18px;
         }
@@ -344,7 +343,6 @@
         .form-group { margin-bottom: 14px; }
         label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13.5px; }
 
-        /* 16px font-size prevents iOS Safari auto-zoom on focus */
         input, select, textarea {
             width: 100%;
             padding: 12px;
@@ -466,6 +464,37 @@
             border-top: 1px dashed #cbd5e1;
         }
 
+        /* FAQ ACCORDION / CARDS */
+        .faq-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--accent);
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+
+        .faq-card h4 {
+            color: var(--primary);
+            margin: 0 0 6px 0;
+            font-size: 15px;
+        }
+
+        .faq-card p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .info-list {
+            margin: 10px 0 0 0;
+            padding-left: 20px;
+            color: #334155;
+            line-height: 1.75;
+            font-size: 14.5px;
+        }
+
         /* CHAT WIDGET */
         .chat-widget-btn {
             position: fixed;
@@ -519,15 +548,6 @@
             font-size: 13.5px;
         }
 
-        .faq-item {
-            margin-bottom: 14px;
-            border-bottom: 1px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-
-        .faq-item h4 { color: var(--primary); margin: 0 0 4px 0; font-size: 15px; }
-        .faq-item p { margin: 0; color: var(--text-muted); font-size: 13.5px; line-height: 1.55; }
-
         footer {
             background: var(--primary);
             color: #cbd5e1;
@@ -573,15 +593,15 @@
 </head>
 <body>
 
-    <!-- BGV & VERISHIELD WATERMARK BACKGROUND -->
-    <div class="bgv-watermark" aria-hidden="true"></div>
-    <div class="bgv-watermark-overlay" id="watermarkOverlay" aria-hidden="true"></div>
+    <!-- SINGLE BGV / VERISHIELD WATERMARK LAYER -->
+    <div class="bgv-watermark" id="mainWatermark" aria-hidden="true"></div>
+    <div class="bgv-watermark-fallback" id="watermarkFallback" aria-hidden="true"></div>
 
     <!-- HEADER -->
     <header id="mainHead">
         <div class="header-top">
             <div class="logo-box" onclick="goTo('home')">
-                <img src="logo.jpg" alt="VeriShield BGV Logo" onerror="this.style.display='none'">
+                <img src="logo.jpg" alt="VeriShield BGV Logo" onerror="this.style.display='none'; activateFallbackWatermark();">
                 <div>
                     <h1>VeriShield INDIA</h1>
                     <span>BGV & Trust-Tech App</span>
@@ -672,7 +692,7 @@
                     <span style="background:#e2e8f0; color:var(--primary); padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">BASIC</span>
                     <h3 style="color:var(--primary); margin-bottom:4px;">Basic Standard Package</h3>
                     <div class="pkg-price">₹499 <span style="font-size:13px; color:var(--text-muted); font-weight:400;">/ candidate</span></div>
-                    <ul style="font-size:14px; line-height:1.85; padding-left:20px;">
+                    <ul class="info-list" style="margin-bottom:16px;">
                         <li>PAN Card Verification</li>
                         <li>Aadhaar / Secondary ID KYC</li>
                         <li>Live Selfie Capture</li>
@@ -685,7 +705,7 @@
                     <span style="background:var(--secondary); color:white; padding:4px 10px; border-radius:4px; font-size:12px; font-weight:700;">RECOMMENDED</span>
                     <h3 style="color:var(--primary); margin-bottom:4px;">Advanced Corporate BGV</h3>
                     <div class="pkg-price">₹999 <span style="font-size:13px; color:var(--text-muted); font-weight:400;">/ candidate</span></div>
-                    <ul style="font-size:14px; line-height:1.85; padding-left:20px;">
+                    <ul class="info-list" style="margin-bottom:16px;">
                         <li>Everything in Basic Standard Package</li>
                         <li>Pan-India e-Courts Litigation Check</li>
                         <li>EPFO / UAN Moonlighting Audit</li>
@@ -893,29 +913,110 @@
             </div>
         </div>
 
-        <!-- STATIC FOOTER PAGES -->
+        <!-- IMPROVED ABOUT US PAGE -->
         <div id="page-about" class="page">
-            <h2 class="title">About VeriShield India</h2>
-            <div class="section-box"><p style="line-height:1.8; margin:0;">VeriShield India is a digital background verification (BGV) and trust-tech platform designed for seamless use across Android and Apple devices.</p></div>
-        </div>
-        <div id="page-contact" class="page">
-            <h2 class="title">Contact VeriShield India</h2>
-            <div class="section-box"><p style="line-height:1.8; margin:0;"><strong>Official Email ID:</strong> <span class="dynamic-email">verishieldindia@gmail.com</span></p></div>
-        </div>
-        <div id="page-privacy" class="page">
-            <h2 class="title">Privacy Policy & Zero Data Retention (ZDR)</h2>
-            <div class="section-box"><p style="line-height:1.8; margin:0;">Raw candidate verification data is handled strictly for authorized BGV processing and erased after report delivery under Zero Data Retention.</p></div>
-        </div>
-        <div id="page-disclaimer" class="page">
-            <h2 class="title">Legal Disclaimer</h2>
-            <div class="section-box"><p style="line-height:1.8; margin:0;">BGV outputs depend on candidate-provided details, consent, GPS/camera permissions, and available verification records.</p></div>
-        </div>
-        <div id="page-fdr" class="page">
-            <h2 class="title">Frequently Asked Questions (FAQ)</h2>
+            <h2 class="title">About VeriShield India (हमारे बारे में)</h2>
             <div class="section-box">
-                <div class="faq-item"><h4>Q1. Does this work on Android and iPhone?</h4><p>Yes, it is built with mobile-first responsive layout, safe-area support for Apple devices, and camera/GPS capture.</p></div>
-                <div class="faq-item"><h4>Q2. How can I contact VeriShield India?</h4><p>Reach us at <span class="dynamic-email">verishieldindia@gmail.com</span> or via the Live Help chat button.</p></div>
-                <div class="faq-item"><h4>Q3. How does Zero Data Retention work?</h4><p>After report delivery to HR, raw candidate data is purged under ZDR.</p></div>
+                <h3 style="margin-top:0; color:var(--primary);">हम कौन हैं और हम क्या करते हैं?</h3>
+                <p style="line-height:1.75; color:#334155;">
+                    <strong>VeriShield India</strong> एक डिजिटल Background Verification (BGV) और Trust-Tech प्लेटफ़ॉर्म है। जब कोई कंपनी या HR किसी नए कर्मचारी (Candidate) को हायर करता है, तो उसकी पहचान, पता, लोकेशन और रिकॉर्ड की विश्वसनीयता जांचने के लिए हमारा सिस्टम एक तेज़, पारदर्शी और आसान प्रक्रिया देता है।
+                </p>
+                <ul class="info-list">
+                    <li><strong>HR के लिए आसान शुरुआत:</strong> सिंगल या Bulk CSV के ज़रिए कैंडिडेट की वेरिफिकेशन रिक्वेस्ट शुरू करें।</li>
+                    <li><strong>कैंडिडेट के लिए मोबाइल-फ्रेंडली लिंक:</strong> Android और iPhone दोनों पर आसानी से KYC, लाइव सेल्फी और GPS लोकेशन सबमिट करने की सुविधा।</li>
+                    <li><strong>लाइव ट्रैकिंग और एडमिन कंट्रोल:</strong> हर केस की Tracking ID से स्थिति देखें और Admin Panel से स्टेटस अपडेट करें।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IMPROVED CONTACT US PAGE -->
+        <div id="page-contact" class="page">
+            <h2 class="title">Contact Us (संपर्क करें)</h2>
+            <div class="section-box">
+                <h3 style="margin-top:0; color:var(--primary);">सीधे संपर्क करने का तरीका</h3>
+                <p style="line-height:1.75; color:#334155;">
+                    वेरिफिकेशन पैकेज, HR ऑनबोर्डिंग, स्टेटस अपडेट या किसी भी सहायता के लिए आप हमसे सीधे ईमेल या नीचे दिए गए Live Help चैट बटन के माध्यम से संपर्क कर सकते हैं:
+                </p>
+                <ul class="info-list">
+                    <li><strong>Official Email ID:</strong> <span class="dynamic-email" style="font-weight:700; color:var(--primary);">verishieldindia@gmail.com</span></li>
+                    <li><strong>Live Chat Support:</strong> स्क्रीन के नीचे दाईं तरफ <strong>💬</strong> बटन पर क्लिक करके अपना नाम, मोबाइल नंबर और मैसेज भेजें।</li>
+                    <li><strong>Case Status Help:</strong> अपनी Tracking ID (जैसे <code>VSI-123456</code>) के साथ संपर्क करें ताकि आपकी क्वेरी जल्दी हल हो सके।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IMPROVED PRIVACY POLICY PAGE -->
+        <div id="page-privacy" class="page">
+            <h2 class="title">Privacy Policy & Zero Data Retention</h2>
+            <div class="section-box">
+                <h3 style="margin-top:0; color:var(--primary);">डेटा गोपनीयता और Zero Data Retention (ZDR)</h3>
+                <p style="line-height:1.75; color:#334155;">
+                    VeriShield India पर कैंडिडेट और कंपनी की गोपनीयता को प्राथमिकता दी जाती है। जानकारी केवल उसी वेरिफिकेशन उद्देश्य के लिए ली जाती है जिसके लिए कैंडिडेट ने सहमति दी है।
+                </p>
+                <ul class="info-list">
+                    <li><strong>सहमति के बाद ही प्रक्रिया:</strong> कैंडिडेट के स्पष्ट Consent और GPS/कैमरा अनुमति के बिना वेरिफिकेशन सबमिट नहीं होता।</li>
+                    <li><strong>Zero Data Retention (ZDR):</strong> रिपोर्ट तैयार होकर अधिकृत HR को भेजे जाने के बाद संवेदनशील/रॉ डेटा को हटाने (Wipe / Redact) की व्यवस्था रखी गई है।</li>
+                    <li><strong>अनाधिकृत शेयरिंग नहीं:</strong> कैंडिडेट की जानकारी बिना अधिकृत प्रक्रिया के किसी अज्ञात तीसरे पक्ष को नहीं दी जाती।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IMPROVED DISCLAIMER PAGE -->
+        <div id="page-disclaimer" class="page">
+            <h2 class="title">Legal Disclaimer (कानूनी अस्वीकरण)</h2>
+            <div class="section-box">
+                <h3 style="margin-top:0; color:var(--primary);">सेवा की सीमाएं और सामान्य जानकारी</h3>
+                <p style="line-height:1.75; color:#334155;">
+                    VeriShield India एक टेक्नोलॉजी और वेरिफिकेशन सहायता प्लेटफ़ॉर्म है। अंतिम हायरिंग या कानूनी निर्णय पूरी तरह संबंधित कंपनी/HR की अपनी नीति और विवेक पर निर्भर करता है।
+                </p>
+                <ul class="info-list">
+                    <li><strong>डेटा की सटीकता:</strong> वेरिफिकेशन परिणाम कैंडिडेट द्वारा दी गई जानकारी, फ़ोन/ब्राउज़र परमिशन और उपलब्ध रिकॉर्ड्स पर आधारित होते हैं।</li>
+                    <li><strong>नेटवर्क और डिवाइस निर्भरता:</strong> लाइव सेल्फी और GPS लोकेशन के लिए इंटरनेट कनेक्शन तथा डिवाइस की कैमरा व लोकेशन परमिशन ऑन होना आवश्यक है।</li>
+                    <li><strong>कोई कानूनी या वित्तीय गारंटी नहीं:</strong> इस वेबसाइट पर दी गई जानकारी सामान्य मार्गदर्शन के लिए है; किसी विशेष कानूनी स्थिति में विशेषज्ञ से सलाह लें।</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- IMPROVED FAQ (QUESTION & ANSWER) PAGE -->
+        <div id="page-fdr" class="page">
+            <h2 class="title">Frequently Asked Questions (प्रश्न और उत्तर)</h2>
+            <div class="section-box">
+                <div class="faq-card">
+                    <h4>सवाल 1: Background Verification (BGV) क्या है और यह क्यों ज़रूरी है?</h4>
+                    <p>उत्तर: यह किसी कैंडिडेट की पहचान, पते, लोकेशन और संबंधित रिकॉर्ड्स की जांच करने की प्रक्रिया है, ताकि कंपनी सुरक्षित और भरोसेमंद हायरिंग कर सके।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 2: HR वेरिफिकेशन कैसे शुरू कर सकता है?</h4>
+                    <p>उत्तर: HR Portal में जाकर कंपनी व कैंडिडेट की जानकारी भरें और पैकेज चुनें। सबमिट करने पर Tracking ID बनती है और कैंडिडेट के लिए वेरिफिकेशन लिंक तैयार होता है।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 3: कैंडिडेट को वेरिफिकेशन में क्या-क्या देना होता है?</h4>
+                    <p>उत्तर: कैंडिडेट को अपनी बुनियादी जानकारी, अनिवार्य PAN नंबर, Secondary ID (Aadhaar / DigiLocker / Voter ID / DL), लाइव सेल्फी, GPS लोकेशन और सहमति (Consent) देनी होती है।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 4: Live Selfie और GPS Geo-Tagging क्यों ज़रूरी हैं?</h4>
+                    <p>उत्तर: इससे यह सुनिश्चित करने में मदद मिलती है कि वेरिफिकेशन फॉर्म सही व्यक्ति और सही लोकेशन से भरा जा रहा है, जिससे फ़र्ज़ी एंट्री का जोखिम कम होता है।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 5: Basic (₹499) और Advanced (₹999) पैकेज में क्या अंतर है?</h4>
+                    <p>उत्तर: Basic पैकेज में PAN, Secondary ID KYC, लाइव सेल्फी और GPS चेक शामिल हैं, जबकि Advanced पैकेज में इनके साथ e-Courts लिटिगेशन चेक और EPFO/UAN मूनलाइटिंग ऑडिट भी शामिल हैं।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 6: कैंडिडेट या HR अपने केस का स्टेटस कैसे देख सकते हैं?</h4>
+                    <p>उत्तर: Tracker पेज पर अपनी Tracking ID (जैसे <code>VSI-123456</code>) डालकर केस का मौजूदा स्टेटस और समरी देखी जा सकती है।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 7: Zero Data Retention (ZDR) कैसे काम करता है?</h4>
+                    <p>उत्तर: रिपोर्ट भेजने की प्रक्रिया के बाद Admin Panel से संवेदनशील डेटा को Wipe/Redact करके हटाने की सुविधा दी गई है ताकि अनावश्यक डेटा सुरक्षित न रहे।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 8: क्या यह Android और iPhone दोनों पर चलता है?</h4>
+                    <p>उत्तर: हाँ, इसे मोबाइल-फ्रेंडली डिज़ाइन के साथ बनाया गया है ताकि Android और Apple (iPhone/iPad) दोनों के ब्राउज़र में आसानी से चल सके।</p>
+                </div>
+                <div class="faq-card">
+                    <h4>सवाल 9: सहायता या सवाल पूछने के लिए किस ईमेल पर संपर्क करें?</h4>
+                    <p>उत्तर: आप <span class="dynamic-email" style="font-weight:700; color:var(--primary);">verishieldindia@gmail.com</span> पर या नीचे दिए गए Live Help चैट बटन से सीधे संदेश भेज सकते हैं।</p>
+                </div>
             </div>
         </div>
 
@@ -963,19 +1064,31 @@
 
         let allAdminCases = [];
 
+        function activateFallbackWatermark() {
+            const imgLayer = document.getElementById('mainWatermark');
+            const fallbackLayer = document.getElementById('watermarkFallback');
+            if (imgLayer) imgLayer.style.display = 'none';
+            if (fallbackLayer) {
+                fallbackLayer.style.display = 'grid';
+                if (!fallbackLayer.innerHTML.trim()) {
+                    let html = '';
+                    for (let i = 0; i < 20; i++) {
+                        html += `<div class="wm-item"><span>BGV • VERISHIELD</span><small>VERISHIELD INDIA</small></div>`;
+                    }
+                    fallbackLayer.innerHTML = html;
+                }
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             document.querySelectorAll('.dynamic-email').forEach(el => {
                 el.textContent = VERISHIELD_OFFICIAL_EMAIL;
             });
 
-            const wmContainer = document.getElementById('watermarkOverlay');
-            if (wmContainer) {
-                let html = '';
-                for (let i = 0; i < 24; i++) {
-                    html += `<div class="wm-item"><span>BGV • VERISHIELD</span><small>VERISHIELD INDIA</small></div>`;
-                }
-                wmContainer.innerHTML = html;
-            }
+            // Check if logo.jpg loads cleanly; if not, show single clean text watermark
+            const probeImg = new Image();
+            probeImg.src = 'logo.jpg';
+            probeImg.onerror = () => activateFallbackWatermark();
 
             if (sessionStorage.getItem('vsi_admin_auth') === 'true') {
                 unlockAdminUI();
